@@ -19,11 +19,13 @@
     @RenderSection("scripts", required: false)
 </head>
     <body class="k-content">
-        <nav class="navbar navbar-inverse navbar-fixed-top p-3">
-            <div class="container p-0 p-sm-3">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container p-0 d-flex align-items-baseline">
+                <img class="img-fluid " alt="Medical Icon" src="~/Images/Medical-Icon.png" height="100" width="100">
                 <div class="navbar-header">
+                    
                     <button id="configure" class="k-rpanel-toggle k-button btn-toggle"><span class="k-icon k-i-menu"></span></button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Patient Management Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div id="responsive-panel" class="navbar-left">
                     @(Html.Kendo().Menu()
@@ -31,7 +33,7 @@
                         .Items(items =>
                         {
                             items.Add().Text("Home").Action("Index", "Home", new { area = "" });
-                            items.Add().Text("About").Action("About", "Home", new { area = "" });
+                            items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
                             items.Add().Text("Contact").Action("Contact", "Home", new { area = "" });
                         })
                     )
