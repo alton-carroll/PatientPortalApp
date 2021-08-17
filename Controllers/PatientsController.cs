@@ -9,11 +9,27 @@ using System.Web;
 using System.Web.Mvc;
 using PatientPortalApp.Data;
 using PatientPortalApp.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PatientPortalApp.Controllers
 {
     public class PatientsController : Controller
     {
+        public ActionResult GetPatient([DataSourceRequest] DataSourceRequest request)
+            {
+            using (var dbContext = new PatientPortalAppContext())
+                {
+                return Json(dbContext.Patients.ToDataSourceResult(request, p => new Patient
+                    {
+                    PatientId = p.PatientId,
+                    FirstName = p.FirstName,
+                    LastName = p.LastName,
+                    ActivePatient = p.ActivePatient
+                    }));
+                }
+            }
+
         private PatientPortalAppContext db = new PatientPortalAppContext();
 
         // GET: Patients

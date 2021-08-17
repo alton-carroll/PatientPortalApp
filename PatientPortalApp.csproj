@@ -153,7 +153,6 @@
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ReferralsController.cs" />
     <Compile Include="Data\PatientPortalAppContext.cs" />
-    <Compile Include="Data\SeedData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -662,6 +661,8 @@
     <Content Include="Content\kendo\2021.2.616\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
     <Content Include="Content\kendo\2021.2.616\fonts\DejaVu\DejaVuSans-Bold.ttf" />
     <None Include="packages.config" />
+    <Content Include="Images\Medical-Icon.png" />
+    <Content Include="Images\Spinsys-Icon.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
