@@ -26,5 +26,7 @@ namespace PatientPortalApp.Data
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Appoinment> Appoinments { get; set; }
 
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Provider> Providers { get; set; }
+
+        public System.Data.Entity.DbSet<PatientPortalApp.Models.Medication> Medications { get; set; }
         }
 }

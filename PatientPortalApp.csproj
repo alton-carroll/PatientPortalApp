@@ -150,6 +150,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AppoinmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicationsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ReferralsController.cs" />
@@ -161,8 +162,17 @@
     <Compile Include="Migrations\202108171716055_Initial.Designer.cs">
       <DependentUpon>202108171716055_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108180107326_ProviderAdd.cs" />
+    <Compile Include="Migrations\202108180107326_ProviderAdd.Designer.cs">
+      <DependentUpon>202108180107326_ProviderAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108180128394_MedicationAdd.cs" />
+    <Compile Include="Migrations\202108180128394_MedicationAdd.Designer.cs">
+      <DependentUpon>202108180128394_MedicationAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appoinment.cs" />
+    <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Referral.cs" />
@@ -2922,6 +2932,11 @@
     <Content Include="Views\Providers\Details.cshtml" />
     <Content Include="Views\Providers\Edit.cshtml" />
     <Content Include="Views\Providers\Index.cshtml" />
+    <Content Include="Views\Medications\Create.cshtml" />
+    <Content Include="Views\Medications\Delete.cshtml" />
+    <Content Include="Views\Medications\Details.cshtml" />
+    <Content Include="Views\Medications\Edit.cshtml" />
+    <Content Include="Views\Medications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -2940,6 +2955,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108171716055_Initial.resx">
       <DependentUpon>202108171716055_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180107326_ProviderAdd.resx">
+      <DependentUpon>202108180107326_ProviderAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180128394_MedicationAdd.resx">
+      <DependentUpon>202108180128394_MedicationAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

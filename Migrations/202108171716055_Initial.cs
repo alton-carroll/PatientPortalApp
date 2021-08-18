@@ -56,8 +56,8 @@ namespace PatientPortalApp.Migrations
                     {
                         ReferralId = c.Int(nullable: false, identity: true),
                         ReferralDate = c.DateTime(nullable: false),
-                        Doctor = c.String(),
-                        ReferralDoctor = c.String(),
+                        Provider = c.String(),
+                        RefProviderName = c.String(),
                         Procedure = c.String(),
                         Location = c.String(),
                         CreatedBy = c.String(),
