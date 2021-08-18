@@ -1,5 +1,5 @@
 namespace PatientPortalApp.Migrations
-{
+    {
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -8,14 +8,14 @@ namespace PatientPortalApp.Migrations
     using PatientPortalApp.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PatientPortalApp.Data.PatientPortalAppContext>
-    {
-        public Configuration()
         {
+        public Configuration()
+            {
             AutomaticMigrationsEnabled = false;
-        }
+            }
 
         protected override void Seed(PatientPortalApp.Data.PatientPortalAppContext context)
-        {
+            {
             var patients = new List<Patient>
                 {
                 new Patient
@@ -3349,6 +3349,514 @@ namespace PatientPortalApp.Migrations
                 };
             referrals.ForEach(r => context.Referrals.Add(r));
             context.SaveChanges();
+
+            var providers = new List<Provider>
+            {
+                new Provider
+                {
+                    ProviderName = "Laura Ferrer",
+                    Specialty = "Podiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Ivan Koelpin",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Aundrea Cronin",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Adina Tromp",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Adriana Anguiano",
+                    Specialty = "Psychiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Adriane Stark",
+                    Specialty = "Optometry"
+                },
+                new Provider
+                {
+                    ProviderName = "Seth Kuvalis",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Brandie Wehner",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Jonah Watsica",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Anastacia Waelchi",
+                    Specialty = "Psychiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Roberto Montoya",
+                    Specialty = "Diagnostic Radiology"
+                },
+                new Provider
+                {
+                    ProviderName = "Hershel Jakubowski",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Cristian Alfaro",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Cary Marquardt",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Season Bins",
+                    Specialty = "Allergy/Immunology"
+                },
+                new Provider
+                {
+                    ProviderName = "Delmer Crist",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Jonah Hammes",
+                    Specialty = "Certified Registered Nurse Anesthetist"
+                },
+                new Provider
+                {
+                    ProviderName = "Kasey Tromp",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Nidia Brekke",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Stephany Sanford",
+                    Specialty = "Diagnostic Radiology"
+                },
+                new Provider
+                {
+                    ProviderName = "Dexter Weissnat",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Tomeka Feest",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Donnetta Kling",
+                    Specialty = "Anesthesiology"
+                },
+                new Provider
+                {
+                    ProviderName = "Randell Hodkiewicz",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Rosette Bernhard",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Roy Schowalter",
+                    Specialty = "Ophthalmology"
+                },
+                new Provider
+                {
+                    ProviderName = "Codi Bahringer",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Guillermina Acua±a",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Zina Ondricka",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Floria Leffler",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Toma¡s Tirado",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Evangeline Goldner",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Charity Ebert",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Tennie Kling",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Latrina McDermott",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Ewa Hackett",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Josae Mara­a Laureano",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Daren Glover",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Chantell Murray",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Clyde Fahey",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Jules Rogahn",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Craig Corkery",
+                    Specialty = "Chiropractic"
+                },
+                new Provider
+                {
+                    ProviderName = "Brianna Hartmann",
+                    Specialty = "Optometry"
+                },
+                new Provider
+                {
+                    ProviderName = "Lane Watsica",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Gwendolyn Rice",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Caroline Hintz",
+                    Specialty = "Sports Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Evelyn Bechtelar",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Doyle Fritsch",
+                    Specialty = "Neurology"
+                },
+                new Provider
+                {
+                    ProviderName = "Agatha Windler",
+                    Specialty = "Psychiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Delinda Hilpert",
+                    Specialty = "Diagnostic Radiology"
+                },
+                new Provider
+                {
+                    ProviderName = "Astrid McGlynn",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Tim Stokes",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Leslie Lynch",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Rupert Gislason",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Elyse Weimann",
+                    Specialty = "Clinical Psychologist"
+                },
+                new Provider
+                {
+                    ProviderName = "Merrilee Kreiger",
+                    Specialty = "Emergency Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Cameron Waelchi",
+                    Specialty = "Audiologist"
+                },
+                new Provider
+                {
+                    ProviderName = "Johnathon Moen",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Harold Ernser",
+                    Specialty = "Chiropractic"
+                },
+                new Provider
+                {
+                    ProviderName = "Quentin Heidenreich",
+                    Specialty = "Ophthalmology"
+                },
+                new Provider
+                {
+                    ProviderName = "Nicolasa Koepp",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Euna Robel",
+                    Specialty = "Optometry"
+                },
+                new Provider
+                {
+                    ProviderName = "Eun Ward",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Oren Hagenes",
+                    Specialty = "Physician Assistant"
+                },
+                new Provider
+                {
+                    ProviderName = "Anita Montes",
+                    Specialty = "Optometry"
+                },
+                new Provider
+                {
+                    ProviderName = "Claudia Romero",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Irene Carmona",
+                    Specialty = "Psychiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Rosalind Turcotte",
+                    Specialty = "Psychiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Brianna Hartmann",
+                    Specialty = "Optometry"
+                },
+                new Provider
+                {
+                    ProviderName = "Stuart Jones",
+                    Specialty = "Certified Nurse Midwife"
+                },
+                new Provider
+                {
+                    ProviderName = "Darius Stiedemann",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Inocencia Medhurst",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Terrence Schmeler",
+                    Specialty = "Nephrology"
+                },
+                new Provider
+                {
+                    ProviderName = "Else Cole",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Lucius Corkery",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Carlita Mueller",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Dusti Lindgren",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Alana Lockman",
+                    Specialty = "Physician Assistant"
+                },
+                new Provider
+                {
+                    ProviderName = "Sulema Auer",
+                    Specialty = "Podiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Maricarmen Arteaga",
+                    Specialty = "Chiropractic"
+                },
+                new Provider
+                {
+                    ProviderName = "Greg Lind",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Gerald Funk",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Kattie Wisozk",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Joette Schaefer",
+                    Specialty = "Nurse Practitioner"
+                },
+                new Provider
+                {
+                    ProviderName = "Vanita Wyman",
+                    Specialty = "Family Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Eva Reilly",
+                    Specialty = "Physical Therapy"
+                },
+                new Provider
+                {
+                    ProviderName = "Jorge Herna¡ndez",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Lisa Weber",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Ronny Blick",
+                    Specialty = "Clinical Psychologist"
+                },
+                new Provider
+                {
+                    ProviderName = "Raven Kiehn",
+                    Specialty = "Neurology"
+                },
+                new Provider
+                {
+                    ProviderName = "Ted Padberg",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Carlie Gleason",
+                    Specialty = "Internal Medicine"
+                },
+                new Provider
+                {
+                    ProviderName = "Jolyn Bechtelar",
+                    Specialty = "Chiropractic"
+                },
+                new Provider
+                {
+                    ProviderName = "Harriett Hodkiewicz",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Carmen Kreiger",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Charles Simonis",
+                    Specialty = "Physician Assistant"
+                },
+                new Provider
+                {
+                    ProviderName = "Earnest Gleichner",
+                    Specialty = "General Practice"
+                },
+                new Provider
+                {
+                    ProviderName = "Mara­a Luisa Toledo",
+                    Specialty = "Podiatry"
+                },
+                new Provider
+                {
+                    ProviderName = "Wen Stanton",
+                    Specialty = "Clinical Social Worker"
+                },
+                new Provider
+                {
+                    ProviderName = "Andrea Herna¡ndez",
+                    Specialty = "Internal Medicine"
+                }
+            };
+            providers.ForEach(p => context.Providers.Add(p));
+            context.SaveChanges();
+
+
+            }
         }
     }
-}
