@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PatientPortalApp.Models.Treatment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.Prefix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TreatmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TreatDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Prefix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TreatmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TreatDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TreatmentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TreatmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TreatmentId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -155,6 +155,7 @@
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ReferralsController.cs" />
+    <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Controllers\VitalsController.cs" />
     <Compile Include="Data\PatientPortalAppContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,12 +177,17 @@
     <Compile Include="Migrations\202108231526386_VitalRev2.Designer.cs">
       <DependentUpon>202108231526386_VitalRev2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108231811232_TreatmentData.cs" />
+    <Compile Include="Migrations\202108231811232_TreatmentData.Designer.cs">
+      <DependentUpon>202108231811232_TreatmentData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Referral.cs" />
+    <Compile Include="Models\Treatment.cs" />
     <Compile Include="Models\Vital.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2950,6 +2956,11 @@
     <Content Include="Views\Vitals\Edit.cshtml" />
     <Content Include="Views\Vitals\Index.cshtml" />
     <Content Include="Views\PatientDetail\Index.cshtml" />
+    <Content Include="Views\Treatments\Create.cshtml" />
+    <Content Include="Views\Treatments\Delete.cshtml" />
+    <Content Include="Views\Treatments\Details.cshtml" />
+    <Content Include="Views\Treatments\Edit.cshtml" />
+    <Content Include="Views\Treatments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -2981,6 +2992,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108231526386_VitalRev2.resx">
       <DependentUpon>202108231526386_VitalRev2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231811232_TreatmentData.resx">
+      <DependentUpon>202108231811232_TreatmentData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

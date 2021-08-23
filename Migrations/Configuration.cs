@@ -11,11 +11,16 @@ namespace PatientPortalApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(PatientPortalApp.Data.PatientPortalAppContext context)
         {
+
+            if (context.Patients.Any())
+                {
+                return;
+                }
             var patients = new List<Patient>
                 {
                 new Patient
@@ -2044,6 +2049,11 @@ namespace PatientPortalApp.Migrations
             patients.ForEach(p => context.Patients.AddOrUpdate(p));
             context.SaveChanges();
 
+            if (context.Referrals.Any())
+                {
+                return;
+                }
+
             var referrals = new List<Referral>
                 {
                 new Referral
@@ -3350,6 +3360,11 @@ namespace PatientPortalApp.Migrations
             referrals.ForEach(r => context.Referrals.AddOrUpdate(r));
             context.SaveChanges();
 
+            if (context.Providers.Any())
+                {
+                return;
+                }
+
             var providers = new List<Provider>
             {
                 new Provider
@@ -3855,6 +3870,11 @@ namespace PatientPortalApp.Migrations
             };
             providers.ForEach(p => context.Providers.AddOrUpdate(p));
             context.SaveChanges();
+
+            if (context.Appoinments.Any())
+                {
+                return;
+                }
 
             var appointments = new List<Appointment>
                 {
@@ -4962,6 +4982,11 @@ namespace PatientPortalApp.Migrations
                 };
             appointments.ForEach(a => context.Appoinments.AddOrUpdate(a));
             context.SaveChanges();
+
+            if (context.Vitals.Any())
+                {
+                return;
+                }
 
             var vitals = new List<Vital>
                 {
@@ -6370,6 +6395,1017 @@ namespace PatientPortalApp.Migrations
             vitals.ForEach(v => context.Vitals.AddOrUpdate(v));
             context.SaveChanges();
 
+            if (context.Treatments.Any())
+                {
+                return;
+                }
+
+            var treatments = new List<Treatment>
+            {
+                            new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-27-2019"),
+                        TreatDescription = "79.5 kg",
+                        Created = DateTime.Parse("9-27-2019"),
+                        Modified = DateTime.Parse("9-27-2019"),
+                        CreatedBy = "Hue McKenzie",
+                        ModifiedBy = "Hue McKenzie",
+                        PatientId = 38
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-23-2019"),
+                        TreatDescription = "84.6 kg",
+                        Created = DateTime.Parse("6-23-2019"),
+                        Modified = DateTime.Parse("6-23-2019"),
+                        CreatedBy = "Almeda Larkin",
+                        ModifiedBy = "Almeda Larkin",
+                        PatientId = 19
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-10-2020"),
+                        TreatDescription = "88.7 kg",
+                        Created = DateTime.Parse("8-10-2020"),
+                        Modified = DateTime.Parse("8-10-2020"),
+                        CreatedBy = "Elias Mueller",
+                        ModifiedBy = "Elias Mueller",
+                        PatientId = 51
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-16-2020"),
+                        TreatDescription = "70.5 kg",
+                        Created = DateTime.Parse("2-16-2020"),
+                        Modified = DateTime.Parse("2-16-2020"),
+                        CreatedBy = "Tanja Koepp",
+                        ModifiedBy = "Tanja Koepp",
+                        PatientId = 27
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-17-2019"),
+                        TreatDescription = "80.9 kg",
+                        Created = DateTime.Parse("4-17-2019"),
+                        Modified = DateTime.Parse("4-17-2019"),
+                        CreatedBy = "Mateo Carrasco",
+                        ModifiedBy = "Mateo Carrasco",
+                        PatientId = 99
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-26-2019"),
+                        TreatDescription = "12.7 kg",
+                        Created = DateTime.Parse("8-26-2019"),
+                        Modified = DateTime.Parse("8-26-2019"),
+                        CreatedBy = "Antonia Leuschke",
+                        ModifiedBy = "Antonia Leuschke",
+                        PatientId = 56
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-11-2020"),
+                        TreatDescription = "13.5 kg",
+                        Created = DateTime.Parse("1-11-2020"),
+                        Modified = DateTime.Parse("1-11-2020"),
+                        CreatedBy = "Renata Purdy",
+                        ModifiedBy = "Renata Purdy",
+                        PatientId = 26
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-13-2020"),
+                        TreatDescription = "72.9 kg",
+                        Created = DateTime.Parse("9-13-2020"),
+                        Modified = DateTime.Parse("9-13-2020"),
+                        CreatedBy = "Juan Da­az",
+                        ModifiedBy = "Juan Da­az",
+                        PatientId = 28
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-2-2019"),
+                        TreatDescription = "14.4 kg",
+                        Created = DateTime.Parse("4-2-2019"),
+                        Modified = DateTime.Parse("4-2-2019"),
+                        CreatedBy = "Eleanora Swift",
+                        ModifiedBy = "Eleanora Swift",
+                        PatientId = 64
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-7-2020"),
+                        TreatDescription = "80.9 kg",
+                        Created = DateTime.Parse("8-7-2020"),
+                        Modified = DateTime.Parse("8-7-2020"),
+                        CreatedBy = "Dick White",
+                        ModifiedBy = "Dick White",
+                        PatientId = 19
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-28-2019"),
+                        TreatDescription = "74.9 kg",
+                        Created = DateTime.Parse("10-28-2019"),
+                        Modified = DateTime.Parse("10-28-2019"),
+                        CreatedBy = "Odis Daugherty",
+                        ModifiedBy = "Odis Daugherty",
+                        PatientId = 76
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-24-2019"),
+                        TreatDescription = "16.1 kg",
+                        Created = DateTime.Parse("6-24-2019"),
+                        Modified = DateTime.Parse("6-24-2019"),
+                        CreatedBy = "Xavier Weissnat",
+                        ModifiedBy = "Xavier Weissnat",
+                        PatientId = 29
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-31-2019"),
+                        TreatDescription = "18 kg",
+                        Created = DateTime.Parse("1-31-2019"),
+                        Modified = DateTime.Parse("1-31-2019"),
+                        CreatedBy = "Tobias Cremin",
+                        ModifiedBy = "Tobias Cremin",
+                        PatientId = 76
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-10-2020"),
+                        TreatDescription = "80.9 kg",
+                        Created = DateTime.Parse("1-10-2020"),
+                        Modified = DateTime.Parse("1-10-2020"),
+                        CreatedBy = "Mayra Brakus",
+                        ModifiedBy = "Mayra Brakus",
+                        PatientId = 6
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-18-2019"),
+                        TreatDescription = "74.9 kg",
+                        Created = DateTime.Parse("8-18-2019"),
+                        Modified = DateTime.Parse("8-18-2019"),
+                        CreatedBy = "Jamar Wisozk",
+                        ModifiedBy = "Jamar Wisozk",
+                        PatientId = 8
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-3-2019"),
+                        TreatDescription = "80.9 kg",
+                        Created = DateTime.Parse("3-3-2019"),
+                        Modified = DateTime.Parse("3-3-2019"),
+                        CreatedBy = "Susana Lockman",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 62
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-28-2019"),
+                        TreatDescription = "20 kg",
+                        Created = DateTime.Parse("3-28-2019"),
+                        Modified = DateTime.Parse("3-28-2019"),
+                        CreatedBy = "Harry Corwin",
+                        ModifiedBy = "Harry Corwin",
+                        PatientId = 20
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("7-26-2020"),
+                        TreatDescription = "22.1 kg",
+                        Created = DateTime.Parse("7-26-2020"),
+                        Modified = DateTime.Parse("7-26-2020"),
+                        CreatedBy = "Nathalie Gottlieb",
+                        ModifiedBy = "Nathalie Gottlieb",
+                        PatientId = 64
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-5-2020"),
+                        TreatDescription = "24.6 kg",
+                        Created = DateTime.Parse("8-5-2020"),
+                        Modified = DateTime.Parse("8-5-2020"),
+                        CreatedBy = "Raelene Mills",
+                        ModifiedBy = "Raelene Mills",
+                        PatientId = 57
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-12-2019"),
+                        TreatDescription = "27.1 kg",
+                        Created = DateTime.Parse("10-12-2019"),
+                        Modified = DateTime.Parse("10-12-2019"),
+                        CreatedBy = "Reanna Bernhard",
+                        ModifiedBy = "Reanna Bernhard",
+                        PatientId = 29
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-21-2019"),
+                        TreatDescription = "30.1 kg",
+                        Created = DateTime.Parse("10-21-2019"),
+                        Modified = DateTime.Parse("10-21-2019"),
+                        CreatedBy = "Vanita Wyman",
+                        ModifiedBy = "Vanita Wyman",
+                        PatientId = 31
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-7-2020"),
+                        TreatDescription = "81.6 kg",
+                        Created = DateTime.Parse("9-7-2020"),
+                        Modified = DateTime.Parse("9-7-2020"),
+                        CreatedBy = "Carlota Corrales",
+                        ModifiedBy = "Carlota Corrales",
+                        PatientId = 61
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-16-2019"),
+                        TreatDescription = "5.6 kg",
+                        Created = DateTime.Parse("2-16-2019"),
+                        Modified = DateTime.Parse("2-16-2019"),
+                        CreatedBy = "Laure Heathcote",
+                        ModifiedBy = "Laure Heathcote",
+                        PatientId = 87
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-11-2020"),
+                        TreatDescription = "33.7 kg",
+                        Created = DateTime.Parse("4-11-2020"),
+                        Modified = DateTime.Parse("4-11-2020"),
+                        CreatedBy = "Carey Considine",
+                        ModifiedBy = "Carey Considine",
+                        PatientId = 73
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-11-2019"),
+                        TreatDescription = "6.6 kg",
+                        Created = DateTime.Parse("4-11-2019"),
+                        Modified = DateTime.Parse("4-11-2019"),
+                        CreatedBy = "Kenton Smith",
+                        ModifiedBy = "Kenton Smith",
+                        PatientId = 47
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-17-2020"),
+                        TreatDescription = "33.7 kg",
+                        Created = DateTime.Parse("10-17-2020"),
+                        Modified = DateTime.Parse("10-17-2020"),
+                        CreatedBy = "Brooks Grant",
+                        ModifiedBy = "Brooks Grant",
+                        PatientId = 40
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-29-2020"),
+                        TreatDescription = "7.9 kg",
+                        Created = DateTime.Parse("5-29-2020"),
+                        Modified = DateTime.Parse("5-29-2020"),
+                        CreatedBy = "Loyd McGlynn",
+                        ModifiedBy = "Loyd McGlynn",
+                        PatientId = 64
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-4-2019"),
+                        TreatDescription = "77.3 kg",
+                        Created = DateTime.Parse("12-4-2019"),
+                        Modified = DateTime.Parse("12-4-2019"),
+                        CreatedBy = "Seth Trantow",
+                        ModifiedBy = "Seth Trantow",
+                        PatientId = 13
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-25-2019"),
+                        TreatDescription = "8.9 kg",
+                        Created = DateTime.Parse("4-25-2019"),
+                        Modified = DateTime.Parse("4-25-2019"),
+                        CreatedBy = "Shawn Luettgen",
+                        ModifiedBy = "Shawn Luettgen",
+                        PatientId = 82
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("7-9-2019"),
+                        TreatDescription = "9.8 kg",
+                        Created = DateTime.Parse("7-9-2019"),
+                        Modified = DateTime.Parse("7-9-2019"),
+                        CreatedBy = "Erinn Nienow",
+                        ModifiedBy = "Erinn Nienow",
+                        PatientId = 14
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("7-28-2019"),
+                        TreatDescription = "10.4 kg",
+                        Created = DateTime.Parse("7-28-2019"),
+                        Modified = DateTime.Parse("7-28-2019"),
+                        CreatedBy = "Ramiro Lakin",
+                        ModifiedBy = "Ramiro Lakin",
+                        PatientId = 52
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-10-2019"),
+                        TreatDescription = "105.4 kg",
+                        Created = DateTime.Parse("9-10-2019"),
+                        Modified = DateTime.Parse("9-10-2019"),
+                        CreatedBy = "Teresa Ortiz",
+                        ModifiedBy = "Teresa Ortiz",
+                        PatientId = 82
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-18-2020"),
+                        TreatDescription = "105.4 kg",
+                        Created = DateTime.Parse("9-18-2020"),
+                        Modified = DateTime.Parse("9-18-2020"),
+                        CreatedBy = "Hisako Kuhlman",
+                        ModifiedBy = "Hisako Kuhlman",
+                        PatientId = 67
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-1-2020"),
+                        TreatDescription = "11.4 kg",
+                        Created = DateTime.Parse("12-1-2020"),
+                        Modified = DateTime.Parse("12-1-2020"),
+                        CreatedBy = "Ralph Marks",
+                        ModifiedBy = "Ralph Marks",
+                        PatientId = 32
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-22-2019"),
+                        TreatDescription = "12.3 kg",
+                        Created = DateTime.Parse("5-22-2019"),
+                        Modified = DateTime.Parse("5-22-2019"),
+                        CreatedBy = "Suzan Kuphal",
+                        ModifiedBy = "Suzan Kuphal",
+                        PatientId = 53
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-24-2020"),
+                        TreatDescription = "105.4 kg",
+                        Created = DateTime.Parse("4-24-2020"),
+                        Modified = DateTime.Parse("4-24-2020"),
+                        CreatedBy = "Lashawna O'Conner",
+                        ModifiedBy = "Lashawna O'Conner",
+                        PatientId = 14
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-24-2019"),
+                        TreatDescription = "13.1 kg",
+                        Created = DateTime.Parse("11-24-2019"),
+                        Modified = DateTime.Parse("11-24-2019"),
+                        CreatedBy = "Adena Wilkinson",
+                        ModifiedBy = "Adena Wilkinson",
+                        PatientId = 77
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-28-2020"),
+                        TreatDescription = "14 kg",
+                        Created = DateTime.Parse("10-28-2020"),
+                        Modified = DateTime.Parse("10-28-2020"),
+                        CreatedBy = "Aundrea Kuphal",
+                        ModifiedBy = "Aundrea Kuphal",
+                        PatientId = 29
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-26-2019"),
+                        TreatDescription = "14.6 kg",
+                        Created = DateTime.Parse("3-26-2019"),
+                        Modified = DateTime.Parse("3-26-2019"),
+                        CreatedBy = "Tiana Hoeger",
+                        ModifiedBy = "Tiana Hoeger",
+                        PatientId = 99
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-19-2019"),
+                        TreatDescription = "83 kg",
+                        Created = DateTime.Parse("4-19-2019"),
+                        Modified = DateTime.Parse("4-19-2019"),
+                        CreatedBy = "Grant Price",
+                        ModifiedBy = "Grant Price",
+                        PatientId = 9
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-16-2020"),
+                        TreatDescription = "14.9 kg",
+                        Created = DateTime.Parse("9-16-2020"),
+                        Modified = DateTime.Parse("9-16-2020"),
+                        CreatedBy = "Gaston Nader",
+                        ModifiedBy = "Gaston Nader",
+                        PatientId = 30
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-4-2019"),
+                        TreatDescription = "105.4 kg",
+                        Created = DateTime.Parse("5-4-2019"),
+                        Modified = DateTime.Parse("5-4-2019"),
+                        CreatedBy = "Darnell Medhurst",
+                        ModifiedBy = "Darnell Medhurst",
+                        PatientId = 18
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-9-2019"),
+                        TreatDescription = "16.8 kg",
+                        Created = DateTime.Parse("10-9-2019"),
+                        Modified = DateTime.Parse("10-9-2019"),
+                        CreatedBy = "Clarita Rice",
+                        ModifiedBy = "Clarita Rice",
+                        PatientId = 81
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-4-2020"),
+                        TreatDescription = "23.5 kg",
+                        Created = DateTime.Parse("10-4-2020"),
+                        Modified = DateTime.Parse("10-4-2020"),
+                        CreatedBy = "Emogene Halvorson",
+                        ModifiedBy = "Emogene Halvorson",
+                        PatientId = 65
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-2-2020"),
+                        TreatDescription = "105.4 kg",
+                        Created = DateTime.Parse("1-2-2020"),
+                        Modified = DateTime.Parse("1-2-2020"),
+                        CreatedBy = "Eugene Hudson",
+                        ModifiedBy = "Eugene Hudson",
+                        PatientId = 72
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-29-2019"),
+                        TreatDescription = "18.9 kg",
+                        Created = DateTime.Parse("3-29-2019"),
+                        Modified = DateTime.Parse("3-29-2019"),
+                        CreatedBy = "Jorge Herna¡ndez",
+                        ModifiedBy = "Jorge Herna¡ndez",
+                        PatientId = 80
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-5-2020"),
+                        TreatDescription = "26.5 kg",
+                        Created = DateTime.Parse("10-5-2020"),
+                        Modified = DateTime.Parse("10-5-2020"),
+                        CreatedBy = "Coleman Hagenes",
+                        ModifiedBy = "Coleman Hagenes",
+                        PatientId = 67
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-23-2019"),
+                        TreatDescription = "30.4 kg",
+                        Created = DateTime.Parse("12-23-2019"),
+                        Modified = DateTime.Parse("12-23-2019"),
+                        CreatedBy = "Pat Nader",
+                        ModifiedBy = "Pat Nader",
+                        PatientId = 38
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-22-2019"),
+                        TreatDescription = "95.2 kg",
+                        Created = DateTime.Parse("4-22-2019"),
+                        Modified = DateTime.Parse("4-22-2019"),
+                        CreatedBy = "Reggie Schmidt",
+                        ModifiedBy = "Reggie Schmidt",
+                        PatientId = 59
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-31-2019"),
+                        TreatDescription = "34.6 kg",
+                        Created = DateTime.Parse("1-31-2019"),
+                        Modified = DateTime.Parse("1-31-2019"),
+                        CreatedBy = "Ginny Stamm",
+                        ModifiedBy = "Ginny Stamm",
+                        PatientId = 48
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-24-2020"),
+                        TreatDescription = "39.2 kg",
+                        Created = DateTime.Parse("11-24-2020"),
+                        Modified = DateTime.Parse("11-24-2020"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 88
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-4-2019"),
+                        TreatDescription = "97.6 kg",
+                        Created = DateTime.Parse("2-4-2019"),
+                        Modified = DateTime.Parse("2-4-2019"),
+                        CreatedBy = "Cara Ruecker",
+                        ModifiedBy = "Cara Ruecker",
+                        PatientId = 17
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-8-2019"),
+                        TreatDescription = "21.2 kg",
+                        Created = DateTime.Parse("5-8-2019"),
+                        Modified = DateTime.Parse("5-8-2019"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 66
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-28-2019"),
+                        TreatDescription = "43.8 kg",
+                        Created = DateTime.Parse("11-28-2019"),
+                        Modified = DateTime.Parse("11-28-2019"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 84
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-9-2019"),
+                        TreatDescription = "23.8 kg",
+                        Created = DateTime.Parse("4-9-2019"),
+                        Modified = DateTime.Parse("4-9-2019"),
+                        CreatedBy = "Sharolyn Mayert",
+                        ModifiedBy = "Sharolyn Mayert",
+                        PatientId = 18
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-23-2019"),
+                        TreatDescription = "100.2 kg",
+                        Created = DateTime.Parse("8-23-2019"),
+                        Modified = DateTime.Parse("8-23-2019"),
+                        CreatedBy = "Hollis Volkman",
+                        ModifiedBy = "Hollis Volkman",
+                        PatientId = 69
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-13-2020"),
+                        TreatDescription = "48.1 kg",
+                        Created = DateTime.Parse("4-13-2020"),
+                        Modified = DateTime.Parse("4-13-2020"),
+                        CreatedBy = "Lanny Blick",
+                        ModifiedBy = "Lanny Blick",
+                        PatientId = 75
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-31-2020"),
+                        TreatDescription = "27 kg",
+                        Created = DateTime.Parse("8-31-2020"),
+                        Modified = DateTime.Parse("8-31-2020"),
+                        CreatedBy = "David Tillman",
+                        ModifiedBy = "David Tillman",
+                        PatientId = 96
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-18-2020"),
+                        TreatDescription = "52 kg",
+                        Created = DateTime.Parse("6-18-2020"),
+                        Modified = DateTime.Parse("6-18-2020"),
+                        CreatedBy = "Santos Ernser",
+                        ModifiedBy = "Santos Ernser",
+                        PatientId = 72
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-16-2020"),
+                        TreatDescription = "27.3 kg",
+                        Created = DateTime.Parse("8-16-2020"),
+                        Modified = DateTime.Parse("8-16-2020"),
+                        CreatedBy = "Joi Daugherty",
+                        ModifiedBy = "Joi Daugherty",
+                        PatientId = 25
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-2-2020"),
+                        TreatDescription = "102.9 kg",
+                        Created = DateTime.Parse("2-2-2020"),
+                        Modified = DateTime.Parse("2-2-2020"),
+                        CreatedBy = "Gaylord McCullough",
+                        ModifiedBy = "Gaylord McCullough",
+                        PatientId = 57
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-7-2020"),
+                        TreatDescription = "30.5 kg",
+                        Created = DateTime.Parse("12-7-2020"),
+                        Modified = DateTime.Parse("12-7-2020"),
+                        CreatedBy = "Genevieve Stiedemann",
+                        ModifiedBy = "Genevieve Stiedemann",
+                        PatientId = 51
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-20-2019"),
+                        TreatDescription = "54.5 kg",
+                        Created = DateTime.Parse("8-20-2019"),
+                        Modified = DateTime.Parse("8-20-2019"),
+                        CreatedBy = "Monte Bergstrom",
+                        ModifiedBy = "Monte Bergstrom",
+                        PatientId = 31
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-15-2019"),
+                        TreatDescription = "56.2 kg",
+                        Created = DateTime.Parse("9-15-2019"),
+                        Modified = DateTime.Parse("9-15-2019"),
+                        CreatedBy = "Noelia Morissette",
+                        ModifiedBy = "Noelia Morissette",
+                        PatientId = 7
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-11-2019"),
+                        TreatDescription = "3.6 kg",
+                        Created = DateTime.Parse("10-11-2019"),
+                        Modified = DateTime.Parse("10-11-2019"),
+                        CreatedBy = "Colin Yundt",
+                        ModifiedBy = "Colin Yundt",
+                        PatientId = 81
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-20-2019"),
+                        TreatDescription = "4.5 kg",
+                        Created = DateTime.Parse("8-20-2019"),
+                        Modified = DateTime.Parse("8-20-2019"),
+                        CreatedBy = "Adrian Johns",
+                        ModifiedBy = "Adrian Johns",
+                        PatientId = 86
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-6-2019"),
+                        TreatDescription = "5.9 kg",
+                        Created = DateTime.Parse("10-6-2019"),
+                        Modified = DateTime.Parse("10-6-2019"),
+                        CreatedBy = "Charmaine Hoeger",
+                        ModifiedBy = "Charmaine Hoeger",
+                        PatientId = 36
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-12-2020"),
+                        TreatDescription = "7.1 kg",
+                        Created = DateTime.Parse("12-12-2020"),
+                        Modified = DateTime.Parse("12-12-2020"),
+                        CreatedBy = "Kory Ernser",
+                        ModifiedBy = "Kory Ernser",
+                        PatientId = 46
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-29-2020"),
+                        TreatDescription = "8.5 kg",
+                        Created = DateTime.Parse("8-29-2020"),
+                        Modified = DateTime.Parse("8-29-2020"),
+                        CreatedBy = "Rudy Kerluke",
+                        ModifiedBy = "Rudy Kerluke",
+                        PatientId = 48
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-13-2019"),
+                        TreatDescription = "24 kg",
+                        Created = DateTime.Parse("8-13-2019"),
+                        Modified = DateTime.Parse("8-13-2019"),
+                        CreatedBy = "Mike Moore",
+                        ModifiedBy = "Mike Moore",
+                        PatientId = 14
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-7-2020"),
+                        TreatDescription = "27.1 kg",
+                        Created = DateTime.Parse("9-7-2020"),
+                        Modified = DateTime.Parse("9-7-2020"),
+                        CreatedBy = "Brice Mitchell",
+                        ModifiedBy = "Brice Mitchell",
+                        PatientId = 25
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-19-2020"),
+                        TreatDescription = "30.5 kg",
+                        Created = DateTime.Parse("4-19-2020"),
+                        Modified = DateTime.Parse("4-19-2020"),
+                        CreatedBy = "Olin Zulauf",
+                        ModifiedBy = "Olin Zulauf",
+                        PatientId = 82
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-18-2020"),
+                        TreatDescription = "34.8 kg",
+                        Created = DateTime.Parse("5-18-2020"),
+                        Modified = DateTime.Parse("5-18-2020"),
+                        CreatedBy = "Renata Walter",
+                        ModifiedBy = "Renata Walter",
+                        PatientId = 52
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-26-2019"),
+                        TreatDescription = "39.5 kg",
+                        Created = DateTime.Parse("6-26-2019"),
+                        Modified = DateTime.Parse("6-26-2019"),
+                        CreatedBy = "Susana Lockman",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 22
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-7-2019"),
+                        TreatDescription = "44.8 kg",
+                        Created = DateTime.Parse("4-7-2019"),
+                        Modified = DateTime.Parse("4-7-2019"),
+                        CreatedBy = "Hee Hagenes",
+                        ModifiedBy = "Hee Hagenes",
+                        PatientId = 18
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-11-2020"),
+                        TreatDescription = "50.7 kg",
+                        Created = DateTime.Parse("12-11-2020"),
+                        Modified = DateTime.Parse("12-11-2020"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 27
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-27-2020"),
+                        TreatDescription = "56.9 kg",
+                        Created = DateTime.Parse("8-27-2020"),
+                        Modified = DateTime.Parse("8-27-2020"),
+                        CreatedBy = "Ceola Bogisich",
+                        ModifiedBy = "Ceola Bogisich",
+                        PatientId = 45
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-7-2020"),
+                        TreatDescription = "63.6 kg",
+                        Created = DateTime.Parse("4-7-2020"),
+                        Modified = DateTime.Parse("4-7-2020"),
+                        CreatedBy = "Clay Johns",
+                        ModifiedBy = "Clay Johns",
+                        PatientId = 55
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-10-2019"),
+                        TreatDescription = "69.4 kg",
+                        Created = DateTime.Parse("2-10-2019"),
+                        Modified = DateTime.Parse("2-10-2019"),
+                        CreatedBy = "Maribel Bogisich",
+                        ModifiedBy = "Maribel Bogisich",
+                        PatientId = 45
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-2-2020"),
+                        TreatDescription = "41.8 kg",
+                        Created = DateTime.Parse("9-2-2020"),
+                        Modified = DateTime.Parse("9-2-2020"),
+                        CreatedBy = "Veronica Hermiston",
+                        ModifiedBy = "Veronica Hermiston",
+                        PatientId = 94
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-8-2019"),
+                        TreatDescription = "45.4 kg",
+                        Created = DateTime.Parse("6-8-2019"),
+                        Modified = DateTime.Parse("6-8-2019"),
+                        CreatedBy = "Latricia Bailey",
+                        ModifiedBy = "Latricia Bailey",
+                        PatientId = 77
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-13-2019"),
+                        TreatDescription = "48.1 kg",
+                        Created = DateTime.Parse("5-13-2019"),
+                        Modified = DateTime.Parse("5-13-2019"),
+                        CreatedBy = "Miguel angel Romo",
+                        ModifiedBy = "Miguel angel Romo",
+                        PatientId = 6
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-18-2019"),
+                        TreatDescription = "49.9 kg",
+                        Created = DateTime.Parse("4-18-2019"),
+                        Modified = DateTime.Parse("4-18-2019"),
+                        CreatedBy = "Ada¡n Valdaes",
+                        ModifiedBy = "Ada¡n Valdaes",
+                        PatientId = 39
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-10-2019"),
+                        TreatDescription = "51.2 kg",
+                        Created = DateTime.Parse("2-10-2019"),
+                        Modified = DateTime.Parse("2-10-2019"),
+                        CreatedBy = "Noble Hodkiewicz",
+                        ModifiedBy = "Noble Hodkiewicz",
+                        PatientId = 77
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-4-2019"),
+                        TreatDescription = "52.2 kg",
+                        Created = DateTime.Parse("2-4-2019"),
+                        Modified = DateTime.Parse("2-4-2019"),
+                        CreatedBy = "Bettye Gleichner",
+                        ModifiedBy = "Bettye Gleichner",
+                        PatientId = 83
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-5-2020"),
+                        TreatDescription = "53.2 kg",
+                        Created = DateTime.Parse("11-5-2020"),
+                        Modified = DateTime.Parse("11-5-2020"),
+                        CreatedBy = "Gerardo Crooks",
+                        ModifiedBy = "Gerardo Crooks",
+                        PatientId = 17
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-1-2020"),
+                        TreatDescription = "57 kg",
+                        Created = DateTime.Parse("6-1-2020"),
+                        Modified = DateTime.Parse("6-1-2020"),
+                        CreatedBy = "Donita Pfeffer",
+                        ModifiedBy = "Donita Pfeffer",
+                        PatientId = 57
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-26-2020"),
+                        TreatDescription = "9.5 kg",
+                        Created = DateTime.Parse("11-26-2020"),
+                        Modified = DateTime.Parse("11-26-2020"),
+                        CreatedBy = "Fransisca Emmerich",
+                        ModifiedBy = "Fransisca Emmerich",
+                        PatientId = 76
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-30-2019"),
+                        TreatDescription = "10.1 kg",
+                        Created = DateTime.Parse("11-30-2019"),
+                        Modified = DateTime.Parse("11-30-2019"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 48
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-18-2019"),
+                        TreatDescription = "11.1 kg",
+                        Created = DateTime.Parse("11-18-2019"),
+                        Modified = DateTime.Parse("11-18-2019"),
+                        CreatedBy = "Jayson Swift",
+                        ModifiedBy = "Jayson Swift",
+                        PatientId = 25
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-5-2020"),
+                        TreatDescription = "11.9 kg",
+                        Created = DateTime.Parse("4-5-2020"),
+                        Modified = DateTime.Parse("4-5-2020"),
+                        CreatedBy = "Kasey Spencer",
+                        ModifiedBy = "Kasey Spencer",
+                        PatientId = 82
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-21-2020"),
+                        TreatDescription = "12.7 kg",
+                        Created = DateTime.Parse("11-21-2020"),
+                        Modified = DateTime.Parse("11-21-2020"),
+                        CreatedBy = "Jazmin Schultz",
+                        ModifiedBy = "Jazmin Schultz",
+                        PatientId = 37
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-12-2020"),
+                        TreatDescription = "13.5 kg",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("2-12-2020"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 99
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-16-2019"),
+                        TreatDescription = "14.4 kg",
+                        Created = DateTime.Parse("12-16-2019"),
+                        Modified = DateTime.Parse("12-16-2019"),
+                        CreatedBy = "Jame Johnson",
+                        ModifiedBy = "Jame Johnson",
+                        PatientId = 93
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-11-2020"),
+                        TreatDescription = "16.2 kg",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("10-11-2020"),
+                        CreatedBy = "Cruz Green",
+                        ModifiedBy = "Cruz Green",
+                        PatientId = 82
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-3-2019"),
+                        TreatDescription = "18.2 kg",
+                        Created = DateTime.Parse("5-3-2019"),
+                        Modified = DateTime.Parse("5-3-2019"),
+                        CreatedBy = "Leonard Bechtelar",
+                        ModifiedBy = "Leonard Bechtelar",
+                        PatientId = 27
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-15-2019"),
+                        TreatDescription = "20.3 kg",
+                        Created = DateTime.Parse("2-15-2019"),
+                        Modified = DateTime.Parse("2-15-2019"),
+                        CreatedBy = "Sanjuana Heaney",
+                        ModifiedBy = "Sanjuana Heaney",
+                        PatientId = 38
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-8-2019"),
+                        TreatDescription = "22.7 kg",
+                        Created = DateTime.Parse("3-8-2019"),
+                        Modified = DateTime.Parse("3-8-2019"),
+                        CreatedBy = "Janessa Zieme",
+                        ModifiedBy = "Janessa Zieme",
+                        PatientId = 35
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-31-2020"),
+                        TreatDescription = "25.7 kg",
+                        Created = DateTime.Parse("10-31-2020"),
+                        Modified = DateTime.Parse("10-31-2020"),
+                        CreatedBy = "Louis Hettinger",
+                        ModifiedBy = "Louis Hettinger",
+                        PatientId = 23
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-31-2020"),
+                        TreatDescription = "28.9 kg",
+                        Created = DateTime.Parse("10-31-2020"),
+                        Modified = DateTime.Parse("10-31-2020"),
+                        CreatedBy = "Alica Reinger",
+                        ModifiedBy = "Alica Reinger",
+                        PatientId = 73
+                    }
+            };
+
+            treatments.ForEach(t => context.Treatments.AddOrUpdate(t));
+            context.SaveChanges();
             }
         }
     };
