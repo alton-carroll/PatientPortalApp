@@ -17,6 +17,10 @@ namespace PatientPortalApp.Models
         public string MedicationName { get; set; }
         [Display(Name = "Description / Reason")]
         public string MedDescription { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime Created { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime Modified { get; set; }
         [ForeignKey("Patient")]
         public int PatientId { get; set; }
         public virtual Patient Patient { get; set; }

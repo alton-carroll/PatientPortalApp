@@ -1,180 +1,117 @@
-﻿@(Html.Kendo().Grid<PatientPortalApp.Models.Patient>()
-        .Name("grid")
-        .Columns(columns => {
-            columns.Bound(p => p.PatientId).Width(100);
-            columns.Bound(p => p.FullName).Width(100);
-            columns.Bound(p => p.ActivePatient).Width(100);
-        })
-        .Sortable()
-        .DataSource(dataSource => dataSource.Ajax()
-            .Model(model => model.Id(p => p.PatientId))
-            .Read("GetPatient", "Patients")
+﻿@{
+    ViewBag.Title = "Patients";
+}
+
+@(Html.Kendo().Breadcrumb()
+    .Name("breadcrumb")
+    .BindToLocation(true)
+    .Navigational(true)
     )
+
+<hr />
+
+@(Html.Kendo().Grid<PatientPortalApp.Models.Patient>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.PatientId);
+            columns.Bound(p => p.FullName);
+            columns.Bound(p => p.ActivePatient);
+            columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            });
+
+        })
+        .ToolBar(tools => tools.Create())
+        .Pageable().Sortable().Filterable()
+        .DataSource(source => source.Ajax()
+            .Model(model =>
+            {
+                model.Id(p => p.PatientId);
+                model.Field(p => p.PatientId).Editable(false);
+            })
+            .Events(events => events.Error("error_handler"))
+            .Read(read => read.Action("ReadPatient", "Patients"))
+            .Update(update => update.Action("UpdatePatient", "Patients"))
+            .Create(create => create.Action("CreatePatient", "Patients"))
+            .Destroy(destroy => destroy.Action("DestroyPatient", "Patients"))
+        )
+        .ClientDetailTemplateId("client-template")
  )
+@* TODO:
+    1. Need to add a conditional statement for tabs that do not have any data to display
+*@
+<script id="client-template" type="text/x-kendo-template">
+    @(Html.Kendo().TabStrip()
+        .Name("tabstrip_#=PatientId#")
+        .SelectedIndex(0)
+        .Animation(animation => animation.Open(open => open.Fade(FadeDirection.In)))
+        .Items(items =>
+        {
+        items.Add()
+        .Text("Vitals")
+        .Selected(true)
+        .Content(@<text>
+            @(Html.Kendo().Grid<PatientPortalApp.Models.Vital>()
+            .Name("grid_#=PatientId#")
+            .Columns(columns =>
+            {
+                columns.Bound(v => v.Weight);
+                columns.Bound(v => v.Height);
+                columns.Bound(v => v.Temperature);
+                columns.Bound(v => v.BloodPressure);
+                columns.Bound(v => v.Pulse);
+            })
+            .DataSource(source => source.Ajax()
+                .Model(model =>
+                {
+                    model.Id(v => v.PatientId);
+                    model.Field(v => v.PatientId).Editable(false);
+                })
+                .Events(events => events.Error("error_handler"))
+                .Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" })))
+            .ToClientTemplate())</text>);
 
+        items.Add().Text("Treatments").Content(@<text>
+                @(Html.Kendo().Grid<PatientPortalApp.Models.Referral>()
+                        .Name("grid1_#=PatientId#")
+                        .Columns(columns =>
+                        {
+                            columns.Bound(r => r.ReferralDoctor );
+                            columns.Bound(r => r.ReferralDate);
+                            columns.Bound(r => r.Doctor);
+                        })
+                        .DataSource(source => source.Ajax()
+                            .Model(model =>
+                            {
+                                model.Id(r => r.PatientId);
+                                model.Field(r => r.PatientId).Editable(false);
+                            })
+                            .Events(events => events.Error("error_handler"))
+                            .Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" })))
+                        .ToClientTemplate()
+                        )
+            </text>);
+        items.Add().Text("Referrals").Content(@<text>Referrals Grid Here</text>);
+            })
+            .ToClientTemplate()
+    )
+</script>
 
-@*<h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Prefix)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MiddleName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Suffix)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ssn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActivePatient)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apartment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryInsurance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryInsuranceID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrimaryInsuranceHolder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecondaryInsurance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecondaryInsuranceID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecondaryInsuranceHolder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentBalance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Created)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modified)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prefix)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiddleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Suffix)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ssn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActivePatient)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apartment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryInsurance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryInsuranceID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrimaryInsuranceHolder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondaryInsurance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondaryInsuranceID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondaryInsuranceHolder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentBalance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Created)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modified)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.PatientId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.PatientId })
-            </td>
-        </tr>
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
     }
-
-    </table>*@
+</script>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
+using PatientPortalApp.Models;
 
 namespace PatientPortalApp.Data
 {
@@ -18,15 +20,12 @@ namespace PatientPortalApp.Data
         public PatientPortalAppContext() : base("name=PatientPortalAppContext")
         {
         }
-
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Patient> Patients { get; set; }
-
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Referral> Referrals { get; set; }
-
-        public System.Data.Entity.DbSet<PatientPortalApp.Models.Appoinment> Appoinments { get; set; }
-
+        public System.Data.Entity.DbSet<PatientPortalApp.Models.Appointment> Appoinments { get; set; }
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Provider> Providers { get; set; }
-
         public System.Data.Entity.DbSet<PatientPortalApp.Models.Medication> Medications { get; set; }
+
+        public System.Data.Entity.DbSet<PatientPortalApp.Models.Vital> Vitals { get; set; }
         }
 }

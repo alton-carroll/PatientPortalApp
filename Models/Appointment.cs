@@ -7,22 +7,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PatientPortalApp.Models
     {
-    public class Referral
+    public class Appointment
         {
-        [Key]
-        public int ReferralId { get; set; }
-        public DateTime ReferralDate { get; set; }
-        public string Doctor { get; set; }
-        public string ReferralDoctor { get; set; }
-        public string Procedure { get; set; }
-        public string Location { get; set; }
+        //[Key]
+        //[Display(Name = "Appointment ID")]
+        //public int AppointmentId { get; set; }
+        [Display(Name = "Appointment Date")]
+        //[Required]
+        [DataType(DataType.Date)]
+        public DateTime AppointmentDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime Created { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime Modified { get; set; }
+        public string Reason { get; set; }
+        [Key]
         [ForeignKey("Patient")]
         public int PatientId { get; set; }
-        public Patient Patient { get; set; }
+        public int ProviderId { get; set; }
+        public virtual Patient Patient { get; set; }
+        public virtual Provider Provider { get; set; }
 
         }
     }

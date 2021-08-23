@@ -6,6 +6,16 @@
 
 <h2>Index</h2>
 
+@(Html.Kendo().Grid(Model)
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(m => m.MedicationId);
+        columns.Bound(m => m.MedicationName);
+        columns.Bound(m => m.MedDescription);
+    })
+    )
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

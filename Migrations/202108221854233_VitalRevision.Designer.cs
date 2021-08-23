@@ -7,13 +7,13 @@ namespace PatientPortalApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class MedicationAdd : IMigrationMetadata
+    public sealed partial class VitalRevision : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MedicationAdd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(VitalRevision));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108180128394_MedicationAdd"; }
+            get { return "202108221854233_VitalRevision"; }
         }
         
         string IMigrationMetadata.Source

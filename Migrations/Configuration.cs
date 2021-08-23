@@ -1,5 +1,5 @@
 namespace PatientPortalApp.Migrations
-    {
+{
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -8,34 +8,34 @@ namespace PatientPortalApp.Migrations
     using PatientPortalApp.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PatientPortalApp.Data.PatientPortalAppContext>
-        {
+    {
         public Configuration()
-            {
+        {
             AutomaticMigrationsEnabled = false;
-            }
+        }
 
         protected override void Seed(PatientPortalApp.Data.PatientPortalAppContext context)
-            {
+        {
             var patients = new List<Patient>
                 {
                 new Patient
                         {
-                        FirstName = "Myron",
-                        LastName = "Waelchi",
-                        BirthDate = DateTime.Parse("2004-5-8"),
-                        Ssn = "999-32-2576",
-                        ActivePatient = true,
-                        Street = "703 Schoen Extension",
-                        City = "Townsend",
-                        State = "Massachusetts",
-                        Zip = "1469",
-                        PrimaryInsurance = "Blue Cross Blue Shield",
-                        PrimaryInsuranceID = "c9b5fda8-649e-47f4",
-                        SecondaryInsurance = "None",
-                        Created = DateTime.Parse("2019-1-9"),
-                        CreatedBy = "Rolfson, Sharmaine",
-                        Modified = DateTime.Parse("2019-3-22"),
-                        ModifiedBy = "Paredes, Ana"
+                            FirstName = "Myron",
+                            LastName = "Waelchi",
+                            BirthDate = DateTime.Parse("2004-5-8"),
+                            Ssn = "999-32-2576",
+                            ActivePatient = true,
+                            Street = "703 Schoen Extension",
+                            City = "Townsend",
+                            State = "Massachusetts",
+                            Zip = "1469",
+                            PrimaryInsurance = "Blue Cross Blue Shield",
+                            PrimaryInsuranceID = "c9b5fda8-649e-47f4",
+                            SecondaryInsurance = "None",
+                            Created = DateTime.Parse("2019-1-9"),
+                            CreatedBy = "Rolfson, Sharmaine",
+                            Modified = DateTime.Parse("2019-3-22"),
+                            ModifiedBy = "Paredes, Ana"
                         },
                     new Patient
                         {
@@ -993,7 +993,7 @@ namespace PatientPortalApp.Migrations
                     new Patient
                         {
                         FirstName = "Mariana",
-                        LastName = "Ura­as",
+                        LastName = "Ura?as",
                         BirthDate = DateTime.Parse("2006-9-6"),
                         Ssn = "999-97-8901",
                         ActivePatient = false,
@@ -1882,7 +1882,7 @@ namespace PatientPortalApp.Migrations
                     new Patient
                         {
                         Prefix = "Mr.",
-                        FirstName = "Herna¡n",
+                        FirstName = "Herna?n",
                         LastName = "Ojeda",
                         BirthDate = DateTime.Parse("1991-10-21"),
                         Ssn = "999-65-7753",
@@ -2041,7 +2041,7 @@ namespace PatientPortalApp.Migrations
                         ModifiedBy = "Hegmann, Myrl"
                         }
                 };
-            patients.ForEach(p => context.Patients.Add(p));
+            patients.ForEach(p => context.Patients.AddOrUpdate(p));
             context.SaveChanges();
 
             var referrals = new List<Referral>
@@ -2303,7 +2303,7 @@ namespace PatientPortalApp.Migrations
                         Created = DateTime.Parse("2020-7-29"),
                         CreatedBy = "Ebert, Shannon",
                         Modified = DateTime.Parse("2020-9-15"),
-                        ModifiedBy = "Esta©vez, Luis Miguel",
+                        ModifiedBy = "Esta?vez, Luis Miguel",
                         PatientId = 37
                         },
                     new Referral
@@ -2405,7 +2405,7 @@ namespace PatientPortalApp.Migrations
                         Procedure = "Admission to orthopedic department",
                         Location = "Andover Obstetrics And Gynecological Associates Pc",
                         Created = DateTime.Parse("2020-10-10"),
-                        CreatedBy = "Zambrano, Da©bora",
+                        CreatedBy = "Zambrano, Da?bora",
                         Modified = DateTime.Parse("2021-1-18"),
                         ModifiedBy = "Jerde, Mariana",
                         PatientId = 68
@@ -2457,7 +2457,7 @@ namespace PatientPortalApp.Migrations
                         Procedure = "Colonoscopy",
                         Location = "Gateway Physical Therapy And Wellness Corp",
                         Created = DateTime.Parse("2019-4-1"),
-                        CreatedBy = "Rodra­guez, Ernesto",
+                        CreatedBy = "Rodra?guez, Ernesto",
                         Modified = DateTime.Parse("2019-6-30"),
                         ModifiedBy = "Rau, Justin",
                         PatientId = 13
@@ -2602,7 +2602,7 @@ namespace PatientPortalApp.Migrations
                         Created = DateTime.Parse("2019-7-18"),
                         CreatedBy = "Gerlach, Jarrett",
                         Modified = DateTime.Parse("2019-9-5"),
-                        ModifiedBy = "Delra­o, Cecilia",
+                        ModifiedBy = "Delra?o, Cecilia",
                         PatientId = 18
                         },
                     new Referral
@@ -3347,7 +3347,7 @@ namespace PatientPortalApp.Migrations
                         PatientId = 6
                         }
                 };
-            referrals.ForEach(r => context.Referrals.Add(r));
+            referrals.ForEach(r => context.Referrals.AddOrUpdate(r));
             context.SaveChanges();
 
             var providers = new List<Provider>
@@ -3489,7 +3489,7 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Guillermina Acua±a",
+                    ProviderName = "Guillermina Acua?a",
                     Specialty = "General Practice"
                 },
                 new Provider
@@ -3504,7 +3504,7 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Toma¡s Tirado",
+                    ProviderName = "Toma?s Tirado",
                     Specialty = "General Practice"
                 },
                 new Provider
@@ -3534,7 +3534,7 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Josae Mara­a Laureano",
+                    ProviderName = "Josae Mara?a Laureano",
                     Specialty = "Clinical Social Worker"
                 },
                 new Provider
@@ -3784,7 +3784,7 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Jorge Herna¡ndez",
+                    ProviderName = "Jorge Herna?ndez",
                     Specialty = "General Practice"
                 },
                 new Provider
@@ -3839,7 +3839,7 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Mara­a Luisa Toledo",
+                    ProviderName = "Mara?a Luisa Toledo",
                     Specialty = "Podiatry"
                 },
                 new Provider
@@ -3849,14 +3849,2527 @@ namespace PatientPortalApp.Migrations
                 },
                 new Provider
                 {
-                    ProviderName = "Andrea Herna¡ndez",
+                    ProviderName = "Andrea Herna?ndez",
                     Specialty = "Internal Medicine"
                 }
             };
-            providers.ForEach(p => context.Providers.Add(p));
+            providers.ForEach(p => context.Providers.AddOrUpdate(p));
             context.SaveChanges();
 
+            var appointments = new List<Appointment>
+                {
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-26-2019 11:50:27 AM"),
+                        Created = DateTime.Parse("7-12-2019 2:58:15 PM"),
+                        Modified = DateTime.Parse("9-21-2019 11:10:11 AM"),
+                        CreatedBy = "Williams Bosco",
+                        ModifiedBy = "Mckinley Ratke",
+                        Reason = "Bleeding from anus",
+                        PatientId = 1,
+                        ProviderId = 1
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-26-2019 9:45:55 AM"),
+                        Created = DateTime.Parse("8-13-2019 1:34:40 PM"),
+                        Modified = DateTime.Parse("11-11-2019 1:06:26 PM"),
+                        CreatedBy = "Irvin Labadie",
+                        ModifiedBy = "Reanna Bernhard",
+                        Reason = "Neuropathy due to type 2 diabetes mellitus (disorder)",
+                        PatientId = 2,
+                        ProviderId = 2
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("1-31-2019 10:48:34 AM"),
+                        Created = DateTime.Parse("4-22-2019 2:04:50 PM"),
+                        Modified = DateTime.Parse("7-24-2019 9:54:39 AM"),
+                        CreatedBy = "Virgilio Swift",
+                        ModifiedBy = "Luther Ondricka",
+                        Reason = "Primary fibromyalgia syndrome",
+                        PatientId = 3,
+                        ProviderId = 3
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-23-2019 9:24:08 AM"),
+                        Created = DateTime.Parse("5-7-2019 11:10:11 AM"),
+                        Modified = DateTime.Parse("8-25-2019 5:14:24 PM"),
+                        CreatedBy = "Angeline Doyle",
+                        ModifiedBy = "Carlita Gutkowski",
+                        Reason = "Anemia (disorder)",
+                        PatientId = 4,
+                        ProviderId = 4
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-21-2019 8:02:29 AM"),
+                        Created = DateTime.Parse("9-16-2019 3:09:07 PM"),
+                        Modified = DateTime.Parse("10-16-2019 3:32:59 PM"),
+                        CreatedBy = "Veola Bauch",
+                        ModifiedBy = "Tuan Skiles",
+                        Reason = "Asthma",
+                        PatientId = 5,
+                        ProviderId = 5
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-29-2020 2:33:18 PM"),
+                        Created = DateTime.Parse("6-8-2020 10:29:01 AM"),
+                        Modified = DateTime.Parse("9-15-2020 10:27:50 AM"),
+                        CreatedBy = "Raven Kiehn",
+                        ModifiedBy = "Bonnie Braun",
+                        Reason = "Fracture of forearm",
+                        PatientId = 6,
+                        ProviderId = 6
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-15-2020 2:33:49 PM"),
+                        Created = DateTime.Parse("8-1-2020 11:19:40 AM"),
+                        Modified = DateTime.Parse("10-12-2020 4:38:53 PM"),
+                        CreatedBy = "Alton Gerlach",
+                        ModifiedBy = "Marlon Heaney",
+                        Reason = "Acute viral pharyngitis (disorder)",
+                        PatientId = 7,
+                        ProviderId = 7
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-22-2019 11:18:50 AM"),
+                        Created = DateTime.Parse("1-25-2020 10:07:00 AM"),
+                        Modified = DateTime.Parse("5-21-2020 3:43:25 PM"),
+                        CreatedBy = "Benjama?n Pagan",
+                        ModifiedBy = "Maribel Goodwin",
+                        Reason = "Rupture of patellar tendon",
+                        PatientId = 8,
+                        ProviderId = 8
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-2-2019 2:33:49 PM"),
+                        Created = DateTime.Parse("10-1-2019 11:18:50 AM"),
+                        Modified = DateTime.Parse("11-22-2019 8:49:37 AM"),
+                        CreatedBy = "Jonah Schuppe",
+                        ModifiedBy = "Marquerite Collins",
+                        Reason = "Overlapping malignant neoplasm of colon",
+                        PatientId = 9,
+                        ProviderId = 9
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-8-2020 8:02:29 AM"),
+                        Created = DateTime.Parse("6-9-2020 3:58:31 PM"),
+                        Modified = DateTime.Parse("7-19-2020 2:29:08 PM"),
+                        CreatedBy = "Romelia Adams",
+                        ModifiedBy = "Ernesto Rodriguez",
+                        Reason = "Second degree burn",
+                        PatientId = 10,
+                        ProviderId = 10
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-31-2019 1:57:51 PM"),
+                        Created = DateTime.Parse("7-7-2019 11:19:40 AM"),
+                        Modified = DateTime.Parse("8-27-2019 4:10:49 PM"),
+                        CreatedBy = "Debrah Wunsch",
+                        ModifiedBy = "Adeline Hagenes",
+                        Reason = "Asthma",
+                        PatientId = 11,
+                        ProviderId = 11
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-22-2020 11:14:17 AM"),
+                        Created = DateTime.Parse("3-22-2021 8:59:04 AM"),
+                        Modified = DateTime.Parse("7-18-2021 5:03:04 PM"),
+                        CreatedBy = "Rodrick Armstrong",
+                        ModifiedBy = "Linwood Schultz",
+                        Reason = "Overlapping malignant neoplasm of colon",
+                        PatientId = 12,
+                        ProviderId = 12
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-9-2019 5:32:45 PM"),
+                        Created = DateTime.Parse("8-11-2019 2:40:09 PM"),
+                        Modified = DateTime.Parse("12-2-2019 2:22:27 PM"),
+                        CreatedBy = "Ramona Escobar",
+                        ModifiedBy = "Dana Goldner",
+                        Reason = "Localized  primary osteoarthritis of the hand",
+                        PatientId = 13,
+                        ProviderId = 13
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-7-2019 10:07:00 AM"),
+                        Created = DateTime.Parse("7-23-2019 10:07:00 AM"),
+                        Modified = DateTime.Parse("9-13-2019 11:44:07 AM"),
+                        CreatedBy = "Shawana Macejkovic",
+                        ModifiedBy = "Colin Yundt",
+                        Reason = "Fracture of forearm",
+                        PatientId = 14,
+                        ProviderId = 14
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-2-2020 5:27:16 PM"),
+                        Created = DateTime.Parse("12-18-2020 10:07:00 AM"),
+                        Modified = DateTime.Parse("4-4-2021 10:57:32 AM"),
+                        CreatedBy = "Angelena Reinger",
+                        ModifiedBy = "Claudia Ruecker",
+                        Reason = "Primary malignant neoplasm of colon",
+                        PatientId = 15,
+                        ProviderId = 15
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-21-2019 10:21:19 AM"),
+                        Created = DateTime.Parse("8-18-2019 4:06:50 PM"),
+                        Modified = DateTime.Parse("9-19-2019 8:19:31 AM"),
+                        CreatedBy = "Wendie Tromp",
+                        ModifiedBy = "Jan Spinka",
+                        Reason = "Fracture of forearm",
+                        PatientId = 16,
+                        ProviderId = 16
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-1-2020 9:55:58 AM"),
+                        Created = DateTime.Parse("2-17-2021 1:59:46 PM"),
+                        Modified = DateTime.Parse("4-1-2021 1:59:46 PM"),
+                        CreatedBy = "Renata Purdy",
+                        ModifiedBy = "Seth Kilback",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 17,
+                        ProviderId = 17
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-11-2020 5:43:28 PM"),
+                        Created = DateTime.Parse("8-24-2020 4:27:13 PM"),
+                        Modified = DateTime.Parse("11-5-2020 8:18:05 AM"),
+                        CreatedBy = "Heriberto Jacobson",
+                        ModifiedBy = "Micaela Rentera?a",
+                        Reason = "Injury of anterior cruciate ligament",
+                        PatientId = 18,
+                        ProviderId = 18
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-27-2019 4:26:59 PM"),
+                        Created = DateTime.Parse("7-15-2019 11:50:27 AM"),
+                        Modified = DateTime.Parse("9-19-2019 10:27:50 AM"),
+                        CreatedBy = "Glynis Pagac",
+                        ModifiedBy = "Anglea Luettgen",
+                        Reason = "Neuropathy due to type 2 diabetes mellitus (disorder)",
+                        PatientId = 19,
+                        ProviderId = 19
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-1-2020 10:05:27 AM"),
+                        Created = DateTime.Parse("5-11-2020 2:12:19 PM"),
+                        Modified = DateTime.Parse("6-27-2020 5:27:01 PM"),
+                        CreatedBy = "Margene Heller",
+                        ModifiedBy = "Hyman Hand",
+                        Reason = "Overlapping malignant neoplasm of colon",
+                        PatientId = 20,
+                        ProviderId = 20
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-22-2020 10:29:01 AM"),
+                        Created = DateTime.Parse("11-28-2020 3:00:13 PM"),
+                        Modified = DateTime.Parse("3-2-2021 1:57:51 PM"),
+                        CreatedBy = "Estela Delra?o",
+                        ModifiedBy = "Delbert Spinka",
+                        Reason = "Cystitis",
+                        PatientId = 21,
+                        ProviderId = 21
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-8-2019 9:25:36 AM"),
+                        Created = DateTime.Parse("12-17-2019 11:18:50 AM"),
+                        Modified = DateTime.Parse("3-14-2020 8:17:43 AM"),
+                        CreatedBy = "Coy Ratke",
+                        ModifiedBy = "Dewey Schowalter",
+                        Reason = "Normal pregnancy",
+                        PatientId = 22,
+                        ProviderId = 22
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-16-2019 9:32:16 AM"),
+                        Created = DateTime.Parse("10-14-2019 2:05:10 PM"),
+                        Modified = DateTime.Parse("12-20-2019 9:37:39 AM"),
+                        CreatedBy = "Cammy Wolff",
+                        ModifiedBy = "Lyle Legros",
+                        Reason = "Neoplasm of prostate",
+                        PatientId = 23,
+                        ProviderId = 23
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-4-2020 4:45:22 PM"),
+                        Created = DateTime.Parse("12-23-2020 10:38:15 AM"),
+                        Modified = DateTime.Parse("2-11-2021 2:15:24 PM"),
+                        CreatedBy = "Concetta Wiegand",
+                        ModifiedBy = "Abel Bogisich",
+                        Reason = "Third degree burn",
+                        PatientId = 24,
+                        ProviderId = 24
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-7-2019 2:58:15 PM"),
+                        Created = DateTime.Parse("8-22-2019 11:04:10 AM"),
+                        Modified = DateTime.Parse("10-11-2019 4:44:21 PM"),
+                        CreatedBy = "Lionel Grady",
+                        ModifiedBy = "Vincent MacGyver",
+                        Reason = "Fetus with unknown complication",
+                        PatientId = 25,
+                        ProviderId = 25
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-1-2019 10:48:34 AM"),
+                        Created = DateTime.Parse("10-5-2019 1:57:51 PM"),
+                        Modified = DateTime.Parse("12-16-2019 9:02:18 AM"),
+                        CreatedBy = "Sherrill Kilback",
+                        ModifiedBy = "Bibi Littel",
+                        Reason = "Chronic intractable migraine without aura",
+                        PatientId = 26,
+                        ProviderId = 26
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-22-2020 5:14:24 PM"),
+                        Created = DateTime.Parse("3-14-2021 8:02:29 AM"),
+                        Modified = DateTime.Parse("5-16-2021 10:21:53 AM"),
+                        CreatedBy = "Amparo Halvorson",
+                        ModifiedBy = "Morton Cummerata",
+                        Reason = "Perennial allergic rhinitis with seasonal variation",
+                        PatientId = 27,
+                        ProviderId = 27
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-16-2019 9:07:01 AM"),
+                        Created = DateTime.Parse("3-11-2020 1:18:26 PM"),
+                        Modified = DateTime.Parse("5-28-2020 11:25:36 AM"),
+                        CreatedBy = "Summer Medhurst",
+                        ModifiedBy = "Nathaniel Bernier",
+                        Reason = "Seizure disorder",
+                        PatientId = 28,
+                        ProviderId = 28
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-13-2020 5:54:39 PM"),
+                        Created = DateTime.Parse("4-17-2020 3:31:52 PM"),
+                        Modified = DateTime.Parse("6-30-2020 11:44:07 AM"),
+                        CreatedBy = "Ervin Douglas",
+                        ModifiedBy = "Lindsey Olson",
+                        Reason = "Small cell carcinoma of lung (disorder)",
+                        PatientId = 29,
+                        ProviderId = 29
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-8-2019 4:09:17 PM"),
+                        Created = DateTime.Parse("8-13-2019 5:18:23 PM"),
+                        Modified = DateTime.Parse("11-13-2019 1:34:40 PM"),
+                        CreatedBy = "Sonya Davis",
+                        ModifiedBy = "Mose O'Conner",
+                        Reason = "Chronic congestive heart failure (disorder)",
+                        PatientId = 30,
+                        ProviderId = 30
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-23-2020 9:02:05 AM"),
+                        Created = DateTime.Parse("7-29-2020 11:16:11 AM"),
+                        Modified = DateTime.Parse("9-23-2020 8:42:56 AM"),
+                        CreatedBy = "Essie Morar",
+                        ModifiedBy = "Kandace Mann",
+                        Reason = "Fracture of ankle",
+                        PatientId = 31,
+                        ProviderId = 31
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-11-2020 11:16:56 AM"),
+                        Created = DateTime.Parse("11-18-2020 2:49:34 PM"),
+                        Modified = DateTime.Parse("3-8-2021 2:14:37 PM"),
+                        CreatedBy = "Marylouise Windler",
+                        ModifiedBy = "Quinton Hammes",
+                        Reason = "Drug overdose",
+                        PatientId = 32,
+                        ProviderId = 32
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-22-2019 9:23:15 AM"),
+                        Created = DateTime.Parse("3-12-2020 2:21:22 PM"),
+                        Modified = DateTime.Parse("4-17-2020 4:54:04 PM"),
+                        CreatedBy = "Warner Glover",
+                        ModifiedBy = "India Flatley",
+                        Reason = "Second degree burn",
+                        PatientId = 33,
+                        ProviderId = 33
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-31-2020 4:00:55 PM"),
+                        Created = DateTime.Parse("6-10-2020 9:24:01 AM"),
+                        Modified = DateTime.Parse("8-3-2020 9:02:18 AM"),
+                        CreatedBy = "Jenniffer Emmerich",
+                        ModifiedBy = "Andreas McClure",
+                        Reason = "Fracture of ankle",
+                        PatientId = 34,
+                        ProviderId = 34
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-3-2019 4:10:49 PM"),
+                        Created = DateTime.Parse("5-9-2019 3:49:31 PM"),
+                        Modified = DateTime.Parse("8-25-2019 4:48:55 PM"),
+                        CreatedBy = "Tennie Kling",
+                        ModifiedBy = "Walton Prohaska",
+                        Reason = "Non-small cell lung cancer (disorder)",
+                        PatientId = 35,
+                        ProviderId = 35
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-27-2019 3:49:31 PM"),
+                        Created = DateTime.Parse("11-1-2019 3:11:23 PM"),
+                        Modified = DateTime.Parse("2-16-2020 11:34:13 AM"),
+                        CreatedBy = "Tod Quigley",
+                        ModifiedBy = "Honey Roberts",
+                        Reason = "Chronic obstructive bronchitis (disorder)",
+                        PatientId = 36,
+                        ProviderId = 36
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-30-2020 9:58:54 AM"),
+                        Created = DateTime.Parse("6-8-2020 11:14:17 AM"),
+                        Modified = DateTime.Parse("7-24-2020 1:59:46 PM"),
+                        CreatedBy = "Ervin Fadel",
+                        ModifiedBy = "Nevada Waelchi",
+                        Reason = "Fracture of clavicle",
+                        PatientId = 37,
+                        ProviderId = 37
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-1-2020 10:59:48 AM"),
+                        Created = DateTime.Parse("1-20-2021 9:58:54 AM"),
+                        Modified = DateTime.Parse("5-17-2021 3:49:31 PM"),
+                        CreatedBy = "Jose Jast",
+                        ModifiedBy = "Jules Cole",
+                        Reason = "Primary fibromyalgia syndrome",
+                        PatientId = 38,
+                        ProviderId = 38
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-16-2019 1:27:18 PM"),
+                        Created = DateTime.Parse("10-28-2019 2:15:24 PM"),
+                        Modified = DateTime.Parse("12-30-2019 10:12:45 AM"),
+                        CreatedBy = "Brain Auer",
+                        ModifiedBy = "Janise Senger",
+                        Reason = "First degree burn",
+                        PatientId = 39,
+                        ProviderId = 39
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("4-15-2020 10:32:33 AM"),
+                        Created = DateTime.Parse("6-28-2020 2:48:15 PM"),
+                        Modified = DateTime.Parse("9-30-2020 9:50:41 AM"),
+                        CreatedBy = "Harriet DuBuque",
+                        ModifiedBy = "Susanne Turcotte",
+                        Reason = "Neuropathy due to type 2 diabetes mellitus (disorder)",
+                        PatientId = 40,
+                        ProviderId = 40
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-6-2019 8:17:31 AM"),
+                        Created = DateTime.Parse("12-10-2019 2:05:10 PM"),
+                        Modified = DateTime.Parse("4-7-2020 4:48:55 PM"),
+                        CreatedBy = "Joni Schuppe",
+                        ModifiedBy = "Mara?a Eugenia Ybarra",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 41,
+                        ProviderId = 41
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-26-2019 9:37:39 AM"),
+                        Created = DateTime.Parse("9-13-2019 10:08:51 AM"),
+                        Modified = DateTime.Parse("12-30-2019 5:31:19 PM"),
+                        CreatedBy = "Royal Schuppe",
+                        ModifiedBy = "Francisca Wilderman",
+                        Reason = "Pulmonary emphysema (disorder)",
+                        PatientId = 42,
+                        ProviderId = 42
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-12-2019 4:38:53 PM"),
+                        Created = DateTime.Parse("5-25-2019 11:14:17 AM"),
+                        Modified = DateTime.Parse("8-9-2019 3:21:28 PM"),
+                        CreatedBy = "Maryland Yundt",
+                        ModifiedBy = "Matilde Adams",
+                        Reason = "Familial Alzheimer's disease of early onset (disorder)",
+                        PatientId = 43,
+                        ProviderId = 43
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-13-2019 5:27:01 PM"),
+                        Created = DateTime.Parse("10-24-2019 5:21:00 PM"),
+                        Modified = DateTime.Parse("12-28-2019 5:17:32 PM"),
+                        CreatedBy = "Pauline Hudson",
+                        ModifiedBy = "Jan Daugherty",
+                        Reason = "Pneumonia",
+                        PatientId = 44,
+                        ProviderId = 44
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-9-2019 3:05:08 PM"),
+                        Created = DateTime.Parse("12-14-2019 5:04:36 PM"),
+                        Modified = DateTime.Parse("3-17-2020 5:04:36 PM"),
+                        CreatedBy = "Stanton Miller",
+                        ModifiedBy = "Miquel Auer",
+                        Reason = "Familial Alzheimer's disease of early onset (disorder)",
+                        PatientId = 45,
+                        ProviderId = 45
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-18-2019 11:45:10 AM"),
+                        Created = DateTime.Parse("6-16-2019 2:49:34 PM"),
+                        Modified = DateTime.Parse("10-13-2019 1:18:26 PM"),
+                        CreatedBy = "Marco Veum",
+                        ModifiedBy = "Lydia Morissette",
+                        Reason = "Injury of medial collateral ligament of knee",
+                        PatientId = 46,
+                        ProviderId = 46
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-29-2020 10:43:01 AM"),
+                        Created = DateTime.Parse("9-2-2020 4:09:17 PM"),
+                        Modified = DateTime.Parse("11-15-2020 10:29:01 AM"),
+                        CreatedBy = "Darrick Torp",
+                        ModifiedBy = "Aracely Halvorson",
+                        Reason = "Secondary malignant neoplasm of colon",
+                        PatientId = 47,
+                        ProviderId = 47
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-2-2019 5:31:19 PM"),
+                        Created = DateTime.Parse("1-14-2020 2:04:50 PM"),
+                        Modified = DateTime.Parse("4-17-2020 8:17:50 AM"),
+                        CreatedBy = "John Bradtke",
+                        ModifiedBy = "Audry Murray",
+                        Reason = "Primary malignant neoplasm of colon",
+                        PatientId = 48,
+                        ProviderId = 48
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-18-2019 4:02:58 PM"),
+                        Created = DateTime.Parse("8-9-2019 9:06:04 AM"),
+                        Modified = DateTime.Parse("10-20-2019 4:15:47 PM"),
+                        CreatedBy = "Jule Tremblay",
+                        ModifiedBy = "Jacquie Wuckert",
+                        Reason = "Chronic intractable migraine without aura",
+                        PatientId = 49,
+                        ProviderId = 49
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-29-2019 9:50:41 AM"),
+                        Created = DateTime.Parse("12-1-2019 10:48:34 AM"),
+                        Modified = DateTime.Parse("2-16-2020 5:51:13 PM"),
+                        CreatedBy = "Piedad Zemlak",
+                        ModifiedBy = "Amanda Hahn",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 50,
+                        ProviderId = 50
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-13-2019 8:19:31 AM"),
+                        Created = DateTime.Parse("7-1-2019 10:05:27 AM"),
+                        Modified = DateTime.Parse("10-19-2019 2:58:15 PM"),
+                        CreatedBy = "Ramon Smith",
+                        ModifiedBy = "Josiah Bernier",
+                        Reason = "Malignant neoplasm of breast (disorder)",
+                        PatientId = 51,
+                        ProviderId = 51
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-21-2020 3:52:27 PM"),
+                        Created = DateTime.Parse("7-23-2020 3:52:27 PM"),
+                        Modified = DateTime.Parse("10-21-2020 4:06:50 PM"),
+                        CreatedBy = "Malcom Conroy",
+                        ModifiedBy = "Li Labadie",
+                        Reason = "Pyelonephritis",
+                        PatientId = 52,
+                        ProviderId = 52
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-3-2020 4:00:54 PM"),
+                        Created = DateTime.Parse("1-1-2021 9:02:05 AM"),
+                        Modified = DateTime.Parse("2-24-2021 11:19:40 AM"),
+                        CreatedBy = "Emory Lemke",
+                        ModifiedBy = "Micheal Mitchell",
+                        Reason = "Fetus with unknown complication",
+                        PatientId = 53,
+                        ProviderId = 53
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-21-2020 9:46:42 AM"),
+                        Created = DateTime.Parse("11-6-2020 1:47:38 PM"),
+                        Modified = DateTime.Parse("2-14-2021 10:08:51 AM"),
+                        CreatedBy = "Barbara Mota",
+                        ModifiedBy = "Clorinda Strosin",
+                        Reason = "Fetus with chromosomal abnormality",
+                        PatientId = 54,
+                        ProviderId = 54
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-17-2020 10:43:01 AM"),
+                        Created = DateTime.Parse("3-18-2020 4:44:21 PM"),
+                        Modified = DateTime.Parse("4-29-2020 9:23:15 AM"),
+                        CreatedBy = "Carlita Cremin",
+                        ModifiedBy = "Forest Gerlach",
+                        Reason = "Fracture of forearm",
+                        PatientId = 55,
+                        ProviderId = 55
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-31-2020 1:59:46 PM"),
+                        Created = DateTime.Parse("3-11-2021 10:03:20 AM"),
+                        Modified = DateTime.Parse("6-20-2021 5:40:05 PM"),
+                        CreatedBy = "Deedra Lemke",
+                        ModifiedBy = "Stanford Terry",
+                        Reason = "First degree burn",
+                        PatientId = 56,
+                        ProviderId = 56
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-24-2019 9:09:20 AM"),
+                        Created = DateTime.Parse("7-27-2019 4:12:32 PM"),
+                        Modified = DateTime.Parse("9-27-2019 5:31:54 PM"),
+                        CreatedBy = "Fernando Villanueva",
+                        ModifiedBy = "Rosette Doyle",
+                        Reason = "Primary malignant neoplasm of colon",
+                        PatientId = 57,
+                        ProviderId = 57
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-22-2019 8:02:29 AM"),
+                        Created = DateTime.Parse("6-18-2019 9:07:01 AM"),
+                        Modified = DateTime.Parse("10-11-2019 1:34:40 PM"),
+                        CreatedBy = "Tim Medhurst",
+                        ModifiedBy = "Theo Erdman",
+                        Reason = "Neoplasm of prostate",
+                        PatientId = 58,
+                        ProviderId = 58
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("3-16-2019 3:36:32 PM"),
+                        Created = DateTime.Parse("5-14-2019 2:05:58 PM"),
+                        Modified = DateTime.Parse("7-15-2019 8:02:41 AM"),
+                        CreatedBy = "Gaston Nader",
+                        ModifiedBy = "Rickey Kiehn",
+                        Reason = "Chronic congestive heart failure (disorder)",
+                        PatientId = 59,
+                        ProviderId = 59
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-19-2020 11:10:11 AM"),
+                        Created = DateTime.Parse("2-2-2021 10:34:08 AM"),
+                        Modified = DateTime.Parse("5-11-2021 3:09:07 PM"),
+                        CreatedBy = "Beatriz Ortega",
+                        ModifiedBy = "Zonia Cormier",
+                        Reason = "Bleeding from anus",
+                        PatientId = 60,
+                        ProviderId = 60
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-9-2019 5:31:54 PM"),
+                        Created = DateTime.Parse("12-10-2019 8:49:12 AM"),
+                        Modified = DateTime.Parse("1-10-2020 8:49:12 AM"),
+                        CreatedBy = "Cammy Wolff",
+                        ModifiedBy = "Alton Schmitt",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 61,
+                        ProviderId = 61
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-12-2019 10:34:08 AM"),
+                        Created = DateTime.Parse("10-20-2019 9:09:20 AM"),
+                        Modified = DateTime.Parse("1-3-2020 10:21:19 AM"),
+                        CreatedBy = "Herna?n Esquibel",
+                        ModifiedBy = "Bethany Zulauf",
+                        Reason = "Localized  primary osteoarthritis of the hand",
+                        PatientId = 62,
+                        ProviderId = 62
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("7-20-2020 8:49:12 AM"),
+                        Created = DateTime.Parse("9-27-2020 11:57:18 AM"),
+                        Modified = DateTime.Parse("12-21-2020 10:07:00 AM"),
+                        CreatedBy = "Irving Jaskolski",
+                        ModifiedBy = "Lashawna O'Conner",
+                        Reason = "Primary fibromyalgia syndrome",
+                        PatientId = 63,
+                        ProviderId = 63
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-16-2019 2:21:22 PM"),
+                        Created = DateTime.Parse("2-23-2020 11:16:11 AM"),
+                        Modified = DateTime.Parse("5-6-2020 2:05:10 PM"),
+                        CreatedBy = "Anjanette Mertz",
+                        ModifiedBy = "Drema Bogisich",
+                        Reason = "Malignant neoplasm of breast (disorder)",
+                        PatientId = 64,
+                        ProviderId = 64
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("2-18-2020 3:27:55 PM"),
+                        Created = DateTime.Parse("6-2-2020 9:24:08 AM"),
+                        Modified = DateTime.Parse("8-25-2020 1:57:51 PM"),
+                        CreatedBy = "Jorge Riojas",
+                        ModifiedBy = "Jerrell Gusikowski",
+                        Reason = "Childhood asthma",
+                        PatientId = 65,
+                        ProviderId = 65
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-6-2020 1:22:40 PM"),
+                        Created = DateTime.Parse("2-1-2021 1:21:18 PM"),
+                        Modified = DateTime.Parse("5-5-2021 5:20:12 PM"),
+                        CreatedBy = "Margarette Nikolaus",
+                        ModifiedBy = "Traci Jones",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 66,
+                        ProviderId = 66
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-5-2020 3:06:00 PM"),
+                        Created = DateTime.Parse("7-2-2020 4:17:08 PM"),
+                        Modified = DateTime.Parse("10-13-2020 9:49:01 AM"),
+                        CreatedBy = "Loria Thompson",
+                        ModifiedBy = "Marita Fahey",
+                        Reason = "Localized  primary osteoarthritis of the hand",
+                        PatientId = 67,
+                        ProviderId = 67
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-9-2019 9:57:27 AM"),
+                        Created = DateTime.Parse("9-27-2019 3:57:27 PM"),
+                        Modified = DateTime.Parse("11-1-2019 11:00:26 AM"),
+                        CreatedBy = "Fernande Toy",
+                        ModifiedBy = "Linwood Kub",
+                        Reason = "Osteoarthritis of hip",
+                        PatientId = 68,
+                        ProviderId = 68
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-29-2019 5:27:16 PM"),
+                        Created = DateTime.Parse("9-1-2019 2:58:15 PM"),
+                        Modified = DateTime.Parse("11-22-2019 2:12:19 PM"),
+                        CreatedBy = "Bella Mann",
+                        ModifiedBy = "Abdul O'Connell",
+                        Reason = "Polyp of colon",
+                        PatientId = 69,
+                        ProviderId = 69
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("4-30-2019 9:06:04 AM"),
+                        Created = DateTime.Parse("7-26-2019 9:16:35 AM"),
+                        Modified = DateTime.Parse("8-25-2019 9:06:04 AM"),
+                        CreatedBy = "Xavier Weissnat",
+                        ModifiedBy = "Magali Lubowitz",
+                        Reason = "Malignant neoplasm of breast (disorder)",
+                        PatientId = 70,
+                        ProviderId = 70
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-12-2020 10:38:15 AM"),
+                        Created = DateTime.Parse("2-7-2021 4:00:00 PM"),
+                        Modified = DateTime.Parse("5-11-2021 3:31:52 PM"),
+                        CreatedBy = "Pearl Daniel",
+                        ModifiedBy = "Federico Maendez",
+                        Reason = "Tubal pregnancy",
+                        PatientId = 71,
+                        ProviderId = 71
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("4-5-2020 2:22:27 PM"),
+                        Created = DateTime.Parse("7-15-2020 11:14:17 AM"),
+                        Modified = DateTime.Parse("10-14-2020 10:59:48 AM"),
+                        CreatedBy = "Armando Heathcote",
+                        ModifiedBy = "Julio Heller",
+                        Reason = "Malignant neoplasm of breast (disorder)",
+                        PatientId = 72,
+                        ProviderId = 72
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-27-2020 1:59:46 PM"),
+                        Created = DateTime.Parse("9-10-2020 9:56:49 AM"),
+                        Modified = DateTime.Parse("12-14-2020 3:36:32 PM"),
+                        CreatedBy = "Ressie Schamberger",
+                        ModifiedBy = "Terrence Schmeler",
+                        Reason = "Polyp of colon",
+                        PatientId = 73,
+                        ProviderId = 73
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-28-2019 5:52:42 PM"),
+                        Created = DateTime.Parse("1-23-2020 2:29:08 PM"),
+                        Modified = DateTime.Parse("3-30-2020 8:13:22 AM"),
+                        CreatedBy = "Jaimie Barton",
+                        ModifiedBy = "Melani Bode",
+                        Reason = "Seasonal allergic rhinitis",
+                        PatientId = 74,
+                        ProviderId = 74
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("4-25-2020 5:18:23 PM"),
+                        Created = DateTime.Parse("8-18-2020 4:02:58 PM"),
+                        Modified = DateTime.Parse("9-17-2020 10:09:46 AM"),
+                        CreatedBy = "Jeri Shields",
+                        ModifiedBy = "Terese Reynolds",
+                        Reason = "Non-small cell carcinoma of lung  TNM stage 1 (disorder)",
+                        PatientId = 75,
+                        ProviderId = 75
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-8-2020 2:21:22 PM"),
+                        Created = DateTime.Parse("8-27-2020 10:48:34 AM"),
+                        Modified = DateTime.Parse("12-11-2020 8:13:22 AM"),
+                        CreatedBy = "Octavio Aparicio",
+                        ModifiedBy = "Gaylord Anderson",
+                        Reason = "Laparoscopic Removal of Gall Bladder",
+                        PatientId = 76,
+                        ProviderId = 76
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("1-9-2019 11:45:10 AM"),
+                        Created = DateTime.Parse("3-21-2019 1:47:38 PM"),
+                        Modified = DateTime.Parse("5-28-2019 1:22:40 PM"),
+                        CreatedBy = "Steve Roob",
+                        ModifiedBy = "Rocky Orn",
+                        Reason = "Gout",
+                        PatientId = 77,
+                        ProviderId = 77
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("5-9-2020 1:15:29 PM"),
+                        Created = DateTime.Parse("9-4-2020 9:58:54 AM"),
+                        Modified = DateTime.Parse("11-21-2020 9:04:24 AM"),
+                        CreatedBy = "Natalia Melaendez",
+                        ModifiedBy = "Fausto Cummings",
+                        Reason = "Neoplasm of prostate",
+                        PatientId = 78,
+                        ProviderId = 78
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-25-2020 8:17:43 AM"),
+                        Created = DateTime.Parse("12-2-2020 4:09:17 PM"),
+                        Modified = DateTime.Parse("3-10-2021 11:50:45 AM"),
+                        CreatedBy = "Suzanna Jacobs",
+                        ModifiedBy = "Lynn Thiel",
+                        Reason = "Alzheimer's disease (disorder)",
+                        PatientId = 79,
+                        ProviderId = 79
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-5-2020 1:22:40 PM"),
+                        Created = DateTime.Parse("9-24-2020 3:58:31 PM"),
+                        Modified = DateTime.Parse("1-17-2021 11:19:40 AM"),
+                        CreatedBy = "Houston Bailey",
+                        ModifiedBy = "Rene Hayes",
+                        Reason = "Overlapping malignant neoplasm of colon",
+                        PatientId = 80,
+                        ProviderId = 80
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-12-2020 1:27:18 PM"),
+                        Created = DateTime.Parse("2-5-2021 10:43:00 AM"),
+                        Modified = DateTime.Parse("5-2-2021 11:45:10 AM"),
+                        CreatedBy = "Charolette Schaden",
+                        ModifiedBy = "Karly Gaylord",
+                        Reason = "Fetus with chromosomal abnormality",
+                        PatientId = 81,
+                        ProviderId = 81
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-11-2019 11:50:45 AM"),
+                        Created = DateTime.Parse("1-5-2020 3:51:08 PM"),
+                        Modified = DateTime.Parse("4-11-2020 9:46:42 AM"),
+                        CreatedBy = "Suellen Von",
+                        ModifiedBy = "Beatriz Ortega",
+                        Reason = "Chronic congestive heart failure (disorder)",
+                        PatientId = 82,
+                        ProviderId = 82
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("11-1-2020 8:59:04 AM"),
+                        Created = DateTime.Parse("1-30-2021 10:08:51 AM"),
+                        Modified = DateTime.Parse("4-19-2021 5:14:24 PM"),
+                        CreatedBy = "Rafael Wunsch",
+                        ModifiedBy = "Kati Kessler",
+                        Reason = "Neuropathy due to type 2 diabetes mellitus (disorder)",
+                        PatientId = 83,
+                        ProviderId = 83
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-14-2020 2:33:49 PM"),
+                        Created = DateTime.Parse("11-15-2020 9:25:36 AM"),
+                        Modified = DateTime.Parse("3-13-2021 9:38:12 AM"),
+                        CreatedBy = "Manuela Anguiano",
+                        ModifiedBy = "Era Reichert",
+                        Reason = "Acute bronchitis (disorder)",
+                        PatientId = 84,
+                        ProviderId = 84
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-28-2019 5:48:11 PM"),
+                        Created = DateTime.Parse("12-12-2019 5:56:13 PM"),
+                        Modified = DateTime.Parse("2-17-2020 2:52:22 PM"),
+                        CreatedBy = "Rory McLaughlin",
+                        ModifiedBy = "Salina Kozey",
+                        Reason = "Primary small cell malignant neoplasm of lung  TNM stage 1 (disorder)",
+                        PatientId = 85,
+                        ProviderId = 85
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-6-2019 3:13:30 PM"),
+                        Created = DateTime.Parse("11-15-2019 1:27:18 PM"),
+                        Modified = DateTime.Parse("3-3-2020 9:45:55 AM"),
+                        CreatedBy = "Leonardo Hills",
+                        ModifiedBy = "Malcolm Bradtke",
+                        Reason = "Second degree burn",
+                        PatientId = 86,
+                        ProviderId = 86
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-2-2020 8:59:04 AM"),
+                        Created = DateTime.Parse("12-3-2020 10:38:15 AM"),
+                        Modified = DateTime.Parse("1-22-2021 11:15:51 AM"),
+                        CreatedBy = "Jolyn Bechtelar",
+                        ModifiedBy = "Carroll Beer",
+                        Reason = "Pyelonephritis",
+                        PatientId = 87,
+                        ProviderId = 87
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-5-2019 8:17:31 AM"),
+                        Created = DateTime.Parse("12-8-2019 5:27:01 PM"),
+                        Modified = DateTime.Parse("2-22-2020 3:11:23 PM"),
+                        CreatedBy = "Ryan Heller",
+                        ModifiedBy = "Christin Rice",
+                        Reason = "Malignant neoplasm of breast (disorder)",
+                        PatientId = 88,
+                        ProviderId = 88
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-6-2019 4:54:04 PM"),
+                        Created = DateTime.Parse("9-5-2019 8:49:37 AM"),
+                        Modified = DateTime.Parse("12-11-2019 9:55:04 AM"),
+                        CreatedBy = "Ivana Berge",
+                        ModifiedBy = "Julio Powlowski",
+                        Reason = "Fetus with chromosomal abnormality",
+                        PatientId = 89,
+                        ProviderId = 89
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-16-2019 3:06:00 PM"),
+                        Created = DateTime.Parse("4-1-2020 3:51:08 PM"),
+                        Modified = DateTime.Parse("5-14-2020 9:46:42 AM"),
+                        CreatedBy = "Rocky Ferry",
+                        ModifiedBy = "Will Murphy",
+                        Reason = "Chronic congestive heart failure (disorder)",
+                        PatientId = 90,
+                        ProviderId = 90
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-2-2019 5:27:16 PM"),
+                        Created = DateTime.Parse("11-28-2019 11:29:54 AM"),
+                        Modified = DateTime.Parse("1-15-2020 1:16:09 PM"),
+                        CreatedBy = "Teresita Hickle",
+                        ModifiedBy = "Laila Lemke",
+                        Reason = "Rheumatoid arthritis",
+                        PatientId = 91,
+                        ProviderId = 91
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("4-11-2019 9:45:55 AM"),
+                        Created = DateTime.Parse("6-2-2019 5:21:00 PM"),
+                        Modified = DateTime.Parse("8-28-2019 11:30:45 AM"),
+                        CreatedBy = "Sherley Upton",
+                        ModifiedBy = "Dudley Lueilwitz",
+                        Reason = "Hyperlipidemia",
+                        PatientId = 92,
+                        ProviderId = 92
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-20-2020 10:09:46 AM"),
+                        Created = DateTime.Parse("11-26-2020 8:02:29 AM"),
+                        Modified = DateTime.Parse("1-21-2021 5:48:11 PM"),
+                        CreatedBy = "Warner Glover",
+                        ModifiedBy = "Octavio Aparicio",
+                        Reason = "Posttraumatic stress disorder",
+                        PatientId = 93,
+                        ProviderId = 93
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("8-8-2019 10:59:48 AM"),
+                        Created = DateTime.Parse("10-10-2019 11:30:45 AM"),
+                        Modified = DateTime.Parse("11-28-2019 4:10:49 PM"),
+                        CreatedBy = "Jannet West",
+                        ModifiedBy = "Awilda Balistreri",
+                        Reason = "Bleeding from anus",
+                        PatientId = 94,
+                        ProviderId = 94
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("6-21-2020 1:27:18 PM"),
+                        Created = DateTime.Parse("9-21-2020 3:10:01 PM"),
+                        Modified = DateTime.Parse("12-18-2020 2:20:23 PM"),
+                        CreatedBy = "Michale Gibson",
+                        ModifiedBy = "Humberto Mitchell",
+                        Reason = "Normal pregnancy",
+                        PatientId = 95,
+                        ProviderId = 95
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("10-13-2020 2:04:50 PM"),
+                        Created = DateTime.Parse("11-13-2020 4:26:59 PM"),
+                        Modified = DateTime.Parse("2-21-2021 9:09:20 AM"),
+                        CreatedBy = "Odell Lubowitz",
+                        ModifiedBy = "Alfredo Hickle",
+                        Reason = "Childhood asthma",
+                        PatientId = 96,
+                        ProviderId = 96
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("1-12-2019 1:15:29 PM"),
+                        Created = DateTime.Parse("3-20-2019 4:28:17 PM"),
+                        Modified = DateTime.Parse("7-18-2019 5:03:23 PM"),
+                        CreatedBy = "Mayte Va?zquez",
+                        ModifiedBy = "Alease Dare",
+                        Reason = "Primary fibromyalgia syndrome",
+                        PatientId = 97,
+                        ProviderId = 97
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-12-2019 3:58:31 PM"),
+                        Created = DateTime.Parse("1-9-2020 3:27:55 PM"),
+                        Modified = DateTime.Parse("2-28-2020 9:16:35 AM"),
+                        CreatedBy = "Lashanda Kuhic",
+                        ModifiedBy = "Kerry Miller",
+                        Reason = "Seasonal allergic rhinitis",
+                        PatientId = 98,
+                        ProviderId = 98
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("9-20-2019 9:56:49 AM"),
+                        Created = DateTime.Parse("11-21-2019 9:00:32 AM"),
+                        Modified = DateTime.Parse("1-19-2020 3:00:13 PM"),
+                        CreatedBy = "Rachal Ruecker",
+                        ModifiedBy = "Greg Kshlerin",
+                        Reason = "Injury of tendon of the rotator cuff of shoulder",
+                        PatientId = 99,
+                        ProviderId = 99
+                    },
+                new Appointment
+                    {
+                        AppointmentDate = DateTime.Parse("12-17-2019 4:17:09 PM"),
+                        Created = DateTime.Parse("2-11-2020 11:38:50 AM"),
+                        Modified = DateTime.Parse("3-16-2020 9:45:01 AM"),
+                        CreatedBy = "Yoshiko Casper",
+                        ModifiedBy = "Mara?a Luisa Canta?",
+                        Reason = "Suspected lung cancer (situation)",
+                        PatientId = 100,
+                        ProviderId = 100
+                    }
+
+                };
+            appointments.ForEach(a => context.Appoinments.AddOrUpdate(a));
+            context.SaveChanges();
+
+            var vitals = new List<Vital>
+                {
+                                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-27-2019"),
+                        Weight = "79.5 kg",
+                        Height = "177.2 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "117 / 78 mm[Hg]",
+                        Pulse = "92",
+                        Created = DateTime.Parse("9-27-2019"),
+                        Modified = DateTime.Parse("9-27-2019"),
+                        CreatedBy = "Hue McKenzie",
+                        ModifiedBy = "Hue McKenzie",
+                        PatientId = 1
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-23-2019"),
+                        Weight = "84.6 kg",
+                        Height = "177.2 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "120 / 74 mm[Hg]",
+                        Pulse = "96",
+                        Created = DateTime.Parse("6-23-2019"),
+                        Modified = DateTime.Parse("6-23-2019"),
+                        CreatedBy = "Almeda Larkin",
+                        ModifiedBy = "Almeda Larkin",
+                        PatientId = 2
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-10-2020"),
+                        Weight = "88.7 kg",
+                        Height = "177.2 cm",
+                        Temperature = "38.1 Cel",
+                        BloodPressure = "116 / 80 mm[Hg]",
+                        Pulse = "88",
+                        Created = DateTime.Parse("8-10-2020"),
+                        Modified = DateTime.Parse("8-10-2020"),
+                        CreatedBy = "Elias Mueller",
+                        ModifiedBy = "Elias Mueller",
+                        PatientId = 3
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-16-2020"),
+                        Weight = "70.5 kg",
+                        Height = "158.2 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "119 / 76 mm[Hg]",
+                        Pulse = "78",
+                        Created = DateTime.Parse("2-16-2020"),
+                        Modified = DateTime.Parse("2-16-2020"),
+                        CreatedBy = "Tanja Koepp",
+                        ModifiedBy = "Tanja Koepp",
+                        PatientId = 4
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-17-2019"),
+                        Weight = "80.9 kg",
+                        Height = "170.5 cm",
+                        Temperature = "38.2 Cel",
+                        BloodPressure = "131 / 82 mm[Hg]",
+                        Pulse = "92",
+                        Created = DateTime.Parse("4-17-2019"),
+                        Modified = DateTime.Parse("4-17-2019"),
+                        CreatedBy = "Mateo Carrasco",
+                        ModifiedBy = "Mateo Carrasco",
+                        PatientId = 5
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-26-2019"),
+                        Weight = "12.7 kg",
+                        Height = "92.1 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "116 / 74 mm[Hg]",
+                        Pulse = "70",
+                        Created = DateTime.Parse("8-26-2019"),
+                        Modified = DateTime.Parse("8-26-2019"),
+                        CreatedBy = "Antonia Leuschke",
+                        ModifiedBy = "Antonia Leuschke",
+                        PatientId = 6
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("1-11-2020"),
+                        Weight = "13.5 kg",
+                        Height = "95.7 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "124 / 82 mm[Hg]",
+                        Pulse = "94",
+                        Created = DateTime.Parse("1-11-2020"),
+                        Modified = DateTime.Parse("1-11-2020"),
+                        CreatedBy = "Renata Purdy",
+                        ModifiedBy = "Renata Purdy",
+                        PatientId = 7
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-13-2020"),
+                        Weight = "72.9 kg",
+                        Height = "158.8 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "118 / 81 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("9-13-2020"),
+                        Modified = DateTime.Parse("9-13-2020"),
+                        CreatedBy = "Juan Da?az",
+                        ModifiedBy = "Juan Da?az",
+                        PatientId = 8
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-2-2019"),
+                        Weight = "14.4 kg",
+                        Height = "99.1 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "128 / 69 mm[Hg]",
+                        Pulse = "77",
+                        Created = DateTime.Parse("4-2-2019"),
+                        Modified = DateTime.Parse("4-2-2019"),
+                        CreatedBy = "Eleanora Swift",
+                        ModifiedBy = "Eleanora Swift",
+                        PatientId = 9
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-7-2020"),
+                        Weight = "80.9 kg",
+                        Height = "170.5 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "123 / 74 mm[Hg]",
+                        Pulse = "89",
+                        Created = DateTime.Parse("8-7-2020"),
+                        Modified = DateTime.Parse("8-7-2020"),
+                        CreatedBy = "Dick White",
+                        ModifiedBy = "Dick White",
+                        PatientId = 10
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-28-2019"),
+                        Weight = "74.9 kg",
+                        Height = "159 cm",
+                        Temperature = "39 Cel",
+                        BloodPressure = "113 / 80 mm[Hg]",
+                        Pulse = "67",
+                        Created = DateTime.Parse("10-28-2019"),
+                        Modified = DateTime.Parse("10-28-2019"),
+                        CreatedBy = "Odis Daugherty",
+                        ModifiedBy = "Odis Daugherty",
+                        PatientId = 11
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-24-2019"),
+                        Weight = "16.1 kg",
+                        Height = "105.5 cm",
+                        Temperature = "38 Cel",
+                        BloodPressure = "126 / 84 mm[Hg]",
+                        Pulse = "79",
+                        Created = DateTime.Parse("6-24-2019"),
+                        Modified = DateTime.Parse("6-24-2019"),
+                        CreatedBy = "Xavier Weissnat",
+                        ModifiedBy = "Xavier Weissnat",
+                        PatientId = 12
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("1-31-2019"),
+                        Weight = "18 kg",
+                        Height = "111.7 cm",
+                        Temperature = "39.1 Cel",
+                        BloodPressure = "117 / 78 mm[Hg]",
+                        Pulse = "78",
+                        Created = DateTime.Parse("1-31-2019"),
+                        Modified = DateTime.Parse("1-31-2019"),
+                        CreatedBy = "Tobias Cremin",
+                        ModifiedBy = "Tobias Cremin",
+                        PatientId = 13
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("1-10-2020"),
+                        Weight = "80.9 kg",
+                        Height = "170.5 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "101 / 77 mm[Hg]",
+                        Pulse = "93",
+                        Created = DateTime.Parse("1-10-2020"),
+                        Modified = DateTime.Parse("1-10-2020"),
+                        CreatedBy = "Mayra Brakus",
+                        ModifiedBy = "Mayra Brakus",
+                        PatientId = 14
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-18-2019"),
+                        Weight = "74.9 kg",
+                        Height = "159 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "128 / 78 mm[Hg]",
+                        Pulse = "59",
+                        Created = DateTime.Parse("8-18-2019"),
+                        Modified = DateTime.Parse("8-18-2019"),
+                        CreatedBy = "Jamar Wisozk",
+                        ModifiedBy = "Jamar Wisozk",
+                        PatientId = 15
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("3-3-2019"),
+                        Weight = "80.9 kg",
+                        Height = "170.5 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "103 / 82 mm[Hg]",
+                        Pulse = "92",
+                        Created = DateTime.Parse("3-3-2019"),
+                        Modified = DateTime.Parse("3-3-2019"),
+                        CreatedBy = "Susana Lockman",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 16
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("3-28-2019"),
+                        Weight = "20 kg",
+                        Height = "117.8 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "113 / 70 mm[Hg]",
+                        Pulse = "66",
+                        Created = DateTime.Parse("3-28-2019"),
+                        Modified = DateTime.Parse("3-28-2019"),
+                        CreatedBy = "Harry Corwin",
+                        ModifiedBy = "Harry Corwin",
+                        PatientId = 17
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("7-26-2020"),
+                        Weight = "22.1 kg",
+                        Height = "123.7 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "133 / 79 mm[Hg]",
+                        Pulse = "77",
+                        Created = DateTime.Parse("7-26-2020"),
+                        Modified = DateTime.Parse("7-26-2020"),
+                        CreatedBy = "Nathalie Gottlieb",
+                        ModifiedBy = "Nathalie Gottlieb",
+                        PatientId = 18
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-5-2020"),
+                        Weight = "24.6 kg",
+                        Height = "129.5 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "115 / 80 mm[Hg]",
+                        Pulse = "96",
+                        Created = DateTime.Parse("8-5-2020"),
+                        Modified = DateTime.Parse("8-5-2020"),
+                        CreatedBy = "Raelene Mills",
+                        ModifiedBy = "Raelene Mills",
+                        PatientId = 19
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-12-2019"),
+                        Weight = "27.1 kg",
+                        Height = "134.3 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "124 / 80 mm[Hg]",
+                        Pulse = "70",
+                        Created = DateTime.Parse("10-12-2019"),
+                        Modified = DateTime.Parse("10-12-2019"),
+                        CreatedBy = "Reanna Bernhard",
+                        ModifiedBy = "Reanna Bernhard",
+                        PatientId = 20
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-21-2019"),
+                        Weight = "30.1 kg",
+                        Height = "138.9 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "128 / 79 mm[Hg]",
+                        Pulse = "86",
+                        Created = DateTime.Parse("10-21-2019"),
+                        Modified = DateTime.Parse("10-21-2019"),
+                        CreatedBy = "Vanita Wyman",
+                        ModifiedBy = "Vanita Wyman",
+                        PatientId = 21
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-7-2020"),
+                        Weight = "81.6 kg",
+                        Height = "165.9 cm",
+                        Temperature = "39 Cel",
+                        BloodPressure = "125 / 81 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("9-7-2020"),
+                        Modified = DateTime.Parse("9-7-2020"),
+                        CreatedBy = "Carlota Corrales",
+                        ModifiedBy = "Carlota Corrales",
+                        PatientId = 22
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-16-2019"),
+                        Weight = "5.6 kg",
+                        Height = "60.2 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "107 / 80 mm[Hg]",
+                        Pulse = "61",
+                        Created = DateTime.Parse("2-16-2019"),
+                        Modified = DateTime.Parse("2-16-2019"),
+                        CreatedBy = "Laure Heathcote",
+                        ModifiedBy = "Laure Heathcote",
+                        PatientId = 23
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-11-2020"),
+                        Weight = "33.7 kg",
+                        Height = "144.2 cm",
+                        Temperature = "37.5 Cel",
+                        BloodPressure = "128 / 80 mm[Hg]",
+                        Pulse = "78",
+                        Created = DateTime.Parse("4-11-2020"),
+                        Modified = DateTime.Parse("4-11-2020"),
+                        CreatedBy = "Carey Considine",
+                        ModifiedBy = "Carey Considine",
+                        PatientId = 24
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-11-2019"),
+                        Weight = "6.6 kg",
+                        Height = "64.1 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "106 / 74 mm[Hg]",
+                        Pulse = "92",
+                        Created = DateTime.Parse("4-11-2019"),
+                        Modified = DateTime.Parse("4-11-2019"),
+                        CreatedBy = "Kenton Smith",
+                        ModifiedBy = "Kenton Smith",
+                        PatientId = 25
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-17-2020"),
+                        Weight = "33.7 kg",
+                        Height = "144.2 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "131 / 73 mm[Hg]",
+                        Pulse = "89",
+                        Created = DateTime.Parse("10-17-2020"),
+                        Modified = DateTime.Parse("10-17-2020"),
+                        CreatedBy = "Brooks Grant",
+                        ModifiedBy = "Brooks Grant",
+                        PatientId = 26
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-29-2020"),
+                        Weight = "7.9 kg",
+                        Height = "68.9 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "108 / 75 mm[Hg]",
+                        Pulse = "77",
+                        Created = DateTime.Parse("5-29-2020"),
+                        Modified = DateTime.Parse("5-29-2020"),
+                        CreatedBy = "Loyd McGlynn",
+                        ModifiedBy = "Loyd McGlynn",
+                        PatientId = 27
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-4-2019"),
+                        Weight = "77.3 kg",
+                        Height = "165.9 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "127 / 83 mm[Hg]",
+                        Pulse = "80",
+                        Created = DateTime.Parse("12-4-2019"),
+                        Modified = DateTime.Parse("12-4-2019"),
+                        CreatedBy = "Seth Trantow",
+                        ModifiedBy = "Seth Trantow",
+                        PatientId = 28
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-25-2019"),
+                        Weight = "8.9 kg",
+                        Height = "72.9 cm",
+                        Temperature = "38 Cel",
+                        BloodPressure = "122 / 80 mm[Hg]",
+                        Pulse = "71",
+                        Created = DateTime.Parse("4-25-2019"),
+                        Modified = DateTime.Parse("4-25-2019"),
+                        CreatedBy = "Shawn Luettgen",
+                        ModifiedBy = "Shawn Luettgen",
+                        PatientId = 29
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("7-9-2019"),
+                        Weight = "9.8 kg",
+                        Height = "76.4 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "121 / 78 mm[Hg]",
+                        Pulse = "91",
+                        Created = DateTime.Parse("7-9-2019"),
+                        Modified = DateTime.Parse("7-9-2019"),
+                        CreatedBy = "Erinn Nienow",
+                        ModifiedBy = "Erinn Nienow",
+                        PatientId = 30
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("7-28-2019"),
+                        Weight = "10.4 kg",
+                        Height = "79.5 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "113 / 76 mm[Hg]",
+                        Pulse = "83",
+                        Created = DateTime.Parse("7-28-2019"),
+                        Modified = DateTime.Parse("7-28-2019"),
+                        CreatedBy = "Ramiro Lakin",
+                        ModifiedBy = "Ramiro Lakin",
+                        PatientId = 31
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-10-2019"),
+                        Weight = "105.4 kg",
+                        Height = "85 cm",
+                        Temperature = "39 Cel",
+                        BloodPressure = "106 / 70 mm[Hg]",
+                        Pulse = "86",
+                        Created = DateTime.Parse("9-10-2019"),
+                        Modified = DateTime.Parse("9-10-2019"),
+                        CreatedBy = "Teresa Ortiz",
+                        ModifiedBy = "Teresa Ortiz",
+                        PatientId = 32
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-18-2020"),
+                        Weight = "105.4 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "125 / 73 mm[Hg]",
+                        Pulse = "75",
+                        Created = DateTime.Parse("9-18-2020"),
+                        Modified = DateTime.Parse("9-18-2020"),
+                        CreatedBy = "Hisako Kuhlman",
+                        ModifiedBy = "Hisako Kuhlman",
+                        PatientId = 33
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-1-2020"),
+                        Weight = "11.4 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "132 / 76 mm[Hg]",
+                        Pulse = "66",
+                        Created = DateTime.Parse("12-1-2020"),
+                        Modified = DateTime.Parse("12-1-2020"),
+                        CreatedBy = "Ralph Marks",
+                        ModifiedBy = "Ralph Marks",
+                        PatientId = 34
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-22-2019"),
+                        Weight = "12.3 kg",
+                        Height = "89.2 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "125 / 86 mm[Hg]",
+                        Pulse = "77",
+                        Created = DateTime.Parse("5-22-2019"),
+                        Modified = DateTime.Parse("5-22-2019"),
+                        CreatedBy = "Suzan Kuphal",
+                        ModifiedBy = "Suzan Kuphal",
+                        PatientId = 35
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-24-2020"),
+                        Weight = "105.4 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "132 / 86 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("4-24-2020"),
+                        Modified = DateTime.Parse("4-24-2020"),
+                        CreatedBy = "Lashawna O'Conner",
+                        ModifiedBy = "Lashawna O'Conner",
+                        PatientId = 36
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-24-2019"),
+                        Weight = "13.1 kg",
+                        Height = "93.2 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "99. / 79 mm[Hg]",
+                        Pulse = "81",
+                        Created = DateTime.Parse("11-24-2019"),
+                        Modified = DateTime.Parse("11-24-2019"),
+                        CreatedBy = "Adena Wilkinson",
+                        ModifiedBy = "Adena Wilkinson",
+                        PatientId = 37
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-28-2020"),
+                        Weight = "14 kg",
+                        Height = "96.7 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "117 / 76 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("10-28-2020"),
+                        Modified = DateTime.Parse("10-28-2020"),
+                        CreatedBy = "Aundrea Kuphal",
+                        ModifiedBy = "Aundrea Kuphal",
+                        PatientId = 38
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("3-26-2019"),
+                        Weight = "14.6 kg",
+                        Height = "98.9 cm",
+                        Temperature = "39 Cel",
+                        BloodPressure = "110 / 78 mm[Hg]",
+                        Pulse = "71",
+                        Created = DateTime.Parse("3-26-2019"),
+                        Modified = DateTime.Parse("3-26-2019"),
+                        CreatedBy = "Tiana Hoeger",
+                        ModifiedBy = "Tiana Hoeger",
+                        PatientId = 39
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-19-2019"),
+                        Weight = "83 kg",
+                        Height = "165.9 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "119 / 77 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("4-19-2019"),
+                        Modified = DateTime.Parse("4-19-2019"),
+                        CreatedBy = "Grant Price",
+                        ModifiedBy = "Grant Price",
+                        PatientId = 40
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-16-2020"),
+                        Weight = "14.9 kg",
+                        Height = "100 cm",
+                        Temperature = "37.5 Cel",
+                        BloodPressure = "122 / 77 mm[Hg]",
+                        Pulse = "94",
+                        Created = DateTime.Parse("9-16-2020"),
+                        Modified = DateTime.Parse("9-16-2020"),
+                        CreatedBy = "Gaston Nader",
+                        ModifiedBy = "Gaston Nader",
+                        PatientId = 41
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-4-2019"),
+                        Weight = "105.4 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "122 / 83 mm[Hg]",
+                        Pulse = "83",
+                        Created = DateTime.Parse("5-4-2019"),
+                        Modified = DateTime.Parse("5-4-2019"),
+                        CreatedBy = "Darnell Medhurst",
+                        ModifiedBy = "Darnell Medhurst",
+                        PatientId = 42
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-9-2019"),
+                        Weight = "16.8 kg",
+                        Height = "106.9 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "139 / 86 mm[Hg]",
+                        Pulse = "65",
+                        Created = DateTime.Parse("10-9-2019"),
+                        Modified = DateTime.Parse("10-9-2019"),
+                        CreatedBy = "Clarita Rice",
+                        ModifiedBy = "Clarita Rice",
+                        PatientId = 43
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-4-2020"),
+                        Weight = "23.5 kg",
+                        Height = "125.9 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "117 / 83 mm[Hg]",
+                        Pulse = "82",
+                        Created = DateTime.Parse("10-4-2020"),
+                        Modified = DateTime.Parse("10-4-2020"),
+                        CreatedBy = "Emogene Halvorson",
+                        ModifiedBy = "Emogene Halvorson",
+                        PatientId = 44
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("1-2-2020"),
+                        Weight = "105.4 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "127 / 84 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("1-2-2020"),
+                        Modified = DateTime.Parse("1-2-2020"),
+                        CreatedBy = "Eugene Hudson",
+                        ModifiedBy = "Eugene Hudson",
+                        PatientId = 45
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("3-29-2019"),
+                        Weight = "18.9 kg",
+                        Height = "113.9 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "134 / 85 mm[Hg]",
+                        Pulse = "82",
+                        Created = DateTime.Parse("3-29-2019"),
+                        Modified = DateTime.Parse("3-29-2019"),
+                        CreatedBy = "Jorge Herna?ndez",
+                        ModifiedBy = "Jorge Herna?ndez",
+                        PatientId = 46
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-5-2020"),
+                        Weight = "26.5 kg",
+                        Height = "132.3 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "127 / 82 mm[Hg]",
+                        Pulse = "65",
+                        Created = DateTime.Parse("10-5-2020"),
+                        Modified = DateTime.Parse("10-5-2020"),
+                        CreatedBy = "Coleman Hagenes",
+                        ModifiedBy = "Coleman Hagenes",
+                        PatientId = 47
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-23-2019"),
+                        Weight = "30.4 kg",
+                        Height = "138.4 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "125 / 78 mm[Hg]",
+                        Pulse = "64",
+                        Created = DateTime.Parse("12-23-2019"),
+                        Modified = DateTime.Parse("12-23-2019"),
+                        CreatedBy = "Pat Nader",
+                        ModifiedBy = "Pat Nader",
+                        PatientId = 48
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-22-2019"),
+                        Weight = "95.2 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "120 / 78 mm[Hg]",
+                        Pulse = "68",
+                        Created = DateTime.Parse("4-22-2019"),
+                        Modified = DateTime.Parse("4-22-2019"),
+                        CreatedBy = "Reggie Schmidt",
+                        ModifiedBy = "Reggie Schmidt",
+                        PatientId = 49
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("1-31-2019"),
+                        Weight = "34.6 kg",
+                        Height = "143.9 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "128 / 76 mm[Hg]",
+                        Pulse = "95",
+                        Created = DateTime.Parse("1-31-2019"),
+                        Modified = DateTime.Parse("1-31-2019"),
+                        CreatedBy = "Ginny Stamm",
+                        ModifiedBy = "Ginny Stamm",
+                        PatientId = 50
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-24-2020"),
+                        Weight = "39.2 kg",
+                        Height = "150.4 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "137 / 83 mm[Hg]",
+                        Pulse = "76",
+                        Created = DateTime.Parse("11-24-2020"),
+                        Modified = DateTime.Parse("11-24-2020"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 51
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-4-2019"),
+                        Weight = "97.6 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "119 / 69 mm[Hg]",
+                        Pulse = "70",
+                        Created = DateTime.Parse("2-4-2019"),
+                        Modified = DateTime.Parse("2-4-2019"),
+                        CreatedBy = "Cara Ruecker",
+                        ModifiedBy = "Cara Ruecker",
+                        PatientId = 52
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-8-2019"),
+                        Weight = "21.2 kg",
+                        Height = "120.7 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "112 / 89 mm[Hg]",
+                        Pulse = "96",
+                        Created = DateTime.Parse("5-8-2019"),
+                        Modified = DateTime.Parse("5-8-2019"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 53
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-28-2019"),
+                        Weight = "43.8 kg",
+                        Height = "157.6 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "119 / 78 mm[Hg]",
+                        Pulse = "72",
+                        Created = DateTime.Parse("11-28-2019"),
+                        Modified = DateTime.Parse("11-28-2019"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 54
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-9-2019"),
+                        Weight = "23.8 kg",
+                        Height = "126.8 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "127 / 74 mm[Hg]",
+                        Pulse = "66",
+                        Created = DateTime.Parse("4-9-2019"),
+                        Modified = DateTime.Parse("4-9-2019"),
+                        CreatedBy = "Sharolyn Mayert",
+                        ModifiedBy = "Sharolyn Mayert",
+                        PatientId = 55
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-23-2019"),
+                        Weight = "100.2 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "124 / 72 mm[Hg]",
+                        Pulse = "95",
+                        Created = DateTime.Parse("8-23-2019"),
+                        Modified = DateTime.Parse("8-23-2019"),
+                        CreatedBy = "Hollis Volkman",
+                        ModifiedBy = "Hollis Volkman",
+                        PatientId = 56
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-13-2020"),
+                        Weight = "48.1 kg",
+                        Height = "163.1 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "108 / 81 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("4-13-2020"),
+                        Modified = DateTime.Parse("4-13-2020"),
+                        CreatedBy = "Lanny Blick",
+                        ModifiedBy = "Lanny Blick",
+                        PatientId = 57
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-31-2020"),
+                        Weight = "27 kg",
+                        Height = "132.5 cm",
+                        Temperature = "39.2 Cel",
+                        BloodPressure = "131 / 77 mm[Hg]",
+                        Pulse = "81",
+                        Created = DateTime.Parse("8-31-2020"),
+                        Modified = DateTime.Parse("8-31-2020"),
+                        CreatedBy = "David Tillman",
+                        ModifiedBy = "David Tillman",
+                        PatientId = 58
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-18-2020"),
+                        Weight = "52 kg",
+                        Height = "166.1 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "127 / 86 mm[Hg]",
+                        Pulse = "95",
+                        Created = DateTime.Parse("6-18-2020"),
+                        Modified = DateTime.Parse("6-18-2020"),
+                        CreatedBy = "Santos Ernser",
+                        ModifiedBy = "Santos Ernser",
+                        PatientId = 59
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-16-2020"),
+                        Weight = "27.3 kg",
+                        Height = "132.9 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "130 / 83 mm[Hg]",
+                        Pulse = "76",
+                        Created = DateTime.Parse("8-16-2020"),
+                        Modified = DateTime.Parse("8-16-2020"),
+                        CreatedBy = "Joi Daugherty",
+                        ModifiedBy = "Joi Daugherty",
+                        PatientId = 60
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-2-2020"),
+                        Weight = "102.9 kg",
+                        Height = "187.1 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "108 / 77 mm[Hg]",
+                        Pulse = "86",
+                        Created = DateTime.Parse("2-2-2020"),
+                        Modified = DateTime.Parse("2-2-2020"),
+                        CreatedBy = "Gaylord McCullough",
+                        ModifiedBy = "Gaylord McCullough",
+                        PatientId = 61
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-7-2020"),
+                        Weight = "30.5 kg",
+                        Height = "137.5 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "106 / 76 mm[Hg]",
+                        Pulse = "76",
+                        Created = DateTime.Parse("12-7-2020"),
+                        Modified = DateTime.Parse("12-7-2020"),
+                        CreatedBy = "Genevieve Stiedemann",
+                        ModifiedBy = "Genevieve Stiedemann",
+                        PatientId = 62
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-20-2019"),
+                        Weight = "54.5 kg",
+                        Height = "167.4 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "128 / 78 mm[Hg]",
+                        Pulse = "88",
+                        Created = DateTime.Parse("8-20-2019"),
+                        Modified = DateTime.Parse("8-20-2019"),
+                        CreatedBy = "Monte Bergstrom",
+                        ModifiedBy = "Monte Bergstrom",
+                        PatientId = 63
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-15-2019"),
+                        Weight = "56.2 kg",
+                        Height = "168 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "138 / 86 mm[Hg]",
+                        Pulse = "86",
+                        Created = DateTime.Parse("9-15-2019"),
+                        Modified = DateTime.Parse("9-15-2019"),
+                        CreatedBy = "Noelia Morissette",
+                        ModifiedBy = "Noelia Morissette",
+                        PatientId = 64
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-11-2019"),
+                        Weight = "3.6 kg",
+                        Height = "49.9 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "133 / 77 mm[Hg]",
+                        Pulse = "86",
+                        Created = DateTime.Parse("10-11-2019"),
+                        Modified = DateTime.Parse("10-11-2019"),
+                        CreatedBy = "Colin Yundt",
+                        ModifiedBy = "Colin Yundt",
+                        PatientId = 65
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-20-2019"),
+                        Weight = "4.5 kg",
+                        Height = "53.9 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "111 / 72 mm[Hg]",
+                        Pulse = "70",
+                        Created = DateTime.Parse("8-20-2019"),
+                        Modified = DateTime.Parse("8-20-2019"),
+                        CreatedBy = "Adrian Johns",
+                        ModifiedBy = "Adrian Johns",
+                        PatientId = 66
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-6-2019"),
+                        Weight = "5.9 kg",
+                        Height = "59.4 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "121 / 74 mm[Hg]",
+                        Pulse = "94",
+                        Created = DateTime.Parse("10-6-2019"),
+                        Modified = DateTime.Parse("10-6-2019"),
+                        CreatedBy = "Charmaine Hoeger",
+                        ModifiedBy = "Charmaine Hoeger",
+                        PatientId = 67
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-12-2020"),
+                        Weight = "7.1 kg",
+                        Height = "63.4 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "130 / 74 mm[Hg]",
+                        Pulse = "84",
+                        Created = DateTime.Parse("12-12-2020"),
+                        Modified = DateTime.Parse("12-12-2020"),
+                        CreatedBy = "Kory Ernser",
+                        ModifiedBy = "Kory Ernser",
+                        PatientId = 68
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-29-2020"),
+                        Weight = "8.5 kg",
+                        Height = "68 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "132 / 75 mm[Hg]",
+                        Pulse = "69",
+                        Created = DateTime.Parse("8-29-2020"),
+                        Modified = DateTime.Parse("8-29-2020"),
+                        CreatedBy = "Rudy Kerluke",
+                        ModifiedBy = "Rudy Kerluke",
+                        PatientId = 69
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-13-2019"),
+                        Weight = "24 kg",
+                        Height = "119.3 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "126 / 78 mm[Hg]",
+                        Pulse = "96",
+                        Created = DateTime.Parse("8-13-2019"),
+                        Modified = DateTime.Parse("8-13-2019"),
+                        CreatedBy = "Mike Moore",
+                        ModifiedBy = "Mike Moore",
+                        PatientId = 70
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-7-2020"),
+                        Weight = "27.1 kg",
+                        Height = "126.1 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "123 / 74 mm[Hg]",
+                        Pulse = "66",
+                        Created = DateTime.Parse("9-7-2020"),
+                        Modified = DateTime.Parse("9-7-2020"),
+                        CreatedBy = "Brice Mitchell",
+                        ModifiedBy = "Brice Mitchell",
+                        PatientId = 71
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-19-2020"),
+                        Weight = "30.5 kg",
+                        Height = "132.5 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "135 / 80 mm[Hg]",
+                        Pulse = "91",
+                        Created = DateTime.Parse("4-19-2020"),
+                        Modified = DateTime.Parse("4-19-2020"),
+                        CreatedBy = "Olin Zulauf",
+                        ModifiedBy = "Olin Zulauf",
+                        PatientId = 72
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-18-2020"),
+                        Weight = "34.8 kg",
+                        Height = "139 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "130 / 80 mm[Hg]",
+                        Pulse = "60",
+                        Created = DateTime.Parse("5-18-2020"),
+                        Modified = DateTime.Parse("5-18-2020"),
+                        CreatedBy = "Renata Walter",
+                        ModifiedBy = "Renata Walter",
+                        PatientId = 73
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-26-2019"),
+                        Weight = "39.5 kg",
+                        Height = "144.5 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "130 / 75 mm[Hg]",
+                        Pulse = "68",
+                        Created = DateTime.Parse("6-26-2019"),
+                        Modified = DateTime.Parse("6-26-2019"),
+                        CreatedBy = "Susana Lockman",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 74
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-7-2019"),
+                        Weight = "44.8 kg",
+                        Height = "149.7 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "126 / 78 mm[Hg]",
+                        Pulse = "85",
+                        Created = DateTime.Parse("4-7-2019"),
+                        Modified = DateTime.Parse("4-7-2019"),
+                        CreatedBy = "Hee Hagenes",
+                        ModifiedBy = "Hee Hagenes",
+                        PatientId = 75
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-11-2020"),
+                        Weight = "50.7 kg",
+                        Height = "155.7 cm",
+                        Temperature = "37.6 Cel",
+                        BloodPressure = "103 / 75 mm[Hg]",
+                        Pulse = "83",
+                        Created = DateTime.Parse("12-11-2020"),
+                        Modified = DateTime.Parse("12-11-2020"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 76
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("8-27-2020"),
+                        Weight = "56.9 kg",
+                        Height = "163.1 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "124 / 79 mm[Hg]",
+                        Pulse = "88",
+                        Created = DateTime.Parse("8-27-2020"),
+                        Modified = DateTime.Parse("8-27-2020"),
+                        CreatedBy = "Ceola Bogisich",
+                        ModifiedBy = "Ceola Bogisich",
+                        PatientId = 77
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-7-2020"),
+                        Weight = "63.6 kg",
+                        Height = "171.4 cm",
+                        Temperature = "37.2 Cel",
+                        BloodPressure = "120 / 82 mm[Hg]",
+                        Pulse = "70",
+                        Created = DateTime.Parse("4-7-2020"),
+                        Modified = DateTime.Parse("4-7-2020"),
+                        CreatedBy = "Clay Johns",
+                        ModifiedBy = "Clay Johns",
+                        PatientId = 78
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-10-2019"),
+                        Weight = "69.4 kg",
+                        Height = "176.9 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "118 / 81 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("2-10-2019"),
+                        Modified = DateTime.Parse("2-10-2019"),
+                        CreatedBy = "Maribel Bogisich",
+                        ModifiedBy = "Maribel Bogisich",
+                        PatientId = 79
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("9-2-2020"),
+                        Weight = "41.8 kg",
+                        Height = "161.4 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "101 / 81 mm[Hg]",
+                        Pulse = "85",
+                        Created = DateTime.Parse("9-2-2020"),
+                        Modified = DateTime.Parse("9-2-2020"),
+                        CreatedBy = "Veronica Hermiston",
+                        ModifiedBy = "Veronica Hermiston",
+                        PatientId = 80
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-8-2019"),
+                        Weight = "45.4 kg",
+                        Height = "164.5 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "119 / 83 mm[Hg]",
+                        Pulse = "81",
+                        Created = DateTime.Parse("6-8-2019"),
+                        Modified = DateTime.Parse("6-8-2019"),
+                        CreatedBy = "Latricia Bailey",
+                        ModifiedBy = "Latricia Bailey",
+                        PatientId = 81
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-13-2019"),
+                        Weight = "48.1 kg",
+                        Height = "165.8 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "133 / 83 mm[Hg]",
+                        Pulse = "65",
+                        Created = DateTime.Parse("5-13-2019"),
+                        Modified = DateTime.Parse("5-13-2019"),
+                        CreatedBy = "Miguel a?ngel Romo",
+                        ModifiedBy = "Miguel a?ngel Romo",
+                        PatientId = 82
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-18-2019"),
+                        Weight = "49.9 kg",
+                        Height = "166.4 cm",
+                        Temperature = "37.5 Cel",
+                        BloodPressure = "116 / 78 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("4-18-2019"),
+                        Modified = DateTime.Parse("4-18-2019"),
+                        CreatedBy = "Ada?n Valdaes",
+                        ModifiedBy = "Ada?n Valdaes",
+                        PatientId = 83
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-10-2019"),
+                        Weight = "51.2 kg",
+                        Height = "166.8 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "100 / 72 mm[Hg]",
+                        Pulse = "87",
+                        Created = DateTime.Parse("2-10-2019"),
+                        Modified = DateTime.Parse("2-10-2019"),
+                        CreatedBy = "Noble Hodkiewicz",
+                        ModifiedBy = "Noble Hodkiewicz",
+                        PatientId = 84
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-4-2019"),
+                        Weight = "52.2 kg",
+                        Height = "167 cm",
+                        Temperature = "37.5 Cel",
+                        BloodPressure = "134 / 87 mm[Hg]",
+                        Pulse = "63",
+                        Created = DateTime.Parse("2-4-2019"),
+                        Modified = DateTime.Parse("2-4-2019"),
+                        CreatedBy = "Bettye Gleichner",
+                        ModifiedBy = "Bettye Gleichner",
+                        PatientId = 85
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-5-2020"),
+                        Weight = "53.2 kg",
+                        Height = "167.1 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "137 / 71 mm[Hg]",
+                        Pulse = "61",
+                        Created = DateTime.Parse("11-5-2020"),
+                        Modified = DateTime.Parse("11-5-2020"),
+                        CreatedBy = "Gerardo Crooks",
+                        ModifiedBy = "Gerardo Crooks",
+                        PatientId = 86
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("6-1-2020"),
+                        Weight = "57 kg",
+                        Height = "167.2 cm",
+                        Temperature = "37.3 Cel",
+                        BloodPressure = "104 / 73 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("6-1-2020"),
+                        Modified = DateTime.Parse("6-1-2020"),
+                        CreatedBy = "Donita Pfeffer",
+                        ModifiedBy = "Donita Pfeffer",
+                        PatientId = 87
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-26-2020"),
+                        Weight = "9.5 kg",
+                        Height = "78.1 cm",
+                        Temperature = "37.1 Cel",
+                        BloodPressure = "108 / 77 mm[Hg]",
+                        Pulse = "82",
+                        Created = DateTime.Parse("11-26-2020"),
+                        Modified = DateTime.Parse("11-26-2020"),
+                        CreatedBy = "Fransisca Emmerich",
+                        ModifiedBy = "Fransisca Emmerich",
+                        PatientId = 88
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-30-2019"),
+                        Weight = "10.1 kg",
+                        Height = "81.3 cm",
+                        Temperature = "37.4 Cel",
+                        BloodPressure = "129 / 85 mm[Hg]",
+                        Pulse = "77",
+                        Created = DateTime.Parse("11-30-2019"),
+                        Modified = DateTime.Parse("11-30-2019"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 89
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-18-2019"),
+                        Weight = "11.1 kg",
+                        Height = "87 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "129 / 75 mm[Hg]",
+                        Pulse = "87",
+                        Created = DateTime.Parse("11-18-2019"),
+                        Modified = DateTime.Parse("11-18-2019"),
+                        CreatedBy = "Jayson Swift",
+                        ModifiedBy = "Jayson Swift",
+                        PatientId = 90
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("4-5-2020"),
+                        Weight = "11.9 kg",
+                        Height = "91.4 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "109 / 75 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("4-5-2020"),
+                        Modified = DateTime.Parse("4-5-2020"),
+                        CreatedBy = "Kasey Spencer",
+                        ModifiedBy = "Kasey Spencer",
+                        PatientId = 91
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("11-21-2020"),
+                        Weight = "12.7 kg",
+                        Height = "95.5 cm",
+                        Temperature = "37.5 Cel",
+                        BloodPressure = "106 / 84 mm[Hg]",
+                        Pulse = "83",
+                        Created = DateTime.Parse("11-21-2020"),
+                        Modified = DateTime.Parse("11-21-2020"),
+                        CreatedBy = "Jazmin Schultz",
+                        ModifiedBy = "Jazmin Schultz",
+                        PatientId = 92
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-12-2020"),
+                        Weight = "13.5 kg",
+                        Height = "99 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "114 / 79 mm[Hg]",
+                        Pulse = "73",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("2-12-2020"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 93
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("12-16-2019"),
+                        Weight = "14.4 kg",
+                        Height = "102.5 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "118 / 84 mm[Hg]",
+                        Pulse = "62",
+                        Created = DateTime.Parse("12-16-2019"),
+                        Modified = DateTime.Parse("12-16-2019"),
+                        CreatedBy = "Jame Johnson",
+                        ModifiedBy = "Jame Johnson",
+                        PatientId = 94
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-11-2020"),
+                        Weight = "16.2 kg",
+                        Height = "109.6 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "117 / 74 mm[Hg]",
+                        Pulse = "92",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("10-11-2020"),
+                        CreatedBy = "Cruz Green",
+                        ModifiedBy = "Cruz Green",
+                        PatientId = 95
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("5-3-2019"),
+                        Weight = "18.2 kg",
+                        Height = "116.9 cm",
+                        Temperature = "37 Cel",
+                        BloodPressure = "112 / 84 mm[Hg]",
+                        Pulse = "76",
+                        Created = DateTime.Parse("5-3-2019"),
+                        Modified = DateTime.Parse("5-3-2019"),
+                        CreatedBy = "Leonard Bechtelar",
+                        ModifiedBy = "Leonard Bechtelar",
+                        PatientId = 96
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("2-15-2019"),
+                        Weight = "20.3 kg",
+                        Height = "123.9 cm",
+                        Temperature = "37.7 Cel",
+                        BloodPressure = "118 / 86 mm[Hg]",
+                        Pulse = "64",
+                        Created = DateTime.Parse("2-15-2019"),
+                        Modified = DateTime.Parse("2-15-2019"),
+                        CreatedBy = "Sanjuana Heaney",
+                        ModifiedBy = "Sanjuana Heaney",
+                        PatientId = 97
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("3-8-2019"),
+                        Weight = "22.7 kg",
+                        Height = "130.1 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "109 / 76 mm[Hg]",
+                        Pulse = "90",
+                        Created = DateTime.Parse("3-8-2019"),
+                        Modified = DateTime.Parse("3-8-2019"),
+                        CreatedBy = "Janessa Zieme",
+                        ModifiedBy = "Janessa Zieme",
+                        PatientId = 98
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-31-2020"),
+                        Weight = "25.7 kg",
+                        Height = "136.1 cm",
+                        Temperature = "37.8 Cel",
+                        BloodPressure = "118 / 72 mm[Hg]",
+                        Pulse = "74",
+                        Created = DateTime.Parse("10-31-2020"),
+                        Modified = DateTime.Parse("10-31-2020"),
+                        CreatedBy = "Louis Hettinger",
+                        ModifiedBy = "Louis Hettinger",
+                        PatientId = 99
+                    },
+                new Vital
+                    {
+                        VitalDate = DateTime.Parse("10-31-2020"),
+                        Weight = "28.9 kg",
+                        Height = "141.4 cm",
+                        Temperature = "37.9 Cel",
+                        BloodPressure = "119 / 81 mm[Hg]",
+                        Pulse = "66",
+                        Created = DateTime.Parse("10-31-2020"),
+                        Modified = DateTime.Parse("10-31-2020"),
+                        CreatedBy = "Alica Reinger",
+                        ModifiedBy = "Alica Reinger",
+                        PatientId = 100
+                    }
+                };
+
+            vitals.ForEach(v => context.Vitals.AddOrUpdate(v));
+            context.SaveChanges();
 
             }
         }
-    }
+    };

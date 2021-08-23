@@ -12,107 +12,116 @@ using PatientPortalApp.Models;
 
 namespace PatientPortalApp.Controllers
 {
-    public class AppoinmentsController : Controller
+    public class AppointmentsController : Controller
     {
         private PatientPortalAppContext db = new PatientPortalAppContext();
 
-        // GET: Appoinments
+        // GET: Appointments
         public async Task<ActionResult> Index()
         {
-            return View(await db.Appoinments.ToListAsync());
+            var appoinments = db.Appoinments.Include(a => a.Patient).Include(a => a.Provider);
+            return View(await appoinments.ToListAsync());
         }
 
-        // GET: Appoinments/Details/5
+        // GET: Appointments/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appoinment appoinment = await db.Appoinments.FindAsync(id);
-            if (appoinment == null)
+            Appointment appointment = await db.Appoinments.FindAsync(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(appoinment);
+            return View(appointment);
         }
 
-        // GET: Appoinments/Create
+        // GET: Appointments/Create
         public ActionResult Create()
         {
+            ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Ssn");
+            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderName");
             return View();
         }
 
-        // POST: Appoinments/Create
+        // POST: Appointments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "AppointmentId,FirstName,LastName,AppointmentDate")] Appoinment appoinment)
+        public async Task<ActionResult> Create([Bind(Include = "PatientId,AppointmentDate,CreatedBy,Created,ModifiedBy,Modified,Reason,ProviderId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                db.Appoinments.Add(appoinment);
+                db.Appoinments.Add(appointment);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(appoinment);
+            ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Ssn", appointment.PatientId);
+            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderName", appointment.ProviderId);
+            return View(appointment);
         }
 
-        // GET: Appoinments/Edit/5
+        // GET: Appointments/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appoinment appoinment = await db.Appoinments.FindAsync(id);
-            if (appoinment == null)
+            Appointment appointment = await db.Appoinments.FindAsync(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(appoinment);
+            ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Ssn", appointment.PatientId);
+            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderName", appointment.ProviderId);
+            return View(appointment);
         }
 
-        // POST: Appoinments/Edit/5
+        // POST: Appointments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "AppointmentId,FirstName,LastName,AppointmentDate")] Appoinment appoinment)
+        public async Task<ActionResult> Edit([Bind(Include = "PatientId,AppointmentDate,CreatedBy,Created,ModifiedBy,Modified,Reason,ProviderId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(appoinment).State = EntityState.Modified;
+                db.Entry(appointment).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(appoinment);
+            ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "FullName", appointment.PatientId);
+            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderName", appointment.ProviderId);
+            return View(appointment);
         }
 
-        // GET: Appoinments/Delete/5
+        // GET: Appointments/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appoinment appoinment = await db.Appoinments.FindAsync(id);
-            if (appoinment == null)
+            Appointment appointment = await db.Appoinments.FindAsync(id);
+            if (appointment == null)
             {
                 return HttpNotFound();
             }
-            return View(appoinment);
+            return View(appointment);
         }
 
-        // POST: Appoinments/Delete/5
+        // POST: Appointments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Appoinment appoinment = await db.Appoinments.FindAsync(id);
-            db.Appoinments.Remove(appoinment);
+            Appointment appointment = await db.Appoinments.FindAsync(id);
+            db.Appoinments.Remove(appointment);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

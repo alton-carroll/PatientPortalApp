@@ -9,12 +9,25 @@ using System.Web;
 using System.Web.Mvc;
 using PatientPortalApp.Data;
 using PatientPortalApp.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PatientPortalApp.Controllers
 {
     public class ReferralsController : Controller
     {
         private PatientPortalAppContext db = new PatientPortalAppContext();
+
+        public ActionResult Read_Referrals([DataSourceRequest] DataSourceRequest request, int id)
+            {
+            return Json(db.Referrals.Where(r => r.PatientId == id).ToDataSourceResult(request, r => new Referral()
+                {
+                ReferralDate = r.ReferralDate,
+                ReferralDoctor = r.ReferralDoctor,
+                Doctor = r.Doctor,
+                Location = r.Location
+                }));
+            }
 
         // GET: Referrals
         public async Task<ActionResult> Index()
@@ -46,7 +59,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Referrals/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -80,7 +93,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Referrals/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

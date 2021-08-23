@@ -1,0 +1,107 @@
+﻿@model IEnumerable<PatientPortalApp.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@(Html.Kendo().Grid(Model)
+    .Name("grid")
+    .DataSource(source =>
+    {
+        source.Server()
+        .PageSize(20)
+        .Model(m =>
+        {
+            m.Id(a => a.PatientId);
+        });
+    })
+    .RowAction(row =>
+    {
+        row.HtmlAttributes.Add("onclick", "location.href = '/Appointments/Details/" + row.DataItem.PatientId + "'");
+    })
+    .Columns(columns =>
+    {
+        columns.Bound(a => a.PatientId).Title("Patient ID");
+        columns.Bound(a => a.AppointmentDate).Title("Date")
+        .Template(a =>
+        {
+            return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
+        });
+        columns.Bound(a => a.AppointmentDate).Title("Time")
+        .Template(a =>
+        {
+            return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
+        });
+    })
+    
+    )
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.Prefix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provider.ProviderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reason)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Prefix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provider.ProviderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reason)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PatientId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PatientId })
+        </td>
+    </tr>
+}
+
+</table>*@

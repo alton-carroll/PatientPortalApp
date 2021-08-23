@@ -75,5 +75,9 @@ namespace PatientPortalApp.Models
         public DateTime Created { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime Modified { get; set; }
+        public virtual ICollection<Medication> Medications { get; set; }
+        public virtual ICollection<Referral> Referrals  { get; set; }
+        //public virtual ICollection<Appointment> Appoinments { get; set; }
+        public virtual ICollection<Vital> Vitals { get; set; }
         }
     }

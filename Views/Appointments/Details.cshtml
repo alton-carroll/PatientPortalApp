@@ -1,0 +1,82 @@
+﻿@model PatientPortalApp.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Prefix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Prefix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provider.ProviderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provider.ProviderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -16,19 +16,100 @@ namespace PatientPortalApp.Controllers
 {
     public class PatientsController : Controller
     {
-        public ActionResult GetPatient([DataSourceRequest] DataSourceRequest request)
+        public ActionResult ReadPatient([DataSourceRequest] DataSourceRequest request)
             {
-            using (var dbContext = new PatientPortalAppContext())
+            using (var context = new PatientPortalAppContext())
                 {
-                return Json(dbContext.Patients.ToDataSourceResult(request, p => new Patient
+                return Json(context.Patients.ToDataSourceResult(request, p => new Patient
                     {
                     PatientId = p.PatientId,
                     FirstName = p.FirstName,
                     LastName = p.LastName,
-                    ActivePatient = p.ActivePatient
+                    ActivePatient = p.ActivePatient,
                     }));
                 }
             }
+
+        public ActionResult UpdatePatient(Patient patient)
+            {
+            if (patient != null && ModelState.IsValid)
+                {
+                var target = GetPatientById(patient.PatientId);
+                target.Prefix = patient.Prefix;
+                target.FirstName = patient.FirstName;
+                target.LastName = patient.LastName;
+                target.Suffix = patient.Suffix;
+                target.BirthDate = patient.BirthDate;
+                target.Ssn = patient.Ssn;
+                target.ActivePatient = patient.ActivePatient;
+                target.Street = patient.Street;
+                target.City = patient.City;
+                target.State = patient.State;
+                target.Zip = patient.Zip;
+                target.PrimaryInsurance = patient.PrimaryInsurance;
+                target.PrimaryInsuranceID = patient.PrimaryInsuranceID;
+                target.PrimaryInsuranceHolder = patient.PrimaryInsuranceHolder;
+                target.SecondaryInsurance = patient.SecondaryInsurance;
+                target.SecondaryInsuranceID = patient.SecondaryInsuranceID;
+                target.SecondaryInsuranceHolder = patient.SecondaryInsuranceHolder;
+                db.SaveChanges();
+                }
+            return Json(ModelState.ToDataSourceResult());
+            }
+
+        public ActionResult CreatePatient(Patient patient)
+            {
+            if (patient != null && ModelState.IsValid)
+                {
+                var target = new Patient();
+                target.Prefix = patient.Prefix;
+                target.FirstName = patient.FirstName;
+                target.LastName = patient.LastName;
+                target.Suffix = patient.Suffix;
+                target.BirthDate = patient.BirthDate;
+                target.Ssn = patient.Ssn;
+                target.ActivePatient = patient.ActivePatient;
+                target.Street = patient.Street;
+                target.City = patient.City;
+                target.State = patient.State;
+                target.Zip = patient.Zip;
+                target.PrimaryInsurance = patient.PrimaryInsurance;
+                target.PrimaryInsuranceID = patient.PrimaryInsuranceID;
+                target.PrimaryInsuranceHolder = patient.PrimaryInsuranceHolder;
+                target.SecondaryInsurance = patient.SecondaryInsurance;
+                target.SecondaryInsuranceID = patient.SecondaryInsuranceID;
+                target.SecondaryInsuranceHolder = patient.SecondaryInsuranceHolder;
+
+                db.Patients.Add(target);
+                db.SaveChanges();
+
+                patient.PatientId = target.PatientId;
+                }
+            return Json(new[ ] { patient }.ToDataSourceResult(new DataSourceRequest(), ModelState));
+            }
+
+        public ActionResult DestroyPatient(int patientId)
+            {
+            var target = GetPatientById(patientId);
+            db.Patients.Remove(target);
+            db.SaveChanges();
+
+            return Json(ModelState.ToDataSourceResult());
+            }
+
+
+        private Patient GetPatientById(int id)
+            {
+            return db.Patients.FirstOrDefault(p => p.PatientId == id);
+            }
+
+
+
+
+
+        //Auto-Generated Script below
+
+
 
         private PatientPortalAppContext db = new PatientPortalAppContext();
 

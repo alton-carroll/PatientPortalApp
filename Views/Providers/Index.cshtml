@@ -1,4 +1,13 @@
-﻿@model IEnumerable<PatientPortalApp.Models.Provider>
+﻿@(Html.Kendo().Breadcrumb()
+    .Name("breadcrumb")
+    .BindToLocation(true)
+    .Navigational(true)
+    )
+
+<hr />
+
+
+@model IEnumerable<PatientPortalApp.Models.Provider>
 
 @{
     ViewBag.Title = "Index";
@@ -20,20 +29,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProviderName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specialty)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProviderId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProviderId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProviderId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProviderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProviderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderId })
+            </td>
+        </tr>
+        }
 
 </table>
