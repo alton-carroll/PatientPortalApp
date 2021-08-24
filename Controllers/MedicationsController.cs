@@ -9,12 +9,23 @@ using System.Web;
 using System.Web.Mvc;
 using PatientPortalApp.Data;
 using PatientPortalApp.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PatientPortalApp.Controllers
 {
     public class MedicationsController : Controller
     {
         private PatientPortalAppContext db = new PatientPortalAppContext();
+
+        public ActionResult Read_Medication([DataSourceRequest] DataSourceRequest request, int id)
+            {
+            return Json(db.Medications.Where(m => m.PatientId == id).ToDataSourceResult(request, m => new Medication()
+                {
+                MedicationDate = m.MedicationDate,
+                MedicationName = m.MedicationName
+                }));
+            }
 
         // GET: Medications
         public async Task<ActionResult> Index()
@@ -46,7 +57,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Medications/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -80,7 +91,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Medications/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

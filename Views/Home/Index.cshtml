@@ -9,6 +9,117 @@
     .BindToLocation(true)
     .Navigational(true)
     )
-
-    <h1>Welcome to the Patient Management Portal</h1>
+    @*<h1>Welcome to the Patient Management Portal</h1>*@
 </div>
+
+<div class="demo-section k-content">
+    @*<h4>Kendo UI Button with icons</h4>*@
+
+    @(Html.Kendo().Button()
+    .Name("MyAppointments")
+    .Icon("calendar")
+    .HtmlAttributes( new {type = "button"} )
+    .Content("My Appointments")
+    )
+    @(Html.Kendo().Button()
+    .Name("AppointmentSearch")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("search")
+    .Content("Appointment Search")
+    )
+    @(Html.Kendo().Button()
+    .Name("AppointmentDetail")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("table")
+    .Content("Appointment Detail")
+    )
+    @(Html.Kendo().Button()
+    .Name("PatientSearch")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("search")
+    .Content("Patient Search")
+    )
+    @(Html.Kendo().Button()
+    .Name("PatientDetail")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("table")
+    .Content("Patient Detail")
+    .Events(e => e.Click(
+        "name"))
+    )
+    @(Html.Kendo().Button()
+    .Name("DoctorSearch")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("search")
+    .Content("Doctor Search")
+    )
+    @(Html.Kendo().Button()
+    .Name("DoctorDetail")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("user")
+    .Content("Doctor Detail")
+    )
+    @(Html.Kendo().Button()
+    .Name("AddSpecialties")
+    .HtmlAttributes( new {type = "button"} )
+    .Icon("plus-circle")
+    .Content("Add Specialties")
+    )
+    @(Html.Kendo().Button()
+    .Name("AddMedication")
+    .HtmlAttributes( new { type = "button"})
+    .Icon("plus-circle")
+    .Content("Add Medication")
+    )
+
+
+
+</div>
+
+<style>
+    .demo-section {
+        line-height: 4em;
+    }
+
+        .demo-section .k-button {
+            /*margin-right: 10px;*/
+            width: 200px;
+            height: 175px;
+            margin: 20px;
+            background-color: white;
+            border: 50px black;
+            color: black;
+            font-size: 17px;
+            border: 2.5px solid black;
+        }
+
+    .k-button .k-image {
+        /*height: 16px;*/
+        width: 150px;
+        height: 120px;
+    }
+
+    .class-color {
+        color: lightblue;
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .demo-section .k-icon {
+        /*margin-right: 10px;*/
+        color: #0D6EFD;
+        height: 16px;
+    }
+
+    .k-button:hover {
+        background-color: yellow;
+    }
+</style>
+
+<script>
+    function name() {
+        window.location = '@Url.Action("Index", "Patients")';
+
+    }
+
+</script>

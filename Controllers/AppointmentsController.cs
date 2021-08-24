@@ -9,12 +9,23 @@ using System.Web;
 using System.Web.Mvc;
 using PatientPortalApp.Data;
 using PatientPortalApp.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PatientPortalApp.Controllers
 {
     public class AppointmentsController : Controller
     {
         private PatientPortalAppContext db = new PatientPortalAppContext();
+
+        public ActionResult Read_Appointments([DataSourceRequest] DataSourceRequest request, int id)
+            {
+            return Json(db.Appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
+                {
+                AppointmentDate = a.AppointmentDate,
+                Reason = a.Reason
+                }));
+            }
 
         // GET: Appointments
         public async Task<ActionResult> Index()
@@ -47,7 +58,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Appointments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,7 +94,7 @@ namespace PatientPortalApp.Controllers
         }
 
         // POST: Appointments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]

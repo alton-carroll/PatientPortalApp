@@ -151,7 +151,6 @@
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicationsController.cs" />
-    <Compile Include="Controllers\PatientDetailController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ReferralsController.cs" />
@@ -161,9 +160,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108240154582_Initial.cs" />
-    <Compile Include="Migrations\202108240154582_Initial.Designer.cs">
-      <DependentUpon>202108240154582_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202108241853271_Initial.cs" />
+    <Compile Include="Migrations\202108241853271_Initial.Designer.cs">
+      <DependentUpon>202108241853271_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -2965,8 +2964,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108240154582_Initial.resx">
-      <DependentUpon>202108240154582_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108241853271_Initial.resx">
+      <DependentUpon>202108241853271_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,7 +28,7 @@ namespace PatientPortalApp.Models
             {
             get { return FirstName + " " + MiddleName + " " + LastName + " " + Suffix; }
             }
-
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
         //[Required]
         public DateTime BirthDate { get; set; }
@@ -72,8 +72,10 @@ namespace PatientPortalApp.Models
         public Decimal CurrentBalance { get; set; }
 
         public string CreatedBy { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Created { get; set; }
         public string ModifiedBy { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Modified { get; set; }
         public virtual ICollection<Medication> Medications { get; set; }
         public virtual ICollection<Referral> Referrals  { get; set; }

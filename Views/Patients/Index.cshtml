@@ -1,4 +1,8 @@
-﻿@{
+﻿@* TODO:
+    1. Need to add a conditional statement for tabs that do not have any data to display
+*@
+
+@{
     ViewBag.Title = "Patients";
 }
 
@@ -22,7 +26,6 @@
                 command.Edit();
                 command.Destroy();
             });
-
         })
         .ToolBar(tools => tools.Create())
         .Pageable().Sortable().Filterable()
@@ -32,88 +35,150 @@
                 model.Id(p => p.PatientId);
                 model.Field(p => p.PatientId).Editable(false);
             })
-            .Events(events => events.Error("error_handler"))
+            .Events(events => events
+            .Error("error_handler"))
             .Read(read => read.Action("ReadPatient", "Patients"))
             .Update(update => update.Action("UpdatePatient", "Patients"))
             .Create(create => create.Action("CreatePatient", "Patients"))
             .Destroy(destroy => destroy.Action("DestroyPatient", "Patients"))
         )
-        .ClientDetailTemplateId("client-template")
- )
-@* TODO:
-    1. Need to add a conditional statement for tabs that do not have any data to display
-*@
+        .ClientDetailTemplateId("client-template"))
+
 <script id="client-template" type="text/x-kendo-template">
     @(Html.Kendo().TabStrip()
-        .Name("tabstrip_#=PatientId#")
-        .SelectedIndex(0)
-        .Animation(animation => animation.Open(open => open.Fade(FadeDirection.In)))
-        .Items(items =>
-        {
-        items.Add()
-        .Text("Vitals")
-        .Selected(true)
-        .Content(@<text>
-            @(Html.Kendo().Grid<PatientPortalApp.Models.Vital>()
-            .Name("grid_#=PatientId#")
-            .Columns(columns =>
-            {
-                columns.Bound(v => v.Weight);
-                columns.Bound(v => v.Height);
-                columns.Bound(v => v.Temperature);
-                columns.Bound(v => v.BloodPressure);
-                columns.Bound(v => v.Pulse);
-            })
-            .DataSource(source => source.Ajax()
-                .Model(model =>
+                .Name("tabstrip_#=PatientId#")
+                .SelectedIndex(0)
+                .Animation(animation => animation.Open(open => open.Fade(FadeDirection.In)))
+                .Items(items =>
                 {
-                    model.Id(v => v.PatientId);
-                    model.Field(v => v.PatientId).Editable(false);
+                items.Add()
+                .Text("Vitals")
+                .Selected(true)
+                .Content(@<text>
+            @(Html.Kendo().Grid<PatientPortalApp.Models.Vital>()
+                .Name("grid_#=PatientId#")
+                .Columns(columns =>
+                {
+                    columns.Bound(v => v.VitalDate).Title("Date Recorded").Template(v =>
+                    {
+                        return "<span>" + v.VitalDate.ToString("MMM d, yyyy") + "</span>";
+                    });
+                    columns.Bound(v => v.Weight);
+                    columns.Bound(v => v.Height);
+                    columns.Bound(v => v.Temperature);
+                    columns.Bound(v => v.BloodPressure).Title("Blood Pressure");
+                    columns.Bound(v => v.Pulse);
                 })
-                .Events(events => events.Error("error_handler"))
-                .Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" })))
-            .ToClientTemplate())</text>);
+                .DataSource(source => source.Ajax()
+                    .Model(model =>
+                    {
+                        model.Id(v => v.PatientId);
+                        model.Field(v => v.PatientId).Editable(false);
+                    })
+                    .Events(events => events.Error("error_handler"))
+                    .Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" })))
+                .ToClientTemplate()
 
-        items.Add().Text("Referral").Content(@<text>
+            )
+        </text>
+
+                );
+
+                items.Add().Text("Referral").Content(@<text>
                 @(Html.Kendo().Grid<PatientPortalApp.Models.Referral>()
-                        .Name("grid1_#=PatientId#")
-                        .Columns(columns =>
-                        {
-                            columns.Bound(r => r.ReferralDoctor );
-                            columns.Bound(r => r.ReferralDate);
-                            columns.Bound(r => r.Doctor);
-                        })
-                        .DataSource(source => source.Ajax()
-                            .Model(model =>
+                            .Name("grid1_#=PatientId#")
+                            .Columns(columns =>
                             {
-                                model.Id(r => r.PatientId);
-                                model.Field(r => r.PatientId).Editable(false);
+                                columns.Bound(r => r.ReferralDoctor).Title("Referred Doctor");
+                                columns.Bound(r => r.ReferralDate).Title("Date Ordered").Template(r =>
+                                {
+                                    return "<span>" + r.ReferralDate.ToString("MMM d, yyyy") + "</span>";
+                                });
+
+                                columns.Bound(r => r.Doctor);
                             })
-                            .Events(events => events.Error("error_handler"))
-                            .Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" })))
-                        .ToClientTemplate()
+                                .DataSource(source => source.Ajax()
+                                    .Model(model =>
+                                    {
+                                        model.Id(r => r.PatientId);
+                                        model.Field(r => r.PatientId).Editable(false);
+                                    })
+                                    .Events(events => events.Error("error_handler")
+                                    )
+                                    .Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" })))
+                                .ToClientTemplate()
                         )
             </text>);
-        items.Add().Text("Treatment").Content(@<text>
+                items.Add().Text("Treatment").Content(@<text>
     @(Html.Kendo().Grid<PatientPortalApp.Models.Treatment>()
-                        .Name("grid2_#=PatientId#")
-                        .Columns(columns =>
-                        {
-                            columns.Bound(t => t.TreatmentDate );
-                            columns.Bound(t => t.TreatDescription);
-                            columns.Bound(t => t.CreatedBy);
-                        })
-                        .DataSource(source => source.Ajax()
-                            .Model(model =>
-                            {
-                                model.Id(r => r.PatientId);
-                                model.Field(r => r.PatientId).Editable(false);
-                            })
-                            .Events(events => events.Error("error_handler"))
-                            .Read(read => read.Action("Read_Treatment", "Treatments", new { id = "#=PatientId#" })))
-                        .ToClientTemplate()
+                                    .Name("grid2_#=PatientId#")
+                                    .Columns(columns =>
+                                    {
+                                        columns.Bound(t => t.TreatmentDate).Title("Treatment Date").Template(t =>
+                                        {
+                                            return "<span>" + t.TreatmentDate.ToString("MMM d, yyyy") + "</span>";
+                                        });
+                                        columns.Bound(t => t.TreatDescription).Title("Description");
+                                        columns.Bound(t => t.CreatedBy).Title("Opened By");
+                                    })
+                                    .DataSource(source => source.Ajax()
+                                        .Model(model =>
+                                        {
+                                            model.Id(r => r.PatientId);
+                                            model.Field(r => r.PatientId).Editable(false);
+                                        })
+                                        .Events(events => events.Error("error_handler"))
+                                        .Read(read => read.Action("Read_Treatment", "Treatments", new { id = "#=PatientId#" })))
+                                    .ToClientTemplate()
                         )</text>);
-            })
+                items.Add().Text("Medication").Content(@<text>
+    @(Html.Kendo().Grid<PatientPortalApp.Models.Medication>()
+                                    .Name("grid3_#=PatientId#")
+                                    .Columns(columns =>
+                                    {
+                                        columns.Bound(m => m.MedicationDate).Title("Date Prescribed").Template(m =>
+                                        {
+                                            return "<span>" + m.MedicationDate.ToString("MMM d, yyyy") + "</span>";
+                                        });
+                                        columns.Bound(m => m.MedicationName).Title("Medication Name");
+                                    })
+                                    .DataSource(source => source.Ajax()
+                                        .Model(model =>
+                                        {
+                                            model.Id(r => r.PatientId);
+                                            model.Field(r => r.PatientId).Editable(false);
+                                        })
+                                        .Events(events => events.Error("error_handler"))
+                                        .Read(read => read.Action("Read_Medication", "Medications", new { id = "#=PatientId#" })))
+                                    .ToClientTemplate()
+                        )</text>);
+                    items.Add().Text("Appointments")
+                    .Content(@<text>
+                        @(Html.Kendo().Grid<PatientPortalApp.Models.Appointment>()
+                            .Name("grid4_#=PatientId#")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(a => a.AppointmentDate ).Title("Appointment Date").Template(a =>
+                                {
+                                    return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
+                                });
+                                columns.Bound(a => a.AppointmentDate).Title("Appointment Time").Template(a =>
+                                {
+                                    return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
+                                });
+                                columns.Bound(a => a.Reason);
+                            })
+                            .DataSource(source => source.Ajax()
+                                .Model(model =>
+                                {
+                                    model.Id(r => r.PatientId);
+                                    model.Field(r => r.PatientId).Editable(false);
+                                })
+                                .Events(events => events.Error("error_handler"))
+                                .Read(read => read.Action("Read_Appointments", "Appointments", new { id = "#=PatientId#" })))
+                            .ToClientTemplate()
+                        ) </text>);
+                })
             .ToClientTemplate()
     )
 </script>
