@@ -161,25 +161,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108201650390_Initial.cs" />
-    <Compile Include="Migrations\202108201650390_Initial.Designer.cs">
-      <DependentUpon>202108201650390_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108221854233_VitalRevision.cs" />
-    <Compile Include="Migrations\202108221854233_VitalRevision.Designer.cs">
-      <DependentUpon>202108221854233_VitalRevision.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108221905453_PatientRevised.cs" />
-    <Compile Include="Migrations\202108221905453_PatientRevised.Designer.cs">
-      <DependentUpon>202108221905453_PatientRevised.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108231526386_VitalRev2.cs" />
-    <Compile Include="Migrations\202108231526386_VitalRev2.Designer.cs">
-      <DependentUpon>202108231526386_VitalRev2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108231811232_TreatmentData.cs" />
-    <Compile Include="Migrations\202108231811232_TreatmentData.Designer.cs">
-      <DependentUpon>202108231811232_TreatmentData.cs</DependentUpon>
+    <Compile Include="Migrations\202108240154582_Initial.cs" />
+    <Compile Include="Migrations\202108240154582_Initial.Designer.cs">
+      <DependentUpon>202108240154582_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -2981,20 +2965,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108201650390_Initial.resx">
-      <DependentUpon>202108201650390_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108221854233_VitalRevision.resx">
-      <DependentUpon>202108221854233_VitalRevision.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108221905453_PatientRevised.resx">
-      <DependentUpon>202108221905453_PatientRevised.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108231526386_VitalRev2.resx">
-      <DependentUpon>202108231526386_VitalRev2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108231811232_TreatmentData.resx">
-      <DependentUpon>202108231811232_TreatmentData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108240154582_Initial.resx">
+      <DependentUpon>202108240154582_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

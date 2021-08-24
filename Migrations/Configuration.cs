@@ -1,22 +1,21 @@
-namespace PatientPortalApp.Migrations
+ï»¿namespace PatientPortalApp.Migrations
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using PatientPortalApp.Models;
+    using System.Collections.Generic;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PatientPortalApp.Data.PatientPortalAppContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(PatientPortalApp.Data.PatientPortalAppContext context)
         {
-
             if (context.Patients.Any())
                 {
                 return;
@@ -6402,1010 +6401,3022 @@ namespace PatientPortalApp.Migrations
 
             var treatments = new List<Treatment>
             {
-                            new Treatment
+                new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("9-27-2019"),
-                        TreatDescription = "79.5 kg",
-                        Created = DateTime.Parse("9-27-2019"),
-                        Modified = DateTime.Parse("9-27-2019"),
+                        TreatmentDate = DateTime.Parse("3-17-2019"),
+                        TreatDescription = "Antenatal RhD antibody screening",
+                        Created = DateTime.Parse("5-10-2019"),
+                        Modified = DateTime.Parse("8-29-2019"),
                         CreatedBy = "Hue McKenzie",
                         ModifiedBy = "Hue McKenzie",
-                        PatientId = 38
+                        PatientId = 68
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("6-23-2019"),
-                        TreatDescription = "84.6 kg",
-                        Created = DateTime.Parse("6-23-2019"),
-                        Modified = DateTime.Parse("6-23-2019"),
+                        TreatmentDate = DateTime.Parse("5-22-2020"),
+                        TreatDescription = "Renal dialysis (procedure)",
+                        Created = DateTime.Parse("9-19-2020"),
+                        Modified = DateTime.Parse("12-10-2020"),
                         CreatedBy = "Almeda Larkin",
                         ModifiedBy = "Almeda Larkin",
-                        PatientId = 19
+                        PatientId = 61
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("8-10-2020"),
-                        TreatDescription = "88.7 kg",
-                        Created = DateTime.Parse("8-10-2020"),
-                        Modified = DateTime.Parse("8-10-2020"),
+                        TreatmentDate = DateTime.Parse("2-14-2019"),
+                        TreatDescription = "Medical induction of labor",
+                        Created = DateTime.Parse("3-23-2019"),
+                        Modified = DateTime.Parse("7-4-2019"),
                         CreatedBy = "Elias Mueller",
                         ModifiedBy = "Elias Mueller",
+                        PatientId = 13
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-1-2020"),
+                        TreatDescription = "Induced termination of pregnancy",
+                        Created = DateTime.Parse("10-28-2019"),
+                        Modified = DateTime.Parse("1-8-2020"),
+                        CreatedBy = "Tanja Koepp",
+                        ModifiedBy = "Tanja Koepp",
+                        PatientId = 94
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-8-2019"),
+                        TreatDescription = "Seizure Count Cerebral Cortex Electroencephalogram (EEG)",
+                        Created = DateTime.Parse("8-14-2019"),
+                        Modified = DateTime.Parse("10-6-2019"),
+                        CreatedBy = "Mateo Carrasco",
+                        ModifiedBy = "Mateo Carrasco",
+                        PatientId = 93
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-16-2020"),
+                        TreatDescription = "Information gathering (procedure)",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("1-7-2021"),
+                        CreatedBy = "Antonia Leuschke",
+                        ModifiedBy = "Antonia Leuschke",
+                        PatientId = 49
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-19-2020"),
+                        TreatDescription = "Ultrasonography of bilateral breasts (procedure)",
+                        Created = DateTime.Parse("1-13-2021"),
+                        Modified = DateTime.Parse("2-21-2021"),
+                        CreatedBy = "Renata Purdy",
+                        ModifiedBy = "Renata Purdy",
+                        PatientId = 21
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-14-2020"),
+                        TreatDescription = "Episiotomy",
+                        Created = DateTime.Parse("5-17-2020"),
+                        Modified = DateTime.Parse("8-14-2020"),
+                        CreatedBy = "Juan Daï¿½az",
+                        ModifiedBy = "Juan Daï¿½az",
+                        PatientId = 96
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-27-2020"),
+                        TreatDescription = "Partial resection of colon",
+                        Created = DateTime.Parse("1-18-2021"),
+                        Modified = DateTime.Parse("4-1-2021"),
+                        CreatedBy = "Eleanora Swift",
+                        ModifiedBy = "Eleanora Swift",
+                        PatientId = 30
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-30-2020"),
+                        TreatDescription = "Childbirth",
+                        Created = DateTime.Parse("1-23-2021"),
+                        Modified = DateTime.Parse("3-11-2021"),
+                        CreatedBy = "Dick White",
+                        ModifiedBy = "Dick White",
                         PatientId = 51
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("2-16-2020"),
-                        TreatDescription = "70.5 kg",
-                        Created = DateTime.Parse("2-16-2020"),
-                        Modified = DateTime.Parse("2-16-2020"),
-                        CreatedBy = "Tanja Koepp",
-                        ModifiedBy = "Tanja Koepp",
-                        PatientId = 27
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-17-2019"),
-                        TreatDescription = "80.9 kg",
-                        Created = DateTime.Parse("4-17-2019"),
-                        Modified = DateTime.Parse("4-17-2019"),
-                        CreatedBy = "Mateo Carrasco",
-                        ModifiedBy = "Mateo Carrasco",
-                        PatientId = 99
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-26-2019"),
-                        TreatDescription = "12.7 kg",
-                        Created = DateTime.Parse("8-26-2019"),
-                        Modified = DateTime.Parse("8-26-2019"),
-                        CreatedBy = "Antonia Leuschke",
-                        ModifiedBy = "Antonia Leuschke",
-                        PatientId = 56
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("1-11-2020"),
-                        TreatDescription = "13.5 kg",
-                        Created = DateTime.Parse("1-11-2020"),
-                        Modified = DateTime.Parse("1-11-2020"),
-                        CreatedBy = "Renata Purdy",
-                        ModifiedBy = "Renata Purdy",
-                        PatientId = 26
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-13-2020"),
-                        TreatDescription = "72.9 kg",
-                        Created = DateTime.Parse("9-13-2020"),
-                        Modified = DateTime.Parse("9-13-2020"),
-                        CreatedBy = "Juan Da­az",
-                        ModifiedBy = "Juan Da­az",
-                        PatientId = 28
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-2-2019"),
-                        TreatDescription = "14.4 kg",
-                        Created = DateTime.Parse("4-2-2019"),
-                        Modified = DateTime.Parse("4-2-2019"),
-                        CreatedBy = "Eleanora Swift",
-                        ModifiedBy = "Eleanora Swift",
-                        PatientId = 64
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-7-2020"),
-                        TreatDescription = "80.9 kg",
-                        Created = DateTime.Parse("8-7-2020"),
-                        Modified = DateTime.Parse("8-7-2020"),
-                        CreatedBy = "Dick White",
-                        ModifiedBy = "Dick White",
-                        PatientId = 19
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-28-2019"),
-                        TreatDescription = "74.9 kg",
-                        Created = DateTime.Parse("10-28-2019"),
-                        Modified = DateTime.Parse("10-28-2019"),
+                        TreatmentDate = DateTime.Parse("9-23-2020"),
+                        TreatDescription = "Chlamydia antigen test",
+                        Created = DateTime.Parse("11-4-2020"),
+                        Modified = DateTime.Parse("12-14-2020"),
                         CreatedBy = "Odis Daugherty",
                         ModifiedBy = "Odis Daugherty",
                         PatientId = 76
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("6-24-2019"),
-                        TreatDescription = "16.1 kg",
-                        Created = DateTime.Parse("6-24-2019"),
-                        Modified = DateTime.Parse("6-24-2019"),
+                        TreatmentDate = DateTime.Parse("2-10-2020"),
+                        TreatDescription = "Intramuscular injection",
+                        Created = DateTime.Parse("5-20-2020"),
+                        Modified = DateTime.Parse("7-14-2020"),
                         CreatedBy = "Xavier Weissnat",
                         ModifiedBy = "Xavier Weissnat",
-                        PatientId = 29
+                        PatientId = 79
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("1-31-2019"),
-                        TreatDescription = "18 kg",
-                        Created = DateTime.Parse("1-31-2019"),
-                        Modified = DateTime.Parse("1-31-2019"),
+                        TreatmentDate = DateTime.Parse("11-5-2020"),
+                        TreatDescription = "Evaluation of uterine fundal height",
+                        Created = DateTime.Parse("12-20-2020"),
+                        Modified = DateTime.Parse("3-10-2021"),
                         CreatedBy = "Tobias Cremin",
                         ModifiedBy = "Tobias Cremin",
-                        PatientId = 76
+                        PatientId = 63
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("1-10-2020"),
-                        TreatDescription = "80.9 kg",
-                        Created = DateTime.Parse("1-10-2020"),
-                        Modified = DateTime.Parse("1-10-2020"),
+                        TreatmentDate = DateTime.Parse("10-25-2019"),
+                        TreatDescription = "High resolution computed tomography of chest without contrast (procedure)",
+                        Created = DateTime.Parse("2-10-2020"),
+                        Modified = DateTime.Parse("3-16-2020"),
                         CreatedBy = "Mayra Brakus",
                         ModifiedBy = "Mayra Brakus",
-                        PatientId = 6
+                        PatientId = 55
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("8-18-2019"),
-                        TreatDescription = "74.9 kg",
-                        Created = DateTime.Parse("8-18-2019"),
-                        Modified = DateTime.Parse("8-18-2019"),
+                        TreatmentDate = DateTime.Parse("12-8-2019"),
+                        TreatDescription = "Replacement of contraceptive intrauterine device",
+                        Created = DateTime.Parse("2-27-2020"),
+                        Modified = DateTime.Parse("6-24-2020"),
                         CreatedBy = "Jamar Wisozk",
                         ModifiedBy = "Jamar Wisozk",
-                        PatientId = 8
+                        PatientId = 59
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("3-3-2019"),
-                        TreatDescription = "80.9 kg",
-                        Created = DateTime.Parse("3-3-2019"),
-                        Modified = DateTime.Parse("3-3-2019"),
+                        TreatmentDate = DateTime.Parse("11-26-2020"),
+                        TreatDescription = "Bilateral tubal ligation",
+                        Created = DateTime.Parse("1-17-2021"),
+                        Modified = DateTime.Parse("5-7-2021"),
                         CreatedBy = "Susana Lockman",
                         ModifiedBy = "Susana Lockman",
                         PatientId = 62
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("3-28-2019"),
-                        TreatDescription = "20 kg",
-                        Created = DateTime.Parse("3-28-2019"),
-                        Modified = DateTime.Parse("3-28-2019"),
+                        TreatmentDate = DateTime.Parse("7-5-2020"),
+                        TreatDescription = "Injection of tetanus antitoxin",
+                        Created = DateTime.Parse("9-5-2020"),
+                        Modified = DateTime.Parse("10-18-2020"),
                         CreatedBy = "Harry Corwin",
                         ModifiedBy = "Harry Corwin",
-                        PatientId = 20
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("7-26-2020"),
-                        TreatDescription = "22.1 kg",
-                        Created = DateTime.Parse("7-26-2020"),
-                        Modified = DateTime.Parse("7-26-2020"),
-                        CreatedBy = "Nathalie Gottlieb",
-                        ModifiedBy = "Nathalie Gottlieb",
-                        PatientId = 64
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-5-2020"),
-                        TreatDescription = "24.6 kg",
-                        Created = DateTime.Parse("8-5-2020"),
-                        Modified = DateTime.Parse("8-5-2020"),
-                        CreatedBy = "Raelene Mills",
-                        ModifiedBy = "Raelene Mills",
-                        PatientId = 57
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-12-2019"),
-                        TreatDescription = "27.1 kg",
-                        Created = DateTime.Parse("10-12-2019"),
-                        Modified = DateTime.Parse("10-12-2019"),
-                        CreatedBy = "Reanna Bernhard",
-                        ModifiedBy = "Reanna Bernhard",
-                        PatientId = 29
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-21-2019"),
-                        TreatDescription = "30.1 kg",
-                        Created = DateTime.Parse("10-21-2019"),
-                        Modified = DateTime.Parse("10-21-2019"),
-                        CreatedBy = "Vanita Wyman",
-                        ModifiedBy = "Vanita Wyman",
-                        PatientId = 31
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-7-2020"),
-                        TreatDescription = "81.6 kg",
-                        Created = DateTime.Parse("9-7-2020"),
-                        Modified = DateTime.Parse("9-7-2020"),
-                        CreatedBy = "Carlota Corrales",
-                        ModifiedBy = "Carlota Corrales",
-                        PatientId = 61
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("2-16-2019"),
-                        TreatDescription = "5.6 kg",
-                        Created = DateTime.Parse("2-16-2019"),
-                        Modified = DateTime.Parse("2-16-2019"),
-                        CreatedBy = "Laure Heathcote",
-                        ModifiedBy = "Laure Heathcote",
-                        PatientId = 87
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-11-2020"),
-                        TreatDescription = "33.7 kg",
-                        Created = DateTime.Parse("4-11-2020"),
-                        Modified = DateTime.Parse("4-11-2020"),
-                        CreatedBy = "Carey Considine",
-                        ModifiedBy = "Carey Considine",
-                        PatientId = 73
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-11-2019"),
-                        TreatDescription = "6.6 kg",
-                        Created = DateTime.Parse("4-11-2019"),
-                        Modified = DateTime.Parse("4-11-2019"),
-                        CreatedBy = "Kenton Smith",
-                        ModifiedBy = "Kenton Smith",
-                        PatientId = 47
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-17-2020"),
-                        TreatDescription = "33.7 kg",
-                        Created = DateTime.Parse("10-17-2020"),
-                        Modified = DateTime.Parse("10-17-2020"),
-                        CreatedBy = "Brooks Grant",
-                        ModifiedBy = "Brooks Grant",
-                        PatientId = 40
+                        PatientId = 91
                     },
                 new Treatment
                     {
                         TreatmentDate = DateTime.Parse("5-29-2020"),
-                        TreatDescription = "7.9 kg",
-                        Created = DateTime.Parse("5-29-2020"),
-                        Modified = DateTime.Parse("5-29-2020"),
-                        CreatedBy = "Loyd McGlynn",
-                        ModifiedBy = "Loyd McGlynn",
-                        PatientId = 64
+                        TreatDescription = "Hearing examination (procedure)",
+                        Created = DateTime.Parse("8-5-2020"),
+                        Modified = DateTime.Parse("10-3-2020"),
+                        CreatedBy = "Nathalie Gottlieb",
+                        ModifiedBy = "Nathalie Gottlieb",
+                        PatientId = 66
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-4-2019"),
-                        TreatDescription = "77.3 kg",
-                        Created = DateTime.Parse("12-4-2019"),
-                        Modified = DateTime.Parse("12-4-2019"),
-                        CreatedBy = "Seth Trantow",
-                        ModifiedBy = "Seth Trantow",
-                        PatientId = 13
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-25-2019"),
-                        TreatDescription = "8.9 kg",
-                        Created = DateTime.Parse("4-25-2019"),
-                        Modified = DateTime.Parse("4-25-2019"),
-                        CreatedBy = "Shawn Luettgen",
-                        ModifiedBy = "Shawn Luettgen",
-                        PatientId = 82
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("7-9-2019"),
-                        TreatDescription = "9.8 kg",
-                        Created = DateTime.Parse("7-9-2019"),
-                        Modified = DateTime.Parse("7-9-2019"),
-                        CreatedBy = "Erinn Nienow",
-                        ModifiedBy = "Erinn Nienow",
-                        PatientId = 14
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("7-28-2019"),
-                        TreatDescription = "10.4 kg",
-                        Created = DateTime.Parse("7-28-2019"),
-                        Modified = DateTime.Parse("7-28-2019"),
-                        CreatedBy = "Ramiro Lakin",
-                        ModifiedBy = "Ramiro Lakin",
-                        PatientId = 52
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-10-2019"),
-                        TreatDescription = "105.4 kg",
-                        Created = DateTime.Parse("9-10-2019"),
-                        Modified = DateTime.Parse("9-10-2019"),
-                        CreatedBy = "Teresa Ortiz",
-                        ModifiedBy = "Teresa Ortiz",
-                        PatientId = 82
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-18-2020"),
-                        TreatDescription = "105.4 kg",
-                        Created = DateTime.Parse("9-18-2020"),
-                        Modified = DateTime.Parse("9-18-2020"),
-                        CreatedBy = "Hisako Kuhlman",
-                        ModifiedBy = "Hisako Kuhlman",
-                        PatientId = 67
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("12-1-2020"),
-                        TreatDescription = "11.4 kg",
-                        Created = DateTime.Parse("12-1-2020"),
-                        Modified = DateTime.Parse("12-1-2020"),
-                        CreatedBy = "Ralph Marks",
-                        ModifiedBy = "Ralph Marks",
-                        PatientId = 32
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("5-22-2019"),
-                        TreatDescription = "12.3 kg",
-                        Created = DateTime.Parse("5-22-2019"),
-                        Modified = DateTime.Parse("5-22-2019"),
-                        CreatedBy = "Suzan Kuphal",
-                        ModifiedBy = "Suzan Kuphal",
-                        PatientId = 53
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-24-2020"),
-                        TreatDescription = "105.4 kg",
-                        Created = DateTime.Parse("4-24-2020"),
-                        Modified = DateTime.Parse("4-24-2020"),
-                        CreatedBy = "Lashawna O'Conner",
-                        ModifiedBy = "Lashawna O'Conner",
-                        PatientId = 14
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("11-24-2019"),
-                        TreatDescription = "13.1 kg",
-                        Created = DateTime.Parse("11-24-2019"),
-                        Modified = DateTime.Parse("11-24-2019"),
-                        CreatedBy = "Adena Wilkinson",
-                        ModifiedBy = "Adena Wilkinson",
-                        PatientId = 77
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-28-2020"),
-                        TreatDescription = "14 kg",
-                        Created = DateTime.Parse("10-28-2020"),
-                        Modified = DateTime.Parse("10-28-2020"),
-                        CreatedBy = "Aundrea Kuphal",
-                        ModifiedBy = "Aundrea Kuphal",
+                        TreatmentDate = DateTime.Parse("5-29-2020"),
+                        TreatDescription = "Teleradiotherapy procedure (procedure)",
+                        Created = DateTime.Parse("8-26-2020"),
+                        Modified = DateTime.Parse("10-26-2020"),
+                        CreatedBy = "Raelene Mills",
+                        ModifiedBy = "Raelene Mills",
                         PatientId = 29
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("3-26-2019"),
-                        TreatDescription = "14.6 kg",
-                        Created = DateTime.Parse("3-26-2019"),
-                        Modified = DateTime.Parse("3-26-2019"),
-                        CreatedBy = "Tiana Hoeger",
-                        ModifiedBy = "Tiana Hoeger",
-                        PatientId = 99
+                        TreatmentDate = DateTime.Parse("11-14-2019"),
+                        TreatDescription = "Magnetic resonance imaging of breast (procedure)",
+                        Created = DateTime.Parse("12-26-2019"),
+                        Modified = DateTime.Parse("4-2-2020"),
+                        CreatedBy = "Reanna Bernhard",
+                        ModifiedBy = "Reanna Bernhard",
+                        PatientId = 38
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("4-19-2019"),
-                        TreatDescription = "83 kg",
-                        Created = DateTime.Parse("4-19-2019"),
-                        Modified = DateTime.Parse("4-19-2019"),
-                        CreatedBy = "Grant Price",
-                        ModifiedBy = "Grant Price",
-                        PatientId = 9
+                        TreatmentDate = DateTime.Parse("7-31-2020"),
+                        TreatDescription = "Vaccination for diphtheria  pertussis  and tetanus",
+                        Created = DateTime.Parse("11-23-2020"),
+                        Modified = DateTime.Parse("3-21-2021"),
+                        CreatedBy = "Vanita Wyman",
+                        ModifiedBy = "Vanita Wyman",
+                        PatientId = 14
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("9-16-2020"),
-                        TreatDescription = "14.9 kg",
-                        Created = DateTime.Parse("9-16-2020"),
-                        Modified = DateTime.Parse("9-16-2020"),
-                        CreatedBy = "Gaston Nader",
-                        ModifiedBy = "Gaston Nader",
+                        TreatmentDate = DateTime.Parse("7-13-2020"),
+                        TreatDescription = "Mammogram - symptomatic (procedure)",
+                        Created = DateTime.Parse("9-17-2020"),
+                        Modified = DateTime.Parse("1-1-2021"),
+                        CreatedBy = "Carlota Corrales",
+                        ModifiedBy = "Carlota Corrales",
+                        PatientId = 33
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-1-2019"),
+                        TreatDescription = "Screening for chromosomal aneuploidy in prenatal amniotic fluid",
+                        Created = DateTime.Parse("11-6-2019"),
+                        Modified = DateTime.Parse("1-16-2020"),
+                        CreatedBy = "Laure Heathcote",
+                        ModifiedBy = "Laure Heathcote",
                         PatientId = 30
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("5-4-2019"),
-                        TreatDescription = "105.4 kg",
-                        Created = DateTime.Parse("5-4-2019"),
-                        Modified = DateTime.Parse("5-4-2019"),
+                        TreatmentDate = DateTime.Parse("9-4-2019"),
+                        TreatDescription = "Construction of diverting colostomy",
+                        Created = DateTime.Parse("1-1-2020"),
+                        Modified = DateTime.Parse("3-19-2020"),
+                        CreatedBy = "Carey Considine",
+                        ModifiedBy = "Carey Considine",
+                        PatientId = 61
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-16-2019"),
+                        TreatDescription = "Human immunodeficiency virus antigen test",
+                        Created = DateTime.Parse("12-2-2019"),
+                        Modified = DateTime.Parse("3-29-2020"),
+                        CreatedBy = "Kenton Smith",
+                        ModifiedBy = "Kenton Smith",
+                        PatientId = 57
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-6-2020"),
+                        TreatDescription = "Throat culture (procedure)",
+                        Created = DateTime.Parse("12-9-2020"),
+                        Modified = DateTime.Parse("3-25-2021"),
+                        CreatedBy = "Brooks Grant",
+                        ModifiedBy = "Brooks Grant",
+                        PatientId = 23
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-23-2020"),
+                        TreatDescription = "Plain chest X-ray",
+                        Created = DateTime.Parse("5-5-2020"),
+                        Modified = DateTime.Parse("8-29-2020"),
+                        CreatedBy = "Loyd McGlynn",
+                        ModifiedBy = "Loyd McGlynn",
+                        PatientId = 34
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-1-2019"),
+                        TreatDescription = "Transthoracic three dimensional ultrasonography of heart (procedure)",
+                        Created = DateTime.Parse("10-12-2019"),
+                        Modified = DateTime.Parse("1-11-2020"),
+                        CreatedBy = "Seth Trantow",
+                        ModifiedBy = "Seth Trantow",
+                        PatientId = 98
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-17-2020"),
+                        TreatDescription = "Epidural anesthesia",
+                        Created = DateTime.Parse("12-2-2020"),
+                        Modified = DateTime.Parse("3-11-2021"),
+                        CreatedBy = "Shawn Luettgen",
+                        ModifiedBy = "Shawn Luettgen",
+                        PatientId = 20
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-29-2019"),
+                        TreatDescription = "Physical examination of mother",
+                        Created = DateTime.Parse("3-13-2020"),
+                        Modified = DateTime.Parse("6-16-2020"),
+                        CreatedBy = "Erinn Nienow",
+                        ModifiedBy = "Erinn Nienow",
+                        PatientId = 35
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("7-30-2020"),
+                        TreatDescription = "Removal of intrauterine device",
+                        Created = DateTime.Parse("10-29-2020"),
+                        Modified = DateTime.Parse("1-30-2021"),
+                        CreatedBy = "Ramiro Lakin",
+                        ModifiedBy = "Ramiro Lakin",
+                        PatientId = 12
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-8-2019"),
+                        TreatDescription = "Bone density scan (procedure)",
+                        Created = DateTime.Parse("12-6-2019"),
+                        Modified = DateTime.Parse("2-5-2020"),
+                        CreatedBy = "Teresa Ortiz",
+                        ModifiedBy = "Teresa Ortiz",
+                        PatientId = 24
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-30-2020"),
+                        TreatDescription = "Insertion of biventricular implantable cardioverter defibrillator",
+                        Created = DateTime.Parse("8-28-2020"),
+                        Modified = DateTime.Parse("10-9-2020"),
+                        CreatedBy = "Hisako Kuhlman",
+                        ModifiedBy = "Hisako Kuhlman",
+                        PatientId = 84
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-18-2019"),
+                        TreatDescription = "Depression screening",
+                        Created = DateTime.Parse("10-25-2019"),
+                        Modified = DateTime.Parse("12-12-2019"),
+                        CreatedBy = "Ralph Marks",
+                        ModifiedBy = "Ralph Marks",
+                        PatientId = 16
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-14-2020"),
+                        TreatDescription = "Measurement of respiratory function (procedure)",
+                        Created = DateTime.Parse("7-19-2020"),
+                        Modified = DateTime.Parse("10-22-2020"),
+                        CreatedBy = "Suzan Kuphal",
+                        ModifiedBy = "Suzan Kuphal",
+                        PatientId = 58
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-14-2020"),
+                        TreatDescription = "Induced termination of pregnancy",
+                        Created = DateTime.Parse("7-24-2020"),
+                        Modified = DateTime.Parse("10-24-2020"),
+                        CreatedBy = "Lashawna O'Conner",
+                        ModifiedBy = "Lashawna O'Conner",
+                        PatientId = 21
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-26-2019"),
+                        TreatDescription = "Urine screening for glucose",
+                        Created = DateTime.Parse("10-5-2019"),
+                        Modified = DateTime.Parse("1-26-2020"),
+                        CreatedBy = "Adena Wilkinson",
+                        ModifiedBy = "Adena Wilkinson",
+                        PatientId = 61
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-20-2019"),
+                        TreatDescription = "Standard pregnancy test",
+                        Created = DateTime.Parse("4-24-2019"),
+                        Modified = DateTime.Parse("5-27-2019"),
+                        CreatedBy = "Aundrea Kuphal",
+                        ModifiedBy = "Aundrea Kuphal",
+                        PatientId = 24
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-3-2019"),
+                        TreatDescription = "Cognitive and behavioral therapy",
+                        Created = DateTime.Parse("2-11-2019"),
+                        Modified = DateTime.Parse("4-16-2019"),
+                        CreatedBy = "Tiana Hoeger",
+                        ModifiedBy = "Tiana Hoeger",
+                        PatientId = 53
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("7-6-2019"),
+                        TreatDescription = "Instrumental delivery",
+                        Created = DateTime.Parse("9-5-2019"),
+                        Modified = DateTime.Parse("12-19-2019"),
+                        CreatedBy = "Grant Price",
+                        ModifiedBy = "Grant Price",
+                        PatientId = 10
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-27-2020"),
+                        TreatDescription = "Hepatitis C antibody test",
+                        Created = DateTime.Parse("11-17-2020"),
+                        Modified = DateTime.Parse("3-2-2021"),
+                        CreatedBy = "Gaston Nader",
+                        ModifiedBy = "Gaston Nader",
+                        PatientId = 17
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-15-2019"),
+                        TreatDescription = "Fecal occult blood test",
+                        Created = DateTime.Parse("11-26-2019"),
+                        Modified = DateTime.Parse("1-26-2020"),
                         CreatedBy = "Darnell Medhurst",
                         ModifiedBy = "Darnell Medhurst",
-                        PatientId = 18
+                        PatientId = 70
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-9-2019"),
-                        TreatDescription = "16.8 kg",
-                        Created = DateTime.Parse("10-9-2019"),
-                        Modified = DateTime.Parse("10-9-2019"),
+                        TreatmentDate = DateTime.Parse("11-7-2020"),
+                        TreatDescription = "Echocardiography (procedure)",
+                        Created = DateTime.Parse("3-6-2021"),
+                        Modified = DateTime.Parse("5-3-2021"),
                         CreatedBy = "Clarita Rice",
                         ModifiedBy = "Clarita Rice",
-                        PatientId = 81
+                        PatientId = 84
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-4-2020"),
-                        TreatDescription = "23.5 kg",
-                        Created = DateTime.Parse("10-4-2020"),
-                        Modified = DateTime.Parse("10-4-2020"),
+                        TreatmentDate = DateTime.Parse("8-5-2019"),
+                        TreatDescription = "Chemotherapy (procedure)",
+                        Created = DateTime.Parse("9-14-2019"),
+                        Modified = DateTime.Parse("12-6-2019"),
                         CreatedBy = "Emogene Halvorson",
                         ModifiedBy = "Emogene Halvorson",
-                        PatientId = 65
+                        PatientId = 77
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("1-2-2020"),
-                        TreatDescription = "105.4 kg",
-                        Created = DateTime.Parse("1-2-2020"),
-                        Modified = DateTime.Parse("1-2-2020"),
+                        TreatmentDate = DateTime.Parse("6-18-2019"),
+                        TreatDescription = "Computed tomography of chest and abdomen",
+                        Created = DateTime.Parse("9-18-2019"),
+                        Modified = DateTime.Parse("1-6-2020"),
                         CreatedBy = "Eugene Hudson",
                         ModifiedBy = "Eugene Hudson",
                         PatientId = 72
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("3-29-2019"),
-                        TreatDescription = "18.9 kg",
-                        Created = DateTime.Parse("3-29-2019"),
-                        Modified = DateTime.Parse("3-29-2019"),
-                        CreatedBy = "Jorge Herna¡ndez",
-                        ModifiedBy = "Jorge Herna¡ndez",
-                        PatientId = 80
+                        TreatmentDate = DateTime.Parse("11-24-2019"),
+                        TreatDescription = "Suicide risk assessment (procedure)",
+                        Created = DateTime.Parse("3-11-2020"),
+                        Modified = DateTime.Parse("4-20-2020"),
+                        CreatedBy = "Jorge Hernaï¿½ndez",
+                        ModifiedBy = "Jorge Hernaï¿½ndez",
+                        PatientId = 26
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-5-2020"),
-                        TreatDescription = "26.5 kg",
-                        Created = DateTime.Parse("10-5-2020"),
-                        Modified = DateTime.Parse("10-5-2020"),
+                        TreatmentDate = DateTime.Parse("3-7-2019"),
+                        TreatDescription = "Intravenous blood transfusion of packed cells (procedure)",
+                        Created = DateTime.Parse("6-1-2019"),
+                        Modified = DateTime.Parse("9-8-2019"),
                         CreatedBy = "Coleman Hagenes",
                         ModifiedBy = "Coleman Hagenes",
-                        PatientId = 67
+                        PatientId = 47
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-23-2019"),
-                        TreatDescription = "30.4 kg",
-                        Created = DateTime.Parse("12-23-2019"),
-                        Modified = DateTime.Parse("12-23-2019"),
+                        TreatmentDate = DateTime.Parse("3-16-2020"),
+                        TreatDescription = "Laparoscopic Removal of Gall Bladder",
+                        Created = DateTime.Parse("5-9-2020"),
+                        Modified = DateTime.Parse("6-23-2020"),
                         CreatedBy = "Pat Nader",
                         ModifiedBy = "Pat Nader",
-                        PatientId = 38
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-22-2019"),
-                        TreatDescription = "95.2 kg",
-                        Created = DateTime.Parse("4-22-2019"),
-                        Modified = DateTime.Parse("4-22-2019"),
-                        CreatedBy = "Reggie Schmidt",
-                        ModifiedBy = "Reggie Schmidt",
-                        PatientId = 59
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("1-31-2019"),
-                        TreatDescription = "34.6 kg",
-                        Created = DateTime.Parse("1-31-2019"),
-                        Modified = DateTime.Parse("1-31-2019"),
-                        CreatedBy = "Ginny Stamm",
-                        ModifiedBy = "Ginny Stamm",
-                        PatientId = 48
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("11-24-2020"),
-                        TreatDescription = "39.2 kg",
-                        Created = DateTime.Parse("11-24-2020"),
-                        Modified = DateTime.Parse("11-24-2020"),
-                        CreatedBy = "Rick Boyer",
-                        ModifiedBy = "Rick Boyer",
-                        PatientId = 88
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("2-4-2019"),
-                        TreatDescription = "97.6 kg",
-                        Created = DateTime.Parse("2-4-2019"),
-                        Modified = DateTime.Parse("2-4-2019"),
-                        CreatedBy = "Cara Ruecker",
-                        ModifiedBy = "Cara Ruecker",
-                        PatientId = 17
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("5-8-2019"),
-                        TreatDescription = "21.2 kg",
-                        Created = DateTime.Parse("5-8-2019"),
-                        Modified = DateTime.Parse("5-8-2019"),
-                        CreatedBy = "Thaddeus Hegmann",
-                        ModifiedBy = "Thaddeus Hegmann",
-                        PatientId = 66
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("11-28-2019"),
-                        TreatDescription = "43.8 kg",
-                        Created = DateTime.Parse("11-28-2019"),
-                        Modified = DateTime.Parse("11-28-2019"),
-                        CreatedBy = "Thaddeus Hegmann",
-                        ModifiedBy = "Thaddeus Hegmann",
-                        PatientId = 84
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-9-2019"),
-                        TreatDescription = "23.8 kg",
-                        Created = DateTime.Parse("4-9-2019"),
-                        Modified = DateTime.Parse("4-9-2019"),
-                        CreatedBy = "Sharolyn Mayert",
-                        ModifiedBy = "Sharolyn Mayert",
-                        PatientId = 18
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-23-2019"),
-                        TreatDescription = "100.2 kg",
-                        Created = DateTime.Parse("8-23-2019"),
-                        Modified = DateTime.Parse("8-23-2019"),
-                        CreatedBy = "Hollis Volkman",
-                        ModifiedBy = "Hollis Volkman",
-                        PatientId = 69
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-13-2020"),
-                        TreatDescription = "48.1 kg",
-                        Created = DateTime.Parse("4-13-2020"),
-                        Modified = DateTime.Parse("4-13-2020"),
-                        CreatedBy = "Lanny Blick",
-                        ModifiedBy = "Lanny Blick",
-                        PatientId = 75
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-31-2020"),
-                        TreatDescription = "27 kg",
-                        Created = DateTime.Parse("8-31-2020"),
-                        Modified = DateTime.Parse("8-31-2020"),
-                        CreatedBy = "David Tillman",
-                        ModifiedBy = "David Tillman",
-                        PatientId = 96
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("6-18-2020"),
-                        TreatDescription = "52 kg",
-                        Created = DateTime.Parse("6-18-2020"),
-                        Modified = DateTime.Parse("6-18-2020"),
-                        CreatedBy = "Santos Ernser",
-                        ModifiedBy = "Santos Ernser",
-                        PatientId = 72
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-16-2020"),
-                        TreatDescription = "27.3 kg",
-                        Created = DateTime.Parse("8-16-2020"),
-                        Modified = DateTime.Parse("8-16-2020"),
-                        CreatedBy = "Joi Daugherty",
-                        ModifiedBy = "Joi Daugherty",
-                        PatientId = 25
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("2-2-2020"),
-                        TreatDescription = "102.9 kg",
-                        Created = DateTime.Parse("2-2-2020"),
-                        Modified = DateTime.Parse("2-2-2020"),
-                        CreatedBy = "Gaylord McCullough",
-                        ModifiedBy = "Gaylord McCullough",
                         PatientId = 57
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-7-2020"),
-                        TreatDescription = "30.5 kg",
-                        Created = DateTime.Parse("12-7-2020"),
-                        Modified = DateTime.Parse("12-7-2020"),
-                        CreatedBy = "Genevieve Stiedemann",
-                        ModifiedBy = "Genevieve Stiedemann",
-                        PatientId = 51
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-20-2019"),
-                        TreatDescription = "54.5 kg",
-                        Created = DateTime.Parse("8-20-2019"),
-                        Modified = DateTime.Parse("8-20-2019"),
-                        CreatedBy = "Monte Bergstrom",
-                        ModifiedBy = "Monte Bergstrom",
-                        PatientId = 31
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-15-2019"),
-                        TreatDescription = "56.2 kg",
-                        Created = DateTime.Parse("9-15-2019"),
-                        Modified = DateTime.Parse("9-15-2019"),
-                        CreatedBy = "Noelia Morissette",
-                        ModifiedBy = "Noelia Morissette",
-                        PatientId = 7
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-11-2019"),
-                        TreatDescription = "3.6 kg",
-                        Created = DateTime.Parse("10-11-2019"),
-                        Modified = DateTime.Parse("10-11-2019"),
-                        CreatedBy = "Colin Yundt",
-                        ModifiedBy = "Colin Yundt",
-                        PatientId = 81
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("8-20-2019"),
-                        TreatDescription = "4.5 kg",
-                        Created = DateTime.Parse("8-20-2019"),
-                        Modified = DateTime.Parse("8-20-2019"),
-                        CreatedBy = "Adrian Johns",
-                        ModifiedBy = "Adrian Johns",
-                        PatientId = 86
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("10-6-2019"),
-                        TreatDescription = "5.9 kg",
-                        Created = DateTime.Parse("10-6-2019"),
-                        Modified = DateTime.Parse("10-6-2019"),
-                        CreatedBy = "Charmaine Hoeger",
-                        ModifiedBy = "Charmaine Hoeger",
+                        TreatmentDate = DateTime.Parse("11-17-2020"),
+                        TreatDescription = "Combined chemotherapy and radiation therapy (procedure)",
+                        Created = DateTime.Parse("3-16-2021"),
+                        Modified = DateTime.Parse("5-4-2021"),
+                        CreatedBy = "Reggie Schmidt",
+                        ModifiedBy = "Reggie Schmidt",
                         PatientId = 36
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-12-2020"),
-                        TreatDescription = "7.1 kg",
-                        Created = DateTime.Parse("12-12-2020"),
-                        Modified = DateTime.Parse("12-12-2020"),
-                        CreatedBy = "Kory Ernser",
-                        ModifiedBy = "Kory Ernser",
-                        PatientId = 46
+                        TreatmentDate = DateTime.Parse("10-26-2020"),
+                        TreatDescription = "Review of systems (procedure)",
+                        Created = DateTime.Parse("2-21-2021"),
+                        Modified = DateTime.Parse("4-5-2021"),
+                        CreatedBy = "Ginny Stamm",
+                        ModifiedBy = "Ginny Stamm",
+                        PatientId = 70
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("8-29-2020"),
-                        TreatDescription = "8.5 kg",
-                        Created = DateTime.Parse("8-29-2020"),
-                        Modified = DateTime.Parse("8-29-2020"),
-                        CreatedBy = "Rudy Kerluke",
-                        ModifiedBy = "Rudy Kerluke",
-                        PatientId = 48
+                        TreatmentDate = DateTime.Parse("7-31-2020"),
+                        TreatDescription = "Plain chest X-ray (procedure)",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("1-27-2021"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 59
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("8-13-2019"),
-                        TreatDescription = "24 kg",
-                        Created = DateTime.Parse("8-13-2019"),
-                        Modified = DateTime.Parse("8-13-2019"),
-                        CreatedBy = "Mike Moore",
-                        ModifiedBy = "Mike Moore",
-                        PatientId = 14
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("9-7-2020"),
-                        TreatDescription = "27.1 kg",
-                        Created = DateTime.Parse("9-7-2020"),
-                        Modified = DateTime.Parse("9-7-2020"),
-                        CreatedBy = "Brice Mitchell",
-                        ModifiedBy = "Brice Mitchell",
-                        PatientId = 25
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("4-19-2020"),
-                        TreatDescription = "30.5 kg",
-                        Created = DateTime.Parse("4-19-2020"),
-                        Modified = DateTime.Parse("4-19-2020"),
-                        CreatedBy = "Olin Zulauf",
-                        ModifiedBy = "Olin Zulauf",
-                        PatientId = 82
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("5-18-2020"),
-                        TreatDescription = "34.8 kg",
-                        Created = DateTime.Parse("5-18-2020"),
-                        Modified = DateTime.Parse("5-18-2020"),
-                        CreatedBy = "Renata Walter",
-                        ModifiedBy = "Renata Walter",
-                        PatientId = 52
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("6-26-2019"),
-                        TreatDescription = "39.5 kg",
-                        Created = DateTime.Parse("6-26-2019"),
-                        Modified = DateTime.Parse("6-26-2019"),
-                        CreatedBy = "Susana Lockman",
-                        ModifiedBy = "Susana Lockman",
+                        TreatmentDate = DateTime.Parse("6-15-2020"),
+                        TreatDescription = "Vaccination for diphtheria  pertussis  and tetanus",
+                        Created = DateTime.Parse("10-6-2020"),
+                        Modified = DateTime.Parse("1-2-2021"),
+                        CreatedBy = "Cara Ruecker",
+                        ModifiedBy = "Cara Ruecker",
                         PatientId = 22
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("4-7-2019"),
-                        TreatDescription = "44.8 kg",
-                        Created = DateTime.Parse("4-7-2019"),
-                        Modified = DateTime.Parse("4-7-2019"),
-                        CreatedBy = "Hee Hagenes",
-                        ModifiedBy = "Hee Hagenes",
-                        PatientId = 18
+                        TreatmentDate = DateTime.Parse("7-6-2020"),
+                        TreatDescription = "Admission to trauma surgery department",
+                        Created = DateTime.Parse("8-9-2020"),
+                        Modified = DateTime.Parse("11-6-2020"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 14
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-11-2020"),
-                        TreatDescription = "50.7 kg",
-                        Created = DateTime.Parse("12-11-2020"),
-                        Modified = DateTime.Parse("12-11-2020"),
-                        CreatedBy = "Tod Rice",
-                        ModifiedBy = "Tod Rice",
-                        PatientId = 27
+                        TreatmentDate = DateTime.Parse("1-30-2020"),
+                        TreatDescription = "Partial resection of colon",
+                        Created = DateTime.Parse("4-25-2020"),
+                        Modified = DateTime.Parse("8-10-2020"),
+                        CreatedBy = "Thaddeus Hegmann",
+                        ModifiedBy = "Thaddeus Hegmann",
+                        PatientId = 19
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("8-27-2020"),
-                        TreatDescription = "56.9 kg",
-                        Created = DateTime.Parse("8-27-2020"),
-                        Modified = DateTime.Parse("8-27-2020"),
-                        CreatedBy = "Ceola Bogisich",
-                        ModifiedBy = "Ceola Bogisich",
-                        PatientId = 45
+                        TreatmentDate = DateTime.Parse("1-20-2020"),
+                        TreatDescription = "Fecal occult blood test",
+                        Created = DateTime.Parse("3-13-2020"),
+                        Modified = DateTime.Parse("6-15-2020"),
+                        CreatedBy = "Sharolyn Mayert",
+                        ModifiedBy = "Sharolyn Mayert",
+                        PatientId = 8
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("4-7-2020"),
-                        TreatDescription = "63.6 kg",
-                        Created = DateTime.Parse("4-7-2020"),
-                        Modified = DateTime.Parse("4-7-2020"),
-                        CreatedBy = "Clay Johns",
-                        ModifiedBy = "Clay Johns",
-                        PatientId = 55
+                        TreatmentDate = DateTime.Parse("4-21-2020"),
+                        TreatDescription = "Bone immobilization",
+                        Created = DateTime.Parse("6-25-2020"),
+                        Modified = DateTime.Parse("10-12-2020"),
+                        CreatedBy = "Hollis Volkman",
+                        ModifiedBy = "Hollis Volkman",
+                        PatientId = 49
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("2-10-2019"),
-                        TreatDescription = "69.4 kg",
-                        Created = DateTime.Parse("2-10-2019"),
-                        Modified = DateTime.Parse("2-10-2019"),
-                        CreatedBy = "Maribel Bogisich",
-                        ModifiedBy = "Maribel Bogisich",
-                        PatientId = 45
+                        TreatmentDate = DateTime.Parse("5-23-2020"),
+                        TreatDescription = "Laparoscopic Removal of Gall Bladder",
+                        Created = DateTime.Parse("7-8-2020"),
+                        Modified = DateTime.Parse("8-25-2020"),
+                        CreatedBy = "Lanny Blick",
+                        ModifiedBy = "Lanny Blick",
+                        PatientId = 87
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("9-2-2020"),
-                        TreatDescription = "41.8 kg",
-                        Created = DateTime.Parse("9-2-2020"),
-                        Modified = DateTime.Parse("9-2-2020"),
-                        CreatedBy = "Veronica Hermiston",
-                        ModifiedBy = "Veronica Hermiston",
-                        PatientId = 94
+                        TreatmentDate = DateTime.Parse("1-28-2019"),
+                        TreatDescription = "Extraction of wisdom tooth",
+                        Created = DateTime.Parse("4-12-2019"),
+                        Modified = DateTime.Parse("7-31-2019"),
+                        CreatedBy = "David Tillman",
+                        ModifiedBy = "David Tillman",
+                        PatientId = 88
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("6-8-2019"),
-                        TreatDescription = "45.4 kg",
-                        Created = DateTime.Parse("6-8-2019"),
-                        Modified = DateTime.Parse("6-8-2019"),
-                        CreatedBy = "Latricia Bailey",
-                        ModifiedBy = "Latricia Bailey",
-                        PatientId = 77
+                        TreatmentDate = DateTime.Parse("7-22-2019"),
+                        TreatDescription = "Screening mammography (procedure)",
+                        Created = DateTime.Parse("10-25-2019"),
+                        Modified = DateTime.Parse("12-30-2019"),
+                        CreatedBy = "Santos Ernser",
+                        ModifiedBy = "Santos Ernser",
+                        PatientId = 47
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("5-13-2019"),
-                        TreatDescription = "48.1 kg",
-                        Created = DateTime.Parse("5-13-2019"),
-                        Modified = DateTime.Parse("5-13-2019"),
-                        CreatedBy = "Miguel angel Romo",
-                        ModifiedBy = "Miguel angel Romo",
-                        PatientId = 6
+                        TreatmentDate = DateTime.Parse("3-10-2019"),
+                        TreatDescription = "Information gathering (procedure)",
+                        Created = DateTime.Parse("5-7-2019"),
+                        Modified = DateTime.Parse("8-3-2019"),
+                        CreatedBy = "Joi Daugherty",
+                        ModifiedBy = "Joi Daugherty",
+                        PatientId = 96
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("4-18-2019"),
-                        TreatDescription = "49.9 kg",
-                        Created = DateTime.Parse("4-18-2019"),
-                        Modified = DateTime.Parse("4-18-2019"),
-                        CreatedBy = "Ada¡n Valdaes",
-                        ModifiedBy = "Ada¡n Valdaes",
-                        PatientId = 39
+                        TreatmentDate = DateTime.Parse("1-7-2020"),
+                        TreatDescription = "Physical examination",
+                        Created = DateTime.Parse("3-10-2020"),
+                        Modified = DateTime.Parse("5-17-2020"),
+                        CreatedBy = "Gaylord McCullough",
+                        ModifiedBy = "Gaylord McCullough",
+                        PatientId = 69
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("2-10-2019"),
-                        TreatDescription = "51.2 kg",
-                        Created = DateTime.Parse("2-10-2019"),
-                        Modified = DateTime.Parse("2-10-2019"),
-                        CreatedBy = "Noble Hodkiewicz",
-                        ModifiedBy = "Noble Hodkiewicz",
-                        PatientId = 77
+                        TreatmentDate = DateTime.Parse("11-25-2020"),
+                        TreatDescription = "Throat culture (procedure)",
+                        Created = DateTime.Parse("3-9-2021"),
+                        Modified = DateTime.Parse("6-4-2021"),
+                        CreatedBy = "Genevieve Stiedemann",
+                        ModifiedBy = "Genevieve Stiedemann",
+                        PatientId = 31
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("2-4-2019"),
-                        TreatDescription = "52.2 kg",
-                        Created = DateTime.Parse("2-4-2019"),
-                        Modified = DateTime.Parse("2-4-2019"),
-                        CreatedBy = "Bettye Gleichner",
-                        ModifiedBy = "Bettye Gleichner",
-                        PatientId = 83
+                        TreatmentDate = DateTime.Parse("7-2-2020"),
+                        TreatDescription = "Rubella screening",
+                        Created = DateTime.Parse("9-21-2020"),
+                        Modified = DateTime.Parse("11-18-2020"),
+                        CreatedBy = "Monte Bergstrom",
+                        ModifiedBy = "Monte Bergstrom",
+                        PatientId = 26
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("11-5-2020"),
-                        TreatDescription = "53.2 kg",
-                        Created = DateTime.Parse("11-5-2020"),
-                        Modified = DateTime.Parse("11-5-2020"),
-                        CreatedBy = "Gerardo Crooks",
-                        ModifiedBy = "Gerardo Crooks",
-                        PatientId = 17
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("6-1-2020"),
-                        TreatDescription = "57 kg",
-                        Created = DateTime.Parse("6-1-2020"),
-                        Modified = DateTime.Parse("6-1-2020"),
-                        CreatedBy = "Donita Pfeffer",
-                        ModifiedBy = "Donita Pfeffer",
+                        TreatmentDate = DateTime.Parse("7-12-2019"),
+                        TreatDescription = "Review of systems (procedure)",
+                        Created = DateTime.Parse("10-14-2019"),
+                        Modified = DateTime.Parse("1-16-2020"),
+                        CreatedBy = "Noelia Morissette",
+                        ModifiedBy = "Noelia Morissette",
                         PatientId = 57
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("11-26-2020"),
-                        TreatDescription = "9.5 kg",
-                        Created = DateTime.Parse("11-26-2020"),
-                        Modified = DateTime.Parse("11-26-2020"),
-                        CreatedBy = "Fransisca Emmerich",
-                        ModifiedBy = "Fransisca Emmerich",
-                        PatientId = 76
+                        TreatmentDate = DateTime.Parse("10-13-2020"),
+                        TreatDescription = "Vasectomy",
+                        Created = DateTime.Parse("2-6-2021"),
+                        Modified = DateTime.Parse("5-27-2021"),
+                        CreatedBy = "Colin Yundt",
+                        ModifiedBy = "Colin Yundt",
+                        PatientId = 62
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("11-30-2019"),
-                        TreatDescription = "10.1 kg",
-                        Created = DateTime.Parse("11-30-2019"),
-                        Modified = DateTime.Parse("11-30-2019"),
-                        CreatedBy = "Tod Rice",
-                        ModifiedBy = "Tod Rice",
-                        PatientId = 48
+                        TreatmentDate = DateTime.Parse("4-29-2020"),
+                        TreatDescription = "Plain chest X-ray (procedure)",
+                        Created = DateTime.Parse("8-9-2020"),
+                        Modified = DateTime.Parse("11-2-2020"),
+                        CreatedBy = "Adrian Johns",
+                        ModifiedBy = "Adrian Johns",
+                        PatientId = 26
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("11-18-2019"),
-                        TreatDescription = "11.1 kg",
-                        Created = DateTime.Parse("11-18-2019"),
-                        Modified = DateTime.Parse("11-18-2019"),
-                        CreatedBy = "Jayson Swift",
-                        ModifiedBy = "Jayson Swift",
-                        PatientId = 25
+                        TreatmentDate = DateTime.Parse("4-11-2020"),
+                        TreatDescription = "Premature birth of newborn",
+                        Created = DateTime.Parse("7-19-2020"),
+                        Modified = DateTime.Parse("8-27-2020"),
+                        CreatedBy = "Charmaine Hoeger",
+                        ModifiedBy = "Charmaine Hoeger",
+                        PatientId = 10
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("4-5-2020"),
-                        TreatDescription = "11.9 kg",
-                        Created = DateTime.Parse("4-5-2020"),
-                        Modified = DateTime.Parse("4-5-2020"),
-                        CreatedBy = "Kasey Spencer",
-                        ModifiedBy = "Kasey Spencer",
-                        PatientId = 82
+                        TreatmentDate = DateTime.Parse("11-29-2020"),
+                        TreatDescription = "Bilateral tubal ligation",
+                        Created = DateTime.Parse("1-24-2021"),
+                        Modified = DateTime.Parse("3-17-2021"),
+                        CreatedBy = "Kory Ernser",
+                        ModifiedBy = "Kory Ernser",
+                        PatientId = 17
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("11-21-2020"),
-                        TreatDescription = "12.7 kg",
-                        Created = DateTime.Parse("11-21-2020"),
-                        Modified = DateTime.Parse("11-21-2020"),
-                        CreatedBy = "Jazmin Schultz",
-                        ModifiedBy = "Jazmin Schultz",
-                        PatientId = 37
+                        TreatmentDate = DateTime.Parse("3-10-2019"),
+                        TreatDescription = "Transthoracic echocardiography",
+                        Created = DateTime.Parse("6-21-2019"),
+                        Modified = DateTime.Parse("9-6-2019"),
+                        CreatedBy = "Rudy Kerluke",
+                        ModifiedBy = "Rudy Kerluke",
+                        PatientId = 41
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("2-12-2020"),
-                        TreatDescription = "13.5 kg",
-                        Created = DateTime.Parse("2-12-2020"),
-                        Modified = DateTime.Parse("2-12-2020"),
-                        CreatedBy = "Rick Boyer",
-                        ModifiedBy = "Rick Boyer",
-                        PatientId = 99
+                        TreatmentDate = DateTime.Parse("9-21-2019"),
+                        TreatDescription = "Catheter ablation of tissue of heart",
+                        Created = DateTime.Parse("11-3-2019"),
+                        Modified = DateTime.Parse("12-3-2019"),
+                        CreatedBy = "Mike Moore",
+                        ModifiedBy = "Mike Moore",
+                        PatientId = 32
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("12-16-2019"),
-                        TreatDescription = "14.4 kg",
-                        Created = DateTime.Parse("12-16-2019"),
-                        Modified = DateTime.Parse("12-16-2019"),
-                        CreatedBy = "Jame Johnson",
-                        ModifiedBy = "Jame Johnson",
-                        PatientId = 93
+                        TreatmentDate = DateTime.Parse("12-20-2020"),
+                        TreatDescription = "Review of systems (procedure)",
+                        Created = DateTime.Parse("1-26-2021"),
+                        Modified = DateTime.Parse("4-24-2021"),
+                        CreatedBy = "Brice Mitchell",
+                        ModifiedBy = "Brice Mitchell",
+                        PatientId = 80
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-11-2020"),
-                        TreatDescription = "16.2 kg",
-                        Created = DateTime.Parse("10-11-2020"),
-                        Modified = DateTime.Parse("10-11-2020"),
-                        CreatedBy = "Cruz Green",
-                        ModifiedBy = "Cruz Green",
-                        PatientId = 82
+                        TreatmentDate = DateTime.Parse("5-10-2020"),
+                        TreatDescription = "Biopsy of breast (procedure)",
+                        Created = DateTime.Parse("6-23-2020"),
+                        Modified = DateTime.Parse("9-10-2020"),
+                        CreatedBy = "Olin Zulauf",
+                        ModifiedBy = "Olin Zulauf",
+                        PatientId = 71
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("5-3-2019"),
-                        TreatDescription = "18.2 kg",
-                        Created = DateTime.Parse("5-3-2019"),
-                        Modified = DateTime.Parse("5-3-2019"),
-                        CreatedBy = "Leonard Bechtelar",
-                        ModifiedBy = "Leonard Bechtelar",
-                        PatientId = 27
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("2-15-2019"),
-                        TreatDescription = "20.3 kg",
-                        Created = DateTime.Parse("2-15-2019"),
-                        Modified = DateTime.Parse("2-15-2019"),
-                        CreatedBy = "Sanjuana Heaney",
-                        ModifiedBy = "Sanjuana Heaney",
-                        PatientId = 38
-                    },
-                new Treatment
-                    {
-                        TreatmentDate = DateTime.Parse("3-8-2019"),
-                        TreatDescription = "22.7 kg",
-                        Created = DateTime.Parse("3-8-2019"),
-                        Modified = DateTime.Parse("3-8-2019"),
-                        CreatedBy = "Janessa Zieme",
-                        ModifiedBy = "Janessa Zieme",
+                        TreatmentDate = DateTime.Parse("2-19-2019"),
+                        TreatDescription = "Screening mammography (procedure)",
+                        Created = DateTime.Parse("6-13-2019"),
+                        Modified = DateTime.Parse("8-8-2019"),
+                        CreatedBy = "Renata Walter",
+                        ModifiedBy = "Renata Walter",
                         PatientId = 35
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-31-2020"),
-                        TreatDescription = "25.7 kg",
-                        Created = DateTime.Parse("10-31-2020"),
-                        Modified = DateTime.Parse("10-31-2020"),
-                        CreatedBy = "Louis Hettinger",
-                        ModifiedBy = "Louis Hettinger",
-                        PatientId = 23
+                        TreatmentDate = DateTime.Parse("7-7-2019"),
+                        TreatDescription = "Urine culture",
+                        Created = DateTime.Parse("10-7-2019"),
+                        Modified = DateTime.Parse("11-17-2019"),
+                        CreatedBy = "Susana Lockman",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 63
                     },
                 new Treatment
                     {
-                        TreatmentDate = DateTime.Parse("10-31-2020"),
-                        TreatDescription = "28.9 kg",
-                        Created = DateTime.Parse("10-31-2020"),
-                        Modified = DateTime.Parse("10-31-2020"),
+                        TreatmentDate = DateTime.Parse("1-8-2020"),
+                        TreatDescription = "Syphilis infection test",
+                        Created = DateTime.Parse("2-17-2020"),
+                        Modified = DateTime.Parse("4-1-2020"),
+                        CreatedBy = "Hee Hagenes",
+                        ModifiedBy = "Hee Hagenes",
+                        PatientId = 12
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("5-5-2019"),
+                        TreatDescription = "Epidural anesthesia",
+                        Created = DateTime.Parse("8-8-2019"),
+                        Modified = DateTime.Parse("11-15-2019"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 54
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-28-2020"),
+                        TreatDescription = "Allergy screening test",
+                        Created = DateTime.Parse("7-10-2020"),
+                        Modified = DateTime.Parse("10-5-2020"),
+                        CreatedBy = "Ceola Bogisich",
+                        ModifiedBy = "Ceola Bogisich",
+                        PatientId = 78
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-20-2019"),
+                        TreatDescription = "Admission to trauma surgery department",
+                        Created = DateTime.Parse("12-21-2019"),
+                        Modified = DateTime.Parse("3-1-2020"),
+                        CreatedBy = "Clay Johns",
+                        ModifiedBy = "Clay Johns",
+                        PatientId = 83
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-1-2019"),
+                        TreatDescription = "Human epidermal growth factor receptor 2 gene detection by immunohistochemistry (procedure)",
+                        Created = DateTime.Parse("9-18-2019"),
+                        Modified = DateTime.Parse("12-5-2019"),
+                        CreatedBy = "Maribel Bogisich",
+                        ModifiedBy = "Maribel Bogisich",
+                        PatientId = 89
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-13-2020"),
+                        TreatDescription = "Streptococcus pneumoniae group B antigen test",
+                        Created = DateTime.Parse("2-24-2021"),
+                        Modified = DateTime.Parse("4-8-2021"),
+                        CreatedBy = "Veronica Hermiston",
+                        ModifiedBy = "Veronica Hermiston",
+                        PatientId = 52
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-1-2020"),
+                        TreatDescription = "Chlamydia antigen test",
+                        Created = DateTime.Parse("3-5-2020"),
+                        Modified = DateTime.Parse("5-21-2020"),
+                        CreatedBy = "Latricia Bailey",
+                        ModifiedBy = "Latricia Bailey",
+                        PatientId = 72
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("12-30-2019"),
+                        TreatDescription = "Teleradiotherapy procedure (procedure)",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("3-29-2020"),
+                        CreatedBy = "Miguel aï¿½ngel Romo",
+                        ModifiedBy = "Miguel aï¿½ngel Romo",
+                        PatientId = 34
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-13-2020"),
+                        TreatDescription = "Replacement of subcutaneous contraceptive",
+                        Created = DateTime.Parse("11-2-2020"),
+                        Modified = DateTime.Parse("2-10-2021"),
+                        CreatedBy = "Adaï¿½n Valdaes",
+                        ModifiedBy = "Adaï¿½n Valdaes",
+                        PatientId = 35
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-6-2020"),
+                        TreatDescription = "Mammogram - symptomatic (procedure)",
+                        Created = DateTime.Parse("5-6-2020"),
+                        Modified = DateTime.Parse("6-11-2020"),
+                        CreatedBy = "Noble Hodkiewicz",
+                        ModifiedBy = "Noble Hodkiewicz",
+                        PatientId = 78
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-16-2019"),
+                        TreatDescription = "Evaluation of uterine fundal height",
+                        Created = DateTime.Parse("10-13-2019"),
+                        Modified = DateTime.Parse("1-4-2020"),
+                        CreatedBy = "Bettye Gleichner",
+                        ModifiedBy = "Bettye Gleichner",
+                        PatientId = 78
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-9-2019"),
+                        TreatDescription = "Removal of intrauterine device",
+                        Created = DateTime.Parse("3-16-2019"),
+                        Modified = DateTime.Parse("5-3-2019"),
+                        CreatedBy = "Gerardo Crooks",
+                        ModifiedBy = "Gerardo Crooks",
+                        PatientId = 60
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-28-2020"),
+                        TreatDescription = "Urine screening for glucose",
+                        Created = DateTime.Parse("3-4-2021"),
+                        Modified = DateTime.Parse("6-7-2021"),
+                        CreatedBy = "Donita Pfeffer",
+                        ModifiedBy = "Donita Pfeffer",
+                        PatientId = 32
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("11-7-2019"),
+                        TreatDescription = "Colonoscopy",
+                        Created = DateTime.Parse("2-6-2020"),
+                        Modified = DateTime.Parse("3-26-2020"),
+                        CreatedBy = "Fransisca Emmerich",
+                        ModifiedBy = "Fransisca Emmerich",
+                        PatientId = 9
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-22-2019"),
+                        TreatDescription = "Pelvis X-ray",
+                        Created = DateTime.Parse("1-8-2020"),
+                        Modified = DateTime.Parse("4-9-2020"),
+                        CreatedBy = "Tod Rice",
+                        ModifiedBy = "Tod Rice",
+                        PatientId = 87
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-29-2019"),
+                        TreatDescription = "Blood typing  RH typing",
+                        Created = DateTime.Parse("11-16-2019"),
+                        Modified = DateTime.Parse("2-17-2020"),
+                        CreatedBy = "Jayson Swift",
+                        ModifiedBy = "Jayson Swift",
+                        PatientId = 40
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("2-24-2019"),
+                        TreatDescription = "Biopsy of prostate",
+                        Created = DateTime.Parse("6-17-2019"),
+                        Modified = DateTime.Parse("8-31-2019"),
+                        CreatedBy = "Kasey Spencer",
+                        ModifiedBy = "Kasey Spencer",
+                        PatientId = 44
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("9-15-2019"),
+                        TreatDescription = "Human epidermal growth factor receptor 2 gene detection by immunohistochemistry (procedure)",
+                        Created = DateTime.Parse("11-24-2019"),
+                        Modified = DateTime.Parse("3-7-2020"),
+                        CreatedBy = "Jazmin Schultz",
+                        ModifiedBy = "Jazmin Schultz",
+                        PatientId = 1
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-3-2019"),
+                        TreatDescription = "Insertion of intrauterine contraceptive device",
+                        Created = DateTime.Parse("3-9-2019"),
+                        Modified = DateTime.Parse("4-23-2019"),
+                        CreatedBy = "Rick Boyer",
+                        ModifiedBy = "Rick Boyer",
+                        PatientId = 100
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-6-2020"),
+                        TreatDescription = "Replacement of contraceptive intrauterine device",
+                        Created = DateTime.Parse("9-23-2020"),
+                        Modified = DateTime.Parse("1-4-2021"),
+                        CreatedBy = "Jame Johnson",
+                        ModifiedBy = "Jame Johnson",
+                        PatientId = 95
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("3-12-2019"),
+                        TreatDescription = "Laparoscopic Removal of Gall Bladder",
+                        Created = DateTime.Parse("7-5-2019"),
+                        Modified = DateTime.Parse("10-28-2019"),
+                        CreatedBy = "Cruz Green",
+                        ModifiedBy = "Cruz Green",
+                        PatientId = 97
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("6-7-2020"),
+                        TreatDescription = "Syphilis infection test",
+                        Created = DateTime.Parse("7-22-2020"),
+                        Modified = DateTime.Parse("10-24-2020"),
+                        CreatedBy = "Leonard Bechtelar",
+                        ModifiedBy = "Leonard Bechtelar",
+                        PatientId = 5
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("8-25-2020"),
+                        TreatDescription = "Spirometry (procedure)",
+                        Created = DateTime.Parse("10-19-2020"),
+                        Modified = DateTime.Parse("1-19-2021"),
+                        CreatedBy = "Sanjuana Heaney",
+                        ModifiedBy = "Sanjuana Heaney",
+                        PatientId = 21
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("4-13-2019"),
+                        TreatDescription = "Alpha-fetoprotein test",
+                        Created = DateTime.Parse("7-17-2019"),
+                        Modified = DateTime.Parse("10-9-2019"),
+                        CreatedBy = "Janessa Zieme",
+                        ModifiedBy = "Janessa Zieme",
+                        PatientId = 84
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("1-22-2020"),
+                        TreatDescription = "X-ray on wrist",
+                        Created = DateTime.Parse("3-16-2020"),
+                        Modified = DateTime.Parse("7-12-2020"),
+                        CreatedBy = "Louis Hettinger",
+                        ModifiedBy = "Louis Hettinger",
+                        PatientId = 61
+                    },
+                new Treatment
+                    {
+                        TreatmentDate = DateTime.Parse("10-22-2019"),
+                        TreatDescription = "Excision of breast tissue (procedure)",
+                        Created = DateTime.Parse("12-19-2019"),
+                        Modified = DateTime.Parse("4-16-2020"),
                         CreatedBy = "Alica Reinger",
                         ModifiedBy = "Alica Reinger",
-                        PatientId = 73
+                        PatientId = 77
                     }
+
             };
 
             treatments.ForEach(t => context.Treatments.AddOrUpdate(t));
             context.SaveChanges();
+
+            if (context.Medications.Any())
+                {
+                return;
+                }
+
+            var medications = new List<Medication>
+                {
+                                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-17-2019"),
+                        MedicationName = "Ortho Tri-Cyclen 28 Day Pack",
+                        Created = DateTime.Parse("5-10-2019"),
+                        Modified = DateTime.Parse("8-29-2019"),
+                        CreatedBy = "Todd Blanda",
+                        ModifiedBy = "Elvira Baï¿½ez",
+                        PatientId = 9
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-22-2020"),
+                        MedicationName = "Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray",
+                        Created = DateTime.Parse("9-19-2020"),
+                        Modified = DateTime.Parse("12-10-2020"),
+                        CreatedBy = "Jacquelynn Crooks",
+                        ModifiedBy = "Kymberly Nolan",
+                        PatientId = 29
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-14-2019"),
+                        MedicationName = "Milnacipran hydrochloride 100 MG [Savella]",
+                        Created = DateTime.Parse("3-23-2019"),
+                        Modified = DateTime.Parse("7-4-2019"),
+                        CreatedBy = "Margarite Bruen",
+                        ModifiedBy = "Nathan Emmerich",
+                        PatientId = 100
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-1-2020"),
+                        MedicationName = "Levothyroxine Sodium 0.075 MG Oral Tablet",
+                        Created = DateTime.Parse("10-28-2019"),
+                        Modified = DateTime.Parse("1-8-2020"),
+                        CreatedBy = "Myong Mueller",
+                        ModifiedBy = "Loyd McGlynn",
+                        PatientId = 20
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-8-2019"),
+                        MedicationName = "60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+                        Created = DateTime.Parse("8-14-2019"),
+                        Modified = DateTime.Parse("10-6-2019"),
+                        CreatedBy = "Katherin Dicki",
+                        ModifiedBy = "Marion Ledner",
+                        PatientId = 61
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-16-2020"),
+                        MedicationName = "Galantamine 4 MG Oral Tablet",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("1-7-2021"),
+                        CreatedBy = "Lindsy Boehm",
+                        ModifiedBy = "Michel Moore",
+                        PatientId = 36
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-19-2020"),
+                        MedicationName = "Loratadine 10 MG Oral Tablet",
+                        Created = DateTime.Parse("1-13-2021"),
+                        Modified = DateTime.Parse("2-21-2021"),
+                        CreatedBy = "Booker Jast",
+                        ModifiedBy = "Temple Reinger",
+                        PatientId = 49
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-14-2020"),
+                        MedicationName = "Doxycycline Monohydrate 100 MG Oral Tablet",
+                        Created = DateTime.Parse("5-17-2020"),
+                        Modified = DateTime.Parse("8-14-2020"),
+                        CreatedBy = "Freddie Lowe",
+                        ModifiedBy = "Raphael Pagac",
+                        PatientId = 43
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-27-2020"),
+                        MedicationName = "Aspirin 81 MG Oral Tablet",
+                        Created = DateTime.Parse("1-18-2021"),
+                        Modified = DateTime.Parse("4-1-2021"),
+                        CreatedBy = "Elliott Stamm",
+                        ModifiedBy = "Emily Bauch",
+                        PatientId = 41
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-30-2020"),
+                        MedicationName = "2 ML Ondansetron 2 MG/ML Injection",
+                        Created = DateTime.Parse("1-23-2021"),
+                        Modified = DateTime.Parse("3-11-2021"),
+                        CreatedBy = "Annetta Ondricka",
+                        ModifiedBy = "Porfirio Rippin",
+                        PatientId = 46
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-23-2020"),
+                        MedicationName = "Chlorpheniramine Maleate 4 MG Oral Tablet",
+                        Created = DateTime.Parse("11-4-2020"),
+                        Modified = DateTime.Parse("12-14-2020"),
+                        CreatedBy = "Lyda Bartoletti",
+                        ModifiedBy = "Marinda Kunze",
+                        PatientId = 37
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-10-2020"),
+                        MedicationName = "exemestane 25 MG Oral Tablet",
+                        Created = DateTime.Parse("5-20-2020"),
+                        Modified = DateTime.Parse("7-14-2020"),
+                        CreatedBy = "Maybell Langworth",
+                        ModifiedBy = "Ivonne Rowe",
+                        PatientId = 82
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-5-2020"),
+                        MedicationName = "Rocuronium bromide 10 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("12-20-2020"),
+                        Modified = DateTime.Parse("3-10-2021"),
+                        CreatedBy = "Manuel Eichmann",
+                        ModifiedBy = "Armando Razo",
+                        PatientId = 20
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-25-2019"),
+                        MedicationName = "200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+                        Created = DateTime.Parse("2-10-2020"),
+                        Modified = DateTime.Parse("3-16-2020"),
+                        CreatedBy = "An Bartoletti",
+                        ModifiedBy = "Akilah Kassulke",
+                        PatientId = 7
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-8-2019"),
+                        MedicationName = "diphenhydrAMINE Hydrochloride 25 MG Oral Tablet",
+                        Created = DateTime.Parse("2-27-2020"),
+                        Modified = DateTime.Parse("6-24-2020"),
+                        CreatedBy = "Ladonna O'Hara",
+                        ModifiedBy = "Will Murphy",
+                        PatientId = 25
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-26-2020"),
+                        MedicationName = "Acetaminophen 325 MG / HYDROcodone Bitartrate 7.5 MG Oral Tablet",
+                        Created = DateTime.Parse("1-17-2021"),
+                        Modified = DateTime.Parse("5-7-2021"),
+                        CreatedBy = "Rubie Braun",
+                        ModifiedBy = "Felipe Nava",
+                        PatientId = 79
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-5-2020"),
+                        MedicationName = "1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]",
+                        Created = DateTime.Parse("9-5-2020"),
+                        Modified = DateTime.Parse("10-18-2020"),
+                        CreatedBy = "Beverlee Kassulke",
+                        ModifiedBy = "Rico Homenick",
+                        PatientId = 39
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-29-2020"),
+                        MedicationName = "Errin 28 Day Pack",
+                        Created = DateTime.Parse("8-5-2020"),
+                        Modified = DateTime.Parse("10-3-2020"),
+                        CreatedBy = "Royce Brown",
+                        ModifiedBy = "Kandace Mann",
+                        PatientId = 6
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-29-2020"),
+                        MedicationName = "Simvastatin 20 MG Oral Tablet",
+                        Created = DateTime.Parse("8-26-2020"),
+                        Modified = DateTime.Parse("10-26-2020"),
+                        CreatedBy = "Heriberto Hagenes",
+                        ModifiedBy = "Deb Collins",
+                        PatientId = 17
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-14-2019"),
+                        MedicationName = "Digoxin 0.125 MG Oral Tablet",
+                        Created = DateTime.Parse("12-26-2019"),
+                        Modified = DateTime.Parse("4-2-2020"),
+                        CreatedBy = "Genevie Rowe",
+                        ModifiedBy = "Daniel Zieme",
+                        PatientId = 57
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-31-2020"),
+                        MedicationName = "heparin sodium  porcine",
+                        Created = DateTime.Parse("11-23-2020"),
+                        Modified = DateTime.Parse("3-21-2021"),
+                        CreatedBy = "Clair Walter",
+                        ModifiedBy = "Lenore Romaguera",
+                        PatientId = 43
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-13-2020"),
+                        MedicationName = "Cefuroxime 250 MG Oral Tablet",
+                        Created = DateTime.Parse("9-17-2020"),
+                        Modified = DateTime.Parse("1-1-2021"),
+                        CreatedBy = "Rocco Schamberger",
+                        ModifiedBy = "Dario Torp",
+                        PatientId = 67
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-1-2019"),
+                        MedicationName = "Hydrochlorothiazide 12.5 MG",
+                        Created = DateTime.Parse("11-6-2019"),
+                        Modified = DateTime.Parse("1-16-2020"),
+                        CreatedBy = "Alfredo Kuhic",
+                        ModifiedBy = "Maria Reynolds",
+                        PatientId = 57
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-4-2019"),
+                        MedicationName = "Amlodipine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG",
+                        Created = DateTime.Parse("1-1-2020"),
+                        Modified = DateTime.Parse("3-19-2020"),
+                        CreatedBy = "Carina Connelly",
+                        ModifiedBy = "Rafael Gonzales",
+                        PatientId = 62
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-16-2019"),
+                        MedicationName = "10 ML Furosemide 10 MG/ML Injection",
+                        Created = DateTime.Parse("12-2-2019"),
+                        Modified = DateTime.Parse("3-29-2020"),
+                        CreatedBy = "Daphne Hyatt",
+                        ModifiedBy = "Gus Okuneva",
+                        PatientId = 80
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-6-2020"),
+                        MedicationName = "24 HR Donepezil hydrochloride 10 MG / Memantine hydrochloride 28 MG Extended Release Oral Capsule",
+                        Created = DateTime.Parse("12-9-2020"),
+                        Modified = DateTime.Parse("3-25-2021"),
+                        CreatedBy = "Genaro Lubowitz",
+                        ModifiedBy = "Milan Rolfson",
+                        PatientId = 46
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-23-2020"),
+                        MedicationName = "Fentanyl",
+                        Created = DateTime.Parse("5-5-2020"),
+                        Modified = DateTime.Parse("8-29-2020"),
+                        CreatedBy = "Odessa Rolfson",
+                        ModifiedBy = "Lorena Gutiaerrez",
+                        PatientId = 23
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-1-2019"),
+                        MedicationName = "Levothyroxine Sodium 0.075 MG Oral Tablet",
+                        Created = DateTime.Parse("10-12-2019"),
+                        Modified = DateTime.Parse("1-11-2020"),
+                        CreatedBy = "Florida Price",
+                        ModifiedBy = "Lacie Yost",
+                        PatientId = 67
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-17-2020"),
+                        MedicationName = "anastrozole 1 MG Oral Tablet",
+                        Created = DateTime.Parse("12-2-2020"),
+                        Modified = DateTime.Parse("3-11-2021"),
+                        CreatedBy = "Jules Becker",
+                        ModifiedBy = "Ellamae Cole",
+                        PatientId = 9
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-29-2019"),
+                        MedicationName = "ferrous sulfate 325 MG Oral Tablet",
+                        Created = DateTime.Parse("3-13-2020"),
+                        Modified = DateTime.Parse("6-16-2020"),
+                        CreatedBy = "Richelle Greenholt",
+                        ModifiedBy = "Logan Farrell",
+                        PatientId = 32
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-30-2020"),
+                        MedicationName = "168 HR Ethinyl Estradiol 0.00146 MG/HR / norelgestromin 0.00625 MG/HR Transdermal System",
+                        Created = DateTime.Parse("10-29-2020"),
+                        Modified = DateTime.Parse("1-30-2021"),
+                        CreatedBy = "Victorina Braun",
+                        ModifiedBy = "Lawerence Lemke",
+                        PatientId = 89
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-8-2019"),
+                        MedicationName = "Warfarin Sodium 5 MG Oral Tablet",
+                        Created = DateTime.Parse("12-6-2019"),
+                        Modified = DateTime.Parse("2-5-2020"),
+                        CreatedBy = "Eldon Lesch",
+                        ModifiedBy = "Nickolas O'Reilly",
+                        PatientId = 82
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-30-2020"),
+                        MedicationName = "Midazolam 1 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("8-28-2020"),
+                        Modified = DateTime.Parse("10-9-2020"),
+                        CreatedBy = "Edgar Aufderhar",
+                        ModifiedBy = "Dana Goldner",
+                        PatientId = 34
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-18-2019"),
+                        MedicationName = "Terfenadine 60 MG Oral Tablet",
+                        Created = DateTime.Parse("10-25-2019"),
+                        Modified = DateTime.Parse("12-12-2019"),
+                        CreatedBy = "Kasey Tromp",
+                        ModifiedBy = "Junior Herzog",
+                        PatientId = 24
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-14-2020"),
+                        MedicationName = "Paclitaxel 100 MG Injection",
+                        Created = DateTime.Parse("7-19-2020"),
+                        Modified = DateTime.Parse("10-22-2020"),
+                        CreatedBy = "Desirae Pollich",
+                        ModifiedBy = "Mayte Vaï¿½zquez",
+                        PatientId = 27
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-14-2020"),
+                        MedicationName = "Fexofenadine hydrochloride 60 MG Oral Tablet",
+                        Created = DateTime.Parse("7-24-2020"),
+                        Modified = DateTime.Parse("10-24-2020"),
+                        CreatedBy = "Stephania Champlin",
+                        ModifiedBy = "Treasa Gislason",
+                        PatientId = 61
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-26-2019"),
+                        MedicationName = "Etoposide 100 MG Injection",
+                        Created = DateTime.Parse("10-5-2019"),
+                        Modified = DateTime.Parse("1-26-2020"),
+                        CreatedBy = "Aliza Feil",
+                        ModifiedBy = "Mikel Crona",
+                        PatientId = 75
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-20-2019"),
+                        MedicationName = "cetirizine hydrochloride 5 MG Oral Tablet",
+                        Created = DateTime.Parse("4-24-2019"),
+                        Modified = DateTime.Parse("5-27-2019"),
+                        CreatedBy = "Beatriz Ortega",
+                        ModifiedBy = "Frieda Swift",
+                        PatientId = 38
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-3-2019"),
+                        MedicationName = "Etoposide 100 MG Injection",
+                        Created = DateTime.Parse("2-11-2019"),
+                        Modified = DateTime.Parse("4-16-2019"),
+                        CreatedBy = "Frieda Swift",
+                        ModifiedBy = "Fidel Runolfsdottir",
+                        PatientId = 58
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-6-2019"),
+                        MedicationName = "cetirizine hydrochloride 10 MG Oral Tablet",
+                        Created = DateTime.Parse("9-5-2019"),
+                        Modified = DateTime.Parse("12-19-2019"),
+                        CreatedBy = "Lauralee Wolf",
+                        ModifiedBy = "Arcelia Okuneva",
+                        PatientId = 72
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-27-2020"),
+                        MedicationName = "Meperidine Hydrochloride 50 MG Oral Tablet",
+                        Created = DateTime.Parse("11-17-2020"),
+                        Modified = DateTime.Parse("3-2-2021"),
+                        CreatedBy = "Malinda Bosco",
+                        ModifiedBy = "Bernardine Erdman",
+                        PatientId = 21
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-15-2019"),
+                        MedicationName = "Remifentanil",
+                        Created = DateTime.Parse("11-26-2019"),
+                        Modified = DateTime.Parse("1-26-2020"),
+                        CreatedBy = "Adolph Okuneva",
+                        ModifiedBy = "Jacqualine Jacobi",
+                        PatientId = 76
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-7-2020"),
+                        MedicationName = "Nitrofurantoin 5 MG/ML Oral Suspension",
+                        Created = DateTime.Parse("3-6-2021"),
+                        Modified = DateTime.Parse("5-3-2021"),
+                        CreatedBy = "Deana Schamberger",
+                        ModifiedBy = "Bok Mosciski",
+                        PatientId = 62
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-5-2019"),
+                        MedicationName = "Fluoxetine 25MG",
+                        Created = DateTime.Parse("9-14-2019"),
+                        Modified = DateTime.Parse("12-6-2019"),
+                        CreatedBy = "Hortensia Bogan",
+                        ModifiedBy = "Catrice Gislason",
+                        PatientId = 48
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-18-2019"),
+                        MedicationName = "Acetaminophen 21.7 MG/ML / Dextromethorphan Hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+                        Created = DateTime.Parse("9-18-2019"),
+                        Modified = DateTime.Parse("1-6-2020"),
+                        CreatedBy = "Leopoldo Bashirian",
+                        ModifiedBy = "Jonah Boyle",
+                        PatientId = 37
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-24-2019"),
+                        MedicationName = "100 ML Epirubicin Hydrochloride 2 MG/ML Injection",
+                        Created = DateTime.Parse("3-11-2020"),
+                        Modified = DateTime.Parse("4-20-2020"),
+                        CreatedBy = "Sonny Gerhold",
+                        ModifiedBy = "Kymberly Nolan",
+                        PatientId = 62
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-7-2019"),
+                        MedicationName = "Mirena 52 MG Intrauterine System",
+                        Created = DateTime.Parse("6-1-2019"),
+                        Modified = DateTime.Parse("9-8-2019"),
+                        CreatedBy = "Bula Schowalter",
+                        ModifiedBy = "Cruz Jenkins",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-16-2020"),
+                        MedicationName = "Amlodipine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG",
+                        Created = DateTime.Parse("5-9-2020"),
+                        Modified = DateTime.Parse("6-23-2020"),
+                        CreatedBy = "Tonette Gislason",
+                        ModifiedBy = "Clay Johns",
+                        PatientId = 53
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-17-2020"),
+                        MedicationName = "Amlodipine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG",
+                        Created = DateTime.Parse("3-16-2021"),
+                        Modified = DateTime.Parse("5-4-2021"),
+                        CreatedBy = "Margarett Legros",
+                        ModifiedBy = "Jacquie Beahan",
+                        PatientId = 93
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-26-2020"),
+                        MedicationName = "pregabalin 100 MG Oral Capsule",
+                        Created = DateTime.Parse("2-21-2021"),
+                        Modified = DateTime.Parse("4-5-2021"),
+                        CreatedBy = "Nicky Vandervort",
+                        ModifiedBy = "Eli Toy",
+                        PatientId = 96
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-31-2020"),
+                        MedicationName = "predniSONE 5 MG Oral Tablet",
+                        Created = DateTime.Parse("10-11-2020"),
+                        Modified = DateTime.Parse("1-27-2021"),
+                        CreatedBy = "Agripina Berge",
+                        ModifiedBy = "Stephany Sanford",
+                        PatientId = 90
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-15-2020"),
+                        MedicationName = "Doxycycline Monohydrate 100 MG Oral Tablet",
+                        Created = DateTime.Parse("10-6-2020"),
+                        Modified = DateTime.Parse("1-2-2021"),
+                        CreatedBy = "Jeromy Grant",
+                        ModifiedBy = "Maraï¿½a Eugenia Alaniz",
+                        PatientId = 5
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-6-2020"),
+                        MedicationName = "heparin sodium  porcine",
+                        Created = DateTime.Parse("8-9-2020"),
+                        Modified = DateTime.Parse("11-6-2020"),
+                        CreatedBy = "Sheryll Smitham",
+                        ModifiedBy = "Elliott Stamm",
+                        PatientId = 90
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-30-2020"),
+                        MedicationName = "Aspirin 81 MG Oral Tablet",
+                        Created = DateTime.Parse("4-25-2020"),
+                        Modified = DateTime.Parse("8-10-2020"),
+                        CreatedBy = "Hildred Sauer",
+                        ModifiedBy = "Julian Kris",
+                        PatientId = 19
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-20-2020"),
+                        MedicationName = "2 ML Ondansetron 2 MG/ML Injection",
+                        Created = DateTime.Parse("3-13-2020"),
+                        Modified = DateTime.Parse("6-15-2020"),
+                        CreatedBy = "Hernaï¿½n Barrientos",
+                        ModifiedBy = "Tyrell Lebsack",
+                        PatientId = 53
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-21-2020"),
+                        MedicationName = "Aspirin 81 MG Oral Tablet",
+                        Created = DateTime.Parse("6-25-2020"),
+                        Modified = DateTime.Parse("10-12-2020"),
+                        CreatedBy = "Brandie Wehner",
+                        ModifiedBy = "Waylon Pacocha",
+                        PatientId = 61
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-23-2020"),
+                        MedicationName = "Methotrexate 10 MG Oral Tablet",
+                        Created = DateTime.Parse("7-8-2020"),
+                        Modified = DateTime.Parse("8-25-2020"),
+                        CreatedBy = "Everett Gottlieb",
+                        ModifiedBy = "Wayne Kessler",
+                        PatientId = 27
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-28-2019"),
+                        MedicationName = "Lorazepam 2 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("4-12-2019"),
+                        Modified = DateTime.Parse("7-31-2019"),
+                        CreatedBy = "Laure Heathcote",
+                        ModifiedBy = "Deana Ortiz",
+                        PatientId = 42
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-22-2019"),
+                        MedicationName = "Loratadine 10 MG Oral Tablet",
+                        Created = DateTime.Parse("10-25-2019"),
+                        Modified = DateTime.Parse("12-30-2019"),
+                        CreatedBy = "Genevieve Cummerata",
+                        ModifiedBy = "Donnetta McGlynn",
+                        PatientId = 54
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-10-2019"),
+                        MedicationName = "Clopidogrel 75 MG Oral Tablet",
+                        Created = DateTime.Parse("5-7-2019"),
+                        Modified = DateTime.Parse("8-3-2019"),
+                        CreatedBy = "Maricarmen Venegas",
+                        ModifiedBy = "Leslie Abshire",
+                        PatientId = 62
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-7-2020"),
+                        MedicationName = "Vitamin B 12 5 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("3-10-2020"),
+                        Modified = DateTime.Parse("5-17-2020"),
+                        CreatedBy = "Norris Gibson",
+                        ModifiedBy = "Elsy Corwin",
+                        PatientId = 86
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-25-2020"),
+                        MedicationName = "Lasix 40mg",
+                        Created = DateTime.Parse("3-9-2021"),
+                        Modified = DateTime.Parse("6-4-2021"),
+                        CreatedBy = "Gary O'Keefe",
+                        ModifiedBy = "Tracey Hammes",
+                        PatientId = 24
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-2-2020"),
+                        MedicationName = "desflurane 990 MG/ML Inhalant Solution",
+                        Created = DateTime.Parse("9-21-2020"),
+                        Modified = DateTime.Parse("11-18-2020"),
+                        CreatedBy = "Lowell Ziemann",
+                        ModifiedBy = "Olin Zulauf",
+                        PatientId = 82
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-12-2019"),
+                        MedicationName = "Donepezil hydrochloride 10 MG Oral Tablet",
+                        Created = DateTime.Parse("10-14-2019"),
+                        Modified = DateTime.Parse("1-16-2020"),
+                        CreatedBy = "Emma Hettinger",
+                        ModifiedBy = "Elliott Zieme",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-13-2020"),
+                        MedicationName = "Seasonique 91 Day Pack",
+                        Created = DateTime.Parse("2-6-2021"),
+                        Modified = DateTime.Parse("5-27-2021"),
+                        CreatedBy = "Morris Dicki",
+                        ModifiedBy = "Song Simonis",
+                        PatientId = 76
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-29-2020"),
+                        MedicationName = "Atenolol 50 MG / Chlorthalidone 25 MG Oral Tablet",
+                        Created = DateTime.Parse("8-9-2020"),
+                        Modified = DateTime.Parse("11-2-2020"),
+                        CreatedBy = "Rosario Skiles",
+                        ModifiedBy = "Virginia Manzanares",
+                        PatientId = 48
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-11-2020"),
+                        MedicationName = "NITROFURANTOIN  MACROCRYSTALS 50 MG Oral Capsule",
+                        Created = DateTime.Parse("7-19-2020"),
+                        Modified = DateTime.Parse("8-27-2020"),
+                        CreatedBy = "Hans Stracke",
+                        ModifiedBy = "Gregg Nicolas",
+                        PatientId = 80
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-29-2020"),
+                        MedicationName = "Hydrocortisone 10 MG/ML Topical Cream",
+                        Created = DateTime.Parse("1-24-2021"),
+                        Modified = DateTime.Parse("3-17-2021"),
+                        CreatedBy = "Reginald Sawayn",
+                        ModifiedBy = "Charlsie Halvorson",
+                        PatientId = 33
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-10-2019"),
+                        MedicationName = "Penicillin G 375 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("6-21-2019"),
+                        Modified = DateTime.Parse("9-6-2019"),
+                        CreatedBy = "Ignacia Little",
+                        ModifiedBy = "Tracey Vandervort",
+                        PatientId = 43
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-21-2019"),
+                        MedicationName = "predniSONE 5 MG Oral Tablet",
+                        Created = DateTime.Parse("11-3-2019"),
+                        Modified = DateTime.Parse("12-3-2019"),
+                        CreatedBy = "Armand Little",
+                        ModifiedBy = "Carlos Alanis",
+                        PatientId = 76
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-20-2020"),
+                        MedicationName = "Astemizole 10 MG Oral Tablet",
+                        Created = DateTime.Parse("1-26-2021"),
+                        Modified = DateTime.Parse("4-24-2021"),
+                        CreatedBy = "Sanford Tremblay",
+                        ModifiedBy = "Elvin Adams",
+                        PatientId = 10
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-10-2020"),
+                        MedicationName = "Hydrocortisone 10 MG/ML Topical Cream",
+                        Created = DateTime.Parse("6-23-2020"),
+                        Modified = DateTime.Parse("9-10-2020"),
+                        CreatedBy = "Esteban Aparicio",
+                        ModifiedBy = "Jeremy Green",
+                        PatientId = 36
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-19-2019"),
+                        MedicationName = "atomoxetine 100 MG Oral Capsule",
+                        Created = DateTime.Parse("6-13-2019"),
+                        Modified = DateTime.Parse("8-8-2019"),
+                        CreatedBy = "Garrett Lakin",
+                        ModifiedBy = "Wilburn Kohler",
+                        PatientId = 9
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-7-2019"),
+                        MedicationName = "Simvistatin 10 MG",
+                        Created = DateTime.Parse("10-7-2019"),
+                        Modified = DateTime.Parse("11-17-2019"),
+                        CreatedBy = "Frances Anderson",
+                        ModifiedBy = "Lupe Herzog",
+                        PatientId = 63
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-8-2020"),
+                        MedicationName = "Amoxicillin 500 MG Oral Tablet",
+                        Created = DateTime.Parse("2-17-2020"),
+                        Modified = DateTime.Parse("4-1-2020"),
+                        CreatedBy = "Jerlene Parker",
+                        ModifiedBy = "Maraï¿½a Holguaï¿½n",
+                        PatientId = 71
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-5-2019"),
+                        MedicationName = "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+                        Created = DateTime.Parse("8-8-2019"),
+                        Modified = DateTime.Parse("11-15-2019"),
+                        CreatedBy = "Noelia Muller",
+                        ModifiedBy = "Augustine Borer",
+                        PatientId = 24
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-28-2020"),
+                        MedicationName = "Levonorgestrel 0.00354 MG/HR Drug Implant",
+                        Created = DateTime.Parse("7-10-2020"),
+                        Modified = DateTime.Parse("10-5-2020"),
+                        CreatedBy = "Rafael Sedillo",
+                        ModifiedBy = "Eusebio Mraz",
+                        PatientId = 44
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-20-2019"),
+                        MedicationName = "Fexofenadine hydrochloride 30 MG Oral Tablet",
+                        Created = DateTime.Parse("12-21-2019"),
+                        Modified = DateTime.Parse("3-1-2020"),
+                        CreatedBy = "Keely Emmerich",
+                        ModifiedBy = "Leslie Douglas",
+                        PatientId = 29
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-1-2019"),
+                        MedicationName = "60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+                        Created = DateTime.Parse("9-18-2019"),
+                        Modified = DateTime.Parse("12-5-2019"),
+                        CreatedBy = "Molly Leuschke",
+                        ModifiedBy = "Jesenia Legros",
+                        PatientId = 63
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-13-2020"),
+                        MedicationName = "1 ML Morphine Sulfate 5 MG/ML Injection",
+                        Created = DateTime.Parse("2-24-2021"),
+                        Modified = DateTime.Parse("4-8-2021"),
+                        CreatedBy = "Amos Towne",
+                        ModifiedBy = "Calvin Herzog",
+                        PatientId = 58
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-1-2020"),
+                        MedicationName = "Remifentanil",
+                        Created = DateTime.Parse("3-5-2020"),
+                        Modified = DateTime.Parse("5-21-2020"),
+                        CreatedBy = "Javier VonRueden",
+                        ModifiedBy = "Jacquelyn Lynch",
+                        PatientId = 52
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-30-2019"),
+                        MedicationName = "168 HR Ethinyl Estradiol 0.00146 MG/HR / norelgestromin 0.00625 MG/HR Transdermal System",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("3-29-2020"),
+                        CreatedBy = "Elena Gislason",
+                        ModifiedBy = "Diego Weber",
+                        PatientId = 67
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-13-2020"),
+                        MedicationName = "Rocuronium bromide 10 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("11-2-2020"),
+                        Modified = DateTime.Parse("2-10-2021"),
+                        CreatedBy = "Leandro Terry",
+                        ModifiedBy = "Jacobo Guzmaï¿½n",
+                        PatientId = 92
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-6-2020"),
+                        MedicationName = "Fexofenadine hydrochloride 30 MG Oral Tablet",
+                        Created = DateTime.Parse("5-6-2020"),
+                        Modified = DateTime.Parse("6-11-2020"),
+                        CreatedBy = "Johnetta Von",
+                        ModifiedBy = "Jule Tremblay",
+                        PatientId = 97
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-16-2019"),
+                        MedicationName = "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet",
+                        Created = DateTime.Parse("10-13-2019"),
+                        Modified = DateTime.Parse("1-4-2020"),
+                        CreatedBy = "Maryetta Nienow",
+                        ModifiedBy = "Tomeka Feest",
+                        PatientId = 86
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-9-2019"),
+                        MedicationName = "Tamoxifen 10 MG Oral Tablet",
+                        Created = DateTime.Parse("3-16-2019"),
+                        Modified = DateTime.Parse("5-3-2019"),
+                        CreatedBy = "Laure Heathcote",
+                        ModifiedBy = "Tula O'Conner",
+                        PatientId = 29
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-28-2020"),
+                        MedicationName = "10 ML Furosemide 10 MG/ML Injection",
+                        Created = DateTime.Parse("3-4-2021"),
+                        Modified = DateTime.Parse("6-7-2021"),
+                        CreatedBy = "aï¿½scar Griego",
+                        ModifiedBy = "Salvador Stracke",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-7-2019"),
+                        MedicationName = "Piperacillin 4000 MG / tazobactam 500 MG Injection",
+                        Created = DateTime.Parse("2-6-2020"),
+                        Modified = DateTime.Parse("3-26-2020"),
+                        CreatedBy = "Jettie Schimmel",
+                        ModifiedBy = "Luna Effertz",
+                        PatientId = 31
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-22-2019"),
+                        MedicationName = "Levora 0.15/30 28 Day Pack",
+                        Created = DateTime.Parse("1-8-2020"),
+                        Modified = DateTime.Parse("4-9-2020"),
+                        CreatedBy = "Suellen Von",
+                        ModifiedBy = "Josefina Marroquaï¿½n",
+                        PatientId = 36
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-29-2019"),
+                        MedicationName = "Naproxen 500 MG Oral Tablet",
+                        Created = DateTime.Parse("11-16-2019"),
+                        Modified = DateTime.Parse("2-17-2020"),
+                        CreatedBy = "Manual Krajcik",
+                        ModifiedBy = "Treva Littel",
+                        PatientId = 18
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-24-2019"),
+                        MedicationName = "Yaz 28 Day Pack",
+                        Created = DateTime.Parse("6-17-2019"),
+                        Modified = DateTime.Parse("8-31-2019"),
+                        CreatedBy = "Jules Becker",
+                        ModifiedBy = "Stuart Schuppe",
+                        PatientId = 99
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-15-2019"),
+                        MedicationName = "Ibuprofen 100 MG Oral Tablet",
+                        Created = DateTime.Parse("11-24-2019"),
+                        Modified = DateTime.Parse("3-7-2020"),
+                        CreatedBy = "Jenae Ondricka",
+                        ModifiedBy = "Therese Bahringer",
+                        PatientId = 55
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-3-2019"),
+                        MedicationName = "Natazia 28 Day Pack",
+                        Created = DateTime.Parse("3-9-2019"),
+                        Modified = DateTime.Parse("4-23-2019"),
+                        CreatedBy = "Rodrigo Noriega",
+                        ModifiedBy = "Luciano Gutkowski",
+                        PatientId = 33
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-6-2020"),
+                        MedicationName = "Errin 28 Day Pack",
+                        Created = DateTime.Parse("9-23-2020"),
+                        Modified = DateTime.Parse("1-4-2021"),
+                        CreatedBy = "Lester Gleason",
+                        ModifiedBy = "Amos Towne",
+                        PatientId = 83
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-12-2019"),
+                        MedicationName = "Terfenadine 60 MG Oral Tablet",
+                        Created = DateTime.Parse("7-5-2019"),
+                        Modified = DateTime.Parse("10-28-2019"),
+                        CreatedBy = "Rudy Simonis",
+                        ModifiedBy = "Ivana Berge",
+                        PatientId = 13
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-7-2020"),
+                        MedicationName = "Diazepam [Valium]",
+                        Created = DateTime.Parse("7-22-2020"),
+                        Modified = DateTime.Parse("10-24-2020"),
+                        CreatedBy = "Ronni Bogan",
+                        ModifiedBy = "Alona Kohler",
+                        PatientId = 15
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-25-2020"),
+                        MedicationName = "Penicillin V Potassium 500 MG Oral Tablet",
+                        Created = DateTime.Parse("10-19-2020"),
+                        Modified = DateTime.Parse("1-19-2021"),
+                        CreatedBy = "Ellamae Medhurst",
+                        ModifiedBy = "Arla Wilkinson",
+                        PatientId = 54
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-13-2019"),
+                        MedicationName = "Captopril 25 MG Oral Tablet",
+                        Created = DateTime.Parse("7-17-2019"),
+                        Modified = DateTime.Parse("10-9-2019"),
+                        CreatedBy = "Corrine Hickle",
+                        ModifiedBy = "Bryce Hammes",
+                        PatientId = 34
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-22-2020"),
+                        MedicationName = "10 ML Furosemide 10 MG/ML Injection",
+                        Created = DateTime.Parse("3-16-2020"),
+                        Modified = DateTime.Parse("7-12-2020"),
+                        CreatedBy = "Lashonda Lind",
+                        ModifiedBy = "Margie Little",
+                        PatientId = 92
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-22-2019"),
+                        MedicationName = "12 HR Cefaclor 500 MG Extended Release Oral Tablet",
+                        Created = DateTime.Parse("12-19-2019"),
+                        Modified = DateTime.Parse("4-16-2020"),
+                        CreatedBy = "Ayesha Kuvalis",
+                        ModifiedBy = "Merle Schinner",
+                        PatientId = 61
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-28-2019"),
+                        MedicationName = "Insulin Lispro 100 UNT/ML Injectable Solution [Humalog]",
+                        Created = DateTime.Parse("10-24-2019"),
+                        Modified = DateTime.Parse("1-30-2020"),
+                        CreatedBy = "Jamaal Funk",
+                        ModifiedBy = "Hans Lindgren",
+                        PatientId = 2
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-25-2020"),
+                        MedicationName = "100 ML Epirubicin Hydrochloride 2 MG/ML Injection",
+                        Created = DateTime.Parse("7-9-2020"),
+                        Modified = DateTime.Parse("10-28-2020"),
+                        CreatedBy = "Jamaal Funk",
+                        ModifiedBy = "Evan Rath",
+                        PatientId = 26
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-1-2020"),
+                        MedicationName = "Sertraline 100MG",
+                        Created = DateTime.Parse("11-3-2020"),
+                        Modified = DateTime.Parse("2-9-2021"),
+                        CreatedBy = "Jorge Tamez",
+                        ModifiedBy = "Azalee Reichel",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-3-2020"),
+                        MedicationName = "letrozole 2.5 MG Oral Tablet",
+                        Created = DateTime.Parse("1-11-2021"),
+                        Modified = DateTime.Parse("3-5-2021"),
+                        CreatedBy = "Lois Sipes",
+                        ModifiedBy = "Kendal Bahringer",
+                        PatientId = 92
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-28-2019"),
+                        MedicationName = "predniSONE 5 MG Oral Tablet",
+                        Created = DateTime.Parse("1-26-2020"),
+                        Modified = DateTime.Parse("3-20-2020"),
+                        CreatedBy = "Gregorio Alonzo",
+                        ModifiedBy = "Shane Heidenreich",
+                        PatientId = 35
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-24-2020"),
+                        MedicationName = "Cisplatin 50 MG Injection",
+                        Created = DateTime.Parse("7-16-2020"),
+                        Modified = DateTime.Parse("8-23-2020"),
+                        CreatedBy = "Maraï¿½a Cristina Aguilera",
+                        ModifiedBy = "Hortensia Bogan",
+                        PatientId = 26
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-7-2020"),
+                        MedicationName = "pregabalin 100 MG Oral Capsule",
+                        Created = DateTime.Parse("9-29-2020"),
+                        Modified = DateTime.Parse("1-18-2021"),
+                        CreatedBy = "Coleman Hagenes",
+                        ModifiedBy = "Lacey Yundt",
+                        PatientId = 4
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-14-2019"),
+                        MedicationName = "10 ML Pamidronate Disodium 3 MG/ML Injection",
+                        Created = DateTime.Parse("5-24-2019"),
+                        Modified = DateTime.Parse("7-4-2019"),
+                        CreatedBy = "Jaime Zapata",
+                        ModifiedBy = "Inger Wolff",
+                        PatientId = 100
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-16-2020"),
+                        MedicationName = "0.65 ML medroxyprogesterone acetate 160 MG/ML Prefilled Syringe",
+                        Created = DateTime.Parse("1-10-2021"),
+                        Modified = DateTime.Parse("2-12-2021"),
+                        CreatedBy = "Marilu Delapaz",
+                        ModifiedBy = "Karly Gaylord",
+                        PatientId = 95
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-26-2019"),
+                        MedicationName = "Sertraline 100MG",
+                        Created = DateTime.Parse("4-5-2020"),
+                        Modified = DateTime.Parse("8-3-2020"),
+                        CreatedBy = "Linwood Kub",
+                        ModifiedBy = "Derick Marquardt",
+                        PatientId = 7
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-3-2019"),
+                        MedicationName = "Fentanyl",
+                        Created = DateTime.Parse("10-18-2019"),
+                        Modified = DateTime.Parse("11-19-2019"),
+                        CreatedBy = "Matilde Halvorson",
+                        ModifiedBy = "Debrah Wunsch",
+                        PatientId = 77
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-2-2020"),
+                        MedicationName = "Diazepam [Valium]",
+                        Created = DateTime.Parse("4-15-2020"),
+                        Modified = DateTime.Parse("8-7-2020"),
+                        CreatedBy = "Valentin Bergstrom",
+                        ModifiedBy = "Emil Hansen",
+                        PatientId = 14
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-13-2020"),
+                        MedicationName = "Remifentanil",
+                        Created = DateTime.Parse("12-1-2020"),
+                        Modified = DateTime.Parse("2-2-2021"),
+                        CreatedBy = "Keesha Yost",
+                        ModifiedBy = "Roselia Bartell",
+                        PatientId = 59
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-4-2020"),
+                        MedicationName = "Verapamil Hydrochloride 40 MG",
+                        Created = DateTime.Parse("9-15-2020"),
+                        Modified = DateTime.Parse("11-6-2020"),
+                        CreatedBy = "Amee Mertz",
+                        ModifiedBy = "Etha Gulgowski",
+                        PatientId = 72
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-6-2019"),
+                        MedicationName = "Carbamazepine[Tegretol]",
+                        Created = DateTime.Parse("4-12-2019"),
+                        Modified = DateTime.Parse("6-22-2019"),
+                        CreatedBy = "Dagny Ledner",
+                        ModifiedBy = "Tomaï¿½s Montenegro",
+                        PatientId = 74
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-1-2020"),
+                        MedicationName = "Milnacipran hydrochloride 100 MG [Savella]",
+                        Created = DateTime.Parse("12-18-2020"),
+                        Modified = DateTime.Parse("2-17-2021"),
+                        CreatedBy = "Beula Tillman",
+                        ModifiedBy = "Mika Roob",
+                        PatientId = 72
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-14-2020"),
+                        MedicationName = "1 ML medroxyprogesterone acetate 150 MG/ML Injection",
+                        Created = DateTime.Parse("2-5-2021"),
+                        Modified = DateTime.Parse("5-18-2021"),
+                        CreatedBy = "Merlin Smith",
+                        ModifiedBy = "Margarite Pfannerstill",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-3-2020"),
+                        MedicationName = "Sodium Chloride 9 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("3-9-2020"),
+                        Modified = DateTime.Parse("4-17-2020"),
+                        CreatedBy = "Dewey Schowalter",
+                        ModifiedBy = "Tyrone Mohr",
+                        PatientId = 23
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-7-2019"),
+                        MedicationName = "Chlorpheniramine Maleate 2 MG/ML Oral Solution",
+                        Created = DateTime.Parse("8-26-2019"),
+                        Modified = DateTime.Parse("10-30-2019"),
+                        CreatedBy = "Sarah Rau",
+                        ModifiedBy = "Kerri Becker",
+                        PatientId = 39
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-30-2019"),
+                        MedicationName = "0.65 ML medroxyprogesterone acetate 160 MG/ML Prefilled Syringe",
+                        Created = DateTime.Parse("6-17-2019"),
+                        Modified = DateTime.Parse("7-26-2019"),
+                        CreatedBy = "Malinda Bosco",
+                        ModifiedBy = "Tyler Walter",
+                        PatientId = 4
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-23-2019"),
+                        MedicationName = "Colchicine 0.6 MG [Colcrys]",
+                        Created = DateTime.Parse("1-30-2020"),
+                        Modified = DateTime.Parse("5-9-2020"),
+                        CreatedBy = "Minda Greenfelder",
+                        ModifiedBy = "Francesca Purdy",
+                        PatientId = 49
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-2-2020"),
+                        MedicationName = "Fexofenadine hydrochloride 30 MG Oral Tablet",
+                        Created = DateTime.Parse("10-20-2020"),
+                        Modified = DateTime.Parse("1-21-2021"),
+                        CreatedBy = "Florinda Beahan",
+                        ModifiedBy = "Cecil Huel",
+                        PatientId = 88
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-26-2019"),
+                        MedicationName = "Fexofenadine hydrochloride 60 MG Oral Tablet",
+                        Created = DateTime.Parse("5-28-2019"),
+                        Modified = DateTime.Parse("7-13-2019"),
+                        CreatedBy = "Tracy Von",
+                        ModifiedBy = "Aracelis Connelly",
+                        PatientId = 47
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-12-2019"),
+                        MedicationName = "Naproxen sodium 220 MG Oral Tablet",
+                        Created = DateTime.Parse("9-22-2019"),
+                        Modified = DateTime.Parse("12-9-2019"),
+                        CreatedBy = "Isabel Carrasco",
+                        ModifiedBy = "Tiana Hoeger",
+                        PatientId = 74
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-30-2019"),
+                        MedicationName = "Yaz 28 Day Pack",
+                        Created = DateTime.Parse("9-7-2019"),
+                        Modified = DateTime.Parse("12-12-2019"),
+                        CreatedBy = "Jordon McKenzie",
+                        ModifiedBy = "Efren Hilll",
+                        PatientId = 47
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-5-2020"),
+                        MedicationName = "Chlorpheniramine Maleate 2 MG/ML Oral Solution",
+                        Created = DateTime.Parse("8-6-2020"),
+                        Modified = DateTime.Parse("11-23-2020"),
+                        CreatedBy = "Morgan Farrell",
+                        ModifiedBy = "John Bradtke",
+                        PatientId = 19
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-12-2020"),
+                        MedicationName = "Memantine hydrochloride 2 MG/ML Oral Solution",
+                        Created = DateTime.Parse("4-9-2020"),
+                        Modified = DateTime.Parse("5-16-2020"),
+                        CreatedBy = "Caesar Serrato",
+                        ModifiedBy = "Lyman Turner",
+                        PatientId = 46
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-9-2020"),
+                        MedicationName = "Atenolol 50 MG / Chlorthalidone 25 MG Oral Tablet",
+                        Created = DateTime.Parse("5-21-2020"),
+                        Modified = DateTime.Parse("8-14-2020"),
+                        CreatedBy = "Rema Parker",
+                        ModifiedBy = "Carey Deckow",
+                        PatientId = 39
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-19-2019"),
+                        MedicationName = "Kyleena 19.5 MG Intrauterine System",
+                        Created = DateTime.Parse("1-3-2020"),
+                        Modified = DateTime.Parse("2-11-2020"),
+                        CreatedBy = "Riley Deckow",
+                        ModifiedBy = "Willie Haag",
+                        PatientId = 63
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-10-2020"),
+                        MedicationName = "Donepezil hydrochloride 23 MG [Aricept]",
+                        Created = DateTime.Parse("4-8-2021"),
+                        Modified = DateTime.Parse("5-21-2021"),
+                        CreatedBy = "Lizabeth O'Conner",
+                        ModifiedBy = "Elvira Johns",
+                        PatientId = 78
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-13-2020"),
+                        MedicationName = "Cefuroxime 250 MG Oral Tablet",
+                        Created = DateTime.Parse("12-26-2020"),
+                        Modified = DateTime.Parse("2-8-2021"),
+                        CreatedBy = "Toshiko Purdy",
+                        ModifiedBy = "Miki Fadel",
+                        PatientId = 67
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-13-2020"),
+                        MedicationName = "Liletta 52 MG Intrauterine System",
+                        Created = DateTime.Parse("6-23-2020"),
+                        Modified = DateTime.Parse("9-18-2020"),
+                        CreatedBy = "Phil Mosciski",
+                        ModifiedBy = "Traci Jones",
+                        PatientId = 95
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-21-2020"),
+                        MedicationName = "insulin human  isophane 70 UNT/ML / Regular Insulin  Human 30 UNT/ML Injectable Suspension [Humulin]",
+                        Created = DateTime.Parse("3-30-2020"),
+                        Modified = DateTime.Parse("5-9-2020"),
+                        CreatedBy = "Sena Rogahn",
+                        ModifiedBy = "Dante Leffler",
+                        PatientId = 87
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-21-2019"),
+                        MedicationName = "100 ML Propofol 10 MG/ML Injection",
+                        Created = DateTime.Parse("9-17-2019"),
+                        Modified = DateTime.Parse("10-30-2019"),
+                        CreatedBy = "Marcela Merino",
+                        ModifiedBy = "Mason Quitzon",
+                        PatientId = 70
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-12-2020"),
+                        MedicationName = "letrozole 2.5 MG Oral Tablet",
+                        Created = DateTime.Parse("2-24-2021"),
+                        Modified = DateTime.Parse("5-24-2021"),
+                        CreatedBy = "Vito Reinger",
+                        ModifiedBy = "Jamar Oberbrunner",
+                        PatientId = 84
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-16-2020"),
+                        MedicationName = "NuvaRing 0.12/0.015 MG per 24HR 21 Day Vaginal Ring",
+                        Created = DateTime.Parse("7-18-2020"),
+                        Modified = DateTime.Parse("9-23-2020"),
+                        CreatedBy = "Diego Weber",
+                        ModifiedBy = "Antone Howe",
+                        PatientId = 62
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-7-2019"),
+                        MedicationName = "Verapamil Hydrochloride 40 MG",
+                        Created = DateTime.Parse("10-14-2019"),
+                        Modified = DateTime.Parse("12-16-2019"),
+                        CreatedBy = "Anthony Farrell",
+                        ModifiedBy = "Gail Davis",
+                        PatientId = 61
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-26-2020"),
+                        MedicationName = "anastrozole 1 MG Oral Tablet",
+                        Created = DateTime.Parse("10-3-2020"),
+                        Modified = DateTime.Parse("11-9-2020"),
+                        CreatedBy = "Garret Johnson",
+                        ModifiedBy = "Sherlene Nienow",
+                        PatientId = 25
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-3-2019"),
+                        MedicationName = "100 ML Epirubicin Hydrochloride 2 MG/ML Injection",
+                        Created = DateTime.Parse("10-24-2019"),
+                        Modified = DateTime.Parse("12-22-2019"),
+                        CreatedBy = "Barbra Mills",
+                        ModifiedBy = "Laura Colunga",
+                        PatientId = 28
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-7-2020"),
+                        MedicationName = "Rocuronium bromide 10 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("6-20-2020"),
+                        Modified = DateTime.Parse("7-23-2020"),
+                        CreatedBy = "Oda Harvey",
+                        ModifiedBy = "Gwyn Hand",
+                        PatientId = 9
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-8-2020"),
+                        MedicationName = "Alteplase 100 MG Injection",
+                        Created = DateTime.Parse("3-6-2021"),
+                        Modified = DateTime.Parse("4-21-2021"),
+                        CreatedBy = "Genaro Parisian",
+                        ModifiedBy = "Ana Maraï¿½a Trujillo",
+                        PatientId = 95
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-9-2019"),
+                        MedicationName = "Leucovorin 100 MG Injection",
+                        Created = DateTime.Parse("9-4-2019"),
+                        Modified = DateTime.Parse("11-20-2019"),
+                        CreatedBy = "Daniel Arevalo",
+                        ModifiedBy = "Amie Swift",
+                        PatientId = 23
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-13-2020"),
+                        MedicationName = "Leucovorin 100 MG Injection",
+                        Created = DateTime.Parse("11-17-2020"),
+                        Modified = DateTime.Parse("2-27-2021"),
+                        CreatedBy = "Bella Mann",
+                        ModifiedBy = "Elvira Garrido",
+                        PatientId = 55
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-18-2019"),
+                        MedicationName = "Amlodipine 5 MG Oral Tablet",
+                        Created = DateTime.Parse("4-30-2019"),
+                        Modified = DateTime.Parse("6-29-2019"),
+                        CreatedBy = "Hyman Lang",
+                        ModifiedBy = "Lenna Zemlak",
+                        PatientId = 100
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-17-2019"),
+                        MedicationName = "Paclitaxel 100 MG Injection",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("5-27-2020"),
+                        CreatedBy = "Julio Powlowski",
+                        ModifiedBy = "Carson Wisozk",
+                        PatientId = 3
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-24-2019"),
+                        MedicationName = "5 ML hyaluronidase-oysk 2000 UNT/ML / trastuzumab 120 MG/ML Injection",
+                        Created = DateTime.Parse("12-13-2019"),
+                        Modified = DateTime.Parse("2-17-2020"),
+                        CreatedBy = "Shantelle Ruecker",
+                        ModifiedBy = "Natalya Wiegand",
+                        PatientId = 1
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-17-2020"),
+                        MedicationName = "10 ML oxaliplatin 5 MG/ML Injection",
+                        Created = DateTime.Parse("10-2-2020"),
+                        Modified = DateTime.Parse("1-25-2021"),
+                        CreatedBy = "Coleman Cole",
+                        ModifiedBy = "Arica Windler",
+                        PatientId = 24
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-10-2019"),
+                        MedicationName = "Nitrofurantoin 5 MG/ML Oral Suspension",
+                        Created = DateTime.Parse("3-4-2020"),
+                        Modified = DateTime.Parse("4-19-2020"),
+                        CreatedBy = "Norris O'Connell",
+                        ModifiedBy = "Amado Dibbert",
+                        PatientId = 31
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-17-2020"),
+                        MedicationName = "Natazia 28 Day Pack",
+                        Created = DateTime.Parse("1-19-2021"),
+                        Modified = DateTime.Parse("3-6-2021"),
+                        CreatedBy = "Oliver Barton",
+                        ModifiedBy = "Duane Runte",
+                        PatientId = 64
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-17-2019"),
+                        MedicationName = "10 ML Doxorubicin Hydrochloride 2 MG/ML Injection",
+                        Created = DateTime.Parse("4-18-2019"),
+                        Modified = DateTime.Parse("5-27-2019"),
+                        CreatedBy = "Carlita Mueller",
+                        ModifiedBy = "Tommy Metz",
+                        PatientId = 25
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-14-2020"),
+                        MedicationName = "Acetaminophen 325 MG / oxyCODONE Hydrochloride 2.5 MG [Percocet]",
+                        Created = DateTime.Parse("4-19-2020"),
+                        Modified = DateTime.Parse("6-19-2020"),
+                        CreatedBy = "Gonzalo Crona",
+                        ModifiedBy = "Luis Miguel Echevarraï¿½a",
+                        PatientId = 16
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-16-2020"),
+                        MedicationName = "Acetaminophen 325 MG Oral Tablet",
+                        Created = DateTime.Parse("10-4-2020"),
+                        Modified = DateTime.Parse("11-7-2020"),
+                        CreatedBy = "Salina Kozey",
+                        ModifiedBy = "Adrian Rice",
+                        PatientId = 86
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-30-2019"),
+                        MedicationName = "Acetaminophen 325 MG Oral Tablet",
+                        Created = DateTime.Parse("12-23-2019"),
+                        Modified = DateTime.Parse("3-20-2020"),
+                        CreatedBy = "Earl Moen",
+                        ModifiedBy = "Alonso Beer",
+                        PatientId = 15
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-17-2019"),
+                        MedicationName = "Lasix 40mg",
+                        Created = DateTime.Parse("4-24-2019"),
+                        Modified = DateTime.Parse("6-16-2019"),
+                        CreatedBy = "Rebecca Kessler",
+                        ModifiedBy = "Alva Swift",
+                        PatientId = 93
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-1-2020"),
+                        MedicationName = "Clopidogrel 75 MG Oral Tablet",
+                        Created = DateTime.Parse("7-13-2020"),
+                        Modified = DateTime.Parse("9-12-2020"),
+                        CreatedBy = "Ayesha Roberts",
+                        ModifiedBy = "Lindsay Pagac",
+                        PatientId = 72
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-12-2019"),
+                        MedicationName = "atomoxetine 100 MG Oral Capsule",
+                        Created = DateTime.Parse("8-15-2019"),
+                        Modified = DateTime.Parse("11-28-2019"),
+                        CreatedBy = "Hobert Pacocha",
+                        ModifiedBy = "Carrol Berge",
+                        PatientId = 35
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-25-2020"),
+                        MedicationName = "Vitamin B 12 5 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("8-21-2020"),
+                        Modified = DateTime.Parse("10-30-2020"),
+                        CreatedBy = "Luciano Wiza",
+                        ModifiedBy = "Luis Miguel Montalvo",
+                        PatientId = 18
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-6-2020"),
+                        MedicationName = "letrozole 2.5 MG Oral Tablet",
+                        Created = DateTime.Parse("10-13-2020"),
+                        Modified = DateTime.Parse("12-4-2020"),
+                        CreatedBy = "Kym Runolfsson",
+                        ModifiedBy = "Rubie Braun",
+                        PatientId = 77
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-15-2019"),
+                        MedicationName = "3 ML Amiodarone hydrocholoride 50 MG/ML Prefilled Syringe",
+                        Created = DateTime.Parse("2-12-2020"),
+                        Modified = DateTime.Parse("4-7-2020"),
+                        CreatedBy = "Gayle Leannon",
+                        ModifiedBy = "Otha Stark",
+                        PatientId = 16
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-23-2019"),
+                        MedicationName = "Sertraline 100MG",
+                        Created = DateTime.Parse("7-1-2019"),
+                        Modified = DateTime.Parse("10-26-2019"),
+                        CreatedBy = "Shera Konopelski",
+                        ModifiedBy = "Max Pouros",
+                        PatientId = 46
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-29-2020"),
+                        MedicationName = "Amlodipine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG",
+                        Created = DateTime.Parse("3-23-2021"),
+                        Modified = DateTime.Parse("4-22-2021"),
+                        CreatedBy = "Kizzie Bosco",
+                        ModifiedBy = "Bernardo Cortaes",
+                        PatientId = 51
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-15-2019"),
+                        MedicationName = "3 ML Amiodarone hydrocholoride 50 MG/ML Prefilled Syringe",
+                        Created = DateTime.Parse("10-20-2019"),
+                        Modified = DateTime.Parse("1-12-2020"),
+                        CreatedBy = "Edwin Waters",
+                        ModifiedBy = "Nelida Eichmann",
+                        PatientId = 94
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-11-2019"),
+                        MedicationName = "sevoflurane 1000 MG/ML Inhalant Solution",
+                        Created = DateTime.Parse("4-27-2019"),
+                        Modified = DateTime.Parse("8-20-2019"),
+                        CreatedBy = "Dallas Beatty",
+                        ModifiedBy = "Ferdinand Lemke",
+                        PatientId = 98
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-24-2019"),
+                        MedicationName = "Verapamil Hydrochloride 40 MG",
+                        Created = DateTime.Parse("6-16-2019"),
+                        Modified = DateTime.Parse("8-17-2019"),
+                        CreatedBy = "Antoine Bahringer",
+                        ModifiedBy = "Lydia Morissette",
+                        PatientId = 65
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-4-2019"),
+                        MedicationName = "Vitamin B 12 5 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("12-3-2019"),
+                        Modified = DateTime.Parse("2-3-2020"),
+                        CreatedBy = "Lynsey Koelpin",
+                        ModifiedBy = "Clarita Kuvalis",
+                        PatientId = 43
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-13-2019"),
+                        MedicationName = "Leucovorin 100 MG Injection",
+                        Created = DateTime.Parse("6-10-2019"),
+                        Modified = DateTime.Parse("9-15-2019"),
+                        CreatedBy = "Amalia Herzog",
+                        ModifiedBy = "Miquel Auer",
+                        PatientId = 89
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-18-2019"),
+                        MedicationName = "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+                        Created = DateTime.Parse("9-11-2019"),
+                        Modified = DateTime.Parse("11-4-2019"),
+                        CreatedBy = "Myong Crooks",
+                        ModifiedBy = "Susana Lockman",
+                        PatientId = 86
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-5-2020"),
+                        MedicationName = "Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet",
+                        Created = DateTime.Parse("11-7-2020"),
+                        Modified = DateTime.Parse("12-19-2020"),
+                        CreatedBy = "Michaela Sauer",
+                        ModifiedBy = "Phillip Parker",
+                        PatientId = 90
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-17-2020"),
+                        MedicationName = "Ibuprofen 100 MG Oral Tablet",
+                        Created = DateTime.Parse("4-28-2020"),
+                        Modified = DateTime.Parse("6-9-2020"),
+                        CreatedBy = "Carolann Purdy",
+                        ModifiedBy = "Marion Bosco",
+                        PatientId = 53
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("3-25-2019"),
+                        MedicationName = "Trinessa 28 Day Pack",
+                        Created = DateTime.Parse("6-19-2019"),
+                        Modified = DateTime.Parse("8-18-2019"),
+                        CreatedBy = "Miguel aï¿½ngel Mojica",
+                        ModifiedBy = "Matilde Adams",
+                        PatientId = 63
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-4-2019"),
+                        MedicationName = "Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray",
+                        Created = DateTime.Parse("1-4-2020"),
+                        Modified = DateTime.Parse("3-10-2020"),
+                        CreatedBy = "Terese Reynolds",
+                        ModifiedBy = "Merrie Beier",
+                        PatientId = 29
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("6-28-2020"),
+                        MedicationName = "Penicillin V Potassium 250 MG Oral Tablet",
+                        Created = DateTime.Parse("8-23-2020"),
+                        Modified = DateTime.Parse("10-7-2020"),
+                        CreatedBy = "Setsuko Kemmer",
+                        ModifiedBy = "Laurice Schumm",
+                        PatientId = 82
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-7-2019"),
+                        MedicationName = "12 HR Cefaclor 500 MG Extended Release Oral Tablet",
+                        Created = DateTime.Parse("12-24-2019"),
+                        Modified = DateTime.Parse("4-20-2020"),
+                        CreatedBy = "Leila Heidenreich",
+                        ModifiedBy = "Hoyt Witting",
+                        PatientId = 75
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-14-2020"),
+                        MedicationName = "Atropine Sulfate 1 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("11-19-2020"),
+                        Modified = DateTime.Parse("3-2-2021"),
+                        CreatedBy = "Arletta Stanton",
+                        ModifiedBy = "Lia Considine",
+                        PatientId = 92
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("9-27-2019"),
+                        MedicationName = "60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+                        Created = DateTime.Parse("11-11-2019"),
+                        Modified = DateTime.Parse("1-9-2020"),
+                        CreatedBy = "Asa Tillman",
+                        ModifiedBy = "Tandy Yundt",
+                        PatientId = 60
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-17-2019"),
+                        MedicationName = "Levothyroxine Sodium 0.075 MG Oral Tablet",
+                        Created = DateTime.Parse("12-5-2019"),
+                        Modified = DateTime.Parse("2-7-2020"),
+                        CreatedBy = "Audry Heathcote",
+                        ModifiedBy = "Lyndia Kohler",
+                        PatientId = 47
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-26-2019"),
+                        MedicationName = "Acetaminophen 325 MG Oral Tablet",
+                        Created = DateTime.Parse("3-25-2020"),
+                        Modified = DateTime.Parse("5-20-2020"),
+                        CreatedBy = "Daisey Pfeffer",
+                        ModifiedBy = "Catarina McCullough",
+                        PatientId = 59
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-24-2019"),
+                        MedicationName = "Simvastatin 20 MG Oral Tablet",
+                        Created = DateTime.Parse("10-25-2019"),
+                        Modified = DateTime.Parse("1-31-2020"),
+                        CreatedBy = "Arlinda Monahan",
+                        ModifiedBy = "Maryellen Christiansen",
+                        PatientId = 81
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("4-16-2019"),
+                        MedicationName = "1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]",
+                        Created = DateTime.Parse("8-3-2019"),
+                        Modified = DateTime.Parse("11-9-2019"),
+                        CreatedBy = "Eusebio Wilkinson",
+                        ModifiedBy = "Maybell Durgan",
+                        PatientId = 34
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-20-2019"),
+                        MedicationName = "Lasix 40mg",
+                        Created = DateTime.Parse("2-3-2020"),
+                        Modified = DateTime.Parse("4-1-2020"),
+                        CreatedBy = "Vernon Kovacek",
+                        ModifiedBy = "Sara Pouros",
+                        PatientId = 75
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-30-2020"),
+                        MedicationName = "Errin 28 Day Pack",
+                        Created = DateTime.Parse("11-12-2020"),
+                        Modified = DateTime.Parse("2-5-2021"),
+                        CreatedBy = "Ada Wiegand",
+                        ModifiedBy = "Edgar Jaskolski",
+                        PatientId = 25
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-4-2019"),
+                        MedicationName = "Amlodipine 5 MG / Hydrochlorothiazide 12.5 MG / Olmesartan medoxomil 20 MG",
+                        Created = DateTime.Parse("9-3-2019"),
+                        Modified = DateTime.Parse("11-23-2019"),
+                        CreatedBy = "Jerrold Heathcote",
+                        ModifiedBy = "Bennie Rutherford",
+                        PatientId = 74
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-14-2020"),
+                        MedicationName = "Amoxicillin 250 MG Oral Capsule",
+                        Created = DateTime.Parse("1-24-2021"),
+                        Modified = DateTime.Parse("3-21-2021"),
+                        CreatedBy = "Booker Lebsack",
+                        ModifiedBy = "Maraï¿½a del Carmen Casares",
+                        PatientId = 55
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-11-2019"),
+                        MedicationName = "Fexofenadine hydrochloride 60 MG Oral Tablet",
+                        Created = DateTime.Parse("8-30-2019"),
+                        Modified = DateTime.Parse("11-8-2019"),
+                        CreatedBy = "Keely Emmerich",
+                        ModifiedBy = "Willetta Jacobi",
+                        PatientId = 31
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-8-2019"),
+                        MedicationName = "Tamoxifen 10 MG Oral Tablet",
+                        Created = DateTime.Parse("9-4-2019"),
+                        Modified = DateTime.Parse("12-29-2019"),
+                        CreatedBy = "Whitley Ullrich",
+                        ModifiedBy = "Malcom Conroy",
+                        PatientId = 4
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-30-2020"),
+                        MedicationName = "Clonazepam [Klonopin]",
+                        Created = DateTime.Parse("10-10-2020"),
+                        Modified = DateTime.Parse("1-7-2021"),
+                        CreatedBy = "Hobert Brakus",
+                        ModifiedBy = "Nan Frami",
+                        PatientId = 31
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("5-13-2019"),
+                        MedicationName = "Alfentanil",
+                        Created = DateTime.Parse("7-25-2019"),
+                        Modified = DateTime.Parse("9-13-2019"),
+                        CreatedBy = "Inocencia Auer",
+                        ModifiedBy = "Tuan Greenholt",
+                        PatientId = 72
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("2-13-2020"),
+                        MedicationName = "Ibuprofen 200 MG Oral Tablet",
+                        Created = DateTime.Parse("6-6-2020"),
+                        Modified = DateTime.Parse("9-15-2020"),
+                        CreatedBy = "Earnest Paucek",
+                        ModifiedBy = "Bertha Franecki",
+                        PatientId = 66
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-9-2020"),
+                        MedicationName = "Acetaminophen 300 MG / HYDROcodone Bitartrate 5 MG [Vicodin]",
+                        Created = DateTime.Parse("1-17-2021"),
+                        Modified = DateTime.Parse("4-23-2021"),
+                        CreatedBy = "Franklin Ratke",
+                        ModifiedBy = "Lindsay Schiller",
+                        PatientId = 96
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-29-2020"),
+                        MedicationName = "Warfarin Sodium 5 MG Oral Tablet",
+                        Created = DateTime.Parse("2-9-2021"),
+                        Modified = DateTime.Parse("5-24-2021"),
+                        CreatedBy = "Nicolais Lugo",
+                        ModifiedBy = "Altagracia Hudson",
+                        PatientId = 28
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("1-14-2019"),
+                        MedicationName = "NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector",
+                        Created = DateTime.Parse("4-20-2019"),
+                        Modified = DateTime.Parse("6-16-2019"),
+                        CreatedBy = "Coy Ratke",
+                        ModifiedBy = "Bridget Hahn",
+                        PatientId = 32
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-31-2019"),
+                        MedicationName = "Yaz 28 Day Pack",
+                        Created = DateTime.Parse("11-4-2019"),
+                        Modified = DateTime.Parse("1-3-2020"),
+                        CreatedBy = "Ricki Blick",
+                        ModifiedBy = "Natalya Wiegand",
+                        PatientId = 80
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("11-13-2020"),
+                        MedicationName = "Tacrine 10 MG Oral Capsule",
+                        Created = DateTime.Parse("3-3-2021"),
+                        Modified = DateTime.Parse("4-21-2021"),
+                        CreatedBy = "Harmony Hammes",
+                        ModifiedBy = "Mason Schumm",
+                        PatientId = 15
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-27-2020"),
+                        MedicationName = "Rocuronium bromide 10 MG/ML Injectable Solution",
+                        Created = DateTime.Parse("12-1-2020"),
+                        Modified = DateTime.Parse("2-24-2021"),
+                        CreatedBy = "Brandie Wehner",
+                        ModifiedBy = "Norbert O'Hara",
+                        PatientId = 51
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-13-2019"),
+                        MedicationName = "Etoposide 100 MG Injection",
+                        Created = DateTime.Parse("12-7-2019"),
+                        Modified = DateTime.Parse("2-19-2020"),
+                        CreatedBy = "Misha Koelpin",
+                        ModifiedBy = "Alexis Crona",
+                        PatientId = 12
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("7-28-2019"),
+                        MedicationName = "cetirizine hydrochloride 5 MG Oral Tablet",
+                        Created = DateTime.Parse("9-4-2019"),
+                        Modified = DateTime.Parse("11-17-2019"),
+                        CreatedBy = "Ernesto Gonzales",
+                        ModifiedBy = "Una Hilpert",
+                        PatientId = 46
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-13-2020"),
+                        MedicationName = "atomoxetine 100 MG Oral Capsule",
+                        Created = DateTime.Parse("10-15-2020"),
+                        Modified = DateTime.Parse("12-25-2020"),
+                        CreatedBy = "Maire Block",
+                        ModifiedBy = "Jame Fay",
+                        PatientId = 37
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("8-15-2020"),
+                        MedicationName = "exemestane 25 MG Oral Tablet",
+                        Created = DateTime.Parse("10-16-2020"),
+                        Modified = DateTime.Parse("12-20-2020"),
+                        CreatedBy = "Candra Kertzmann",
+                        ModifiedBy = "Silva Baumbach",
+                        PatientId = 43
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("12-29-2019"),
+                        MedicationName = "NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector",
+                        Created = DateTime.Parse("3-17-2020"),
+                        Modified = DateTime.Parse("4-16-2020"),
+                        CreatedBy = "Kasey Kohler",
+                        ModifiedBy = "Mose O'Conner",
+                        PatientId = 15
+                    },
+                new Medication
+                    {
+                        MedicationDate = DateTime.Parse("10-24-2019"),
+                        MedicationName = "1 ML medroxyprogesterone acetate 150 MG/ML Injection",
+                        Created = DateTime.Parse("2-8-2020"),
+                        Modified = DateTime.Parse("5-5-2020"),
+                        CreatedBy = "Lucius Corkery",
+                        ModifiedBy = "Benito Rendaen",
+                        PatientId = 14
+                    }
+                };
+            medications.ForEach(m => context.Medications.AddOrUpdate(m));
+            context.SaveChanges();
             }
         }
-    };
+    }

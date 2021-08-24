@@ -74,7 +74,7 @@
                 .Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" })))
             .ToClientTemplate())</text>);
 
-        items.Add().Text("Treatments").Content(@<text>
+        items.Add().Text("Referral").Content(@<text>
                 @(Html.Kendo().Grid<PatientPortalApp.Models.Referral>()
                         .Name("grid1_#=PatientId#")
                         .Columns(columns =>
@@ -94,7 +94,25 @@
                         .ToClientTemplate()
                         )
             </text>);
-        items.Add().Text("Referrals").Content(@<text>Referrals Grid Here</text>);
+        items.Add().Text("Treatment").Content(@<text>
+    @(Html.Kendo().Grid<PatientPortalApp.Models.Treatment>()
+                        .Name("grid2_#=PatientId#")
+                        .Columns(columns =>
+                        {
+                            columns.Bound(t => t.TreatmentDate );
+                            columns.Bound(t => t.TreatDescription);
+                            columns.Bound(t => t.CreatedBy);
+                        })
+                        .DataSource(source => source.Ajax()
+                            .Model(model =>
+                            {
+                                model.Id(r => r.PatientId);
+                                model.Field(r => r.PatientId).Editable(false);
+                            })
+                            .Events(events => events.Error("error_handler"))
+                            .Read(read => read.Action("Read_Treatment", "Treatments", new { id = "#=PatientId#" })))
+                        .ToClientTemplate()
+                        )</text>);
             })
             .ToClientTemplate()
     )

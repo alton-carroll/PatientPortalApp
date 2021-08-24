@@ -9,10 +9,12 @@ namespace PatientPortalApp.Models
     {
     public class Medication
         {
-        
+
         [Key]
         [Display(Name = "Medication ID")]
         public int MedicationId { get; set; }
+        [Display(Name = "Date Prescribed")]
+        public DateTime MedicationDate { get; set; }
         [Display(Name = "Medication Details")]
         public string MedicationName { get; set; }
         [Display(Name = "Description / Reason")]

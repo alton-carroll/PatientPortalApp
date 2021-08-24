@@ -63,6 +63,7 @@ namespace PatientPortalApp.Migrations
                 c => new
                     {
                         MedicationId = c.Int(nullable: false, identity: true),
+                        MedicationDate = c.DateTime(nullable: false),
                         MedicationName = c.String(),
                         MedDescription = c.String(),
                         CreatedBy = c.String(),
@@ -96,20 +97,10 @@ namespace PatientPortalApp.Migrations
                 .Index(t => t.PatientId);
             
             CreateTable(
-                "dbo.Providers",
-                c => new
-                    {
-                        ProviderId = c.Int(nullable: false, identity: true),
-                        ProviderName = c.String(),
-                        Specialty = c.String(),
-                    })
-                .PrimaryKey(t => t.ProviderId);
-            
-            CreateTable(
                 "dbo.Vitals",
                 c => new
                     {
-                        PatientId = c.Int(nullable: false),
+                        VitalId = c.Int(nullable: false, identity: true),
                         VitalDate = c.DateTime(nullable: false),
                         Weight = c.String(),
                         Height = c.String(),
@@ -120,27 +111,58 @@ namespace PatientPortalApp.Migrations
                         CreatedBy = c.String(),
                         Modified = c.DateTime(nullable: false),
                         ModifiedBy = c.String(),
+                        PatientId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.PatientId)
-                .ForeignKey("dbo.Patients", t => t.PatientId)
+                .PrimaryKey(t => t.VitalId)
+                .ForeignKey("dbo.Patients", t => t.PatientId, cascadeDelete: true)
+                .Index(t => t.PatientId);
+            
+            CreateTable(
+                "dbo.Providers",
+                c => new
+                    {
+                        ProviderId = c.Int(nullable: false, identity: true),
+                        ProviderName = c.String(),
+                        Specialty = c.String(),
+                    })
+                .PrimaryKey(t => t.ProviderId);
+            
+            CreateTable(
+                "dbo.Treatments",
+                c => new
+                    {
+                        TreatmentId = c.Int(nullable: false, identity: true),
+                        TreatmentDate = c.DateTime(nullable: false),
+                        TreatDescription = c.String(),
+                        Created = c.DateTime(nullable: false),
+                        CreatedBy = c.String(),
+                        Modified = c.DateTime(nullable: false),
+                        ModifiedBy = c.String(),
+                        PatientId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.TreatmentId)
+                .ForeignKey("dbo.Patients", t => t.PatientId, cascadeDelete: true)
                 .Index(t => t.PatientId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Vitals", "PatientId", "dbo.Patients");
+            DropForeignKey("dbo.Treatments", "PatientId", "dbo.Patients");
             DropForeignKey("dbo.Appointments", "ProviderId", "dbo.Providers");
             DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
+            DropForeignKey("dbo.Vitals", "PatientId", "dbo.Patients");
             DropForeignKey("dbo.Referrals", "PatientId", "dbo.Patients");
             DropForeignKey("dbo.Medications", "PatientId", "dbo.Patients");
+            DropIndex("dbo.Treatments", new[] { "PatientId" });
             DropIndex("dbo.Vitals", new[] { "PatientId" });
             DropIndex("dbo.Referrals", new[] { "PatientId" });
             DropIndex("dbo.Medications", new[] { "PatientId" });
             DropIndex("dbo.Appointments", new[] { "ProviderId" });
             DropIndex("dbo.Appointments", new[] { "PatientId" });
-            DropTable("dbo.Vitals");
+            DropTable("dbo.Treatments");
             DropTable("dbo.Providers");
+            DropTable("dbo.Vitals");
             DropTable("dbo.Referrals");
             DropTable("dbo.Medications");
             DropTable("dbo.Patients");
