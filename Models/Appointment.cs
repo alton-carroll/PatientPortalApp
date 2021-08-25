@@ -28,5 +28,20 @@ namespace PatientPortalApp.Models
         public virtual Patient Patient { get; set; }
         public virtual Provider Provider { get; set; }
 
+        public string HasBalance
+            {
+            get
+                {
+                if (Patient.CurrentBalance > 0)
+                    {
+                    return "Patient Has Balance of $" + Patient.CurrentBalance;
+                    }
+                else
+                    {
+                    return "No Balance";
+                    }
+                }
+            }
+
         }
     }

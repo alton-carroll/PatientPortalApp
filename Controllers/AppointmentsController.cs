@@ -17,7 +17,7 @@ namespace PatientPortalApp.Controllers
     public class AppointmentsController : Controller
     {
         private PatientPortalAppContext db = new PatientPortalAppContext();
-
+        // Read for Kendo Grid
         public ActionResult Read_Appointments([DataSourceRequest] DataSourceRequest request, int id)
             {
             return Json(db.Appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
@@ -25,6 +25,35 @@ namespace PatientPortalApp.Controllers
                 AppointmentDate = a.AppointmentDate,
                 Reason = a.Reason
                 }));
+            }
+
+        // Update for Kendo Grid
+
+        public ActionResult Update_Appointment(Appointment appointment)
+            {
+            if (appointment.ProviderId != null && ModelState.IsValid)
+                {
+                var target = GetAppointmentByPatientId(appointment.PatientId);
+                target.PatientId = appointment.PatientId;
+                target.Patient.FirstName = appointment.Patient.FirstName;
+                target.Patient.LastName = appointment.Patient.LastName;
+                target.AppointmentDate = appointment.AppointmentDate;
+                target.Reason = appointment.Reason;
+                target.ProviderId = appointment.ProviderId;
+                db.SaveChanges();
+                }
+            return Json(ModelState.ToDataSourceResult());
+            }
+
+
+        private Appointment GetAppointmentByPatientId(int id)
+            {
+            return db.Appoinments.FirstOrDefault(a => a.PatientId == id);
+            }
+
+        private Appointment GetAppointmentByProviderId(int id)
+            {
+            return db.Appoinments.FirstOrDefault(a => a.ProviderId == id);
             }
 
         // GET: Appointments
