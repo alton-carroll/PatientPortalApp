@@ -14,6 +14,7 @@
         {
             m.Id(a => a.PatientId);
         })
+        .Read(read => read.Action("Read_Appointments", "Appointments"))
         .Update(update => update.Action("Update_Appointments", "Appointments"));
     })
     .RowAction(row =>
@@ -38,11 +39,7 @@
             return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
         });
         columns.Bound(a => a.Provider.ProviderName);
-        columns.Bound(a => a.HasBalance).Title("Outstanding Balance");
-        columns.Command(command =>
-        {
-            command.Edit();
-        });
+        columns.Bound(a => a.HasBalance).Title("Outstanding Balance").Width(100);
 
     })
 

@@ -1,76 +1,96 @@
-﻿<!DOCTYPE html>
-<html> 
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title - Patient Management Portal</title>
-    <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jszip.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.aspnetmvc.min.js"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>@ViewBag.Title - Patient Management Portal</title>
+	<link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/jszip.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.aspnetmvc.min.js"></script>
+	<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
 
-    @Html.Kendo().DeferredScripts()
+	@Html.Kendo().DeferredScripts()
 
-    @RenderSection("scripts", required: false)
+	@RenderSection("scripts", required: false)
 </head>
-    <body class="k-content">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container p-0 d-flex align-items-baseline">
-                <img class="img-fluid " alt="Medical Icon" src="~/Images/Medical-Icon.png" height="100" width="100">
-                <div class="navbar-header">
-                    
-                    <button id="configure" class="k-rpanel-toggle k-button btn-toggle"><span class="k-icon k-i-menu"></span></button>
-                    @Html.ActionLink("Patient Management Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div id="responsive-panel" class="navbar-left">
-                    @(Html.Kendo().Menu()
-                        .Name("Menu")
-                        .Items(items =>
-                        {
-                            items.Add().Text("Home").Action("Index", "Home", new { area = "" });
-                            items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
-                            items.Add().Text("Providers").Action("Index", "Providers", new { area = "" });
-                            items.Add().Text("Appointments").Action("Index", "Appointments", new { area = "" });
-                            items.Add().Text("Test-Patient Detail").Action("Index", "PatientDetail", new { area = "" });
+<body class="k-content">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container p-0 d-flex align-items-baseline">
+			<img class="img-fluid " alt="Medical Icon" src="~/Images/Medical-Icon.png" height="100" width="100">
+			<div class="navbar-header">
+				<button id="configure" class="k-rpanel-toggle k-button btn-toggle"><span class="k-icon k-i-menu"></span></button>
+				@Html.ActionLink("Patient Management Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div id="responsive-panel" class="navbar-left">
+				@(Html.Kendo().Menu()
+						.Name("Menu")
+						.Items(items =>
+						{
+							items.Add().Text("Home").Action("Index", "Home", new { area = "" });
 
-                        })
+							if (Request.IsAuthenticated)
+								{
+
+								items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
+								items.Add().Text("Appointments").Action("Index", "Appointments", new { area = "" });
+								items.Add().Text("Hello " + User.Identity.GetUserName() + "!").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
+								items.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
+								}
+							else
+								{
+								items.Add().Text("Register").Action("Register", "Account", routeValues: null).ContentHtmlAttributes(new { id = "registerLink" });
+								items.Add().Text("Log in").Action("Login", "Account", routeValues: null).ContentHtmlAttributes(new { id = "loginLink" });
+								}
+
+						})
                     )
-                </div>
-            </div>
-        </nav>
-        <main>
-            <div class="container">
-                @RenderBody()
-            </div>
-        </main>
 
-        <footer class="footer text-center d-flex align-items-center">
-            <div class="container pb-0">
-                <hr />
-                <p>Copyright &copy; @DateTime.Now.Year Spinsys All Rights Reserved.</p>
-            </div>
-        </footer>
+				@if (Request.IsAuthenticated)
+					{
+						using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+						{
+							@Html.AntiForgeryToken()
+						}
+				}
+			@*</div>
+				@Html.Partial("_LoginPartial")
+			</div>*@
+	</nav>
+	<main>
+		<div class="container">
+			@RenderBody()
+		</div>
+	</main>
+
+	<footer class="footer text-center d-flex align-items-center">
+		<div class="container pb-0">
+			<hr />
+			<p>Copyright &copy; @DateTime.Now.Year Spinsys All Rights Reserved.</p>
+		</div>
+	</footer>
 
 
-        <script>
-            $(document).ready(function () {
-                $("#responsive-panel").kendoResponsivePanel({
-                    breakpoint: 768,
-                    autoClose: false,
-                    orientation: "top"
-                });
-            });
-            function onclick(e) {
-                $("#responsive-panel").getKendoResponsivePanel().toggle();
-            }
-        </script>
-        
+	<script>
+		$(document).ready(function () {
+			$("#responsive-panel").kendoResponsivePanel({
+				breakpoint: 768,
+				autoClose: false,
+				orientation: "top"
+			});
+		});
+		function onclick(e) {
+			$("#responsive-panel").getKendoResponsivePanel().toggle();
+		}
+	</script>
 
-        
-    </body>
+
+
+</body>
 </html>
