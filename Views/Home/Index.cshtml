@@ -2,17 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container-fluid">
-    <hr />
-    @(Html.Kendo().Breadcrumb()
-    .Name("breadcrumb")
-    .BindToLocation(true)
-    .Navigational(true)
-    )
-    @*<h1>Welcome to the Patient Management Portal</h1>*@
-</div>
-
-<div class="demo-section k-content">
+<div class="k-content">
     @*<h4>Kendo UI Button with icons</h4>*@
 
     @(Html.Kendo().Button()
@@ -77,21 +67,21 @@
 </div>
 
 <style>
-    .demo-section {
+    .k-content {
         line-height: 4em;
     }
 
-        .demo-section .k-button {
-            /*margin-right: 10px;*/
-            width: 200px;
-            height: 175px;
-            margin: 20px;
-            background-color: white;
-            border: 50px black;
-            color: black;
-            font-size: 17px;
-            border: 2.5px solid black;
-        }
+		.k-content .k-button {
+			/*margin-right: 10px;*/
+			width: 200px;
+			height: 175px;
+			margin: 20px;
+			background-color: white;
+			border: 50px black;
+			color: black;
+			font-size: 17px;
+			border: 2.5px solid black;
+		}
 
     .k-button .k-image {
         /*height: 16px;*/
@@ -105,11 +95,11 @@
         vertical-align: top;
     }
 
-    .demo-section .k-icon {
-        /*margin-right: 10px;*/
-        color: #0D6EFD;
-        height: 16px;
-    }
+	.k-content .k-icon {
+		/*margin-right: 10px;*/
+		color: #0D6EFD;
+		height: 16px;
+	}
 
     .k-button:hover {
         background-color:#dbdbe0;

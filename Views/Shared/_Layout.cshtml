@@ -19,17 +19,26 @@
 	@Html.Kendo().DeferredScripts()
 
 	@RenderSection("scripts", required: false)
+
+	<style>
+		img {
+			padding-right: 20px;
+		}
+		#site-menu{
+			padding-right: 50px;
+		}
+
+	</style>
 </head>
 <body class="k-content">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container p-0 d-flex align-items-baseline">
-			<img class="img-fluid " alt="Medical Icon" src="~/Images/Medical-Icon.png" height="100" width="100">
-			<div class="navbar-header">
-				<button id="configure" class="k-rpanel-toggle k-button btn-toggle"><span class="k-icon k-i-menu"></span></button>
-				@Html.ActionLink("Patient Management Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-			</div>
-			<div id="responsive-panel" class="navbar-left">
-				@(Html.Kendo().Menu()
+	<nav id="shared-menu" class="navbar navbar-expand-lg navbar-light navbar-fixed-top d-flex">
+		<div id="nav-brand" class="container">
+			<a class="navbar-brand h1" href="~/Views/Home/Index.cshtml">
+				<img class="d-inline-block align-text-bottom" src="~/Images/Medical-Icon_80px.png"/>Patient Management Portal
+			</a>
+		</div>
+		<div id="site-menu">
+			@(Html.Kendo().Menu()
 						.Name("Menu")
 						.Items(items =>
 						{
@@ -48,29 +57,34 @@
 								items.Add().Text("Register").Action("Register", "Account", routeValues: null).ContentHtmlAttributes(new { id = "registerLink" });
 								items.Add().Text("Log in").Action("Login", "Account", routeValues: null).ContentHtmlAttributes(new { id = "loginLink" });
 								}
-
 						})
                     )
-
-				@if (Request.IsAuthenticated)
+			@if (Request.IsAuthenticated)
+				{
+				using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
 					{
-						using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-						{
-							@Html.AntiForgeryToken()
-						}
+					@Html.AntiForgeryToken()
+					}
 				}
-			@*</div>
-				@Html.Partial("_LoginPartial")
-			</div>*@
+		</div>
 	</nav>
+	<hr />
+	<div id="breadcrumb">
+		@(Html.Kendo().Breadcrumb()
+    .Name("breadcrumb")
+    .BindToLocation(true)
+    .Navigational(true)
+    )
+	</div>
+	<br />
 	<main>
-		<div class="container">
+		<div class="container-fluid">
 			@RenderBody()
 		</div>
 	</main>
 
 	<footer class="footer text-center d-flex align-items-center">
-		<div class="container pb-0">
+		<div class="container-fluid">
 			<hr />
 			<p>Copyright &copy; @DateTime.Now.Year Spinsys All Rights Reserved.</p>
 		</div>
@@ -78,19 +92,19 @@
 
 
 	<script>
-		$(document).ready(function () {
-			$("#responsive-panel").kendoResponsivePanel({
-				breakpoint: 768,
-				autoClose: false,
-				orientation: "top"
-			});
-		});
-		function onclick(e) {
-			$("#responsive-panel").getKendoResponsivePanel().toggle();
-		}
+		//$(document).ready(function () {
+		//	$("#site-menu").kendoResponsivePanel({
+		//		breakpoint: 768,
+		//		autoClose: false,
+		//		orientation: "top"
+		//	});
+
+		//color text to right of icon
+		$("a.navbar-brand").css("color", "rgb(83, 153, 249)");
+
+		//function onclick(e) {
+		//	$("#site-menu").getKendoResponsivePanel().toggle();
+		//}
 	</script>
-
-
-
 </body>
 </html>

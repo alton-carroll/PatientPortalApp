@@ -49,6 +49,11 @@ namespace PatientPortalApp.Controllers
 			return db.Appoinments.FirstOrDefault(a => a.PatientId == id);
 			}
 
+		//public virtual JsonResult Scheduler_Read([DataSourceRequest] DataSourceRequest request)
+		//	{
+		//	return Json(Appointment.All)
+		//	}
+
 		private Appointment GetAppointmentByProviderId(int id)
 			{
 			return db.Appoinments.FirstOrDefault(a => a.ProviderId == id);

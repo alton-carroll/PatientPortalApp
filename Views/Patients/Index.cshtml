@@ -6,13 +6,7 @@
     ViewBag.Title = "Patients";
 }
 
-@(Html.Kendo().Breadcrumb()
-    .Name("breadcrumb")
-    .BindToLocation(true)
-    .Navigational(true)
-    )
 
-<hr />
 
 @(Html.Kendo().Grid<PatientPortalApp.Models.Patient>()
         .Name("grid")
