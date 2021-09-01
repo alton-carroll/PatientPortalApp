@@ -4,16 +4,27 @@
 }
 
 @(Html.Kendo().Grid(Model)
-        .Name("grid")
-        .Columns(columns =>
-        {
-            columns.Bound(p => p.PatientId).Title("Patient ID");
-            columns.Bound(p => p.FullName).Title("Patient Name");
-            columns.Bound(p => p.ActivePatient).Title("Patient Active");
-            columns.Bound(p => p.Street).Title("Patient Active");
-        })
+		.Name("grid")
+		.Columns(columns =>
+		{
+			columns.Bound(p => p.PatientId).Title("Patient ID");
+			columns.Bound(p => p.FullName).Title("Patient Name");
+			columns.Bound(p => p.ActivePatient).Title("Patient Active");
+			columns.Bound(p => p.Street).Title("Patient Active");
+            columns.Command(c =>
+            {
+                
+			})
+		})
+		.DataSource(s => s
+		.Ajax()
+		.Model(m =>
+		{
+			m.Id(p => p.PatientId);
+		})
+        .Read(r => r.Action("UpdatePatient", "Patients"))
 
-    )
+	)
 @*<h2>Details</h2>
 
     <div>

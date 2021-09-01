@@ -4,10 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style>
+    dd{
+        color: black;
+    }
+</style>
+
+<h3>Appointment Details for  @(Model.Patient.FullName) </h3>
 
 <div>
-    <h4>Appointment</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>

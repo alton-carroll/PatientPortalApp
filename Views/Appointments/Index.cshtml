@@ -5,42 +5,53 @@
 }
 
 @(Html.Kendo().Grid(Model)
-    .Name("grid")
-    .DataSource(source =>
-    {
-        source.Server()
-        .PageSize(20)
-        .Model(m =>
-        {
-            m.Id(a => a.PatientId);
-        })
-        .Read(read => read.Action("Read_Appointments", "Appointments"))
-        .Update(update => update.Action("Update_Appointments", "Appointments"));
-    })
-    .RowAction(row =>
-    {
-        row.HtmlAttributes.Add("onclick", "location.href = '/Appointments/Details/" + row.DataItem.PatientId + "'");
-    })
-    .Editable(editable => editable.Mode(GridEditMode.PopUp))
-    .Pageable().Sortable()
-    .Columns(columns =>
-    {
-        columns.Bound(a => a.PatientId).Title("Patient ID").Width(20);
-        columns.Bound(a => a.Patient.FullName).Title("Name");
-        columns.Bound(a => a.Reason);
-        columns.Bound(a => a.AppointmentDate).Title("Date")
-        .Template(a =>
-        {
-            return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
-        });
-        columns.Bound(a => a.AppointmentDate).Title("Time")
-        .Template(a =>
-        {
-            return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
-        });
-        columns.Bound(a => a.Provider.ProviderName);
-        columns.Bound(a => a.HasBalance).Title("Outstanding Balance").Width(100);
+	.Name("grid")
+	.DataSource(source =>
+	{
+		source.Server()
+		.PageSize(20)
+		.Model(m =>
+		{
+			m.Id(a => a.PatientId);
+		})
+		.Read(read => read.Action("Read_Appointments", "Appointments"))
+		.Update(update => update.Action("Update_Appointments", "Appointments"));
+	})
+	.RowAction(row =>
+	{
+		row.HtmlAttributes.Add("onclick", "location.href = '/Appointments/Details/" + row.DataItem.PatientId + "'");
+	})
+	.Editable(editable => editable.Mode(GridEditMode.PopUp))
+	.Pageable().Sortable()
+	.Columns(columns =>
+	{
+		columns.Bound(a => a.PatientId).Title("Patient ID").HtmlAttributes(new { @class="customAttr"});
+		columns.Bound(a => a.Patient.FullName).Title("Name");
+		columns.Bound(a => a.Reason);
+		columns.Bound(a => a.AppointmentDate).Title("Date")
+		.Template(a =>
+		{
+			return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
+		});
+		columns.Bound(a => a.AppointmentDate).Title("Time")
+		.Template(a =>
+		{
+			return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
+		});
+		columns.Bound(a => a.Provider.ProviderName);
+		columns.Bound(a => a.HasBalance).Title("Outstanding Balance");
 
-    })
+	})
 
 )
+
+
+<script>
+	$(function () {
+		//center text in all elements with .customAttr assigned
+		$(".customAttr").css("text-align", "center");
+
+		//Find element with balance and color the text in that row red
+		$('td:contains("Patient Has Balance")').parent().css("color", "red");
+	})
+</script>
