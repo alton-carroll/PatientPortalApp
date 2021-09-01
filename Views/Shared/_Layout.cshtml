@@ -21,11 +21,18 @@
 	@RenderSection("scripts", required: false)
 
 	<style>
+		nav {
+			color: #0066ff;
+		}
+		main {
+			color: #0066ff;
+		}
 		img {
 			padding-right: 20px;
 		}
-		#site-menu{
+		#site-menu {
 			padding-right: 50px;
+			color: #0066ff;
 		}
 
 	</style>
@@ -46,10 +53,14 @@
 
 							if (Request.IsAuthenticated)
 								{
+								//Get the user name and extract the characters before the @ to shorten the user name displayed
+								string getUser = User.Identity.GetUserName();
+								string userSub = getUser.Substring(0, getUser.IndexOf("@"));
+
 
 								items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
 								items.Add().Text("Appointments").Action("Index", "Appointments", new { area = "" });
-								items.Add().Text("Hello " + User.Identity.GetUserName() + "!").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
+								items.Add().Text("Hello " + userSub + "!").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
 								items.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
 								}
 							else

@@ -211,13 +211,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108241853271_Initial.cs" />
-    <Compile Include="Migrations\202108241853271_Initial.Designer.cs">
-      <DependentUpon>202108241853271_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108262347192_Identityrev1.cs" />
-    <Compile Include="Migrations\202108262347192_Identityrev1.designer.cs">
-      <DependentUpon>202108262347192_Identityrev1.cs</DependentUpon>
+    <Compile Include="Migrations\202109011504346_Initial.cs" />
+    <Compile Include="Migrations\202109011504346_Initial.Designer.cs">
+      <DependentUpon>202109011504346_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -3045,11 +3041,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108241853271_Initial.resx">
-      <DependentUpon>202108241853271_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108262347192_Identityrev1.resx">
-      <DependentUpon>202108262347192_Identityrev1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109011504346_Initial.resx">
+      <DependentUpon>202109011504346_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
