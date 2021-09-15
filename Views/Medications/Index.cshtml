@@ -6,18 +6,8 @@
 
 <h2>Index</h2>
 
-@(Html.Kendo().Grid(Model)
-    .Name("grid")
-    .Columns(columns =>
-    {
-        columns.Bound(m => m.MedicationId);
-        columns.Bound(m => m.MedicationName);
-        columns.Bound(m => m.MedDescription);
-    })
-    )
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { id = "create-medication" }, new { @class = "btn btn-primary", @style = "width : 120px;" })
 </p>
 <table class="table">
     <tr>
@@ -36,12 +26,9 @@
             @Html.DisplayFor(modelItem => item.MedicationName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MedDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MedicationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MedicationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MedicationId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.MedicationId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+            @Html.ActionLink("Details", "Details", new { id=item.MedicationId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.MedicationId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
         </td>
     </tr>
 }

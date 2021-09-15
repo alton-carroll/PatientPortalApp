@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicationsController.cs" />
+    <Compile Include="Controllers\PatientDetailController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ReferralsController.cs" />
@@ -211,9 +212,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109011504346_Initial.cs" />
-    <Compile Include="Migrations\202109011504346_Initial.Designer.cs">
-      <DependentUpon>202109011504346_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202109082035072_Initial.cs" />
+    <Compile Include="Migrations\202109082035072_Initial.Designer.cs">
+      <DependentUpon>202109082035072_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109131829402_updateModels.cs" />
+    <Compile Include="Migrations\202109131829402_updateModels.Designer.cs">
+      <DependentUpon>202109131829402_updateModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -222,6 +227,7 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Referral.cs" />
+    <Compile Include="Models\ScheduleModel.cs" />
     <Compile Include="Models\Treatment.cs" />
     <Compile Include="Models\ViewModels\AccountViewModel.cs" />
     <Compile Include="Models\ViewModels\ManageViewModel.cs" />
@@ -728,6 +734,7 @@
     <Content Include="Images\Medical-Icon_80px.png" />
     <Content Include="Images\Medical-Icon_Text.png" />
     <Content Include="Images\Spinsys-Icon.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -1841,6 +1848,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Templates\ClientTemplate_Vitals.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2995,7 +3003,6 @@
     <Content Include="Views\Vitals\Details.cshtml" />
     <Content Include="Views\Vitals\Edit.cshtml" />
     <Content Include="Views\Vitals\Index.cshtml" />
-    <Content Include="Views\PatientDetail\Index.cshtml" />
     <Content Include="Views\Treatments\Create.cshtml" />
     <Content Include="Views\Treatments\Delete.cshtml" />
     <Content Include="Views\Treatments\Details.cshtml" />
@@ -3022,10 +3029,10 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Appointments\AppointmentSchedule.cshtml" />
+    <Content Include="Views\Patients\PatientCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -3036,13 +3043,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\PatientDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109011504346_Initial.resx">
-      <DependentUpon>202109011504346_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109082035072_Initial.resx">
+      <DependentUpon>202109082035072_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109131829402_updateModels.resx">
+      <DependentUpon>202109131829402_updateModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

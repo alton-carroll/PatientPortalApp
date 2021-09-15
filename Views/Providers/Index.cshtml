@@ -1,22 +1,14 @@
-﻿@(Html.Kendo().Breadcrumb()
-    .Name("breadcrumb")
-    .BindToLocation(true)
-    .Navigational(true)
-    )
-
-<hr />
-
-
-@model IEnumerable<PatientPortalApp.Models.Provider>
+﻿@model IEnumerable<PatientPortalApp.Models.Provider>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Manage Providers</h2>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create",new { id = "createProvider" }, new { @class = "btn btn-primary", @style = "width : 120px;" })
+
 </p>
 <table class="table">
     <tr>
@@ -30,7 +22,7 @@
     </tr>
 
     @foreach (var item in Model)
-        {
+		{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProviderName)
@@ -39,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Specialty)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProviderId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+                @Html.ActionLink("Details", "Details", new { id = item.ProviderId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
             </td>
         </tr>
         }

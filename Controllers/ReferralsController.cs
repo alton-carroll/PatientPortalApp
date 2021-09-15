@@ -25,7 +25,9 @@ namespace PatientPortalApp.Controllers
 				ReferralDate = r.ReferralDate,
 				ReferralDoctor = r.ReferralDoctor,
 				Doctor = r.Doctor,
-				Location = r.Location
+				Location = r.Location,
+				Procedure = r.Procedure,
+				CreatedBy = r.CreatedBy
 				}));
 			}
 
@@ -39,6 +41,28 @@ namespace PatientPortalApp.Controllers
 				target.ReferralDoctor = referral.ReferralDoctor;
 				}
 			return Json(ModelState.ToDataSourceResult());
+			}
+
+		public ActionResult Create_Referral(Referral referral)
+			{
+
+			if (referral != null && ModelState.IsValid)
+				{
+				var target = new Referral();
+
+				target.PatientId = referral.PatientId;
+				target.Location = referral.Location;
+				target.Doctor = referral.Doctor;
+				target.ReferralDoctor = referral.ReferralDoctor;
+				target.Procedure = referral.Procedure;
+				target.ReferralDate = referral.ReferralDate;
+
+				db.Referrals.Add(target);
+				db.SaveChanges();
+
+				referral.PatientId = target.PatientId;
+				}
+			return Json(new[ ] { referral }.ToDataSourceResult(new DataSourceRequest(), ModelState));
 			}
 
 		private Referral GetReferralByPatient(int id)

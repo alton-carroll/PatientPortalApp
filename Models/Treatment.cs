@@ -9,9 +9,12 @@ namespace PatientPortalApp.Models
 	{
 	public class Treatment
 		{
+		[Display(Name = "Treatment ID")]
 		public int TreatmentId { get; set; }
+		[Display(Name = "Treatment Date")]
 		[DataType(DataType.Date)]
 		public DateTime TreatmentDate { get; set; }
+		[Display(Name = "Treatment Description")]
 		public string TreatDescription { get; set; }
 		[DataType(DataType.Date)]
 		public DateTime Created { get; set; }
@@ -19,8 +22,9 @@ namespace PatientPortalApp.Models
 		[DataType(DataType.Date)]
 		public DateTime Modified { get; set; }
 		public string ModifiedBy { get; set; }
+		[Display(Name = "Patient ID")]
 		[ForeignKey("Patient")]
 		public int PatientId { get; set; }
-		public Patient Patient { get; set; }
+		public virtual Patient Patient { get; set; }
 		}
 	}

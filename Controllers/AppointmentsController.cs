@@ -16,14 +16,36 @@ namespace PatientPortalApp.Controllers
 	{
 	public class AppointmentsController : Controller
 		{
+
+
 		private PatientPortalAppContext db = new PatientPortalAppContext();
+
+		public ActionResult Read_Appointment([DataSourceRequest] DataSourceRequest request, int id)
+			{
+			var appoinments = db.Appoinments.Include(a => a.Patient).Include(a => a.Provider);
+
+			return Json(appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
+				{
+				AppointmentDate = a.AppointmentDate,
+				ProviderName = a.ProviderName,
+				Reason = a.Reason,
+				PatientId = a.PatientId,
+				ProviderId = a.ProviderId,
+				HasBalance = a.HasBalance
+				}));
+			}
 
 		public ActionResult Read_Appointments([DataSourceRequest] DataSourceRequest request, int id)
 			{
+			var provider = db.Providers.Include(p => p.ProviderName);
 			return Json(db.Appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
 				{
 				AppointmentDate = a.AppointmentDate,
-				Reason = a.Reason
+				Reason = a.Reason,
+				PatientId = a.PatientId,
+				ProviderId = a.ProviderId,
+				HasBalance = a.HasBalance,
+				ProviderName = a.Provider.ProviderName
 				}), JsonRequestBehavior.AllowGet);
 			}
 
@@ -42,17 +64,26 @@ namespace PatientPortalApp.Controllers
 				}
 			return Json(ModelState.ToDataSourceResult());
 			}
-
+		public ActionResult Create_Appointment(Appointment appointment)
+			{
+			if (appointment != null && ModelState.IsValid)
+				{
+				var target = GetAppointmentByPatientId(appointment.PatientId);
+				target.PatientId = appointment.PatientId;
+				target.Patient.FirstName = appointment.Patient.FirstName;
+				target.Patient.LastName = appointment.Patient.LastName;
+				target.AppointmentDate = appointment.AppointmentDate;
+				target.Reason = appointment.Reason;
+				target.ProviderId = appointment.ProviderId;
+				db.SaveChanges();
+				}
+			return Json(ModelState.ToDataSourceResult());
+			}
 
 		private Appointment GetAppointmentByPatientId(int id)
 			{
 			return db.Appoinments.FirstOrDefault(a => a.PatientId == id);
 			}
-
-		//public virtual JsonResult Scheduler_Read([DataSourceRequest] DataSourceRequest request)
-		//	{
-		//	return Json(Appointment.All)
-		//	}
 
 		private Appointment GetAppointmentByProviderId(int id)
 			{

@@ -21,26 +21,26 @@
 	{
 		row.HtmlAttributes.Add("onclick", "location.href = '/Appointments/Details/" + row.DataItem.PatientId + "'");
 	})
-	.Editable(editable => editable.Mode(GridEditMode.PopUp))
-	.Pageable().Sortable()
+	.Editable().Pageable().Sortable()
 	.Columns(columns =>
 	{
 		columns.Bound(a => a.PatientId).Title("Patient ID").HtmlAttributes(new { @class="customAttr"});
 		columns.Bound(a => a.Patient.FullName).Title("Name");
 		columns.Bound(a => a.Reason);
-		columns.Bound(a => a.AppointmentDate).Title("Date")
-		.Template(a =>
-		{
-			return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
-		});
-		columns.Bound(a => a.AppointmentDate).Title("Time")
-		.Template(a =>
-		{
-			return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
-		});
+		columns.Bound(a => a.AppointmentDate).Title("Date").Format("{0:MMM d, yyyy}");
+		columns.Bound(a => a.AppointmentDate).Title("Time").Format("{0:hh:mm tt}");
 		columns.Bound(a => a.Provider.ProviderName);
-		columns.Bound(a => a.HasBalance).Title("Outstanding Balance");
-
+		columns.Bound(a => a.HasBalance).Title("Outstanding Balance").Template(t =>
+		{
+			if (t.Patient.CurrentBalance > 0)
+				{
+				return "Patient Has Balance of $" + t.Patient.CurrentBalance;
+				}
+			else
+				{
+				return "N/A";
+				}
+		});
 	})
 
 )
@@ -52,6 +52,7 @@
 		$(".customAttr").css("text-align", "center");
 
 		//Find element with balance and color the text in that row red
-		$('td:contains("Patient Has Balance")').parent().css("color", "red");
+		$('td:contains("Patient Has Balance of $")').parent().css("color", "red");
+
 	})
 </script>

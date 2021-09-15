@@ -24,13 +24,30 @@ namespace PatientPortalApp.Controllers
 			return Json(db.Treatments.Where(t => t.PatientId == id).ToDataSourceResult(request, t => new Treatment()
 				{
 				TreatmentDate = t.TreatmentDate,
-				TreatDescription = t.TreatDescription
-
+				TreatDescription = t.TreatDescription,
+				CreatedBy = t.CreatedBy
 				}));
 			}
 
+		public ActionResult Create_Treatment(Treatment treatment)
+			{
+			if (treatment != null && ModelState.IsValid)
+				{
+				var target = new Treatment();
+				target.PatientId = treatment.PatientId;
+				target.TreatDescription = treatment.TreatDescription;
+				target.TreatmentDate = treatment.TreatmentDate;
+				db.Treatments.Add(target);
+				db.SaveChanges();
+				treatment.PatientId = target.PatientId;
+				}
+			return Json(new[ ] { treatment }.ToDataSourceResult(new DataSourceRequest(), ModelState));
+			}
 
-
+		private Treatment getTreatmentById(int id)
+			{
+			return db.Treatments.FirstOrDefault(t => t.PatientId == id);
+			}
 
 		// GET: Treatments
 		public async Task<ActionResult> Index()

@@ -27,6 +27,24 @@ namespace PatientPortalApp.Controllers
 				}));
 			}
 
+		public ActionResult Create_Medication(Medication medication)
+			{
+			if (medication != null && ModelState.IsValid)
+				{
+				var target = new Medication();
+
+				target.PatientId = medication.PatientId;
+				target.MedicationName = medication.MedicationName;
+				target.MedicationDate = medication.MedicationDate;
+
+				db.Medications.Add(target);
+				db.SaveChanges();
+
+				medication.PatientId = target.PatientId;
+				}
+			return Json(new[ ] { medication }.ToDataSourceResult(new DataSourceRequest(), ModelState));
+			}
+
 		// GET: Medications
 		public async Task<ActionResult> Index()
 			{

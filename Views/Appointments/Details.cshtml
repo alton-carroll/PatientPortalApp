@@ -4,6 +4,9 @@
     ViewBag.Title = "Details";
 }
 
+
+
+
 <style>
     dd{
         color: black;
@@ -16,11 +19,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Patient.Prefix)
+            @Html.DisplayNameFor(model => model.Patient.FullName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Patient.Prefix)
+            @Html.DisplayFor(model => model.Patient.FullName)
         </dd>
 
         <dt>
@@ -82,6 +85,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
 </p>

@@ -16,6 +16,7 @@ namespace PatientPortalApp.Controllers
 	{
 	public class PatientsController : Controller
 		{
+
 		public ActionResult ReadPatient([DataSourceRequest] DataSourceRequest request)
 			{
 			using (var context = new PatientPortalAppContext())
@@ -23,10 +24,25 @@ namespace PatientPortalApp.Controllers
 				return Json(context.Patients.ToDataSourceResult(request, p => new Patient
 					{
 					PatientId = p.PatientId,
+					Prefix = p.Prefix,
 					FirstName = p.FirstName,
 					LastName = p.LastName,
+					Suffix = p.Suffix,
+					BirthDate = p.BirthDate,
+					Ssn = p.Ssn,
 					ActivePatient = p.ActivePatient,
-					}));
+					Street = p.Street,
+					City = p.City,
+					State = p.State,
+					Zip = p.Zip,
+					PrimaryInsurance = p.PrimaryInsurance,
+					PrimaryInsuranceID = p.PrimaryInsuranceID,
+					PrimaryInsuranceHolder = p.PrimaryInsuranceHolder,
+					SecondaryInsurance = p.SecondaryInsurance,
+					SecondaryInsuranceID = p.SecondaryInsuranceID,
+					SecondaryInsuranceHolder = p.SecondaryInsuranceHolder,
+					CurrentBalance = p.CurrentBalance
+				}));
 				}
 			}
 
@@ -52,6 +68,7 @@ namespace PatientPortalApp.Controllers
 				target.SecondaryInsurance = patient.SecondaryInsurance;
 				target.SecondaryInsuranceID = patient.SecondaryInsuranceID;
 				target.SecondaryInsuranceHolder = patient.SecondaryInsuranceHolder;
+				target.CurrentBalance = patient.CurrentBalance;
 				db.SaveChanges();
 				}
 			return Json(ModelState.ToDataSourceResult());
@@ -79,6 +96,7 @@ namespace PatientPortalApp.Controllers
 				target.SecondaryInsurance = patient.SecondaryInsurance;
 				target.SecondaryInsuranceID = patient.SecondaryInsuranceID;
 				target.SecondaryInsuranceHolder = patient.SecondaryInsuranceHolder;
+				target.CurrentBalance = patient.CurrentBalance;
 
 				db.Patients.Add(target);
 				db.SaveChanges();

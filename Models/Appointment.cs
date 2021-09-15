@@ -24,24 +24,12 @@ namespace PatientPortalApp.Models
 		[Key]
 		[ForeignKey("Patient")]
 		public int PatientId { get; set; }
+		[ForeignKey("Provider")]
 		public int ProviderId { get; set; }
 		public virtual Patient Patient { get; set; }
 		public virtual Provider Provider { get; set; }
 
-		public string HasBalance
-			{
-			get
-				{
-				if (Patient.CurrentBalance > 0)
-					{
-					return "Patient Has Balance of $" + Patient.CurrentBalance;
-					}
-				else
-					{
-					return "No Balance";
-					}
-				}
-			}
-
+		public string HasBalance { get; set; }
+		public string ProviderName { get; internal set; }
 		}
 	}

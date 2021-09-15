@@ -1,231 +1,190 @@
-﻿@model IEnumerable<PatientPortalApp.Models.Patient>
+﻿@model PatientPortalApp.Models.Patient
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
-@(Html.Kendo().Grid(Model)
-		.Name("grid")
-		.Columns(columns =>
-		{
-			columns.Bound(p => p.PatientId).Title("Patient ID");
-			columns.Bound(p => p.FullName).Title("Patient Name");
-			columns.Bound(p => p.ActivePatient).Title("Patient Active");
-			columns.Bound(p => p.Street).Title("Patient Active");
-            columns.Command(c =>
-            {
-                
-			})
-		})
-		.DataSource(s => s
-		.Ajax()
-		.Model(m =>
-		{
-			m.Id(p => p.PatientId);
-		})
-        .Read(r => r.Action("UpdatePatient", "Patients"))
+<style>
+	dd {
+		color: black;
+	}
+</style>
 
-	)
-@*<h2>Details</h2>
 
-    <div>
-        <h4>Patient</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Prefix)
-            </dt>
+<h2>Patient Details for @(Model.FullName)</h2>
 
-            <dd>
-                @Html.DisplayFor(model => model.Prefix)
-            </dd>
+<div>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.PatientId)
+		</dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </dt>
+		<dd>
+			@Html.DisplayFor(model => model.PatientId)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.FullName)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.FullName)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.MiddleName)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.BirthDate)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.MiddleName)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.BirthDate)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Ssn)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Ssn)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Suffix)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.ActivePatient)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Suffix)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.ActivePatient)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.BirthDate)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Street)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.BirthDate)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Street)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Ssn)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Apartment)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Ssn)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Apartment)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ActivePatient)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.City)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.ActivePatient)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.City)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Street)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.State)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Street)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.State)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Apartment)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Zip)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Apartment)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Zip)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.PrimaryInsurance)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.City)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.PrimaryInsurance)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.State)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.PrimaryInsuranceID)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.State)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.PrimaryInsuranceID)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Zip)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.PrimaryInsuranceHolder)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Zip)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.PrimaryInsuranceHolder)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryInsurance)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.SecondaryInsurance)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryInsurance)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.SecondaryInsurance)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryInsuranceID)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.SecondaryInsuranceID)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryInsuranceID)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.SecondaryInsuranceID)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.PrimaryInsuranceHolder)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.SecondaryInsuranceHolder)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.PrimaryInsuranceHolder)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.SecondaryInsuranceHolder)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SecondaryInsurance)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.CurrentBalance)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SecondaryInsurance)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.CurrentBalance)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SecondaryInsuranceID)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.CreatedBy)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SecondaryInsuranceID)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.CreatedBy)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SecondaryInsuranceHolder)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Created)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SecondaryInsuranceHolder)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Created)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.CurrentBalance)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.ModifiedBy)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.CurrentBalance)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.ModifiedBy)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedBy)
-            </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Modified)
+		</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.CreatedBy)
-            </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Modified)
+		</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Created)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Created)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ModifiedBy)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ModifiedBy)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Modified)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Modified)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>*@
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }, new { @class = "btn btn-primary" })
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
+</p>

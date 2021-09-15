@@ -15,6 +15,8 @@
 	<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.aspnetmvc.min.js"></script>
 	<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
 	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+	<script src="~/Scripts/kendo/2021.2.616/pako_deflate.min.js"></script>
+
 
 	@Html.Kendo().DeferredScripts()
 
@@ -24,21 +26,30 @@
 		nav {
 			color: #0066ff;
 		}
+
 		main {
 			color: #0066ff;
 		}
+
 		img {
 			padding-right: 20px;
 		}
+
 		#site-menu {
 			padding-right: 50px;
 			color: #0066ff;
 		}
+
 		.k-grid th {
 			text-align: center;
 			font-weight: bold;
 		}
-
+		.k-link {
+			color: #0066ff;
+		}
+		a.k-link {
+			color: #0066ff;
+		}
 	</style>
 </head>
 <body class="k-content">
@@ -53,19 +64,28 @@
 						.Name("Menu")
 						.Items(items =>
 						{
-							items.Add().Text("Home").Action("Index", "Home", new { area = "" });
-
 							if (Request.IsAuthenticated)
 								{
 								//Get the user name and extract the characters before the @ to shorten the user name displayed
 								string getUser = User.Identity.GetUserName();
 								string userSub = getUser.Substring(0, getUser.IndexOf("@"));
 
-
+								items.Add().Text("Home").Action("Index", "Home", new { area = "" });
 								items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
 								items.Add().Text("Appointments").Action("Index", "Appointments", new { area = "" });
-								items.Add().Text("Hello " + userSub + "!").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
-								items.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
+								items.Add().Text("Administration").Items(children =>
+								{
+									children.Add().Text("Providers").Action("Index", "Providers", new { area = "" });
+									children.Add().Text("Medication").Action("Index", "Medications", new { area = "" });
+									children.Add().Text("Treatments").Action("Index", "Treatments", new { area = "" });
+								});
+								items.Add().Text(userSub).Items(children =>
+								{
+									children.Add().Text("Account").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
+									children.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
+								});
+
+
 								}
 							else
 								{
@@ -107,19 +127,11 @@
 
 
 	<script>
-		//$(document).ready(function () {
-		//	$("#site-menu").kendoResponsivePanel({
-		//		breakpoint: 768,
-		//		autoClose: false,
-		//		orientation: "top"
-		//	});
 
 		//color text to right of icon
 		$("a.navbar-brand").css("color", "rgb(83, 153, 249)");
 
-		//function onclick(e) {
-		//	$("#site-menu").getKendoResponsivePanel().toggle();
-		//}
+		$("li[aria-selected]:last-child").css("font-weight", "bold");
 	</script>
 </body>
 </html>

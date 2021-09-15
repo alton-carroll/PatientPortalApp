@@ -1,64 +1,36 @@
 ﻿@* TODO:
-    1. Need to add a conditional statement for tabs that do not have any data to display
+	1. Need to add a conditional statement for tabs that do not have any data to display
 *@
 
 @{
-    ViewBag.Title = "Patients";
+	ViewBag.Title = "Patients";
 }
 
-
-
 @(Html.Kendo().Grid<PatientPortalApp.Models.Patient>()
-        .Name("grid")
-        .Columns(columns =>
-        {
-            columns.Bound(p => p.PatientId).Width(20);
-            columns.Bound(p => p.FullName).Title("Name").Width(200);
-            columns.Bound(p => p.ActivePatient).Width(40);
-            columns.Command(command =>
-            {
-                command.Edit();
-                command.Destroy();
-            });
-        })
-        .ToolBar(t =>
-        {
-            t.Search();
-            t.Create();
-            t.Excel();
-            t.Pdf();
-        })
-        .Editable(editable => editable.Mode(GridEditMode.PopUp))
-        .Pageable().Sortable().Filterable()
-        .Excel(excel => excel
-            .FileName("Patient_List.xlsx")
-            .Filterable(true)
-            .ProxyURL(Url.Action("Excel_Export_Save", "Grid"))
-        )
-        .Pdf(pdf => pdf
-            .AllPages()
-            .AvoidLinks(true)
-            .PaperSize("auto")
-            .Scale(0.8)
-            .Landscape()
-            .RepeatHeaders()
-            .TemplateId("page-template")
-            .FileName("Kendo UI Grid Export.pdf")
-            .ProxyURL(Url.Action("Pdf_Export_Save", "Grid"))
-        )
-        .DataSource(source => source.Ajax()
-            .Model(model =>
-            {
-                model.Id(p => p.PatientId);
-                model.Field(p => p.PatientId).Editable(false);
-            })
-            .Events(events => events.Error("error_handler"))
-            .Read(read => read.Action("ReadPatient", "Patients"))
-            .Update(update => update.Action("UpdatePatient", "Patients"))
-            .Create(create => create.Action("CreatePatient", "Patients"))
-            .Destroy(destroy => destroy.Action("DestroyPatient", "Patients"))
-        )
-        .ClientDetailTemplateId("client-template"))
+		.Name("grid")
+		.Columns(columns =>
+		{
+			columns.Bound(p => p.PatientId).Width(20).ClientTemplate("<a href=/Patients/Details/${PatientId}>${PatientId}</a>");
+			columns.Bound(p => p.FullName).Title("Name").Width(200);
+			columns.Bound(p => p.ActivePatient).Width(40);
+		})
+		.ToolBar(toolbar =>
+		{
+			toolbar.Custom().Text("Create").Url("~/Patients/Create");
+		})
+		.Pageable().Sortable().Filterable()
+		.DataSource(source => source
+			.Ajax()
+			.Model(model =>
+			{
+				model.Id(p => p.PatientId);
+				model.Field(p => p.PatientId).Editable(false);
+			})
+
+			.Read(read => read.Action("ReadPatient", "Patients"))
+			.Create(create => create.Action("CreatePatient", "Patients"))
+		)
+		.ClientDetailTemplateId("client-template"))
 
 <script id="client-template" type="text/x-kendo-template">
 @(Html.Kendo().TabStrip()
@@ -70,227 +42,228 @@
     items.Add().Text("Vitals").Selected(true).Content(
         @<text>
             @(Html.Kendo().Grid<PatientPortalApp.Models.Vital>()
-                .Name("grid_#=PatientId#")
-                .Columns(columns =>
-                {
-                    columns.Bound(v => v.VitalDate).Title("Date Recorded").Template(v =>
-                    {
-                        return "<span>" + v.VitalDate.ToString("MMM d, yyyy") + "</span>";
-                    });
-                    columns.Bound(v => v.Weight);
-                    columns.Bound(v => v.Height);
-                    columns.Bound(v => v.Temperature);
-                    columns.Bound(v => v.BloodPressure).Title("Blood Pressure");
-                    columns.Bound(v => v.Pulse);
-                    columns.Command(command =>
-                    {
-                        command.Edit();
-                    });
-                })
-                .ToolBar(t => t.Create())
-                .DataSource(source => source.Ajax()
-                    .Model(model =>
-                    {
-                        model.Id(v => v.PatientId);
-                        model.Field(v => v.PatientId).Editable(false);
-                    })
-                    .Events(events => events.Error("error_handler"))
-                    .Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" }))
-                    .Create(create => create.Action("Create_Vitals", "Vitals"))
-                    .Update(update => update.Action("Update_Vitals", "Vitals")))
-                .ToClientTemplate()
+				.Name("grid_#=PatientId#")
+				.NoRecords(n => n.Template("<strong>Patient has no records</strong>"))
+				.Columns(columns =>
+				{
+					columns.Bound(v => v.VitalDate).Title("Date Recorded").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(v => v.Weight).HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(v => v.Height).HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(v => v.Temperature).HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(v => v.BloodPressure).Title("Blood Pressure").HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(v => v.Pulse).HtmlAttributes(new { style = "text-align: center" });
+				})
+				.ToolBar(t => t.Create())
+				.DataSource(source => source
+					.Ajax()
+					.Model(model =>
+					{
+						model.Id(v => v.PatientId);
+						model.Field(v => v.PatientId).Editable(false);
+					})
+					.Events(events => events.Error("error_handler"))
+					.Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" }))
+					.Create(create => create.Action("Create_Vitals", "Vitals"))
+					.Update(update => update.Action("Update_Vitals", "Vitals")))
+				.ToClientTemplate()
             )
         </text>);
 
     items.Add().Text("Referral").Content(
         @<text>
             @(Html.Kendo().Grid<PatientPortalApp.Models.Referral>()
-                .Name("grid1_#=PatientId#")
-                .Columns(columns =>
-                    {
-                        columns.Bound(r => r.ReferralDoctor).Title("Referred Doctor");
-                        columns.Bound(r => r.ReferralDate).Title("Date Ordered").Template(r =>
-                            {
-                                return "<span>" + r.ReferralDate.ToString("MMM d, yyyy") + "</span>";
-                            });
-
-                        columns.Bound(r => r.Doctor);
-                        columns.Command(command => command.Edit());
-                    })
-                .DataSource(source => source.Ajax()
-                    .Model(model =>
-                        {
-                            model.Id(r => r.PatientId);
-                            model.Field(r => r.PatientId).Editable(false);
-                        })
-                    .Events(events => events.Error("error_handler"))
-                        .Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" }))
-                        .Update(update => update.Action("Update_Referrals", "Referrals"))
-                )
-                .ToClientTemplate()
+				.Name("grid2_#=PatientId#")
+				.NoRecords(n => n.Template("<strong>Patient has no records</strong>"))
+				.Columns(columns =>
+				{
+					columns.Bound(r => r.ReferralDate).Title("Date Ordered").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(r => r.Doctor).Title("Referring Doctor");
+					columns.Bound(r => r.ReferralDoctor).Title("Referred Doctor");
+					columns.Bound(r => r.Procedure);
+					columns.Bound(r => r.Location);
+					columns.Bound(r => r.CreatedBy);
+				})
+				.ToolBar(t => t.Create())
+				.DataSource(source => source.Ajax()
+					.Model(model =>
+					{
+						model.Id(r => r.PatientId);
+						model.Field(r => r.PatientId).Editable(false);
+					})
+					.Events(events => events.Error("error_handler"))
+						.Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" }))
+						.Update(update => update.Action("Update_Referrals", "Referrals"))
+						.Create(create => create.Action("Create_Referral", "Referrals"))
+				)
+				.ToClientTemplate()
         )</text>);
     items.Add().Text("Treatment").Content(
         @<text>
             @(Html.Kendo().Grid<PatientPortalApp.Models.Treatment>()
-                .Name("grid2_#=PatientId#")
-                .Columns(columns =>
-                {
-                    columns.Bound(t => t.TreatmentDate).Title("Treatment Date").Template(t =>
-                        {
-                            return "<span>" + t.TreatmentDate.ToString("MMM d, yyyy") + "</span>";
-                        });
-                    columns.Bound(t => t.TreatDescription).Title("Description");
-                    columns.Bound(t => t.CreatedBy).Title("Opened By");
-                })
-                .DataSource(source => source.Ajax()
-                    .Model(model =>
-                    {
-                        model.Id(r => r.PatientId);
-                        model.Field(r => r.PatientId).Editable(false);
-                    })
-                    .Events(events => events.Error("error_handler"))
-                    .Read(read => read.Action("Read_Treatment", "Treatments", new { id = "#=PatientId#" })))
-                .ToClientTemplate()
+				.Name("grid3_#=PatientId#")
+				.NoRecords(n => n.Template("<strong>Patient has no records</strong>"))
+				.Columns(columns =>
+				{
+					columns.Bound(t => t.TreatmentDate).Title("Treatment Date").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" });
+					columns.Bound(t => t.TreatDescription).Title("Treatment Description");
+					columns.Bound(t => t.CreatedBy).Title("Opened By");
+				})
+				.ToolBar(t => t.Create())
+				.DataSource(source => source.Ajax()
+					.Model(model =>
+					{
+						model.Id(r => r.PatientId);
+						model.Field(r => r.PatientId).Editable(false);
+					})
+					.Events(events => events.Error("error_handler"))
+					.Read(read => read.Action("Read_Treatment", "Treatments", new { id = "#=PatientId#" }))
+					.Create(create => create.Action("Create_Treatment", "Treatments"))
+				)
+				.ToClientTemplate()
                 )</text>);
     items.Add().Text("Medication").Content(
         @<text>
             @(Html.Kendo().Grid<PatientPortalApp.Models.Medication>()
-                .Name("grid3_#=PatientId#")
-                .Columns(columns =>
-                {
-                    columns.Bound(m => m.MedicationDate).Title("Date Prescribed").Template(m =>
-                    {
-                        return "<span>" + m.MedicationDate.ToString("MMM d, yyyy") + "</span>";
-                    });
-                    columns.Bound(m => m.MedicationName).Title("Medication Name");
-                })
-                .DataSource(source => source.Ajax()
-                    .Model(model =>
-                    {
-                        model.Id(r => r.PatientId);
-                        model.Field(r => r.PatientId).Editable(false);
-                    })
-                    .Events(events => events.Error("error_handler"))
-                    .Read(read => read.Action("Read_Medication", "Medications", new { id = "#=PatientId#" })))
-                .ToClientTemplate()
+				.Name("grid4_#=PatientId#")
+				.NoRecords(n => n.Template("<strong>Patient has no records</strong>"))
+				.Columns(columns =>
+				{
+					columns.Bound(m => m.MedicationDate).Title("Date Prescribed").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" }).Width(200);
+					columns.Bound(m => m.MedicationName).Title("Prescription Information");
+				})
+				.ToolBar(t => t.Create())
+				.DataSource(source => source.Ajax()
+					.Model(model =>
+					{
+						model.Id(r => r.PatientId);
+						model.Field(r => r.PatientId).Editable(false);
+					})
+					.Events(events => events.Error("error_handler"))
+					.Read(read => read.Action("Read_Medication", "Medications", new { id = "#=PatientId#" }))
+					.Create(create => create.Action("Create_Medication", "Medications"))
+				)
+				.ToClientTemplate()
                 )</text>);
     items.Add().Text("Appointments").Content(
         @<text>
             @(Html.Kendo().Grid<PatientPortalApp.Models.Appointment>()
-                .Name("grid4_#=PatientId#")
-                .Columns(columns =>
-                {
-                    columns.Bound(a => a.AppointmentDate ).Title("Appointment Date")
-                        .Template(a =>
-                            {
-                                return "<span>" + a.AppointmentDate.ToString("MMM d, yyyy") + "</span>";
-                            });
-                    columns.Bound(a => a.AppointmentDate).Title("Appointment Time")
-                        .Template(a =>
-                            {
-                                return "<span>" + a.AppointmentDate.ToString("hh:mm tt") + "</span>";
-                            });
-                    columns.Bound(a => a.Reason);
-                })
-                .DataSource(source => source.Ajax()
-                    .Model(model =>
-                    {
-                        model.Id(a => a.PatientId);
-                        model.Field(a => a.PatientId).Editable(false);
-                    })
-                    .Events(events => events.Error("error_handler"))
-                    .Read(read => read.Action("Read_Appointments", "Appointments", new { id = "#=PatientId#" })))
-                .ToClientTemplate()
-                )</text>);
+				.Name("grid5_#=PatientId#")
+				.NoRecords(n => n.Template("<strong>Patient has no records</strong>"))
+				.Columns(columns =>
+				{
+					columns.Group(group => group
+						.Title("Scheduled")
+						.Columns(info =>
+						{
+							info.Bound(a => a.AppointmentDate).Title("Date").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" }).Width(140);
+							info.Bound(a => a.AppointmentDate).Title("Time").Format("{0:hh:mm tt}").HtmlAttributes(new { style = "text-align: center" }).Width(140);
+						})
+					);
+					columns.Bound(a => a.Reason).Title("Reason for Appointment").HeaderHtmlAttributes(new { style = "vertical-align: bottom" });
+					columns.Bound(a => a.ProviderName);
+				})
+				.ToolBar(t => t.Create())
+				.DataSource(source => source
+				.Ajax()
+					.Model(model =>
+					{
+						model.Id(a => a.PatientId);
+						model.Field(a => a.PatientId).Editable(false);
+					})
+					.Events(events => events.Error("error_handler"))
+					.Read(read => read.Action("Read_Appointments", "Appointments", new { id = "#=PatientId#" }))
+					.Create(create => create.Action("Create_Appointment", "Appointments"))
+				)
+
+				.ToClientTemplate()
+
+				)</text>);
 })
 .ToClientTemplate())
 </script>
 
 <script type="text/javascript">
-    function error_handler(e) {
-        if (e.errors) {
-            var message = "Errors:\n";
-            $.each(e.errors, function (key, value) {
-                if ('errors' in value) {
-                    $.each(value.errors, function () {
-                        message += this + "\n";
-                    });
-                }
-            });
-            alert(message);
-        }
-    }
+	function error_handler(e) {
+		if (e.errors) {
+			var message = "Errors:\n";
+			$.each(e.errors, function (key, value) {
+				if ('errors' in value) {
+					$.each(value.errors, function () {
+						message += this + "\n";
+					});
+				}
+			});
+			alert(message);
+		}
+	}
 </script>
 
-<script src="@Url.Content("~/Scripts/pako.min.js")"></script>
+@*Page Template for the exported PDF*@
 
 <script type="x/kendo-template" id="page-template">
-    <div class="page-template">
-      <div class="header">
-        <div style="float: right">Page #: pageNum # of #: totalPages #</div>
-        Patient List Export
-      </div>
-      <div class="watermark">Sample Patient Information</div>
-      <div class="footer">
-        Page #: pageNum # of #: totalPages #
-      </div>
-    </div>
+	<div class="page-template">
+	  <div class="header">
+		<div style="float: right">Page #: pageNum # of #: totalPages #</div>
+		Patient List Export
+	  </div>
+	  <div class="watermark">Sample Patient Information</div>
+	  <div class="footer">
+		Page #: pageNum # of #: totalPages #
+	  </div>
+	</div>
 </script>
 
 <style>
-    /* Page Template for the exported PDF */
-    .page-template {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
+	.page-template {
+		font-family: "DejaVu Sans", "Arial", sans-serif;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
 
-    .page-template .header {
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        right: 30px;
-        border-bottom: 1px solid #888;
-        color: #888;
-    }
+	.page-template .header {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		right: 30px;
+		border-bottom: 1px solid #888;
+		color: #888;
+	}
 
-    .page-template .footer {
-        position: absolute;
-        bottom: 30px;
-        left: 30px;
-        right: 30px;
-        border-top: 1px solid #888;
-        text-align: center;
-        color: #888;
-    }
+	.page-template .footer {
+		position: absolute;
+		bottom: 30px;
+		left: 30px;
+		right: 30px;
+		border-top: 1px solid #888;
+		text-align: center;
+		color: #888;
+	}
 
-    .page-template .watermark {
-        font-weight: bold;
-        font-size: 200%;
-        text-align: center;
-        margin-top: 30%;
-        color: #808080;
-        opacity: 0.2;
-        transform: rotate(-25deg) scale(1.7, 1.5);
-    }
+	.page-template .watermark {
+		font-weight: bold;
+		font-size: 200%;
+		text-align: center;
+		margin-top: 30%;
+		color: #808080;
+		opacity: 0.2;
+		transform: rotate(-25deg) scale(1.7, 1.5);
+	}
 
-    .k-grid {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
-    }
+	.k-grid {
+		font-family: "DejaVu Sans", "Arial", sans-serif;
+	}
 
-    .k-pdf-export .k-grid-toolbar,
-    .k-pdf-export .k-pager-wrap
-    {
-        display: none;
-    }
+	.k-pdf-export .k-grid-toolbar,
+	.k-pdf-export .k-pager-wrap {
+		display: none;
+	}
 
-    .k-grid .k-grid-search
-    {
-        display: flex;
-        margin-left: auto;
-        margin-right: 0;
-    }
+	.k-grid .k-grid-search {
+		display: flex;
+		margin-left: auto;
+		margin-right: 0;
+	}
 </style>
