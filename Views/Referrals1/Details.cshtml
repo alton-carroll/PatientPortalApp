@@ -1,0 +1,71 @@
+﻿@model PatientPortalApp.Models.Referral
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+	dd {
+		color: black;
+	}
+</style>
+
+<h2>Referral Details for @(Model.Patient.FullName)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferralDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferralDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferralDoctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferralDoctor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procedure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.ReferralId }, new { @class = "btn btn-primary" }) |
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
+</p>

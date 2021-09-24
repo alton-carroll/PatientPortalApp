@@ -1,0 +1,57 @@
+﻿@model PatientPortalApp.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+	dd {
+		color: black;
+	}
+</style>
+
+<h2>Appointment Details for @(Model.Patient.FullName)</h2>
+
+<div>
+    <hr />
+	<dl class="dl-horizontal">
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Provider.ProviderName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Provider.ProviderName)
+		</dd>
+
+		<dt>
+			@Html.DisplayName("Appointment Date & Time")
+		</dt>
+
+		<dd>
+			@Convert.ToDateTime(Model.AppointmentDate).ToString("dd-MMM-yyyy") | @Convert.ToDateTime(Model.AppointmentDate).ToString("hh:mm tt")
+		</dd>
+
+		<dt>
+			@Html.DisplayName("Reason for Visit")
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Reason)
+		</dd>
+
+		<dt>
+			@Html.DisplayName("Current Balance")
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Patient.CurrentBalance)
+		</dd>
+
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentId }, new { @class = "btn btn-primary" })
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
+	@Html.ActionLink("Delete", "Delete", new { id = Model.AppointmentId }, new { @class = "btn btn-danger" })
+</p>

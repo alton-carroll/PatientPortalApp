@@ -19,13 +19,22 @@ namespace PatientPortalApp.Data
 
 		public PatientPortalAppContext() : base("name=PatientPortalAppContext")
 			{
+
 			}
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Patient> Patients { get; set; }
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Referral> Referrals { get; set; }
-		public System.Data.Entity.DbSet<PatientPortalApp.Models.Appointment> Appoinments { get; set; }
+		public System.Data.Entity.DbSet<PatientPortalApp.Models.Appointment> Appointments { get; set; }
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Provider> Providers { get; set; }
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Medication> Medications { get; set; }
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Vital> Vitals { get; set; }
 		public System.Data.Entity.DbSet<PatientPortalApp.Models.Treatment> Treatments { get; set; }
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Appointment>()
+				.Property(p => p.AppointmentDate)
+				.HasColumnType("datetime2")
+				.HasPrecision(0);
 		}
+	}
 	}

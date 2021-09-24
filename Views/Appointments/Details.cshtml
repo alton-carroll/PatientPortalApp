@@ -17,74 +17,79 @@
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Patient.FullName)
-        </dt>
+	<dl class="dl-horizontal col-auto">
+		<dt>
+			@Html.DisplayNameFor(model => model.Patient.FullName)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Patient.FullName)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Patient.FullName)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Provider.ProviderName)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Provider.ProviderName)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Provider.ProviderName)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Provider.ProviderName)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AppointmentDate)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.AppointmentDate)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AppointmentDate)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.AppointmentDate).ToString()
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Reason)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Reason)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.CreatedBy)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.CreatedBy)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Created)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Created)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Modified)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.ModifiedBy)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Modified)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.ModifiedBy)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Reason)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Modified)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Reason)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Modified)
+		</dd>
 
-    </dl>
+	</dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }, new { @class = "btn btn-primary" })
     @Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
 </p>
+
+<script>
+    $("#MedicationName").css("width", "100%");
+	$("#MedDescription").css("width", "100%");
+</script>

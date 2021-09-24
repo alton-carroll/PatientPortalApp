@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<PatientPortalApp.Models.Appointment>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
+<h3>Visit the @Html.RouteLink("Patient Module", new { action = "Index", Controller = "Patients" }) to add a new appointment</h3>
+<br />
 @(Html.Kendo().Grid(Model)
 	.Name("grid")
 	.DataSource(source =>
@@ -14,7 +16,7 @@
 		{
 			m.Id(a => a.PatientId);
 		})
-		.Read(read => read.Action("Read_Appointments", "Appointments"))
+		.Read(read => read.Action("Read_Appointment", "Appointments"))
 		.Update(update => update.Action("Update_Appointments", "Appointments"));
 	})
 	.RowAction(row =>
@@ -22,6 +24,11 @@
 		row.HtmlAttributes.Add("onclick", "location.href = '/Appointments/Details/" + row.DataItem.PatientId + "'");
 	})
 	.Editable().Pageable().Sortable()
+	.ToolBar(toolbar =>
+	{
+		toolbar.Pdf().HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
+		toolbar.Search();
+	})
 	.Columns(columns =>
 	{
 		columns.Bound(a => a.PatientId).Title("Patient ID").HtmlAttributes(new { @class="customAttr"});
@@ -33,26 +40,23 @@
 		columns.Bound(a => a.HasBalance).Title("Outstanding Balance").Template(t =>
 		{
 			if (t.Patient.CurrentBalance > 0)
-				{
+			{
 				return "Patient Has Balance of $" + t.Patient.CurrentBalance;
-				}
+			}
 			else
-				{
+			{
 				return "N/A";
-				}
+			}
 		});
 	})
 
 )
 
-
 <script>
 	$(function () {
 		//center text in all elements with .customAttr assigned
 		$(".customAttr").css("text-align", "center");
-
 		//Find element with balance and color the text in that row red
 		$('td:contains("Patient Has Balance of $")').parent().css("color", "red");
-
 	})
 </script>

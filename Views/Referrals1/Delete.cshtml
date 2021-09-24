@@ -1,0 +1,71 @@
+﻿@model PatientPortalApp.Models.Referral
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Referral</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferralDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferralDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferralDoctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferralDoctor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procedure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+	<input type="submit" value="Delete" class="btn btn-primary" /> |
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
+</div>
+    }
+</div>

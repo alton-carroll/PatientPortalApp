@@ -14,5 +14,6 @@ namespace PatientPortalApp.Models
 		[Display(Name = "Provider Name")]
 		public string ProviderName { get; set; }
 		public string Specialty { get; set; }
+		public virtual ICollection<Appointment> Appointments { get; set; }
 		}
 	}

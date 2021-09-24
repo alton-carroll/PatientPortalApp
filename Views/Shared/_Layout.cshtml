@@ -16,7 +16,8 @@
 	<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
 	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
 	<script src="~/Scripts/kendo/2021.2.616/pako_deflate.min.js"></script>
-
+	<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+	<script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
 
 	@Html.Kendo().DeferredScripts()
 
@@ -71,19 +72,29 @@
 								string userSub = getUser.Substring(0, getUser.IndexOf("@"));
 
 								items.Add().Text("Home").Action("Index", "Home", new { area = "" });
+								items.Add().Text("Appointments").Action("Index", "Appointments1", new { area = "" });
 								items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
-								items.Add().Text("Appointments").Action("Index", "Appointments", new { area = "" });
 								items.Add().Text("Administration").Items(children =>
 								{
-									children.Add().Text("Providers").Action("Index", "Providers", new { area = "" });
-									children.Add().Text("Medication").Action("Index", "Medications", new { area = "" });
-									children.Add().Text("Treatments").Action("Index", "Treatments", new { area = "" });
+									children.Add().Text("Providers").Action("Index", "Providers1", new { area = "" });
+									children.Add().Text("Medication").Action("Index", "Medications1", new { area = "" });
+									children.Add().Text("Treatments").Action("Index", "Treatments1", new { area = "" });
 								});
 								items.Add().Text(userSub).Items(children =>
 								{
 									children.Add().Text("Account").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
 									children.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
 								});
+								items.Add().Text("Testing").Items(children =>
+								{
+									children.Add().Text("Appointments1").Action("Index", "Appointments1", new { area = "" });
+									children.Add().Text("Providers1").Action("Index", "Providers1", new { area = "" });
+									children.Add().Text("Medication1").Action("Index", "Medications1", new { area = "" });
+									children.Add().Text("Treatments1").Action("Index", "Treatments1", new { area = "" });
+
+									children.Add().Text("Vitals1").Action("Index", "Vitals1", new { area = "" });
+								});
+
 
 
 								}
@@ -118,13 +129,14 @@
 		</div>
 	</main>
 
-	<footer class="footer text-center d-flex align-items-center">
+	<footer class="footer text-center d-inline-flex align-items-center">
 		<div class="container-fluid">
 			<hr />
-			<p>Copyright &copy; @DateTime.Now.Year Spinsys All Rights Reserved.</p>
+			<p>
+				Copyright &copy; @DateTime.Now.Year  Spinsys All Rights Reserved.
+			</p>
 		</div>
 	</footer>
-
 
 	<script>
 

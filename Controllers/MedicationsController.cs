@@ -113,7 +113,7 @@ namespace PatientPortalApp.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Edit([Bind(Include = "MedicationId,MedicationName,MedDescription,PatientId")] Medication medication)
+		public async Task<ActionResult> Edit([Bind(Include = "MedicationId,MedicationName,MedDescription,PatientId,MeicationDate")] Medication medication)
 			{
 			if (ModelState.IsValid)
 				{
@@ -121,7 +121,7 @@ namespace PatientPortalApp.Controllers
 				await db.SaveChangesAsync();
 				return RedirectToAction("Index");
 				}
-			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Prefix", medication.PatientId);
+			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "PatientId", medication.PatientId);
 			return View(medication);
 			}
 

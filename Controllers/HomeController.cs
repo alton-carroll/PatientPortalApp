@@ -14,5 +14,10 @@ namespace PatientPortalApp.Controllers
 
 			return View();
 			}
+
+		public ActionResult Landing()
+			{
+			return View();
+			}
 		}
 	}

@@ -24,7 +24,7 @@
             @Html.DisplayFor(modelItem => item.TreatDescription)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TreatmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
             @Html.ActionLink("Details", "Details", new { id=item.TreatmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
             @Html.ActionLink("Delete", "Delete", new { id=item.TreatmentId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
         </td>

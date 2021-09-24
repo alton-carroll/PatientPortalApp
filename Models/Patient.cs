@@ -77,9 +77,14 @@ namespace PatientPortalApp.Models
 		public string ModifiedBy { get; set; }
 		[DataType(DataType.Date)]
 		public DateTime Modified { get; set; }
+
+		//Navigation Properties
 		public virtual ICollection<Medication> Medications { get; set; }
 		public virtual ICollection<Referral> Referrals { get; set; }
-		//public virtual ICollection<Appointment> Appoinments { get; set; }
+		public virtual ICollection<Appointment> appointments { get; set; }
 		public virtual ICollection<Vital> Vitals { get; set; }
+		public virtual ICollection<Treatment> Treatments { get; set; }
+
+
 		}
 	}

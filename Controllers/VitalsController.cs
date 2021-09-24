@@ -11,6 +11,7 @@ using PatientPortalApp.Data;
 using PatientPortalApp.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using System.Data.Entity.Migrations;
 
 namespace PatientPortalApp.Controllers
 	{
@@ -34,20 +35,14 @@ namespace PatientPortalApp.Controllers
 			}
 
 		// Update vitals for patient detail view template
-
-		public ActionResult Update_Vitals(Vital vital)
+		[AcceptVerbs(HttpVerbs.Post)]
+		public ActionResult Update_Vitals([DataSourceRequest] DataSourceRequest request, Vital vital)
 			{
 			if (vital != null && ModelState.IsValid)
 				{
-				var target = GetVitalById(vital.PatientId);
-				target.VitalDate = vital.VitalDate;
-				target.Weight = vital.Weight;
-				target.Height = vital.Height;
-				target.Temperature = vital.Temperature;
-				target.BloodPressure = vital.BloodPressure;
-				target.Pulse = vital.Pulse;
+				db.Vitals.AddOrUpdate(vital);
 				}
-			return Json(ModelState.ToDataSourceResult());
+			return Json(new[ ] { vital }.ToDataSourceResult(request, ModelState));
 			}
 
 		// Create vitals for patient detail view template
@@ -118,7 +113,7 @@ namespace PatientPortalApp.Controllers
 		// GET: Vitals/Create
 		public ActionResult Create()
 			{
-			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Prefix");
+			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "FullName");
 			return View();
 			}
 

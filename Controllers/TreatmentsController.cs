@@ -108,7 +108,7 @@ namespace PatientPortalApp.Controllers
 				{
 				return HttpNotFound();
 				}
-			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "Prefix", treatment.PatientId);
+			ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "PatientId", treatment.PatientId);
 			return View(treatment);
 			}
 
@@ -117,7 +117,7 @@ namespace PatientPortalApp.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Edit([Bind(Include = "TreatmentId,TreatmentDate,TreatDescription,Created,CreatedBy,Modified,ModifiedBy,PatientId")] Treatment treatment)
+		public async Task<ActionResult> Edit([Bind(Include = "TreatDescription, PatientId")] Treatment treatment)
 			{
 			if (ModelState.IsValid)
 				{

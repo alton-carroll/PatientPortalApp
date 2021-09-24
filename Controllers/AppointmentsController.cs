@@ -20,25 +20,23 @@ namespace PatientPortalApp.Controllers
 
 		private PatientPortalAppContext db = new PatientPortalAppContext();
 
-		public ActionResult Read_Appointment([DataSourceRequest] DataSourceRequest request, int id)
+		public ActionResult Read_Appointment([DataSourceRequest] DataSourceRequest request)
 			{
-			var appoinments = db.Appoinments.Include(a => a.Patient).Include(a => a.Provider);
-
-			return Json(appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
+			try
 				{
-				AppointmentDate = a.AppointmentDate,
-				ProviderName = a.ProviderName,
-				Reason = a.Reason,
-				PatientId = a.PatientId,
-				ProviderId = a.ProviderId,
-				HasBalance = a.HasBalance
-				}));
+				var appointments = db.Appointments.Include(a => a.Patient).Include(a => a.Provider).ToList();
+				return Json(appointments.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
+				}
+			catch(Exception e)
+				{
+				return Json(e.Message);
+				}
 			}
 
 		public ActionResult Read_Appointments([DataSourceRequest] DataSourceRequest request, int id)
 			{
 			var provider = db.Providers.Include(p => p.ProviderName);
-			return Json(db.Appoinments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
+			return Json(db.Appointments.Where(a => a.PatientId == id).ToDataSourceResult(request, a => new Appointment()
 				{
 				AppointmentDate = a.AppointmentDate,
 				Reason = a.Reason,
@@ -64,37 +62,43 @@ namespace PatientPortalApp.Controllers
 				}
 			return Json(ModelState.ToDataSourceResult());
 			}
-		public ActionResult Create_Appointment(Appointment appointment)
+		public ActionResult Create_Appointment([DataSourceRequest] DataSourceRequest request, Appointment appointment)
 			{
-			if (appointment != null && ModelState.IsValid)
+			try
 				{
-				var target = GetAppointmentByPatientId(appointment.PatientId);
-				target.PatientId = appointment.PatientId;
-				target.Patient.FirstName = appointment.Patient.FirstName;
-				target.Patient.LastName = appointment.Patient.LastName;
-				target.AppointmentDate = appointment.AppointmentDate;
-				target.Reason = appointment.Reason;
-				target.ProviderId = appointment.ProviderId;
-				db.SaveChanges();
+				if (ModelState.IsValid)
+					{
+					db.Appointments.Add(appointment);
+					db.SaveChanges();
+					var _appList = db.Appointments.ToList();
+					return Json(new[ ] { appointment }.ToDataSourceResult(request, ModelState));
+					}
+				else
+					{
+					return Json(db.Appointments.ToList());
+					}
 				}
-			return Json(ModelState.ToDataSourceResult());
+			catch (Exception e)
+				{
+				return Json(e.Message);
+				}
 			}
 
 		private Appointment GetAppointmentByPatientId(int id)
 			{
-			return db.Appoinments.FirstOrDefault(a => a.PatientId == id);
+			return db.Appointments.FirstOrDefault(a => a.PatientId == id);
 			}
 
 		private Appointment GetAppointmentByProviderId(int id)
 			{
-			return db.Appoinments.FirstOrDefault(a => a.ProviderId == id);
+			return db.Appointments.FirstOrDefault(a => a.ProviderId == id);
 			}
 
 		// GET: Appointments
 		public async Task<ActionResult> Index()
 			{
-			var appoinments = db.Appoinments.Include(a => a.Patient).Include(a => a.Provider);
-			return View(await appoinments.ToListAsync());
+			var appointments = db.Appointments.Include(a => a.Patient).Include(a => a.Provider);
+			return View(await appointments.ToListAsync());
 			}
 
 		// GET: Appointments/Details/5
@@ -104,7 +108,7 @@ namespace PatientPortalApp.Controllers
 				{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 				}
-			Appointment appointment = await db.Appoinments.FindAsync(id);
+			Appointment appointment = await db.Appointments.FindAsync(id);
 			if (appointment == null)
 				{
 				return HttpNotFound();
@@ -129,7 +133,7 @@ namespace PatientPortalApp.Controllers
 			{
 			if (ModelState.IsValid)
 				{
-				db.Appoinments.Add(appointment);
+				db.Appointments.Add(appointment);
 				await db.SaveChangesAsync();
 				return RedirectToAction("Index");
 				}
@@ -146,7 +150,7 @@ namespace PatientPortalApp.Controllers
 				{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 				}
-			Appointment appointment = await db.Appoinments.FindAsync(id);
+			Appointment appointment = await db.Appointments.FindAsync(id);
 			if (appointment == null)
 				{
 				return HttpNotFound();
@@ -181,7 +185,7 @@ namespace PatientPortalApp.Controllers
 				{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 				}
-			Appointment appointment = await db.Appoinments.FindAsync(id);
+			Appointment appointment = await db.Appointments.FindAsync(id);
 			if (appointment == null)
 				{
 				return HttpNotFound();
@@ -194,8 +198,8 @@ namespace PatientPortalApp.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> DeleteConfirmed(int id)
 			{
-			Appointment appointment = await db.Appoinments.FindAsync(id);
-			db.Appoinments.Remove(appointment);
+			Appointment appointment = await db.Appointments.FindAsync(id);
+			db.Appointments.Remove(appointment);
 			await db.SaveChangesAsync();
 			return RedirectToAction("Index");
 			}

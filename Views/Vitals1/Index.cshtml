@@ -1,0 +1,71 @@
+﻿@model IEnumerable<PatientPortalApp.Models.Vital>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manage Vitals</h2>
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = "create-new" }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VitalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodPressure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulse)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VitalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodPressure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulse)
+        </td>
+
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id = item.VitalId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Details", "Details", new { id = item.VitalId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Delete", "Delete", new { id = item.VitalId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
+		</td>
+    </tr>
+}
+
+</table>

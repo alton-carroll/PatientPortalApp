@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Edit Treatment Number @(Model.TreatmentId)</h4>
+        <h4>Edit Treatment Number @(Model.Patient.FullName)</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.TreatmentId)

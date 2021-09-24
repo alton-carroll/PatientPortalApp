@@ -11,6 +11,7 @@ using PatientPortalApp.Data;
 using PatientPortalApp.Models;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using Microsoft.Ajax.Utilities;
 
 namespace PatientPortalApp.Controllers
 	{
@@ -64,6 +65,25 @@ namespace PatientPortalApp.Controllers
 				}
 			return Json(new[ ] { referral }.ToDataSourceResult(new DataSourceRequest(), ModelState));
 			}
+
+		//[AcceptVerbs("Post")]
+		//public ActionResult Destroy_Referral([DataSourceRequest] DataSourceRequest request, [Bind(Prefix = "models")]IEnumerable<PatientPortalApp.Models.Referral> referrals)
+		//	{
+		//	try
+		//		{
+		//		if (referrals.Any())
+		//			{
+		//			foreach(var referral in referrals)
+		//				{
+						
+		//				}
+		//			}
+		//		}
+		//	catch (Exception e)
+		//		{
+		//		return Json(e.Message);
+		//		}
+		//	}
 
 		private Referral GetReferralByPatient(int id)
 			{

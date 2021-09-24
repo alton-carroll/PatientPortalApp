@@ -16,7 +16,9 @@
 		})
 		.ToolBar(toolbar =>
 		{
-			toolbar.Custom().Text("Create").Url("~/Patients/Create");
+			toolbar.Custom().Text("Add New Patient").Url("~/Patients/Create").HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
+			toolbar.Pdf().HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
+			toolbar.Excel().HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
 		})
 		.Pageable().Sortable().Filterable()
 		.DataSource(source => source
@@ -52,8 +54,17 @@
 					columns.Bound(v => v.Temperature).HtmlAttributes(new { style = "text-align: center" });
 					columns.Bound(v => v.BloodPressure).Title("Blood Pressure").HtmlAttributes(new { style = "text-align: center" });
 					columns.Bound(v => v.Pulse).HtmlAttributes(new { style = "text-align: center" });
+					columns.Command(command =>
+					{
+						command.Edit();
+						command.Destroy();
+					});
 				})
-				.ToolBar(t => t.Create())
+				.ToolBar(toolbar =>
+				{
+					toolbar.Custom().Text("Add Vitals").Url("~/Vitals1/Create");
+				})
+				.Editable(edit => edit.Mode(GridEditMode.InLine).ConfirmDelete("Are you sure you want to delete this vital?").DisplayDeleteConfirmation("Are you sure you want to delete this vital ?"))
 				.DataSource(source => source
 					.Ajax()
 					.Model(model =>
@@ -64,7 +75,8 @@
 					.Events(events => events.Error("error_handler"))
 					.Read(read => read.Action("Read_Vitals", "Vitals", new { id = "#=PatientId#" }))
 					.Create(create => create.Action("Create_Vitals", "Vitals"))
-					.Update(update => update.Action("Update_Vitals", "Vitals")))
+					.Update(update => update.Action("Update_Vitals", "Vitals"))
+					.Destroy(destroy => destroy.Action("Destroy_Vitals", "Vitals")))
 				.ToClientTemplate()
             )
         </text>);
@@ -82,8 +94,12 @@
 					columns.Bound(r => r.Procedure);
 					columns.Bound(r => r.Location);
 					columns.Bound(r => r.CreatedBy);
+
 				})
-				.ToolBar(t => t.Create())
+				.ToolBar(toolbar =>
+				{
+					toolbar.Custom().Text("Add Referral").Url("~/Referrals1/Create");
+				})
 				.DataSource(source => source.Ajax()
 					.Model(model =>
 					{
@@ -94,6 +110,7 @@
 						.Read(read => read.Action("Read_Referrals", "Referrals", new { id = "#=PatientId#" }))
 						.Update(update => update.Action("Update_Referrals", "Referrals"))
 						.Create(create => create.Action("Create_Referral", "Referrals"))
+						.Destroy(destroy => destroy.Action("Destroy_Referral", "Referrals"))
 				)
 				.ToClientTemplate()
         )</text>);
@@ -108,7 +125,10 @@
 					columns.Bound(t => t.TreatDescription).Title("Treatment Description");
 					columns.Bound(t => t.CreatedBy).Title("Opened By");
 				})
-				.ToolBar(t => t.Create())
+				.ToolBar(toolbar =>
+				{
+					toolbar.Custom().Text("Add Treatment").Url("~/Treatments1/Create");
+				})
 				.DataSource(source => source.Ajax()
 					.Model(model =>
 					{
@@ -131,7 +151,10 @@
 					columns.Bound(m => m.MedicationDate).Title("Date Prescribed").Format("{0:MMM d, yyyy}").HtmlAttributes(new { style = "text-align: center" }).Width(200);
 					columns.Bound(m => m.MedicationName).Title("Prescription Information");
 				})
-				.ToolBar(t => t.Create())
+				.ToolBar(toolbar =>
+				{
+					toolbar.Custom().Text("Add Medication").Url("~/Medications1/Create");
+				})
 				.DataSource(source => source.Ajax()
 					.Model(model =>
 					{
@@ -162,7 +185,10 @@
 					columns.Bound(a => a.Reason).Title("Reason for Appointment").HeaderHtmlAttributes(new { style = "vertical-align: bottom" });
 					columns.Bound(a => a.ProviderName);
 				})
-				.ToolBar(t => t.Create())
+				.ToolBar(toolbar =>
+				{
+					toolbar.Custom().Text("Add Appointment").Url("~/Appointments1/Create");
+				})
 				.DataSource(source => source
 				.Ajax()
 					.Model(model =>
@@ -223,34 +249,34 @@
 		left: 0;
 	}
 
-	.page-template .header {
-		position: absolute;
-		top: 30px;
-		left: 30px;
-		right: 30px;
-		border-bottom: 1px solid #888;
-		color: #888;
-	}
+		.page-template .header {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			right: 30px;
+			border-bottom: 1px solid #888;
+			color: #888;
+		}
 
-	.page-template .footer {
-		position: absolute;
-		bottom: 30px;
-		left: 30px;
-		right: 30px;
-		border-top: 1px solid #888;
-		text-align: center;
-		color: #888;
-	}
+		.page-template .footer {
+			position: absolute;
+			bottom: 30px;
+			left: 30px;
+			right: 30px;
+			border-top: 1px solid #888;
+			text-align: center;
+			color: #888;
+		}
 
-	.page-template .watermark {
-		font-weight: bold;
-		font-size: 200%;
-		text-align: center;
-		margin-top: 30%;
-		color: #808080;
-		opacity: 0.2;
-		transform: rotate(-25deg) scale(1.7, 1.5);
-	}
+		.page-template .watermark {
+			font-weight: bold;
+			font-size: 200%;
+			text-align: center;
+			margin-top: 30%;
+			color: #808080;
+			opacity: 0.2;
+			transform: rotate(-25deg) scale(1.7, 1.5);
+		}
 
 	.k-grid {
 		font-family: "DejaVu Sans", "Arial", sans-serif;

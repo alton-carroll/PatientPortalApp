@@ -28,6 +28,6 @@ namespace PatientPortalApp.Models
 		public DateTime Modified { get; set; }
 		[ForeignKey("Patient")]
 		public int PatientId { get; set; }
-		public virtual Patient Patient { get; set; }
+		public Patient Patient { get; set; }
 		}
 	}

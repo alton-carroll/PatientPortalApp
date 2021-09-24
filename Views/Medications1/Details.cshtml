@@ -1,0 +1,63 @@
+﻿@model PatientPortalApp.Models.Medication
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+	dd {
+		color: black;
+	}
+</style>
+
+<h2>Medication Details </h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Patient.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.FullName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+    </dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.MedicationId }, new { @class = "btn btn-primary" })
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
+</p>

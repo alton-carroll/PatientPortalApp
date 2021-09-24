@@ -1,75 +1,60 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
 <div class="k-content">
-    @*<h4>Kendo UI Button with icons</h4>*@
+	@*<h4>Kendo UI Button with icons</h4>*@
 
-    @(Html.Kendo().Button()
-    .Name("MyAppointments")
-    .Icon("calendar")
-    .HtmlAttributes( new {type = "button"} )
-    .Content("My Appointments")
-    )
-    @(Html.Kendo().Button()
-    .Name("AppointmentSearch")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("search")
-    .Content("Appointment Search")
-    )
-    @(Html.Kendo().Button()
-    .Name("AppointmentDetail")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("table")
-    .Content("Appointment Detail")
-    )
-    @(Html.Kendo().Button()
-    .Name("PatientSearch")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("search")
-    .Content("Patient Search")
-    )
-    @(Html.Kendo().Button()
-    .Name("PatientDetail")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("table")
-    .Content("Patient Detail")
-    .Events(e => e.Click(
-        "name"))
-    )
-    @(Html.Kendo().Button()
-    .Name("DoctorSearch")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("search")
-    .Content("Doctor Search")
-    )
-    @(Html.Kendo().Button()
-    .Name("DoctorDetail")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("user")
-    .Content("Doctor Detail")
-    )
-    @(Html.Kendo().Button()
-    .Name("AddSpecialties")
-    .HtmlAttributes( new {type = "button"} )
-    .Icon("plus-circle")
-    .Content("Add Specialties")
-    )
-    @(Html.Kendo().Button()
-    .Name("AddMedication")
-    .HtmlAttributes( new { type = "button"})
-    .Icon("plus-circle")
-    .Content("Add Medication")
-    )
+	@(Html.Kendo().Button()
+.Name("Appointments")
+.Icon("calendar")
+.HtmlAttributes( new {type = "button"} )
+.Content("Appointments")
+.Events(e => e.Click(
+"appointments"))
+)
+	@(Html.Kendo().Button()
+.Name("Patients")
+.HtmlAttributes( new {type = "button"} )
+.Icon("table")
+.Content("Patients")
+.Events(e => e.Click(
+"patients"))
+)
+	@(Html.Kendo().Button()
+.Name("Providers")
+.HtmlAttributes( new {type = "button"} )
+.Icon("user")
+.Content("Providers")
+.Events(e => e.Click(
+"providers"))
+)
+	@(Html.Kendo().Button()
+.Name("Medication")
+.HtmlAttributes(new { type = "button" })
+.Icon("plus-circle")
+.Content("Medication")
+.Events(e => e.Click(
+"medications"))
+)
+	@(Html.Kendo().Button()
+.Name("Treatments")
+.HtmlAttributes( new {type = "button"} )
+.Icon("accessibility")
+.Content("Treatments")
+.Events(e => e.Click(
+"treatments"))
+)
+
 
 
 
 </div>
 
 <style>
-    .k-content {
-        line-height: 4em;
-    }
+	.k-content {
+		line-height: 4em;
+	}
 
 		.k-content .k-button {
 			/*margin-right: 10px;*/
@@ -83,17 +68,17 @@
 			border: 2.5px solid black;
 		}
 
-    .k-button .k-image {
-        /*height: 16px;*/
-        width: 150px;
-        height: 120px;
-    }
+	.k-button .k-image {
+		/*height: 16px;*/
+		width: 150px;
+		height: 120px;
+	}
 
-    .class-color {
-        color: lightblue;
-        display: table-cell;
-        vertical-align: top;
-    }
+	.class-color {
+		color: lightblue;
+		display: table-cell;
+		vertical-align: top;
+	}
 
 	.k-content .k-icon {
 		/*margin-right: 10px;*/
@@ -101,15 +86,35 @@
 		height: 16px;
 	}
 
-    .k-button:hover {
-        background-color:#dbdbe0;
-    }
+	.k-button:hover {
+		background-color: #dbdbe0;
+	}
 </style>
 
 <script>
-    function name() {
-        window.location = '@Url.Action("Index", "Patients")';
+function patients() {
+window.location = '@Url.Action("Index", "Patients")';
 
-    }
+}
+
+function medications() {
+window.location = '@Url.Action("Index", "Medications")';
+
+}
+
+function appointments() {
+window.location = '@Url.Action("Index", "Appointments")';
+
+}
+
+function providers() {
+window.location = '@Url.Action("Index", "Providers")';
+
+}
+
+function treatments() {
+window.location = '@Url.Action("Index", "Treatments")';
+
+}
 
 </script>

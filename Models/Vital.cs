@@ -9,6 +9,7 @@ namespace PatientPortalApp.Models
 	{
 	public class Vital
 		{
+		[Key]
 		public int VitalId { get; set; }
 		[DataType(DataType.Date)]
 		public DateTime VitalDate { get; set; }
@@ -25,8 +26,6 @@ namespace PatientPortalApp.Models
 		public string ModifiedBy { get; set; }
 		[ForeignKey("Patient")]
 		public int PatientId { get; set; }
-
-
-		public Patient Patient { get; set; }
+		public virtual Patient Patient { get; set; }
 		}
 	}

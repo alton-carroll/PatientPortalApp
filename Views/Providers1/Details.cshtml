@@ -1,0 +1,38 @@
+﻿@model PatientPortalApp.Models.Provider
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+	dd {
+		color: black;
+	}
+</style>
+
+<h2>Provider Details for @(Model.ProviderName)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProviderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialty)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProviderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

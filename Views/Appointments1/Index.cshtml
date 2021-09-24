@@ -1,0 +1,139 @@
+﻿@model IEnumerable<PatientPortalApp.Models.Appointment>
+
+@{
+	ViewBag.Title = "Index";
+}
+<script src="~/Scripts/kendo/2021.3.914/pako_deflate.min.js"></script>
+
+
+<h3>Visit the @Html.RouteLink("Patient Module", new { action = "Index", Controller = "Patients" }) to add a new appointment</h3>
+<br />
+@(Html.Kendo().Grid(Model)
+	.Name("appointment_grid")
+	.BindTo(Model)
+	.Columns(columns =>
+	{
+		columns.Bound(a => a.PatientId).Title("Patient ID").HtmlAttributes(new { @class = "customAttr" });
+		columns.Bound(a => a.Patient.FullName).Title("Name");
+		columns.Bound(a => a.Reason);
+		columns.Bound(a => a.AppointmentDate).Title("Date").Format("{0:MMM d, yyyy}");
+		columns.Bound(a => a.AppointmentDate).Title("Time").Format("{0:hh:mm tt}");
+		columns.Bound(a => a.Provider.ProviderName);
+		columns.Bound(a => a.HasBalance).Title("Outstanding Balance").Template(t =>
+		{
+			if (t.Patient.CurrentBalance > 0)
+			{
+				return "Patient Has Balance of $" + t.Patient.CurrentBalance;
+			}
+			else
+			{
+				return "N/A";
+			}
+		});
+	})
+	.RowAction(row =>
+	{
+		row.HtmlAttributes.Add("onclick", "location.href = '/Appointments1/Details/" + row.DataItem.PatientId + "'");
+	})
+	.ToolBar(toolbar =>
+	{
+		toolbar.Pdf().HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
+		toolbar.Search();
+	})
+	.Pageable()
+	.DataSource(source => source
+	.Server()
+	.PageSize(20)
+	.Model(m =>
+	{
+		m.Id(a => a.AppointmentId);
+		m.Field(a => a.AppointmentId).Editable(false);
+	})
+	.Create("Create", "Appointments1"))
+	)
+
+<script>
+	$(function () {
+		//center text in all elements with .customAttr assigned
+		$(".customAttr").css("text-align", "center");
+		//Find element with balance and color the text in that row red
+		$('td:contains("Patient Has Balance of $")').parent().css("color", "red");
+	})
+</script>
+
+<script type="x/kendo-template" id="page-template">
+	<div class="page-template">
+	  <div class="header">
+		<div style="float: right">Page #: pageNum # of #: totalPages #</div>
+		Patient List Export
+	  </div>
+	  <div class="watermark">Sample Patient Information</div>
+	  <div class="footer">
+		Page #: pageNum # of #: totalPages #
+	  </div>
+	</div>
+</script>
+
+
+@*<h2>Index</h2>
+
+	<p>
+		@Html.ActionLink("Create New", "Create", new { id = "create-appointment" }, new { @class = "btn btn-primary" })
+	</p>
+	<table class="table">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Patient.FullName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Provider.ProviderName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.AppointmentDate)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Reason)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.CreatedBy)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Created)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.HasBalance)
+			</th>
+			<th></th>
+		</tr>
+
+	@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Patient.FullName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Provider.ProviderName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.AppointmentDate)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Reason)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.CreatedBy)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Created)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.HasBalance)
+		</td>
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Details", "Details", new { id = item.AppointmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
+		</td>
+	</tr>
+	}
+	</table>*@

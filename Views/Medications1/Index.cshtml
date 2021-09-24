@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PatientPortalApp.Models.Medication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manage Medications</h2>
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = "create-medication" }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicationName)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicationName)
+        </td>
+
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id = item.MedicationId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Details", "Details", new { id = item.MedicationId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+			@Html.ActionLink("Delete", "Delete", new { id = item.MedicationId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
+		</td>
+    </tr>
+}
+</table>

@@ -11,7 +11,7 @@
 		{
 		public Configuration()
 			{
-			AutomaticMigrationsEnabled = false;
+			AutomaticMigrationsEnabled = true;
 			}
 
 		protected override void Seed(PatientPortalApp.Data.PatientPortalAppContext context)
@@ -3870,7 +3870,7 @@
 			providers.ForEach(p => context.Providers.AddOrUpdate(p));
 			context.SaveChanges();
 
-			if (context.Appoinments.Any())
+			if (context.Appointments.Any())
 				{
 				return;
 				}
@@ -3884,9 +3884,9 @@
 						Modified = DateTime.Parse("9-21-2019 11:10:11 AM"),
 						CreatedBy = "Williams Bosco",
 						ModifiedBy = "Mckinley Ratke",
-						Reason = "Bleeding from anus",
-						PatientId = 1,
-						ProviderId = 1
+						Reason = "Cold or Flu like Symptoms",
+						PatientId = 2,
+						ProviderId = 2
 					},
 				new Appointment
 					{
@@ -4979,7 +4979,7 @@
 					}
 
 				};
-			appointments.ForEach(a => context.Appoinments.AddOrUpdate(a));
+			appointments.ForEach(a => context.Appointments.AddOrUpdate(a));
 			context.SaveChanges();
 
 			if (context.Vitals.Any())

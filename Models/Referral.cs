@@ -9,8 +9,8 @@ namespace PatientPortalApp.Models
 	{
 	public class Referral
 		{
-		[Display(Name = "Referral ID")]
 		[Key]
+		[Display(Name = "Referral ID")]
 		public int ReferralId { get; set; }
 		[Display(Name = "Referral Date")]
 		[DataType(DataType.Date)]
