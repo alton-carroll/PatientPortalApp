@@ -3,8 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+	dd {
+		color: black;
+	}
+</style>
 
-<h2>Treatment Details for @(Model.Patient.FullName)</h2>
+<h2>Treatment Details</h2>
 
 <div>
     <hr />
@@ -67,6 +72,7 @@
 
     </dl>
 </div>
+
 <p>
 	@Html.ActionLink("Edit", "Edit", new { id = Model.TreatmentId }, new { @class = "btn btn-primary" })
 	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })

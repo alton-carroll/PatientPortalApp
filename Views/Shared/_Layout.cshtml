@@ -85,18 +85,6 @@
 									children.Add().Text("Account").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
 									children.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
 								});
-								items.Add().Text("Testing").Items(children =>
-								{
-									children.Add().Text("Appointments1").Action("Index", "Appointments1", new { area = "" });
-									children.Add().Text("Providers1").Action("Index", "Providers1", new { area = "" });
-									children.Add().Text("Medication1").Action("Index", "Medications1", new { area = "" });
-									children.Add().Text("Treatments1").Action("Index", "Treatments1", new { area = "" });
-
-									children.Add().Text("Vitals1").Action("Index", "Vitals1", new { area = "" });
-								});
-
-
-
 								}
 							else
 								{

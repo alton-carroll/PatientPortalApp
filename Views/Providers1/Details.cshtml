@@ -9,7 +9,7 @@
 	}
 </style>
 
-<h2>Provider Details for @(Model.ProviderName)</h2>
+<h2>Provider Details</h2>
 
 <div>
     <hr />
@@ -33,6 +33,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProviderId }) |
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Edit", "Edit", new { id = Model.ProviderId }, new { @class = "btn btn-primary" })
+	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
 </p>

@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Manage Referrals</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { id = "create-referral" }, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Patient.Prefix)
+            @Html.DisplayNameFor(model => model.Patient.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ReferralDate)
@@ -29,25 +29,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Modified)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Patient.Prefix)
+            @Html.DisplayFor(modelItem => item.Patient.FullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReferralDate)
@@ -64,22 +53,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Location)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Modified)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReferralId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReferralId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReferralId })
+
+        <td width="25%">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReferralId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+            @Html.ActionLink("Details", "Details", new { id=item.ReferralId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReferralId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
         </td>
     </tr>
 }

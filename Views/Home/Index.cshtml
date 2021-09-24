@@ -2,62 +2,13 @@
 	ViewBag.Title = "Home Page";
 }
 
-<div class="k-content">
-	@*<h4>Kendo UI Button with icons</h4>*@
-
-	@(Html.Kendo().Button()
-.Name("Appointments")
-.Icon("calendar")
-.HtmlAttributes( new {type = "button"} )
-.Content("Appointments")
-.Events(e => e.Click(
-"appointments"))
-)
-	@(Html.Kendo().Button()
-.Name("Patients")
-.HtmlAttributes( new {type = "button"} )
-.Icon("table")
-.Content("Patients")
-.Events(e => e.Click(
-"patients"))
-)
-	@(Html.Kendo().Button()
-.Name("Providers")
-.HtmlAttributes( new {type = "button"} )
-.Icon("user")
-.Content("Providers")
-.Events(e => e.Click(
-"providers"))
-)
-	@(Html.Kendo().Button()
-.Name("Medication")
-.HtmlAttributes(new { type = "button" })
-.Icon("plus-circle")
-.Content("Medication")
-.Events(e => e.Click(
-"medications"))
-)
-	@(Html.Kendo().Button()
-.Name("Treatments")
-.HtmlAttributes( new {type = "button"} )
-.Icon("accessibility")
-.Content("Treatments")
-.Events(e => e.Click(
-"treatments"))
-)
-
-
-
-
-</div>
-
 <style>
 	.k-content {
 		line-height: 4em;
+		align-content: center;
 	}
 
 		.k-content .k-button {
-			/*margin-right: 10px;*/
 			width: 200px;
 			height: 175px;
 			margin: 20px;
@@ -69,7 +20,6 @@
 		}
 
 	.k-button .k-image {
-		/*height: 16px;*/
 		width: 150px;
 		height: 120px;
 	}
@@ -81,7 +31,6 @@
 	}
 
 	.k-content .k-icon {
-		/*margin-right: 10px;*/
 		color: #0D6EFD;
 		height: 16px;
 	}
@@ -89,32 +38,77 @@
 	.k-button:hover {
 		background-color: #dbdbe0;
 	}
+
+	.k-panelbar .k-content {
+		padding: 20px;
+	}
+
+	p .k-button {
+		margin: 0 15px 0 0;
+	}
+
+	.k-state-active .label {
+		font-size: 1em;
+	}
 </style>
+
+<div class="k-content">
+
+@(Html.Kendo().Button()
+	.Name("Appointments")
+	.Icon("calendar")
+	.HtmlAttributes( new {type = "button"} )
+	.Content("Appointments")
+	.Events(e => e.Click("appointments"))
+)
+@(Html.Kendo().Button()
+	.Name("Patients")
+	.HtmlAttributes( new {type = "button"} )
+	.Icon("table")
+	.Content("Patients")
+	.Events(e => e.Click("patients"))
+)
+@(Html.Kendo().Button()
+	.Name("Providers")
+	.HtmlAttributes( new {type = "button"} )
+	.Icon("user")
+	.Content("Providers")
+	.Events(e => e.Click("providers"))
+)
+@(Html.Kendo().Button()
+	.Name("Medication")
+	.HtmlAttributes(new { type = "button" })
+	.Icon("plus-circle")
+	.Content("Medication")
+	.Events(e => e.Click("medications"))
+)
+@(Html.Kendo().Button()
+	.Name("Treatments")
+	.HtmlAttributes( new {type = "button"} )
+	.Icon("accessibility")
+	.Content("Treatments")
+	.Events(e => e.Click("treatments"))
+)
+</div>
 
 <script>
 function patients() {
 window.location = '@Url.Action("Index", "Patients")';
-
 }
 
 function medications() {
-window.location = '@Url.Action("Index", "Medications")';
-
+	window.location = '@Url.Action("Index", "Medications1")';
 }
 
 function appointments() {
-window.location = '@Url.Action("Index", "Appointments")';
-
+window.location = '@Url.Action("Index", "Appointments1")';
 }
 
 function providers() {
-window.location = '@Url.Action("Index", "Providers")';
-
+window.location = '@Url.Action("Index", "Providers1")';
 }
 
 function treatments() {
-window.location = '@Url.Action("Index", "Treatments")';
-
+window.location = '@Url.Action("Index", "Treatments1")';
 }
-
 </script>

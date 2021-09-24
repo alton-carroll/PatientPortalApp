@@ -29,6 +29,41 @@ body {
     display: none;
 }
 
+.k-content {
+    line-height: 4em;
+    align-content: center;
+}
+
+    .k-content .k-button {
+        width: 200px;
+        height: 175px;
+        margin: 20px;
+        background-color: white;
+        border: 50px black;
+        color: black;
+        font-size: 17px;
+        border: 2.5px solid black;
+    }
+
+.k-button .k-image {
+    width: 150px;
+    height: 120px;
+}
+
+.class-color {
+    color: lightblue;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.k-content .k-icon {
+    color: #0D6EFD;
+    height: 16px;
+}
+
+.k-button:hover {
+    background-color: #dbdbe0;
+}
 .k-panelbar .k-content {
     padding: 20px;
 }
@@ -40,8 +75,6 @@ p .k-button {
 .k-state-active .label {
     font-size: 1em;
 }
-
-/* #endregion */
 
 @media (max-width: 767px) {
     #responsive-panel {
