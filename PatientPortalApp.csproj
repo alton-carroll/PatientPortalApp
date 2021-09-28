@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -48,10 +47,10 @@
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Kendo.Mvc, Version=2021.3.914.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <HintPath>packages\Telerik.UI.for.AspNet.Mvc5.Trial.2021.3.914\lib\net45\Kendo.Mvc.dll</HintPath>
@@ -205,6 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Medications1Controller.cs" />
     <Compile Include="Controllers\MedicationsController.cs" />
+    <Compile Include="Controllers\PatientAppointmentViewModelsController.cs" />
     <Compile Include="Controllers\PatientDetailController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\Providers1Controller.cs" />
@@ -271,8 +271,25 @@
     <Compile Include="Migrations\202109240147245_UpdateDateTime9.designer.cs">
       <DependentUpon>202109240147245_UpdateDateTime9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109271718191_DateTimeUpdate.cs" />
+    <Compile Include="Migrations\202109271718191_DateTimeUpdate.designer.cs">
+      <DependentUpon>202109271718191_DateTimeUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109271852493_DateTimeUpdate1.cs" />
+    <Compile Include="Migrations\202109271852493_DateTimeUpdate1.designer.cs">
+      <DependentUpon>202109271852493_DateTimeUpdate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109271915252_AppointmentViewModel.cs" />
+    <Compile Include="Migrations\202109271915252_AppointmentViewModel.Designer.cs">
+      <DependentUpon>202109271915252_AppointmentViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109271943590_AppointmentViewModel1.cs" />
+    <Compile Include="Migrations\202109271943590_AppointmentViewModel1.Designer.cs">
+      <DependentUpon>202109271943590_AppointmentViewModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\MedicationList.cs" />
@@ -282,8 +299,8 @@
     <Compile Include="Models\ScheduleModel.cs" />
     <Compile Include="Models\Treatment.cs" />
     <Compile Include="Models\ViewModels\AccountViewModel.cs" />
-    <Compile Include="Models\ViewModels\AppointmentViewModel.cs" />
     <Compile Include="Models\ViewModels\ManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\PatientAppointmentViewModel.cs" />
     <Compile Include="Models\ViewModels\PatientListModel.cs" />
     <Compile Include="Models\Vital.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3275,6 +3292,11 @@
     <Content Include="Scripts\kendo\2021.3.914\cultures\kendo.culture.aa-ET.min.js.map" />
     <Content Include="Scripts\kendo\2021.3.914\cultures\kendo.culture.aa-ER.min.js.map" />
     <Content Include="Scripts\kendo\2021.3.914\cultures\kendo.culture.aa-DJ.min.js.map" />
+    <Content Include="Views\PatientAppointmentViewModels\Create.cshtml" />
+    <Content Include="Views\PatientAppointmentViewModels\Delete.cshtml" />
+    <Content Include="Views\PatientAppointmentViewModels\Details.cshtml" />
+    <Content Include="Views\PatientAppointmentViewModels\Edit.cshtml" />
+    <Content Include="Views\PatientAppointmentViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -3333,6 +3355,18 @@
     <EmbeddedResource Include="Migrations\202109240147245_UpdateDateTime9.resx">
       <DependentUpon>202109240147245_UpdateDateTime9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109271718191_DateTimeUpdate.resx">
+      <DependentUpon>202109271718191_DateTimeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109271852493_DateTimeUpdate1.resx">
+      <DependentUpon>202109271852493_DateTimeUpdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109271915252_AppointmentViewModel.resx">
+      <DependentUpon>202109271915252_AppointmentViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109271943590_AppointmentViewModel1.resx">
+      <DependentUpon>202109271943590_AppointmentViewModel1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -3368,11 +3402,8 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

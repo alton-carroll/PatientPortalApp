@@ -16,7 +16,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Patient.FullName)
+            @Html.DisplayName("Patient")
         </dt>
 
         <dd>
@@ -32,7 +32,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Doctor)
+            @Html.DisplayName("Referring Provider")
         </dt>
 
         <dd>
@@ -40,7 +40,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReferralDoctor)
+            @Html.DisplayName("Referred Provider")
         </dt>
 
         <dd>
@@ -66,6 +66,6 @@
     </dl>
 </div>
 <p>
-	@Html.ActionLink("Edit", "Edit", new { id = Model.ReferralId }, new { @class = "btn btn-primary" }) |
+	@Html.ActionLink("Edit", "Edit", new { id = Model.ReferralId }, new { @class = "btn btn-primary" })
 	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
 </p>

@@ -31,7 +31,7 @@ namespace PatientPortalApp.Models
 		[DataType(DataType.Date)]
 		[Display(Name = "Date of Birth")]
 		//[Required]
-		public DateTime BirthDate { get; set; }
+		public DateTime? BirthDate { get; set; }
 		[Display(Name = "Social Security Number")]
 		//[Required]
 		public string Ssn { get; set; }
@@ -73,15 +73,15 @@ namespace PatientPortalApp.Models
 
 		public string CreatedBy { get; set; }
 		[DataType(DataType.Date)]
-		public DateTime Created { get; set; }
+		public DateTime? Created { get; set; }
 		public string ModifiedBy { get; set; }
 		[DataType(DataType.Date)]
-		public DateTime Modified { get; set; }
+		public DateTime? Modified { get; set; }
 
 		//Navigation Properties
 		public virtual ICollection<Medication> Medications { get; set; }
 		public virtual ICollection<Referral> Referrals { get; set; }
-		public virtual ICollection<Appointment> appointments { get; set; }
+		public virtual ICollection<Appointment> Appointments { get; set; }
 		public virtual ICollection<Vital> Vitals { get; set; }
 		public virtual ICollection<Treatment> Treatments { get; set; }
 

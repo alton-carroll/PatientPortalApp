@@ -62,44 +62,49 @@
 		</div>
 		<div id="site-menu">
 			@(Html.Kendo().Menu()
-						.Name("Menu")
-						.Items(items =>
-						{
-							if (Request.IsAuthenticated)
-								{
-								//Get the user name and extract the characters before the @ to shorten the user name displayed
-								string getUser = User.Identity.GetUserName();
-								string userSub = getUser.Substring(0, getUser.IndexOf("@"));
+				.Name("Menu")
+				.Items(items =>
+				{
+					if (Request.IsAuthenticated)
+					{
+						//Get the user name and extract the characters before the @ to shorten the user name displayed
+						string getUser = User.Identity.GetUserName();
+						string userSub = getUser.Substring(0, getUser.IndexOf("@"));
 
-								items.Add().Text("Home").Action("Index", "Home", new { area = "" });
-								items.Add().Text("Appointments").Action("Index", "Appointments1", new { area = "" });
-								items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
-								items.Add().Text("Administration").Items(children =>
-								{
-									children.Add().Text("Providers").Action("Index", "Providers1", new { area = "" });
-									children.Add().Text("Medication").Action("Index", "Medications1", new { area = "" });
-									children.Add().Text("Treatments").Action("Index", "Treatments1", new { area = "" });
-								});
-								items.Add().Text(userSub).Items(children =>
-								{
-									children.Add().Text("Account").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
-									children.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
-								});
-								}
-							else
-								{
-								items.Add().Text("Register").Action("Register", "Account", routeValues: null).ContentHtmlAttributes(new { id = "registerLink" });
-								items.Add().Text("Log in").Action("Login", "Account", routeValues: null).ContentHtmlAttributes(new { id = "loginLink" });
-								}
-						})
-                    )
+						items.Add().Text("Home").Action("Index", "Home", new { area = "" });
+						items.Add().Text("Appointments").Action("Index", "Appointments1", new { area = "" });
+						items.Add().Text("Patients").Action("Index", "Patients", new { area = "" });
+
+						items.Add().Text("Administration").Items(children =>
+						{
+							children.Add().Text("Providers").Action("Index", "Providers1", new { area = "" });
+							children.Add().Text("Medication").Action("Index", "Medications1", new { area = "" });
+							children.Add().Text("Treatments").Action("Index", "Treatments1", new { area = "" });
+						});
+						//items.Add().Text("Testing").Items(children =>
+						//{
+						//	children.Add().Text("Patient Appointment View").Action("Index", "PatientAppointmentViewModels", new { area = "" });
+						//});
+						items.Add().Text(userSub).Items(children =>
+						{
+							children.Add().Text("Account").Action("Index", "Manage", routeValues: null).ContentHtmlAttributes(new { title = "Manage" });
+							children.Add().Text("Log Off").HtmlAttributes(new { onclick = "getElementById('logoutForm').submit()" });
+						});
+					}
+					else
+					{
+						items.Add().Text("Register").Action("Register", "Account", routeValues: null).ContentHtmlAttributes(new { id = "registerLink" });
+						items.Add().Text("Log in").Action("Login", "Account", routeValues: null).ContentHtmlAttributes(new { id = "loginLink" });
+					}
+				})
+					)
 			@if (Request.IsAuthenticated)
 				{
 				using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-					{
+				{
 					@Html.AntiForgeryToken()
 					}
-				}
+			}
 		</div>
 	</nav>
 	<hr />

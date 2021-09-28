@@ -31,6 +31,11 @@
 			}
 		});
 	})
+	.Groupable(g => g.ShowFooter(true))
+	.Sortable(sortable => sortable
+		.AllowUnsort(true)
+		.SortMode(GridSortMode.MultipleColumn)
+		.ShowIndexes(true))
 	.RowAction(row =>
 	{
 		row.HtmlAttributes.Add("onclick", "location.href = '/Appointments1/Details/" + row.DataItem.PatientId + "'");
@@ -38,7 +43,6 @@
 	.ToolBar(toolbar =>
 	{
 		toolbar.Pdf().HtmlAttributes(new { @class = "btn btn-primary", style = "color: white;" });
-		toolbar.Search();
 	})
 	.Pageable()
 	.DataSource(source => source
@@ -53,12 +57,16 @@
 	)
 
 <script>
-	$(function () {
+
+	$(document).ready(function () {
+		var page = $("#appointment_grid").data("kendoGrid").dataSource.page();
+		var breadcrumb = $(".k-breadcrumb-last-item").text("Page " + page);
+
 		//center text in all elements with .customAttr assigned
 		$(".customAttr").css("text-align", "center");
 		//Find element with balance and color the text in that row red
 		$('td:contains("Patient Has Balance of $")').parent().css("color", "red");
-	})
+	});
 </script>
 
 <script type="x/kendo-template" id="page-template">
@@ -73,67 +81,3 @@
 	  </div>
 	</div>
 </script>
-
-
-@*<h2>Index</h2>
-
-	<p>
-		@Html.ActionLink("Create New", "Create", new { id = "create-appointment" }, new { @class = "btn btn-primary" })
-	</p>
-	<table class="table">
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.Patient.FullName)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Provider.ProviderName)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.AppointmentDate)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Reason)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.CreatedBy)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Created)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.HasBalance)
-			</th>
-			<th></th>
-		</tr>
-
-	@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.Patient.FullName)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Provider.ProviderName)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.AppointmentDate)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Reason)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.CreatedBy)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Created)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.HasBalance)
-		</td>
-		<td>
-			@Html.ActionLink("Edit", "Edit", new { id = item.AppointmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
-			@Html.ActionLink("Details", "Details", new { id = item.AppointmentId }, new { @class = "btn btn-primary", @style = "width : 80px;" })
-			@Html.ActionLink("Delete", "Delete", new { id = item.AppointmentId }, new { @class = "btn btn-danger", @style = "width : 80px;" })
-		</td>
-	</tr>
-	}
-	</table>*@

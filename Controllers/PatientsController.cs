@@ -17,6 +17,7 @@ namespace PatientPortalApp.Controllers
 	public class PatientsController : Controller
 		{
 
+
 		public ActionResult ReadPatient([DataSourceRequest] DataSourceRequest request)
 			{
 			using (var context = new PatientPortalAppContext())

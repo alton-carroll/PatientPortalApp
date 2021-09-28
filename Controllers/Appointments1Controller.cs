@@ -44,7 +44,7 @@ namespace PatientPortalApp.Controllers
         public ActionResult Create()
         {
             ViewBag.PatientId = new SelectList(db.Patients, "PatientId", "PatientId");
-            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderId");
+            ViewBag.ProviderId = new SelectList(db.Providers, "ProviderId", "ProviderName");
             return View();
         }
 

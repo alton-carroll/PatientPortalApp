@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Referral for @(Model.Patient.FullName)</h2>
+<h2>Edit Referral</h2>
 
 @using (Html.BeginForm())
 {
@@ -67,11 +67,8 @@
 	<div class="form-group">
 		<div class="col-md-offset-2 col-md-10">
 			<input type="submit" value="Save" class="btn btn-primary" />
+			@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
 		</div>
 	</div>
 </div>
 }
-<br />
-<div>
-	@Html.ActionLink("Back to List", "Index", new { id = "back-to-list" }, new { @class = "btn btn-primary" })
-</div>

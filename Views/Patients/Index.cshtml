@@ -6,6 +6,8 @@
 	ViewBag.Title = "Patients";
 }
 
+
+
 @(Html.Kendo().Grid<PatientPortalApp.Models.Patient>()
 		.Name("grid")
 		.Columns(columns =>
@@ -222,6 +224,11 @@
 			alert(message);
 		}
 	}
+
+	$(document).ready(function () {
+		var page = $("#grid").data("kendoGrid").dataSource.page();
+		var breadcrumb = $(".k-breadcrumb-last-item").text("Page " + page);
+	});
 </script>
 
 @*Page Template for the exported PDF*@
@@ -281,7 +288,7 @@
 	.k-grid {
 		font-family: "DejaVu Sans", "Arial", sans-serif;
 	}
-
+	/* Hide the Grid header and pager during export */
 	.k-pdf-export .k-grid-toolbar,
 	.k-pdf-export .k-pager-wrap {
 		display: none;

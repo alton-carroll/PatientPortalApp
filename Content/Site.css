@@ -25,58 +25,11 @@ body {
 /* #endregion */
 
 /* #region custom Kendo UI styles */
-#configure {
+/*#configure {
     display: none;
-}
+}*/
 
-.k-content {
-    line-height: 4em;
-    align-content: center;
-}
-
-    .k-content .k-button {
-        width: 200px;
-        height: 175px;
-        margin: 20px;
-        background-color: white;
-        border: 50px black;
-        color: black;
-        font-size: 17px;
-        border: 2.5px solid black;
-    }
-
-.k-button .k-image {
-    width: 150px;
-    height: 120px;
-}
-
-.class-color {
-    color: lightblue;
-    display: table-cell;
-    vertical-align: top;
-}
-
-.k-content .k-icon {
-    color: #0D6EFD;
-    height: 16px;
-}
-
-.k-button:hover {
-    background-color: #dbdbe0;
-}
-.k-panelbar .k-content {
-    padding: 20px;
-}
-
-p .k-button {
-    margin: 0 15px 0 0;
-}
-
-.k-state-active .label {
-    font-size: 1em;
-}
-
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
     #responsive-panel {
         transition: all linear .2s;
     }
@@ -84,9 +37,9 @@ p .k-button {
     #configure {
         display: block;
         float: right;
-    }
+    }*/
 
-    .k-rpanel {
+    /*.k-rpanel {
         width: 100%;
     }
 
@@ -109,54 +62,6 @@ p .k-button {
 
     .k-menu .k-link {
         box-sizing: border-box;
-    }
-
-    .page-template {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-
-        .page-template .header {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            right: 30px;
-            border-bottom: 1px solid #888;
-            color: #888;
-        }
-
-        .page-template .footer {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            right: 30px;
-            border-top: 1px solid #888;
-            text-align: center;
-            color: #888;
-        }
-
-        .page-template .watermark {
-            font-weight: bold;
-            font-size: 400%;
-            text-align: center;
-            margin-top: 30%;
-            color: #aaaaaa;
-            opacity: 0.1;
-            transform: rotate(-35deg) scale(1.7, 1.5);
-        }
-
-    .k-grid {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
-    }
-
-    /* Hide the Grid header and pager during export */
-    .k-pdf-export .k-grid-toolbar,
-    .k-pdf-export .k-pager-wrap {
-        display: none;
-    }
+    }*/
 }
 
